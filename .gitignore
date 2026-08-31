@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/magicpath-project/node_modules
 /.pnp
 .pnp.*
 .yarn/*
