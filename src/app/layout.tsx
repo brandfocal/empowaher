@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   description:
     "EmpowaHer is a platform dedicated to empowering women in engineering, technology and STEM across Africa and beyond.",
   icons: {
-    icon: "/empowaher-logo.png",
-    shortcut: "/empowaher-logo.png",
-    apple: "/empowaher-logo.png",
+    icon: "/empowaher-favicon.png",
+    shortcut: "/empowaher-favicon.png",
+    apple: "/empowaher-favicon.png",
   },
 };
 
