@@ -95,7 +95,7 @@ export function SocialLinks({
   return (
     <nav aria-label="Social media links" className="flex flex-wrap items-center justify-center gap-2.5">
       <a
-        href="https://www.linkedin.com/in/empowaworx-pty-ltd-948035185/"
+        href="https://www.linkedin.com/showcase/empowawomen"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
@@ -104,7 +104,7 @@ export function SocialLinks({
         <LinkedinIcon className={iconClassName} />
       </a>
       <a
-        href="https://www.instagram.com/empowaworx"
+        href="https://www.instagram.com/empowawomen/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -113,7 +113,7 @@ export function SocialLinks({
         <InstagramIcon className={iconClassName} />
       </a>
       <a
-        href="https://x.com/empowaworxevent"
+        href="https://x.com/EmpowaWomen"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="X (formerly Twitter)"
@@ -122,7 +122,7 @@ export function SocialLinks({
         <XIcon className={iconClassName} />
       </a>
       <a
-        href="https://web.facebook.com/Empowaworx"
+        href="https://www.facebook.com/people/EmpowaWomen/100093644768130/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"
@@ -131,7 +131,7 @@ export function SocialLinks({
         <FacebookIcon className={iconClassName} />
       </a>
       <a
-        href="https://www.youtube.com/@empowaworx6407"
+        href="https://www.youtube.com/@EmpowaWomen"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="YouTube"
@@ -310,7 +310,7 @@ export function EmpowaHerComingSoon() {
               Stay connected.
             </h2>
             <p className="mb-5 text-[0.9375rem] font-normal leading-[1.7] text-[#1A0A10]/70">
-              Follow EmpowaWorx and meet the women engineering what comes next.
+              Follow EmpowaWomen and meet the women engineering what comes next.
             </p>
             <div className="flex justify-start">
               <SocialLinks />
