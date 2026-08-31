@@ -15,9 +15,9 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "EmpowaHer | Something Powerful is Coming",
+  title: "EmpowaHer™ Leadership Summit | The Future Is Female™",
   description:
-    "EmpowaHer is a platform dedicated to empowering women in engineering, technology and STEM across Africa and beyond.",
+    "EmpowaHer™ Leadership Summit – The Future Is Female™ is a three-day leadership experience designed to prepare Africa’s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.",
   icons: {
     icon: "/empowaher-favicon.png",
     shortcut: "/empowaher-favicon.png",

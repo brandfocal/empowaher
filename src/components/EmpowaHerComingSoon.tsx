@@ -200,12 +200,12 @@ export function EmpowaHerComingSoon() {
         </header>
 
         {/* Hero Title, Pitch & Download CTA */}
-        <div className="relative z-10 m-auto flex w-full max-w-[900px] flex-col items-center px-0 py-10 text-center sm:py-14 md:py-10 min-[1133px]:py-8">
-          <h1 className="font-heading text-[clamp(2.5rem,5.5vw_+_1rem,5.25rem)] font-extrabold uppercase leading-[1.04] tracking-[-0.02em] text-[#1A0A10]">
-            Something powerful is coming
+        <div className="relative z-10 m-auto flex w-full max-w-[1020px] flex-col items-center px-0 py-10 text-center sm:py-14 md:py-10 min-[1133px]:py-8">
+          <h1 className="font-heading text-[clamp(2.1rem,4.2vw_+_0.5rem,3.85rem)] font-extrabold uppercase leading-[1.08] tracking-[-0.02em] text-[#1A0A10]">
+            A Three-Day Leadership Experience for Africa’s Next Generation of Women Leaders (18–35)
           </h1>
-          <p className="mt-6 max-w-[62ch] text-base leading-[1.75] tracking-normal text-[#1A0A10]/70 sm:text-lg">
-            EmpowaHer is a premier platform dedicated to empowering, connecting, and elevating women in engineering, technology, and STEM across Africa and beyond.
+          <p className="mt-6 max-w-[72ch] text-base leading-[1.8] tracking-normal text-[#1A0A10]/75 sm:text-lg">
+            EmpowaHer™ Leadership Summit – The Future Is Female™ is a three-day leadership experience designed to prepare Africa’s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.
           </p>
 
           {/* Download Prospectus CTA Button */}
@@ -235,10 +235,10 @@ export function EmpowaHerComingSoon() {
                 01 — About
               </p>
               <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#1A0A10]">
-                Built for the bold.
+                THE FUTURE IS FEMALE™
               </h2>
               <p className="text-[0.9375rem] font-normal leading-[1.7] text-[#1A0A10]/70">
-                EmpowaHer connects, equips, and elevates women in STEM through dedicated mentorship programs, high-impact events, leadership resources, and a thriving pan-African community.
+                EmpowaHer™ equips and elevates young African women leaders with executive mentorship, actionable masterclasses, and strategic networks to compete and lead across business, government, and the boardroom.
               </p>
             </div>
             <div className="pt-5">
