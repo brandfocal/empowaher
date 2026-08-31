@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Download, FileText, Mail, MapPin, Phone } from "lucide-react";
 
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -88,8 +88,8 @@ export function SocialLinks({
   compact?: boolean;
 }) {
   const linkClassName = compact
-    ? "group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#F5EFE6]/75 transition-all duration-300 hover:border-[#C4547A] hover:bg-[#C4547A] hover:text-white hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4547A]"
-    : "group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#F5EFE6]/75 transition-all duration-300 hover:border-[#C4547A] hover:bg-[#C4547A] hover:text-white hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4547A]";
+    ? "group flex h-10 w-10 items-center justify-center rounded-full border border-[#1A0A10]/15 text-[#1A0A10]/70 transition-all duration-300 hover:border-[#C4547A] hover:bg-[#C4547A] hover:text-white hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4547A]"
+    : "group flex h-10 w-10 items-center justify-center rounded-full border border-[#1A0A10]/15 text-[#1A0A10]/70 transition-all duration-300 hover:border-[#C4547A] hover:bg-[#C4547A] hover:text-white hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4547A]";
   const iconClassName = "h-4 w-4 transition-transform duration-300 group-hover:scale-110";
 
   return (
@@ -143,61 +143,44 @@ export function SocialLinks({
   );
 }
 
+const PROSPECTUS_PDF_PATH = "/EmpowaHer%E2%84%A2-Leadership-Programme-2026-Partnership-Proposal-&-Prospectu.pdf";
+
 export function EmpowaHerComingSoon() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#0A0A0A] font-sans text-[#F5EFE6] selection:bg-[#C4547A] selection:text-white">
-      <section className="relative isolate flex min-h-[640px] flex-col overflow-hidden bg-[#000000] px-5 pb-12 sm:px-6 md:min-h-[620px] md:px-8 md:pb-12 min-[1133px]:min-h-[700px] min-[1133px]:px-16 min-[1133px]:pb-14">
-        {/* Glowing gradients & background effects */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,#3a0a1e_0%,#1a0510_33%,#000000_78%)] md:bg-[radial-gradient(circle_at_50%_14%,#3a0a1e_0%,#1a0510_33%,#000000_78%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-[5%] top-[19%] h-[260px] w-[260px] rounded-full bg-[radial-gradient(circle,rgba(196,84,122,0.18)_0%,rgba(196,84,122,0.08)_34%,rgba(196,84,122,0)_70%)] blur-3xl sm:h-[360px] sm:w-[360px] md:left-[9%] md:top-[17%] md:h-[380px] md:w-[380px] min-[1133px]:h-[420px] min-[1133px]:w-[420px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[-34%] top-[12%] h-[330px] w-[330px] rounded-full bg-[radial-gradient(circle,rgba(196,84,122,0.16)_0%,rgba(58,10,30,0.14)_38%,rgba(0,0,0,0)_72%)] blur-3xl sm:right-[-18%] sm:h-[460px] sm:w-[460px] md:right-[-10%] md:top-[10%] md:h-[500px] md:w-[500px] min-[1133px]:right-[-8%] min-[1133px]:h-[560px] min-[1133px]:w-[560px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-[-20%] left-[16%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(196,84,122,0.14)_0%,rgba(26,5,16,0.13)_42%,rgba(0,0,0,0)_74%)] blur-3xl sm:h-[430px] sm:w-[430px] md:left-[34%] md:h-[460px] md:w-[460px] min-[1133px]:bottom-[-24%] min-[1133px]:h-[520px] min-[1133px]:w-[520px]"
-        />
-
-        {/* Noise overlay */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] mix-blend-soft-light"
-        >
-          <filter id="empowaher-hero-noise">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#FAFAF8] font-sans text-[#1A0A10] selection:bg-[#C4547A] selection:text-white">
+      {/* Hero Section */}
+      <section
+        id="top"
+        className="relative isolate flex min-h-[660px] flex-col overflow-hidden bg-[#F5EFE6] px-5 pb-12 sm:px-6 md:min-h-[640px] md:px-8 md:pb-12 min-[1133px]:min-h-[720px] min-[1133px]:px-16 min-[1133px]:pb-16"
+        style={{
+          background: "radial-gradient(circle at 50% 18%, #FDE8EF 0%, #F5EFE6 43%, #FAFAF8 100%)",
+        }}
+      >
+        {/* Subtle noise texture */}
+        <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.04]">
+          <filter id="empowaher-light-noise">
             <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
             <feColorMatrix type="saturate" values="0" />
           </filter>
-          <rect width="100%" height="100%" filter="url(#empowaher-hero-noise)" />
+          <rect width="100%" height="100%" filter="url(#empowaher-light-noise)" />
         </svg>
 
-        <div
+        {/* Ambient background ring decorative SVG */}
+        <svg
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.5)_42%,rgba(0,0,0,0.82)_100%)] min-[1133px]:bg-[linear-gradient(112deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.78)_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#000000] via-[#000000]/65 to-transparent"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-[66%] top-[10%] h-[500px] w-[500px] rounded-full border border-[#C4547A]/10 sm:-right-[42%] sm:h-[650px] sm:w-[650px] md:-right-[28%] md:top-[7%] md:h-[700px] md:w-[700px] min-[1133px]:-right-[20%] min-[1133px]:h-[820px] min-[1133px]:w-[820px]"
+          className="pointer-events-none absolute -right-[66%] top-[10%] h-[500px] w-[500px] text-[#C4547A] sm:-right-[42%] sm:h-[650px] sm:w-[650px] md:-right-[28%] md:top-[7%] md:h-[700px] md:w-[700px] min-[1133px]:-right-[20%] min-[1133px]:h-[820px] min-[1133px]:w-[820px]"
         >
-          <div className="absolute inset-[13%] rounded-full border border-[#C4547A]/10" />
-          <div className="absolute inset-[28%] rounded-full bg-[#C4547A]/[0.035] blur-3xl" />
-        </div>
+          <circle cx="50%" cy="50%" r="49.8%" fill="none" stroke="currentColor" strokeOpacity="0.12" />
+          <circle cx="50%" cy="50%" r="43.3%" fill="none" stroke="currentColor" strokeOpacity="0.12" />
+          <circle cx="50%" cy="50%" r="35.8%" fill="currentColor" fillOpacity="0.035" />
+        </svg>
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute bottom-0 left-0 h-px w-2/5 bg-gradient-to-r from-[#C4547A]/70 to-transparent"
         />
 
-        {/* Header with Website Logo */}
+        {/* Header with Logo */}
         <header className="relative z-10 mx-auto flex w-full max-w-[1320px] flex-col items-center justify-between gap-5 py-6 sm:flex-row md:py-7">
           <a
             href="#top"
@@ -216,51 +199,76 @@ export function EmpowaHerComingSoon() {
           <SocialLinks compact />
         </header>
 
-        {/* Hero Section */}
-        <div
-          id="top"
-          className="relative z-10 m-auto flex w-full max-w-[900px] flex-col items-center px-0 py-12 text-center sm:py-16 md:py-12 min-[1133px]:py-8"
-        >
-          <h1 className="font-heading text-[clamp(2.5rem,5.5vw_+_1rem,5.25rem)] font-extrabold uppercase leading-[1.04] tracking-[-0.02em] text-[#F5EFE6]">
+        {/* Hero Title, Pitch & Download CTA */}
+        <div className="relative z-10 m-auto flex w-full max-w-[900px] flex-col items-center px-0 py-10 text-center sm:py-14 md:py-10 min-[1133px]:py-8">
+          <h1 className="font-heading text-[clamp(2.5rem,5.5vw_+_1rem,5.25rem)] font-extrabold uppercase leading-[1.04] tracking-[-0.02em] text-[#1A0A10]">
             Something powerful is coming
           </h1>
-          <p className="mt-6 max-w-[62ch] text-base leading-[1.75] tracking-normal text-[#F5EFE6]/80 sm:text-lg">
+          <p className="mt-6 max-w-[62ch] text-base leading-[1.75] tracking-normal text-[#1A0A10]/70 sm:text-lg">
             EmpowaHer is a premier platform dedicated to empowering, connecting, and elevating women in engineering, technology, and STEM across Africa and beyond.
           </p>
+
+          {/* Download Prospectus CTA Button */}
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={PROSPECTUS_PDF_PATH}
+              download="EmpowaHer-Leadership-Programme-2026-Prospectus.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full bg-[#C4547A] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-white shadow-[0_6px_22px_rgba(196,84,122,0.32)] transition-all duration-300 hover:bg-[#b04369] hover:shadow-[0_8px_28px_rgba(196,84,122,0.48)] hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4547A]"
+            >
+              <FileText size={17} className="transition-transform duration-300 group-hover:scale-110" />
+              <span>Download Prospectus</span>
+              <Download size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Information Grid: About, Contact, Follow Us */}
-      <section className="border-y border-white/[0.08] bg-[#121212] px-5 py-12 sm:px-6 md:px-8 min-[1133px]:px-16 min-[1133px]:py-16">
+      {/* Information Grid: About, Contact, Follow us */}
+      <section className="border-y border-[#C4547A]/15 bg-white px-5 py-12 sm:px-6 md:px-8 min-[1133px]:px-16 min-[1133px]:py-16">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-3">
           {/* 01 — About */}
-          <article className="flex flex-col border-b border-white/[0.08] pb-10 md:border-b-0 md:border-r md:border-white/[0.08] md:pb-0 md:pr-8">
-            <p className="mb-3 font-heading text-xs font-bold uppercase leading-6 tracking-[0.14em] text-[#C4547A] tabular-nums">
-              01 — About
-            </p>
-            <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#F5EFE6]">
-              Built for the bold.
-            </h2>
-            <p className="text-[0.9375rem] font-normal leading-[1.7] text-[#F5EFE6]/75">
-              EmpowaHer connects, equips, and elevates women in STEM through dedicated mentorship programs, high-impact events, leadership resources, and a thriving pan-African community.
-            </p>
+          <article className="flex flex-col justify-between border-b border-[#C4547A]/10 pb-10 md:border-b-0 md:border-r md:border-[#C4547A]/10 md:pb-0 md:pr-8">
+            <div>
+              <p className="mb-3 font-heading text-xs font-bold uppercase leading-6 tracking-[0.14em] text-[#C4547A] tabular-nums">
+                01 — About
+              </p>
+              <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#1A0A10]">
+                Built for the bold.
+              </h2>
+              <p className="text-[0.9375rem] font-normal leading-[1.7] text-[#1A0A10]/70">
+                EmpowaHer connects, equips, and elevates women in STEM through dedicated mentorship programs, high-impact events, leadership resources, and a thriving pan-African community.
+              </p>
+            </div>
+            <div className="pt-5">
+              <a
+                href={PROSPECTUS_PDF_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#C4547A] transition-colors hover:text-[#1A0A10]"
+              >
+                <span>View 2026 Prospectus (PDF)</span>
+                <ArrowUpRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
           </article>
 
           {/* 02 — Contact */}
-          <article className="flex flex-col border-b border-white/[0.08] pb-10 md:border-b-0 md:border-r md:border-white/[0.08] md:pb-0 md:px-4">
+          <article className="flex flex-col border-b border-[#C4547A]/10 pb-10 md:border-b-0 md:border-r md:border-[#C4547A]/10 md:pb-0 md:px-4">
             <p className="mb-3 font-heading text-xs font-bold uppercase leading-6 tracking-[0.14em] text-[#C4547A] tabular-nums">
               02 — Contact
             </p>
-            <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#F5EFE6]">
+            <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#1A0A10]">
               Start a conversation.
             </h2>
 
             <div className="mb-4">
-              <p className="font-semibold text-[#F5EFE6] text-[0.95rem]">Doric Sithole</p>
+              <p className="font-semibold text-[#1A0A10] text-[0.95rem]">Doric Sithole</p>
               <p className="text-xs text-[#C4547A] uppercase tracking-wider font-medium">Managing Executive of EmpowaHer</p>
             </div>
 
-            <address className="space-y-2.5 not-italic text-[0.9rem] font-normal leading-[1.6] text-[#F5EFE6]/75">
+            <address className="space-y-2.5 not-italic text-[0.9rem] font-normal leading-[1.6] text-[#1A0A10]/75">
               <div>
                 <a
                   className="inline-flex items-center gap-2 transition-colors hover:text-[#C4547A]"
@@ -286,7 +294,7 @@ export function EmpowaHerComingSoon() {
                   <span className="tabular-nums">+27 (0) 11 482 7256</span>
                 </a>
               </div>
-              <div className="flex items-start gap-2 pt-1 text-[#F5EFE6]/70">
+              <div className="flex items-start gap-2 pt-1 text-[#1A0A10]/70">
                 <MapPin size={15} className="text-[#C4547A] shrink-0 mt-0.5" />
                 <span>EmpowaWorx House, 364 Pine Avenue, Ferndale, Randburg 2194</span>
               </div>
@@ -298,10 +306,10 @@ export function EmpowaHerComingSoon() {
             <p className="mb-3 font-heading text-xs font-bold uppercase leading-6 tracking-[0.14em] text-[#C4547A] tabular-nums">
               03 — Follow us
             </p>
-            <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#F5EFE6]">
+            <h2 className="mb-3 font-heading text-2xl font-bold uppercase leading-[1.2] tracking-[-0.02em] text-[#1A0A10]">
               Stay connected.
             </h2>
-            <p className="mb-5 text-[0.9375rem] font-normal leading-[1.7] text-[#F5EFE6]/75">
+            <p className="mb-5 text-[0.9375rem] font-normal leading-[1.7] text-[#1A0A10]/70">
               Follow EmpowaWorx and meet the women engineering what comes next.
             </p>
             <div className="flex justify-start">
@@ -312,9 +320,9 @@ export function EmpowaHerComingSoon() {
       </section>
 
       {/* Footer */}
-      <footer className="flex flex-col items-center justify-between gap-4 bg-[#0A0A0A] px-5 py-7 text-center text-[0.8125rem] font-normal uppercase leading-6 tracking-[0.12em] text-[#F5EFE6]/50 sm:px-6 md:flex-row md:px-8 min-[1133px]:px-16 min-[1133px]:py-6">
+      <footer className="flex flex-col items-center justify-between gap-4 bg-[#F0EBE3] px-5 py-7 text-center text-[0.8125rem] font-normal uppercase leading-6 tracking-[0.12em] text-[#1A0A10]/55 sm:px-6 md:flex-row md:px-8 min-[1133px]:px-16 min-[1133px]:py-6">
         <span className="tabular-nums">© {new Date().getFullYear()} EmpowaHer • An EmpowaWorx Initiative.</span>
-        <span className="flex flex-wrap items-center justify-center gap-2 text-[#F5EFE6]/50">
+        <span className="flex flex-wrap items-center justify-center gap-2 text-[#1A0A10]/60">
           <span className="h-px w-5 bg-[#C4547A]" />
           <span>Empowering women. Engineering the future.</span>
           <ArrowUpRight size={13} className="text-[#C4547A]" />
