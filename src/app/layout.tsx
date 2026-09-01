@@ -15,7 +15,7 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "EmpowaHer™ Leadership Summit | The Future Is Female™",
+  title: "EmpowaHer™ Leadership Summit 2026 | THE FUTURE IS FEMALE™",
   description:
     "EmpowaHer™ Leadership Summit – The Future Is Female™ is a three-day leadership experience designed to prepare Africa’s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.",
   icons: {
