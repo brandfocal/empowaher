@@ -136,10 +136,21 @@ const programmeItems = [
   },
 ];
 
-export function SocialIcons({ compact = false }: { compact?: boolean }) {
-  const socialLinkClasses = compact
-    ? "flex h-8 w-8 items-center justify-center rounded-full border border-white/25 text-white transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
-    : "flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white";
+export function SocialIcons({
+  compact = false,
+  variant = "light",
+}: {
+  compact?: boolean;
+  variant?: "light" | "dark";
+}) {
+  const sizeClasses = compact ? "h-8 w-8" : "h-9 w-9";
+  const iconClasses = compact ? "h-4 w-4" : "h-4 w-4";
+  const xIconClasses = compact ? "h-3.5 w-3.5" : "h-3.5 w-3.5";
+
+  const socialLinkClasses =
+    variant === "dark"
+      ? `flex ${sizeClasses} items-center justify-center rounded-full border border-[#3f3f3f]/30 text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white`
+      : `flex ${sizeClasses} items-center justify-center rounded-full border border-white/25 text-white transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white`;
 
   return (
     <nav aria-label="Social media links" className="flex items-center gap-2">
@@ -150,7 +161,7 @@ export function SocialIcons({ compact = false }: { compact?: boolean }) {
         aria-label="EmpowaWomen on LinkedIn"
         className={socialLinkClasses}
       >
-        <LinkedinIcon className="h-4 w-4" />
+        <LinkedinIcon className={iconClasses} />
       </a>
       <a
         href="https://www.instagram.com/empowawomen/"
@@ -159,7 +170,7 @@ export function SocialIcons({ compact = false }: { compact?: boolean }) {
         aria-label="EmpowaWomen on Instagram"
         className={socialLinkClasses}
       >
-        <InstagramIcon className="h-4 w-4" />
+        <InstagramIcon className={iconClasses} />
       </a>
       <a
         href="https://x.com/EmpowaWomen"
@@ -168,7 +179,7 @@ export function SocialIcons({ compact = false }: { compact?: boolean }) {
         aria-label="EmpowaWomen on X"
         className={socialLinkClasses}
       >
-        <XIcon className="h-3.5 w-3.5" />
+        <XIcon className={xIconClasses} />
       </a>
       <a
         href="https://www.facebook.com/people/EmpowaWomen/100093644768130/"
@@ -177,7 +188,7 @@ export function SocialIcons({ compact = false }: { compact?: boolean }) {
         aria-label="EmpowaWomen on Facebook"
         className={socialLinkClasses}
       >
-        <FacebookIcon className="h-4 w-4" />
+        <FacebookIcon className={iconClasses} />
       </a>
       <a
         href="https://www.youtube.com/@EmpowaWomen"
@@ -186,7 +197,7 @@ export function SocialIcons({ compact = false }: { compact?: boolean }) {
         aria-label="EmpowaWomen on YouTube"
         className={socialLinkClasses}
       >
-        <YoutubeIcon className="h-4 w-4" />
+        <YoutubeIcon className={iconClasses} />
       </a>
     </nav>
   );
@@ -243,7 +254,7 @@ export function EmpowaHerComingSoon() {
       <section className="relative flex min-h-screen flex-col">
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Top Navigation */}
-          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 px-5 pb-6 pt-5 text-white sm:px-8 md:px-12">
+          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 bg-white px-5 py-3 shadow-md sm:px-8 sm:py-3.5 md:px-12">
             <a
               href="#top"
               aria-label="EmpowaHer Home"
@@ -254,7 +265,7 @@ export function EmpowaHerComingSoon() {
                 alt="EmpowaHer Logo"
                 width={440}
                 height={120}
-                className="h-[72px] w-auto brightness-0 invert object-contain sm:h-[88px] md:h-[96px]"
+                className="h-[60px] w-auto object-contain sm:h-[72px] md:h-[84px]"
                 priority
               />
             </a>
@@ -262,12 +273,12 @@ export function EmpowaHerComingSoon() {
             <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-6 sm:text-[0.6875rem]">
               <a
                 href="#programme"
-                className="block rounded-full border-2 border-white/40 bg-black/20 px-4 py-2.5 font-black text-white backdrop-blur-sm transition-all hover:border-[#ed027e] hover:bg-[#ed027e] sm:px-6"
+                className="block rounded-full border-2 border-[#3f3f3f] px-4 py-2 font-black text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white sm:px-6"
               >
                 <span>Programme Detail</span>
               </a>
               <div className="hidden sm:block">
-                <SocialIcons compact />
+                <SocialIcons compact variant="dark" />
               </div>
             </div>
           </header>
