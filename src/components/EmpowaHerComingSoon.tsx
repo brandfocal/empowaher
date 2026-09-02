@@ -254,7 +254,7 @@ export function EmpowaHerComingSoon() {
       <section className="relative flex min-h-screen flex-col">
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Top Navigation */}
-          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 bg-white px-5 py-3 shadow-md sm:px-8 sm:py-3.5 md:px-12">
+          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 bg-white px-5 py-2 shadow-sm sm:px-8 sm:py-2.5 md:px-12">
             <a
               href="#top"
               aria-label="EmpowaHer Home"
@@ -263,17 +263,17 @@ export function EmpowaHerComingSoon() {
               <Image
                 src="/empowaher-logo.png"
                 alt="EmpowaHer Logo"
-                width={440}
-                height={120}
-                className="h-[60px] w-auto object-contain sm:h-[72px] md:h-[84px]"
+                width={360}
+                height={96}
+                className="h-10 w-auto object-contain sm:h-12 md:h-[52px]"
                 priority
               />
             </a>
 
-            <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-6 sm:text-[0.6875rem]">
+            <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-5 sm:text-[0.6875rem]">
               <a
                 href="#programme"
-                className="block rounded-full border-2 border-[#3f3f3f] px-4 py-2 font-black text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white sm:px-6"
+                className="block rounded-full border-2 border-[#3f3f3f] px-3.5 py-1.5 font-bold text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white sm:px-5 sm:py-2"
               >
                 <span>Programme Detail</span>
               </a>
