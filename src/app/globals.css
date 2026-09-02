@@ -21,10 +21,10 @@
   --primary: #ed027e;
   --primary-foreground: #ffffff;
   --muted: #f4f4f5;
-  --muted-foreground: #71717a;
+  --muted-foreground: #3f3f3f;
   --accent: #3f3f3f;
   --accent-foreground: #ffffff;
-  --border: #e4e4e7;
+  --border: rgba(63, 63, 63, 0.15);
 }
 
 body {

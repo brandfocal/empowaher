@@ -243,7 +243,7 @@ export function EmpowaHerComingSoon() {
       <section className="relative flex min-h-screen flex-col">
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Top Navigation */}
-          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-3 px-5 pb-6 pt-6 text-white sm:px-8 md:px-12">
+          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 px-5 pb-6 pt-5 text-white sm:px-8 md:px-12">
             <a
               href="#top"
               aria-label="EmpowaHer Home"
@@ -252,9 +252,9 @@ export function EmpowaHerComingSoon() {
               <Image
                 src="/empowaher-logo.png"
                 alt="EmpowaHer Logo"
-                width={220}
-                height={60}
-                className="h-9 w-auto brightness-0 invert object-contain sm:h-11"
+                width={440}
+                height={120}
+                className="h-[72px] w-auto brightness-0 invert object-contain sm:h-[88px] md:h-[96px]"
                 priority
               />
             </a>
@@ -262,7 +262,7 @@ export function EmpowaHerComingSoon() {
             <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-6 sm:text-[0.6875rem]">
               <a
                 href="#programme"
-                className="block rounded-full border-2 border-white/30 px-4 py-2 font-black text-white transition-colors hover:border-[#ed027e] hover:bg-[#ed027e] sm:px-6"
+                className="block rounded-full border-2 border-white/40 bg-black/20 px-4 py-2.5 font-black text-white backdrop-blur-sm transition-all hover:border-[#ed027e] hover:bg-[#ed027e] sm:px-6"
               >
                 <span>Programme Detail</span>
               </a>
@@ -272,11 +272,11 @@ export function EmpowaHerComingSoon() {
             </div>
           </header>
 
-          {/* Background Image with Ambient Overlay using feature-image7.jpg */}
+          {/* Background Image with Ambient Overlay using feature-image8.jpg */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="hero-parallax-img"
-              src="/feature-image7.jpg"
+              src="/feature-image8.jpg"
               alt="EmpowaHer Leadership Summit"
               className="h-full w-full object-cover object-center will-change-transform"
               style={{
@@ -347,7 +347,7 @@ export function EmpowaHerComingSoon() {
                     download="EmpowaHER-Programme-2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#c40268] hover:scale-[1.02] sm:w-auto"
+                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
                   >
                     <span>Download Programme (PDF)</span>
                   </a>
@@ -357,7 +357,7 @@ export function EmpowaHerComingSoon() {
                     download="EmpowaHer-Leadership-Programme-2026-Prospectus.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#1a1a1a] hover:scale-[1.02] sm:w-auto"
+                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
                   >
                     <span>Download Prospectus</span>
                   </a>
@@ -390,17 +390,17 @@ export function EmpowaHerComingSoon() {
         </div>
       </section>
 
-      {/* Programme Detail Section with feature-image7.jpg */}
+      {/* Programme Detail Section with feature-image9.jpg */}
       <section
         id="programme"
         className="flex min-h-screen flex-col border-t-4 border-[#ed027e] bg-[#ffffff] text-[#3f3f3f] lg:flex-row"
       >
         <div className="flex min-h-screen w-full flex-col lg:min-h-[800px] lg:flex-row">
-          {/* Sticky Left Sidebar with feature-image5.jpg */}
+          {/* Sticky Left Sidebar with feature-image9.jpg */}
           <aside className="relative order-2 flex w-full flex-col bg-[#ffffff] p-5 lg:sticky lg:top-0 lg:order-1 lg:h-screen lg:min-h-[520px] lg:w-[40%] lg:self-start lg:p-10">
             <figure className="relative aspect-[4/3] min-h-0 flex-1 overflow-hidden rounded-2xl lg:aspect-auto">
               <img
-                src="/feature-image5.jpg"
+                src="/feature-image9.jpg"
                 alt="EmpowaHer Programme Overview"
                 className="h-full w-full rounded-2xl object-cover object-top"
               />
@@ -433,7 +433,7 @@ export function EmpowaHerComingSoon() {
                 download="EmpowaHER-Programme-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#c40268] sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90 sm:w-auto"
               >
                 <span>Download Programme (PDF)</span>
               </a>
@@ -476,8 +476,8 @@ export function EmpowaHerComingSoon() {
         </div>
       </section>
 
-      {/* Dark Prefooter Section (Enhanced Deep Charcoal) */}
-      <section className="bg-[#181818] px-5 pb-12 text-white sm:px-6 md:px-10 md:pb-16 lg:px-16 lg:pb-20">
+      {/* Dark Prefooter Section (Pure Black and Charcoal palette) */}
+      <section className="bg-black px-5 pb-12 text-white sm:px-6 md:px-10 md:pb-16 lg:px-16 lg:pb-20">
         <div className="mx-auto max-w-[1200px]">
           <div className="grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-16 lg:pt-16">
             {/* 01 — About */}
@@ -595,7 +595,7 @@ export function EmpowaHerComingSoon() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-[#111111] px-5 py-8 text-white/60 md:px-12 lg:px-16">
+      <footer className="border-t border-white/10 bg-black px-5 py-8 text-white/60 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 text-left text-xs font-semibold uppercase tracking-[0.12em] md:flex-row md:items-center">
           <div>
             <span>© {new Date().getFullYear()} EMPOWAHER • AN EMPOWAWORX INITIATIVE • OFFICIAL WEBSITE LAUNCHING SOON.</span>
