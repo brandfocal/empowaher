@@ -275,10 +275,10 @@ export function PartnershipOpportunities() {
             <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
               <span>01 — Commercial Value</span>
             </div>
-            <h2 className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[#3f3f3f]">
+            <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-[#3f3f3f]">
               <span>Strategic Opportunity &amp; Return</span>
             </h2>
-            <p className="mt-4 font-sans text-[0.875rem] font-normal leading-[1.6] text-[#3f3f3f]/70">
+            <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-[#3f3f3f]/70">
               <span>EmpowaHer delivers measurable business, talent and brand returns aligned with corporate strategic priorities.</span>
             </p>
           </div>
@@ -300,7 +300,7 @@ export function PartnershipOpportunities() {
                 >
                   <span
                     aria-hidden="true"
-                    className={`font-heading text-[4.5rem] font-black leading-[0.72] tracking-[-0.08em] sm:text-[6rem] ${
+                    className={`font-heading text-[3.5rem] font-black leading-none tracking-[-0.02em] sm:text-[4.5rem] ${
                       isPinkRow ? "text-white/30" : "text-black/10"
                     }`}
                   >
@@ -346,11 +346,11 @@ export function PartnershipOpportunities() {
               <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
                 <span>02 — Signature Tracks</span>
               </div>
-              <h2 className="font-heading text-[clamp(3.2rem,8vw,7.5rem)] font-black uppercase leading-[0.82] tracking-[-0.07em] text-white">
+              <h2 className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white">
                 <span>Signature Tracks</span>
               </h2>
             </div>
-            <p className="max-w-[34rem] self-end font-sans text-base font-normal leading-[1.7] text-white/70 lg:text-lg">
+            <p className="max-w-[34rem] self-end font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70 sm:text-base">
               Partner-owned opportunities designed for visible investment in education, workplace experience, capital access and commercial growth.
             </p>
           </div>
@@ -372,14 +372,14 @@ export function PartnershipOpportunities() {
                     key={id}
                     className="reveal flex min-h-[250px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:min-h-[310px] lg:p-10"
                   >
-                    <span className="font-heading text-[0.625rem] font-black uppercase tracking-[0.28em] text-[#ed027e]">
+                    <span className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e]">
                       Track {number}
                     </span>
                     <div>
-                      <h3 className="max-w-[13ch] font-heading text-[clamp(2rem,4.2vw,4.4rem)] font-black uppercase leading-[0.88] tracking-[-0.055em] text-white">
+                      <h3 className="font-heading text-[clamp(1.75rem,3.2vw,2.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white">
                         {label}
                       </h3>
-                      <p className="mt-5 max-w-[38ch] font-sans text-sm font-semibold uppercase leading-[1.55] tracking-[0.08em] text-white/70">
+                      <p className="mt-4 max-w-[38ch] font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80">
                         {value}
                       </p>
                     </div>
@@ -394,14 +394,14 @@ export function PartnershipOpportunities() {
                     key={id}
                     className="reveal flex min-h-[320px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:p-12"
                   >
-                    <span className="font-heading text-[0.625rem] font-black uppercase tracking-[0.28em] text-[#ed027e]">
+                    <span className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e]">
                       Track {number}
                     </span>
-                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[0.9fr_1fr] lg:items-end">
-                      <h3 className="max-w-[13ch] font-heading text-[clamp(2.2rem,5vw,5.8rem)] font-black uppercase leading-[0.86] tracking-[-0.06em] text-white">
+                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+                      <h3 className="font-heading text-[clamp(1.85rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white">
                         {label}
                       </h3>
-                      <p className="max-w-[44ch] font-sans text-sm font-semibold uppercase leading-[1.65] tracking-[0.08em] text-white/70 lg:text-base">
+                      <p className="max-w-[44ch] font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80 lg:text-base">
                         {value}
                       </p>
                     </div>
