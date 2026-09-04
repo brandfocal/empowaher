@@ -13,7 +13,6 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
   "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
@@ -158,23 +157,14 @@ export function PartnershipOpportunities() {
                 </h1>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
-                    href={PROGRAMME_PDF_PATH}
-                    download="EmpowaHER-Programme-2026.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center rounded-full bg-[#ed027e] px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white shadow-lg transition-transform hover:scale-[1.03]"
-                  >
-                    <span>Download Programme (PDF)</span>
-                  </a>
-                  <a
                     href={PROSPECTUS_EMAIL_HREF}
-                    className="flex items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#171717]"
+                    className="flex items-center justify-center rounded-full bg-[#ed027e] px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white shadow-lg transition-transform hover:scale-[1.03]"
                   >
                     <span>Prospectus on Request</span>
                   </a>
                   <a
                     href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry"
-                    className="flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white/90 backdrop-blur-sm transition-colors hover:border-[#ed027e] hover:bg-[#ed027e]/15 hover:text-white"
+                    className="flex items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#171717]"
                   >
                     <span>Contact Executive Team</span>
                   </a>
