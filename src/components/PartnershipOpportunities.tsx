@@ -292,29 +292,29 @@ export function PartnershipOpportunities() {
                   key={number}
                   className={`reveal group relative grid grid-cols-[4rem_1fr] gap-5 border-b border-black/10 px-0 py-8 sm:grid-cols-[6rem_2rem_1fr] sm:gap-6 lg:grid-cols-[7rem_2.5rem_1fr] lg:py-10 ${
                     isPinkRow
-                      ? "bg-[#ed027e] text-white hover:brightness-110 hover:scale-[1.01] hover:shadow-lg cursor-pointer transition-all duration-150 px-4 sm:px-6 rounded-lg"
+                      ? "bg-[#ed027e] text-white hover:brightness-105 hover:scale-[1.01] hover:shadow-lg cursor-pointer transition-[transform,filter,box-shadow,background-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-4 sm:px-6 rounded-lg"
                       : Number(number) % 2 === 0
-                      ? "bg-[#F9F4F7] hover:bg-[#ed027e]/10 hover:scale-[1.01] hover:shadow-md cursor-pointer transition-all duration-150 px-4 sm:px-6 rounded-lg"
-                      : "bg-white hover:bg-[#ed027e]/10 hover:scale-[1.01] hover:shadow-md cursor-pointer transition-all duration-150 px-4 sm:px-6 rounded-lg"
+                      ? "bg-[#F9F4F7] hover:bg-[#ed027e]/10 hover:scale-[1.01] hover:shadow-md cursor-pointer transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-4 sm:px-6 rounded-lg"
+                      : "bg-white hover:bg-[#ed027e]/10 hover:scale-[1.01] hover:shadow-md cursor-pointer transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-4 sm:px-6 rounded-lg"
                   }`}
                 >
                   <span
                     aria-hidden="true"
-                    className={`font-heading text-[3.5rem] font-black leading-none tracking-[-0.02em] sm:text-[4.5rem] ${
+                    className={`font-heading text-[3.5rem] font-black leading-none tracking-[-0.02em] sm:text-[4.5rem] transition-colors duration-300 ${
                       isPinkRow ? "text-white/30" : "text-black/10"
                     }`}
                   >
                     {number}
                   </span>
                   <Icon
-                    className={`mt-1 hidden h-6 w-6 sm:block ${
+                    className={`mt-1 hidden h-6 w-6 sm:block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 ${
                       isPinkRow ? "text-white" : "text-[#ed027e]"
                     }`}
                     strokeWidth={1.8}
                   />
                   <div>
                     <h3
-                      className={`font-heading text-lg font-black uppercase tracking-[-0.02em] sm:text-xl ${
+                      className={`font-heading text-lg font-black uppercase tracking-[-0.02em] sm:text-xl transition-colors duration-300 ${
                         isPinkRow ? "text-white" : "text-[#3f3f3f]"
                       }`}
                     >
@@ -360,7 +360,7 @@ export function PartnershipOpportunities() {
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
                 alt="Professional African woman in a business workplace setting"
-                className="h-full w-full rounded-2xl object-cover object-center"
+                className="h-full w-full rounded-2xl object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />
             </figure>
 
@@ -370,13 +370,13 @@ export function PartnershipOpportunities() {
                 return (
                   <article
                     key={id}
-                    className="reveal flex min-h-[250px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:min-h-[310px] lg:p-10"
+                    className="reveal flex min-h-[250px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 will-change-transform transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:bg-white/[0.06] hover:shadow-xl lg:min-h-[310px] lg:p-10"
                   >
                     <span className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e]">
                       Track {number}
                     </span>
                     <div>
-                      <h3 className="font-heading text-[clamp(1.75rem,3.2vw,2.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white">
+                      <h3 className="font-heading text-[clamp(1.75rem,3.2vw,2.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
                         {label}
                       </h3>
                       <p className="mt-4 max-w-[38ch] font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80">
@@ -392,13 +392,13 @@ export function PartnershipOpportunities() {
                 return (
                   <article
                     key={id}
-                    className="reveal flex min-h-[320px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:p-12"
+                    className="reveal flex min-h-[320px] flex-col justify-between rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.025] p-8 will-change-transform transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:bg-white/[0.06] hover:shadow-xl lg:p-12"
                   >
                     <span className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e]">
                       Track {number}
                     </span>
                     <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-                      <h3 className="font-heading text-[clamp(1.85rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white">
+                      <h3 className="font-heading text-[clamp(1.85rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
                         {label}
                       </h3>
                       <p className="max-w-[44ch] font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80 lg:text-base">

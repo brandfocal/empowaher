@@ -210,14 +210,14 @@ export function LeadershipProgramme() {
                     download="EmpowaHER-Programme-2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
+                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#ed027e]/90 hover:scale-[1.02] hover:shadow-xl sm:w-auto"
                   >
                     <span>Download Programme (PDF)</span>
                   </a>
 
                   <a
                     href={PROSPECTUS_EMAIL_HREF}
-                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
+                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] hover:shadow-lg sm:w-auto"
                   >
                     <span>Prospectus on Request</span>
                   </a>
@@ -284,21 +284,21 @@ export function LeadershipProgramme() {
                 style={{
                   backgroundColor: track.backgroundColor,
                 }}
-                className="reveal group relative z-0 flex min-h-[280px] flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:z-10 hover:scale-[1.018] hover:brightness-[1.05] hover:shadow-2xl sm:min-h-[340px] sm:p-7 lg:min-h-[380px] lg:p-9"
+                className="reveal group relative z-0 flex min-h-[280px] flex-col justify-between overflow-hidden p-6 will-change-transform transition-[transform,box-shadow,filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-10 hover:-translate-y-1.5 hover:brightness-[1.06] hover:shadow-[0_20px_50px_rgba(0,0,0,0.18)] sm:min-h-[340px] sm:p-7 lg:min-h-[380px] lg:p-9"
               >
-                <div className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-white/40 transition-transform duration-300 group-hover:scale-x-100" />
+                <div className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-white/50 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
                 
                 <div>
-                  <span className="font-heading text-[0.625rem] font-black uppercase tracking-[0.22em] text-white/50">
+                  <span className="font-heading text-[0.625rem] font-black uppercase tracking-[0.22em] text-white/50 transition-colors duration-300 group-hover:text-white/80">
                     Track {String(i + 1).padStart(2, "0")}/{String(tracks.length).padStart(2, "0")}
                   </span>
                 </div>
 
                 <div className="mt-auto pt-6">
-                  <h3 className="font-heading text-[clamp(1.2rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white">
+                  <h3 className="font-heading text-[clamp(1.2rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                     {track.name}
                   </h3>
-                  <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-white/80">
+                  <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-white/80 transition-opacity duration-300 group-hover:text-white/95">
                     {track.descriptor}
                   </p>
                 </div>
@@ -332,20 +332,22 @@ export function LeadershipProgramme() {
             {progressRows.map((row) => (
               <article
                 key={row.number}
-                className="reveal group relative grid cursor-default grid-cols-[3.5rem_1fr] items-center gap-4 border-b border-white/10 py-7 transition-all duration-300 hover:border-l-4 hover:border-l-[#ed027e] hover:bg-white/[0.04] hover:pl-5 sm:grid-cols-[5rem_10rem_1fr] sm:gap-8 sm:py-9"
+                className="reveal group relative grid cursor-default grid-cols-[3.5rem_1fr] items-center gap-4 overflow-hidden border-b border-white/10 py-7 transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/[0.04] hover:pl-5 sm:grid-cols-[5rem_10rem_1fr] sm:gap-8 sm:py-9 sm:hover:pl-7"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 bg-[#ed027e] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
+
                 <span
-                  className="font-heading text-[3.5rem] font-black leading-none tracking-[-0.02em] text-white/10 transition-colors group-hover:text-[#ed027e]/30 sm:text-[4.5rem]"
+                  className="origin-left font-heading text-[3.5rem] font-black leading-none tracking-[-0.02em] text-white/10 transition-[color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#ed027e]/30 group-hover:scale-105 sm:text-[4.5rem]"
                   aria-hidden="true"
                 >
                   {row.number}
                 </span>
 
-                <h3 className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e] transition-colors group-hover:text-white sm:text-sm">
+                <h3 className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e] transition-[color,letter-spacing] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:tracking-[0.22em] group-hover:text-white sm:text-sm">
                   {row.label}
                 </h3>
 
-                <p className="col-span-2 font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80 transition-colors group-hover:text-white sm:col-span-1 sm:text-base">
+                <p className="col-span-2 font-sans text-[0.9375rem] font-medium leading-[1.55] text-white/80 transition-colors duration-300 group-hover:text-white sm:col-span-1 sm:text-base">
                   {row.value}
                 </p>
               </article>
