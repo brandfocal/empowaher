@@ -24,31 +24,49 @@ const nominatorTypes = [
     number: "01",
     role: "CEOs & Managing Directors",
     desc: "Executive leaders championing emerging women talent within corporate enterprises",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    accentColor: "#ed027e",
   },
   {
     number: "02",
     role: "Board Chairs & Non-Executive Directors",
     desc: "Governance leaders identifying future board and committee successors",
+    image:
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+    accentColor: "#B01060",
   },
   {
     number: "03",
     role: "ExCo Members & C-Suite Executives",
     desc: "Functional heads sponsoring high-performing women across divisions",
+    image:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
+    accentColor: "#7B1FA0",
   },
   {
     number: "04",
     role: "Directors-General & Public Sector Leaders",
     desc: "Civic and government heads developing next-generation public administrators",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    accentColor: "#3D0C6B",
   },
   {
     number: "05",
     role: "Vice-Chancellors & Academic Deans",
     desc: "Higher education leaders nominating exceptional postgraduates and researchers",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
+    accentColor: "#0D4A5E",
   },
   {
     number: "06",
     role: "Industry & Association Leaders",
     desc: "Professional bodies and network founders elevating sector innovators",
+    image:
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
+    accentColor: "#ed027e",
   },
 ];
 
@@ -57,58 +75,100 @@ const candidateTypes = [
     number: "01",
     category: "High-Potential Corporate Professionals",
     desc: "Women in corporate pipelines preparing for executive and senior management roles",
+    image:
+      "https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=800&q=80",
+    accentColor: "#ed027e",
   },
   {
     number: "02",
     category: "Entrepreneurs & Venture Founders",
     desc: "Founders of commercial or social enterprises poised for scale and investment",
+    image:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+    accentColor: "#B01060",
   },
   {
     number: "03",
     category: "Aspiring Board Members & Governance Fellows",
     desc: "Professionals seeking director-level readiness, board literacy, and committee exposure",
+    image:
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+    accentColor: "#7B1FA0",
   },
   {
     number: "04",
     category: "Graduates & Academic Achievers",
     desc: "Top graduates and scholars demonstrating early leadership and intellectual capability",
+    image:
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+    accentColor: "#3D0C6B",
   },
   {
     number: "05",
     category: "Civic Leaders & Social Innovators",
     desc: "Community champions translating social purpose into measurable regional impact",
+    image:
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80",
+    accentColor: "#4A1942",
   },
   {
     number: "06",
     category: "Women Actively Advancing Others",
     desc: "Leaders with an established record of mentoring, sponsorship, and peer empowerment",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    accentColor: "#ed027e",
   },
 ];
 
 const commitments = [
   {
+    number: "01",
     title: "Full Summit Attendance",
     detail: "Attend the complete three-day programme: 29–31 October 2026.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
+    accentColor: "#ed027e",
   },
   {
+    number: "02",
     title: "Active Participation",
     detail: "Engage in all masterclasses, labs, simulations and executive tracks.",
+    image:
+      "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?w=800&q=80",
+    accentColor: "#B01060",
   },
   {
+    number: "03",
     title: "Executive Dialogue",
     detail: "Contribute proactively to peer exchanges and plenary boardroom sessions.",
+    image:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    accentColor: "#7B1FA0",
   },
   {
+    number: "04",
     title: "100-Day Action Plan",
     detail: "Formulate and commit to a structured post-summit leadership roadmap.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    accentColor: "#3D0C6B",
   },
   {
+    number: "05",
     title: "Knowledge Transfer",
     detail: "Share summit learnings, methodologies, and tools within your organization.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    accentColor: "#0D4A5E",
   },
   {
+    number: "06",
     title: "Mentorship Pledge",
     detail: "Commit to mentoring at least one emerging young woman leader for 12 months.",
+    image:
+      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    accentColor: "#ed027e",
   },
 ];
 
@@ -380,23 +440,58 @@ export function SelectionCriteria() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
                 {nominatorTypes.map((item) => (
                   <article
                     key={item.number}
-                    className="reveal group relative flex flex-col justify-between rounded-xl border border-[#3f3f3f]/10 bg-[#F9F4F7]/40 p-5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#ed027e]/40 hover:bg-[#F9F4F7] hover:-translate-y-1 hover:shadow-md"
+                    className="reveal group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black p-6 shadow-md will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-xl sm:min-h-[240px]"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-xl font-black text-[#3f3f3f]/20 transition-colors group-hover:text-[#ed027e]/40">
+                    {/* Background Image with Zoom */}
+                    <img
+                      src={item.image}
+                      alt={item.role}
+                      className="absolute inset-0 h-full w-full object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    />
+
+                    {/* Dark Ambient Overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
+                      aria-hidden="true"
+                    />
+
+                    {/* Subtle Radial Color Glow */}
+                    <div
+                      className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-40"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${item.accentColor} 0%, transparent 70%)`,
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Top Accent Indicator */}
+                    <div
+                      className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                      style={{ backgroundColor: item.accentColor }}
+                    />
+
+                    {/* Top Badge */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="inline-flex items-center rounded-full bg-black/50 px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md border border-white/20 shadow-sm">
                         {item.number}
                       </span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]/30 group-hover:bg-[#ed027e]" />
+                      <span
+                        className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150"
+                        style={{ backgroundColor: item.accentColor }}
+                        aria-hidden="true"
+                      />
                     </div>
-                    <div className="mt-3">
-                      <h4 className="font-heading text-[0.9375rem] font-bold uppercase tracking-[-0.01em] text-[#3f3f3f] transition-colors group-hover:text-[#ed027e]">
+
+                    {/* Content */}
+                    <div className="relative z-10 mt-auto pt-4">
+                      <h4 className="font-heading text-base sm:text-lg font-bold uppercase leading-tight text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                         {item.role}
                       </h4>
-                      <p className="mt-1.5 font-sans text-xs font-normal leading-[1.6] text-[#3f3f3f]/70">
+                      <p className="mt-1.5 font-sans text-xs sm:text-[0.8125rem] font-normal leading-[1.55] text-white/80 transition-opacity duration-300 group-hover:text-white">
                         {item.desc}
                       </p>
                     </div>
@@ -414,23 +509,58 @@ export function SelectionCriteria() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
                 {candidateTypes.map((item) => (
                   <article
                     key={item.number}
-                    className="reveal group relative flex flex-col justify-between rounded-xl border border-[#3f3f3f]/10 bg-white p-5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#ed027e]/40 hover:bg-[#F9F4F7]/60 hover:-translate-y-1 hover:shadow-md"
+                    className="reveal group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black p-6 shadow-md will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-xl sm:min-h-[240px]"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-xl font-black text-[#3f3f3f]/20 transition-colors group-hover:text-[#ed027e]/40">
+                    {/* Background Image with Zoom */}
+                    <img
+                      src={item.image}
+                      alt={item.category}
+                      className="absolute inset-0 h-full w-full object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    />
+
+                    {/* Dark Ambient Overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
+                      aria-hidden="true"
+                    />
+
+                    {/* Subtle Radial Color Glow */}
+                    <div
+                      className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-40"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${item.accentColor} 0%, transparent 70%)`,
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Top Accent Indicator */}
+                    <div
+                      className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                      style={{ backgroundColor: item.accentColor }}
+                    />
+
+                    {/* Top Badge */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="inline-flex items-center rounded-full bg-black/50 px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md border border-white/20 shadow-sm">
                         {item.number}
                       </span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]/30 group-hover:bg-[#ed027e]" />
+                      <span
+                        className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150"
+                        style={{ backgroundColor: item.accentColor }}
+                        aria-hidden="true"
+                      />
                     </div>
-                    <div className="mt-3">
-                      <h4 className="font-heading text-[0.9375rem] font-bold uppercase tracking-[-0.01em] text-[#3f3f3f] transition-colors group-hover:text-[#ed027e]">
+
+                    {/* Content */}
+                    <div className="relative z-10 mt-auto pt-4">
+                      <h4 className="font-heading text-base sm:text-lg font-bold uppercase leading-tight text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                         {item.category}
                       </h4>
-                      <p className="mt-1.5 font-sans text-xs font-normal leading-[1.6] text-[#3f3f3f]/70">
+                      <p className="mt-1.5 font-sans text-xs sm:text-[0.8125rem] font-normal leading-[1.55] text-white/80 transition-opacity duration-300 group-hover:text-white">
                         {item.desc}
                       </p>
                     </div>
@@ -448,22 +578,63 @@ export function SelectionCriteria() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5">
                 {commitments.map((item) => (
-                  <div
+                  <article
                     key={item.title}
-                    className="reveal group flex items-start gap-3.5 rounded-xl border border-[#3f3f3f]/10 bg-[#ffffff] p-4.5 transition-all duration-300 hover:border-[#ed027e]/30 hover:bg-[#F9F4F7]/40"
+                    className="reveal group relative flex min-h-[190px] flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black p-5 shadow-md will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-xl sm:min-h-[210px]"
                   >
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#ed027e] transition-transform duration-300 group-hover:scale-110" />
-                    <div>
-                      <h4 className="font-heading text-sm font-bold uppercase tracking-[-0.01em] text-[#3f3f3f]">
+                    {/* Background Image with Zoom */}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="absolute inset-0 h-full w-full object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    />
+
+                    {/* Dark Ambient Overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
+                      aria-hidden="true"
+                    />
+
+                    {/* Subtle Radial Color Glow */}
+                    <div
+                      className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-40"
+                      style={{
+                        background: `radial-gradient(circle at top right, ${item.accentColor} 0%, transparent 70%)`,
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Top Accent Indicator */}
+                    <div
+                      className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                      style={{ backgroundColor: item.accentColor }}
+                    />
+
+                    {/* Top Badge & Check Icon */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md border border-white/20 shadow-sm">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#ed027e]" />
+                        <span>Commitment {item.number}</span>
+                      </span>
+                      <span
+                        className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150"
+                        style={{ backgroundColor: item.accentColor }}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 mt-auto pt-3">
+                      <h4 className="font-heading text-sm sm:text-base font-bold uppercase leading-tight text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                         {item.title}
                       </h4>
-                      <p className="mt-1 font-sans text-xs font-normal leading-[1.55] text-[#3f3f3f]/70">
+                      <p className="mt-1 font-sans text-xs font-normal leading-[1.55] text-white/80 transition-opacity duration-300 group-hover:text-white">
                         {item.detail}
                       </p>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
