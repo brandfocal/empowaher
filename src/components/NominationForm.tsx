@@ -14,8 +14,7 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=85";
+const HERO_IMAGE_URL = "/feature-image14.jpg";
 
 const heroSteps = [
   { id: "nominee-info", number: 1, label: "Nominee Info", status: "completed" },

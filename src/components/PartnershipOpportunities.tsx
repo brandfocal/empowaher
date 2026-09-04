@@ -60,8 +60,7 @@ const partnershipTracks = [
     number: "01",
     label: "SCHOLARSHIPS AND BURSARIES",
     value: "ACCESS TO TERTIARY, PROFESSIONAL AND EXECUTIVE EDUCATION",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80",
+    image: "/feature-image12.jpg",
     imageAlt:
       "Young professional women studying together in an academic setting",
   },
@@ -70,8 +69,7 @@ const partnershipTracks = [
     number: "02",
     label: "GRADUATE PLACEMENTS AND INTERNSHIPS",
     value: "WORKPLACE EXPERIENCE AND MEANINGFUL EMPLOYMENT",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
+    image: "/feature-image16.jpg",
     imageAlt: "Professional African woman in a business workplace setting",
   },
   {
@@ -79,8 +77,7 @@ const partnershipTracks = [
     number: "03",
     label: "FUNDING AND PROCUREMENT",
     value: "CAPITAL, SUPPLIER DEVELOPMENT AND COMMERCIAL OPPORTUNITIES",
-    image:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80",
+    image: "/feature-image17.jpg",
     imageAlt: "Women in an enterprise business meeting discussing commerce",
   },
 ];
@@ -149,7 +146,7 @@ export function PartnershipOpportunities() {
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="partnerships-hero-parallax-img"
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=85"
+              src="/feature-image13.jpg"
               alt="Professional women collaborating in a bright contemporary workplace"
               className="h-full w-full scale-[1.15] object-cover object-center will-change-transform"
               style={{
@@ -358,7 +355,7 @@ export function PartnershipOpportunities() {
           <div className="grid w-full grid-cols-1 gap-6 pt-10 lg:grid-cols-[35fr_65fr] lg:gap-8">
             <figure className="reveal min-h-[520px] overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                src="/feature-image18.jpg"
                 alt="Professional African woman in a business workplace setting"
                 className="h-full w-full rounded-2xl object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
               />

@@ -213,7 +213,7 @@ export function SelectionCriteria() {
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="criteria-hero-parallax-img"
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1800&q=85&fit=crop"
+              src="/feature-image10.jpg"
               alt="African professional woman leader in an executive workspace"
               className="h-full w-full scale-[1.15] object-cover object-center will-change-transform"
               style={{
@@ -345,7 +345,7 @@ export function SelectionCriteria() {
           <aside className="relative order-2 flex w-full flex-col bg-[#ffffff] p-5 sm:p-8 lg:sticky lg:top-0 lg:order-1 lg:h-screen lg:min-h-[520px] lg:w-[40%] lg:self-start lg:p-10">
             <figure className="relative aspect-[4/3] min-h-0 flex-1 overflow-hidden rounded-2xl lg:aspect-auto">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85"
+                src="/feature-image15.jpg"
                 alt="EmpowaHer eligible candidate in executive corporate setting"
                 className="h-full w-full rounded-2xl object-cover object-top"
               />

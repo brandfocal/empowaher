@@ -14,8 +14,7 @@ const tracks = [
     name: "Strategic Leadership & Executive Presence",
     descriptor:
       "Command the room, define direction, and build the authority that moves organisations forward.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    image: "/feature-image10.jpg",
     accentColor: "#ed027e",
   },
   {
@@ -23,8 +22,7 @@ const tracks = [
     name: "Financial Acumen & Business Literacy",
     descriptor:
       "Decode balance sheets, drive profitability, and speak the language of the boardroom.",
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+    image: "/feature-image11.jpg",
     accentColor: "#B01060",
   },
   {
@@ -32,8 +30,7 @@ const tracks = [
     name: "Innovation & Digital Transformation",
     descriptor:
       "Lead technology adoption, champion innovation culture, and future-proof your organisation.",
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+    image: "/feature-image12.jpg",
     accentColor: "#7B1FA0",
   },
   {
@@ -41,8 +38,7 @@ const tracks = [
     name: "People Leadership & Organisational Culture",
     descriptor:
       "Attract, retain, and inspire diverse talent while shaping cultures that perform.",
-    image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
+    image: "/feature-image13.jpg",
     accentColor: "#3D0C6B",
   },
   {
@@ -50,8 +46,7 @@ const tracks = [
     name: "Stakeholder Engagement & Communication",
     descriptor:
       "Influence across functions, manage up, and build coalitions that get things done.",
-    image:
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",
+    image: "/feature-image14.jpg",
     accentColor: "#ed027e",
   },
   {
@@ -59,8 +54,7 @@ const tracks = [
     name: "Entrepreneurship & Venture Development",
     descriptor:
       "Identify opportunities, build ventures, and instil entrepreneurial thinking within any organisation.",
-    image:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+    image: "/feature-image15.jpg",
     accentColor: "#0D4A5E",
   },
   {
@@ -68,8 +62,7 @@ const tracks = [
     name: "Social Impact & Sustainable Development",
     descriptor:
       "Align business goals with the SDGs and lead with purpose at every decision point.",
-    image:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    image: "/feature-image16.jpg",
     accentColor: "#4A1942",
   },
   {
@@ -77,8 +70,7 @@ const tracks = [
     name: "Africa-Centric Strategy & Global Markets",
     descriptor:
       "Navigate Africa's economic landscape and position your enterprise for global growth.",
-    image:
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&q=80",
+    image: "/feature-image17.jpg",
     accentColor: "#7B0D3C",
   },
   {
@@ -86,8 +78,7 @@ const tracks = [
     name: "Leadership, Governance & Board Readiness",
     descriptor:
       "Master board dynamics, governance frameworks, and the director-level mindset required at the top.",
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+    image: "/feature-image18.jpg",
     accentColor: "#C4185C",
   },
 ];
@@ -152,7 +143,7 @@ export function LeadershipProgramme() {
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="leadership-hero-parallax-img"
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1800&q=85&fit=crop"
+              src="/feature-image11.jpg"
               alt="Senior African businesswoman leading a boardroom discussion"
               className="h-full w-full scale-[1.15] object-cover object-center will-change-transform"
               style={{
