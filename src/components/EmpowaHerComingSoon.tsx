@@ -82,7 +82,7 @@ function YoutubeIcon({ className }: { className?: string }) {
 }
 
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
-const PROSPECTUS_PDF_PATH = "/EmpowaHer%E2%84%A2-Leadership-Programme-2026-Partnership-Proposal-&-Prospectu.pdf";
+const PROSPECTUS_EMAIL_HREF = "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
 const programmeItems = [
   {
@@ -364,13 +364,10 @@ export function EmpowaHerComingSoon() {
                   </a>
 
                   <a
-                    href={PROSPECTUS_PDF_PATH}
-                    download="EmpowaHer-Leadership-Programme-2026-Prospectus.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={PROSPECTUS_EMAIL_HREF}
                     className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
                   >
-                    <span>Download Prospectus</span>
+                    <span>Prospectus on Request</span>
                   </a>
                 </div>
               </div>
@@ -519,13 +516,10 @@ export function EmpowaHerComingSoon() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
                 <a
-                  href={PROSPECTUS_PDF_PATH}
-                  download="EmpowaHer-Leadership-Programme-2026-Prospectus.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={PROSPECTUS_EMAIL_HREF}
                   className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]"
                 >
-                  <span>Download Prospectus (PDF)</span>
+                  <span>Prospectus on Request</span>
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
