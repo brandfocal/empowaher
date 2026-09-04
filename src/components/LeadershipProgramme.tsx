@@ -275,7 +275,7 @@ export function LeadershipProgramme() {
           </div>
 
           <div
-            className="grid grid-cols-1 gap-0 pb-4 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
             aria-label="Leadership tracks card grid"
           >
             {tracks.map((track, i) => (
@@ -284,21 +284,28 @@ export function LeadershipProgramme() {
                 style={{
                   backgroundColor: track.backgroundColor,
                 }}
-                className="reveal group relative z-0 flex min-h-[280px] flex-col justify-between overflow-hidden p-6 will-change-transform transition-[transform,box-shadow,filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-10 hover:-translate-y-1.5 hover:brightness-[1.06] hover:shadow-[0_20px_50px_rgba(0,0,0,0.18)] sm:min-h-[340px] sm:p-7 lg:min-h-[380px] lg:p-9"
+                className="reveal group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl hover:brightness-105 sm:min-h-[340px] sm:p-8 lg:min-h-[380px] lg:p-9"
               >
-                <div className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-white/50 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
-                
-                <div>
-                  <span className="font-heading text-[0.625rem] font-black uppercase tracking-[0.22em] text-white/50 transition-colors duration-300 group-hover:text-white/80">
+                {/* Top Interactive Accent Glow */}
+                <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+
+                {/* Track Badge */}
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center rounded-full bg-black/30 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md border border-white/20 shadow-sm transition-colors duration-300 group-hover:bg-black/45">
                     Track {String(i + 1).padStart(2, "0")}/{String(tracks.length).padStart(2, "0")}
                   </span>
+                  <span
+                    className="h-2 w-2 rounded-full bg-white/50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150 group-hover:bg-white"
+                    aria-hidden="true"
+                  />
                 </div>
 
+                {/* Card Content */}
                 <div className="mt-auto pt-6">
-                  <h3 className="font-heading text-[clamp(1.2rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                  <h3 className="font-heading text-[clamp(1.25rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                     {track.name}
                   </h3>
-                  <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-white/80 transition-opacity duration-300 group-hover:text-white/95">
+                  <p className="mt-3.5 font-sans text-[0.9375rem] font-medium leading-[1.65] text-white/90 transition-opacity duration-300 group-hover:text-white">
                     {track.descriptor}
                   </p>
                 </div>
