@@ -2,10 +2,7 @@
 
 # dependencies
 /node_modules
-/magicpath-project/
-/magicpath-project-2/
-/magicpath-project-3/
-/magicpath-project-4/
+/magicpath-project*/
 /.pnp
 .pnp.*
 .yarn/*

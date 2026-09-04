@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "magicpath-*", "magicpath-project-*", "magicpath-project", "magicpath-project-2", "magicpath-project-3", "magicpath-project-4", "magicpath-project-5"]
+  "exclude": ["node_modules", "magicpath-*", "magicpath-project-*", "magicpath-project", "magicpath-project-2", "magicpath-project-3", "magicpath-project-4", "magicpath-project-5", "magicpath-project-6"]
 }
