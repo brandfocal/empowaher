@@ -19,9 +19,15 @@ export const metadata: Metadata = {
   description:
     "EmpowaHer™ Leadership Summit – The Future Is Female™ is a three-day leadership experience designed to prepare Africa’s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.",
   icons: {
-    icon: "/empowaher-favicon.png",
-    shortcut: "/empowaher-favicon.png",
-    apple: "/empowaher-favicon.png",
+    icon: [
+      { url: "/empowaher-favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: ["/empowaher-favicon.png"],
+    apple: [
+      { url: "/apple-icon.png" },
+      { url: "/empowaher-favicon.png" },
+    ],
   },
 };
 
