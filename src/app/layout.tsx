@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Barlow_Condensed } from "next/font/google";
+import { ScrollObserver } from "@/components/ScrollObserver";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -41,7 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${barlowCondensed.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ScrollObserver />
+        {children}
+      </body>
     </html>
   );
 }
