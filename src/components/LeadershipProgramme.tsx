@@ -14,63 +14,81 @@ const tracks = [
     name: "Strategic Leadership & Executive Presence",
     descriptor:
       "Command the room, define direction, and build the authority that moves organisations forward.",
-    backgroundColor: "#ed027e",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    accentColor: "#ed027e",
   },
   {
     id: 2,
     name: "Financial Acumen & Business Literacy",
     descriptor:
       "Decode balance sheets, drive profitability, and speak the language of the boardroom.",
-    backgroundColor: "#B01060",
+    image:
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+    accentColor: "#B01060",
   },
   {
     id: 3,
     name: "Innovation & Digital Transformation",
     descriptor:
       "Lead technology adoption, champion innovation culture, and future-proof your organisation.",
-    backgroundColor: "#7B1FA0",
+    image:
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+    accentColor: "#7B1FA0",
   },
   {
     id: 4,
     name: "People Leadership & Organisational Culture",
     descriptor:
       "Attract, retain, and inspire diverse talent while shaping cultures that perform.",
-    backgroundColor: "#3D0C6B",
+    image:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
+    accentColor: "#3D0C6B",
   },
   {
     id: 5,
     name: "Stakeholder Engagement & Communication",
     descriptor:
       "Influence across functions, manage up, and build coalitions that get things done.",
-    backgroundColor: "#111827",
+    image:
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",
+    accentColor: "#ed027e",
   },
   {
     id: 6,
     name: "Entrepreneurship & Venture Development",
     descriptor:
       "Identify opportunities, build ventures, and instil entrepreneurial thinking within any organisation.",
-    backgroundColor: "#0D4A5E",
+    image:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+    accentColor: "#0D4A5E",
   },
   {
     id: 7,
     name: "Social Impact & Sustainable Development",
     descriptor:
       "Align business goals with the SDGs and lead with purpose at every decision point.",
-    backgroundColor: "#4A1942",
+    image:
+      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    accentColor: "#4A1942",
   },
   {
     id: 8,
     name: "Africa-Centric Strategy & Global Markets",
     descriptor:
       "Navigate Africa's economic landscape and position your enterprise for global growth.",
-    backgroundColor: "#7B0D3C",
+    image:
+      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&q=80",
+    accentColor: "#7B0D3C",
   },
   {
     id: 9,
     name: "Leadership, Governance & Board Readiness",
     descriptor:
       "Master board dynamics, governance frameworks, and the director-level mindset required at the top.",
-    backgroundColor: "#C4185C",
+    image:
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+    accentColor: "#C4185C",
   },
 ];
 
@@ -281,31 +299,54 @@ export function LeadershipProgramme() {
             {tracks.map((track, i) => (
               <article
                 key={track.id}
-                style={{
-                  backgroundColor: track.backgroundColor,
-                }}
-                className="reveal group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl hover:brightness-105 sm:min-h-[340px] sm:p-8 lg:min-h-[380px] lg:p-9"
+                className="reveal group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 bg-black will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl sm:min-h-[360px] sm:p-8 lg:min-h-[390px] lg:p-9"
               >
-                {/* Top Interactive Accent Glow */}
-                <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+                {/* Background Image with Smooth Hover Zoom */}
+                <img
+                  src={track.image}
+                  alt={track.name}
+                  className="absolute inset-0 h-full w-full object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                />
+
+                {/* Dark Gradient Ambient Overlay for Maximum Text Contrast */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
+                  aria-hidden="true"
+                />
+
+                {/* Subtle Radial Color Tint Overlay on Hover */}
+                <div
+                  className="absolute inset-0 opacity-25 transition-opacity duration-500 group-hover:opacity-45"
+                  style={{
+                    background: `radial-gradient(circle at top right, ${track.accentColor} 0%, transparent 70%)`,
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* Top Interactive Accent Indicator */}
+                <div
+                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                  style={{ backgroundColor: track.accentColor }}
+                />
 
                 {/* Track Badge */}
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full bg-black/30 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md border border-white/20 shadow-sm transition-colors duration-300 group-hover:bg-black/45">
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="inline-flex items-center rounded-full bg-black/50 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md border border-white/20 shadow-md transition-colors duration-300 group-hover:bg-black/70">
                     Track {String(i + 1).padStart(2, "0")}/{String(tracks.length).padStart(2, "0")}
                   </span>
                   <span
-                    className="h-2 w-2 rounded-full bg-white/50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150 group-hover:bg-white"
+                    className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150 shadow-sm"
+                    style={{ backgroundColor: track.accentColor }}
                     aria-hidden="true"
                   />
                 </div>
 
                 {/* Card Content */}
-                <div className="mt-auto pt-6">
+                <div className="relative z-10 mt-auto pt-6">
                   <h3 className="font-heading text-[clamp(1.25rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                     {track.name}
                   </h3>
-                  <p className="mt-3.5 font-sans text-[0.9375rem] font-medium leading-[1.65] text-white/90 transition-opacity duration-300 group-hover:text-white">
+                  <p className="mt-3.5 font-sans text-[0.9375rem] font-medium leading-[1.65] text-white/85 transition-opacity duration-300 group-hover:text-white">
                     {track.descriptor}
                   </p>
                 </div>
