@@ -1,88 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-
-function LinkedinIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
-
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  );
-}
-
-function YoutubeIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-      <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
-    </svg>
-  );
-}
+import Link from "next/link";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
-const PROSPECTUS_EMAIL_HREF = "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
+const PROSPECTUS_EMAIL_HREF =
+  "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
 const programmeItems = [
   {
@@ -110,103 +35,44 @@ const programmeItems = [
     id: "audience",
     number: "04",
     label: "AUDIENCE",
-    value: "Emerging women leaders, graduates, professionals, entrepreneurs, executives and aspiring board members aged 18–35",
+    value:
+      "Emerging women leaders, graduates, professionals, entrepreneurs, executives and aspiring board members aged 18–35",
     revealDelay: "180ms",
   },
   {
     id: "delegate-model",
     number: "05",
     label: "DELEGATE MODEL",
-    value: "Selected and vetted through a curated nomination process involving 200 leading organisations",
+    value:
+      "Selected and vetted through a curated nomination process involving 200 leading organisations",
     revealDelay: "240ms",
   },
   {
     id: "nominating-network",
     number: "06",
     label: "NOMINATING NETWORK",
-    value: "Leading brands and organisations across industries, communities, academia, multinationals, foundations and civic organisations",
+    value:
+      "Leading brands and organisations across industries, communities, academia, multinationals, foundations and civic organisations",
     revealDelay: "300ms",
   },
   {
     id: "core-outcome",
     number: "07",
     label: "CORE OUTCOME",
-    value: "A high-potential leadership pipeline connected to capability, capital, careers, global exposure and board opportunity",
+    value:
+      "A high-potential leadership pipeline connected to capability, capital, careers, global exposure and board opportunity",
     revealDelay: "360ms",
   },
 ];
 
-export function SocialIcons({
-  compact = false,
-  variant = "light",
-}: {
-  compact?: boolean;
-  variant?: "light" | "dark";
-}) {
-  const sizeClasses = compact ? "h-8 w-8" : "h-9 w-9";
-  const iconClasses = compact ? "h-4 w-4" : "h-4 w-4";
-  const xIconClasses = compact ? "h-3.5 w-3.5" : "h-3.5 w-3.5";
-
-  const socialLinkClasses =
-    variant === "dark"
-      ? `flex ${sizeClasses} items-center justify-center rounded-full border border-[#3f3f3f]/30 text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white`
-      : `flex ${sizeClasses} items-center justify-center rounded-full border border-white/25 text-white transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white`;
-
-  return (
-    <nav aria-label="Social media links" className="flex items-center gap-2">
-      <a
-        href="https://www.linkedin.com/showcase/empowawomen"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="EmpowaWomen on LinkedIn"
-        className={socialLinkClasses}
-      >
-        <LinkedinIcon className={iconClasses} />
-      </a>
-      <a
-        href="https://www.instagram.com/empowawomen/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="EmpowaWomen on Instagram"
-        className={socialLinkClasses}
-      >
-        <InstagramIcon className={iconClasses} />
-      </a>
-      <a
-        href="https://x.com/EmpowaWomen"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="EmpowaWomen on X"
-        className={socialLinkClasses}
-      >
-        <XIcon className={xIconClasses} />
-      </a>
-      <a
-        href="https://www.facebook.com/people/EmpowaWomen/100093644768130/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="EmpowaWomen on Facebook"
-        className={socialLinkClasses}
-      >
-        <FacebookIcon className={iconClasses} />
-      </a>
-      <a
-        href="https://www.youtube.com/@EmpowaWomen"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="EmpowaWomen on YouTube"
-        className={socialLinkClasses}
-      >
-        <YoutubeIcon className={iconClasses} />
-      </a>
-    </nav>
-  );
-}
-
 export function EmpowaHerComingSoon() {
   useEffect(() => {
-    const revealElements = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealElements = Array.from(
+      document.querySelectorAll<HTMLElement>(".reveal")
+    );
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     if (prefersReducedMotion) {
       revealElements.forEach((element) => element.classList.add("is-visible"));
       return;
@@ -254,34 +120,7 @@ export function EmpowaHerComingSoon() {
       <section className="relative flex min-h-screen flex-col">
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Top Navigation */}
-          <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 bg-white px-5 py-2 shadow-sm sm:px-8 sm:py-2.5 md:px-12">
-            <a
-              href="#top"
-              aria-label="EmpowaHer Home"
-              className="flex items-center transition-opacity hover:opacity-90"
-            >
-              <Image
-                src="/empowaher-logo.png"
-                alt="EmpowaHer Logo"
-                width={360}
-                height={96}
-                className="h-10 w-auto object-contain sm:h-12 md:h-[52px]"
-                priority
-              />
-            </a>
-
-            <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-5 sm:text-[0.6875rem]">
-              <a
-                href="#programme"
-                className="block rounded-full border-2 border-[#3f3f3f] px-3.5 py-1.5 font-bold text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white sm:px-5 sm:py-2"
-              >
-                <span>Programme Detail</span>
-              </a>
-              <div className="hidden sm:block">
-                <SocialIcons compact variant="dark" />
-              </div>
-            </div>
-          </header>
+          <Header currentPath="/" />
 
           {/* Background Image with Ambient Overlay using feature-image8.jpg */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -326,7 +165,10 @@ export function EmpowaHerComingSoon() {
               }}
             >
               <span>EmpowaHer™ Leadership Programme</span>
-              <span className="inline-block h-3 w-px bg-white/40 align-middle" aria-hidden="true" />
+              <span
+                className="inline-block h-3 w-px bg-white/40 align-middle"
+                aria-hidden="true"
+              />
               <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
                 Summit 2026
               </span>
@@ -346,7 +188,7 @@ export function EmpowaHerComingSoon() {
                   <span className="text-[#ed027e]">EXPERIENCE</span>
                 </h1>
 
-                {/* Text-Only CTA Action Buttons (Icons Removed) */}
+                {/* Text-Only CTA Action Buttons */}
                 <div
                   className="hero-reveal mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start"
                   style={{
@@ -369,6 +211,13 @@ export function EmpowaHerComingSoon() {
                   >
                     <span>Prospectus on Request</span>
                   </a>
+
+                  <Link
+                    href="/partnerships"
+                    className="flex w-full items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm transition-all hover:border-[#ed027e] hover:bg-[#ed027e]/15 hover:text-white hover:scale-[1.02] sm:w-auto"
+                  >
+                    <span>Partnerships</span>
+                  </Link>
                 </div>
               </div>
 
@@ -379,7 +228,9 @@ export function EmpowaHerComingSoon() {
                 }}
               >
                 <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
-                  <span>A Three-Day Leadership Experience for Africa&apos;s Next Generation of Women Leaders (18–35)</span>
+                  <span>
+                    A Three-Day Leadership Experience for Africa&apos;s Next Generation of Women Leaders (18–35)
+                  </span>
                 </h2>
               </div>
 
@@ -390,7 +241,9 @@ export function EmpowaHerComingSoon() {
                 }}
               >
                 <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
-                  <span>EmpowaHer™ Leadership Summit — The Future Is Female™ is a three-day leadership experience designed to prepare Africa&apos;s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.</span>
+                  <span>
+                    EmpowaHer™ Leadership Summit — The Future Is Female™ is a three-day leadership experience designed to prepare Africa&apos;s next generation of women leaders to compete, lead and succeed across business, government, entrepreneurship, civil society and the boardroom.
+                  </span>
                 </p>
               </div>
             </div>
@@ -436,15 +289,23 @@ export function EmpowaHerComingSoon() {
                 <span>Seven pillars of leadership, connection and opportunity</span>
               </p>
               {/* Text-Only CTA Button */}
-              <a
-                href={PROGRAMME_PDF_PATH}
-                download="EmpowaHER-Programme-2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90 sm:w-auto"
-              >
-                <span>Download Programme (PDF)</span>
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={PROGRAMME_PDF_PATH}
+                  download="EmpowaHER-Programme-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90"
+                >
+                  <span>Download Programme (PDF)</span>
+                </a>
+                <Link
+                  href="/partnerships"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-[#3f3f3f] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
+                >
+                  <span>Partnership Opportunities</span>
+                </Link>
+              </div>
             </div>
 
             <div className="flex flex-col" aria-label="Programme detail pillars">
@@ -484,133 +345,8 @@ export function EmpowaHerComingSoon() {
         </div>
       </section>
 
-      {/* Dark Prefooter Section (Pure Black and Charcoal palette) */}
-      <section className="bg-black px-5 pb-12 text-white sm:px-6 md:px-10 md:pb-16 lg:px-16 lg:pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:gap-16 lg:pt-16">
-            {/* 01 — About */}
-            <div
-              className="reveal"
-              style={{
-                transitionDelay: "0ms",
-              }}
-            >
-              <div className="mb-3 border-l-2 border-[#ed027e] pl-2 text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#ed027e]">
-                <span>01 — About</span>
-              </div>
-              <h3 className="mb-4 font-heading text-[clamp(1.5rem,2.5vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.01em] text-white">
-                <span>The Future Is Female™</span>
-              </h3>
-              <p className="mb-6 text-[0.9375rem] font-normal leading-[1.65] text-white/70 md:max-w-[42ch]">
-                <span>EmpowaHer™ equips and elevates young African women leaders with executive mentorship, actionable masterclasses, and strategic networks to compete and lead across business, government, and the boardroom.</span>
-              </p>
-              <div className="flex flex-col gap-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">
-                <a
-                  href={PROGRAMME_PDF_PATH}
-                  download="EmpowaHER-Programme-2026.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <span>Download Programme (PDF)</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
-                <a
-                  href={PROSPECTUS_EMAIL_HREF}
-                  className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <span>Prospectus on Request</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* 02 — Contact */}
-            <div
-              className="reveal"
-              style={{
-                transitionDelay: "80ms",
-              }}
-            >
-              <div className="mb-3 border-l-2 border-[#ed027e] pl-2 text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#ed027e]">
-                <span>02 — Contact</span>
-              </div>
-              <h3 className="mb-4 font-heading text-[clamp(1.5rem,2.5vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.01em] text-white">
-                <span>Start A Conversation.</span>
-              </h3>
-              <div className="mb-4">
-                <div className="text-base font-bold text-white">
-                  <span>Doric Sithole</span>
-                </div>
-                <div className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#ed027e]">
-                  <span>Managing Executive of EmpowaHer</span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2.5 text-sm leading-[1.55] text-white/70">
-                <a
-                  href="mailto:doric@empowaworx.co.za"
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <Mail size={14} className="text-[#ed027e] shrink-0" />
-                  <span>doric@empowaworx.co.za</span>
-                </a>
-                <a
-                  href="tel:+27786489522"
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <Phone size={14} className="text-[#ed027e] shrink-0" />
-                  <span className="tabular-nums">+27 (0) 78 648 9522</span>
-                </a>
-                <a
-                  href="tel:+27114827256"
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <Phone size={14} className="text-[#ed027e] shrink-0" />
-                  <span className="tabular-nums">+27 (0) 11 482 7256</span>
-                </a>
-                <div className="flex items-start gap-2.5 pt-1 text-xs text-white/60">
-                  <MapPin size={15} className="text-[#ed027e] shrink-0 mt-0.5" />
-                  <span>EmpowaWorx House, 364 Pine Avenue, Ferndale, Randburg 2194</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 03 — Follow Us */}
-            <div
-              className="reveal md:col-span-2 lg:col-span-1"
-              style={{
-                transitionDelay: "160ms",
-              }}
-            >
-              <div className="mb-3 border-l-2 border-[#ed027e] pl-2 text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#ed027e]">
-                <span>03 — Follow Us</span>
-              </div>
-              <h3 className="mb-4 font-heading text-[clamp(1.5rem,2.5vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.01em] text-white">
-                <span>Stay Connected.</span>
-              </h3>
-              <p className="mb-6 text-[0.9375rem] font-normal leading-[1.65] text-white/70 md:max-w-[42ch]">
-                <span>Follow EmpowaWomen and meet the women engineering what comes next.</span>
-              </p>
-              <div className="flex items-center gap-2.5">
-                <SocialIcons />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-black px-5 py-8 text-white/60 md:px-12 lg:px-16">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 text-left text-xs font-semibold uppercase tracking-[0.12em] md:flex-row md:items-center">
-          <div>
-            <span>© {new Date().getFullYear()} EMPOWAHER • AN EMPOWAWORX INITIATIVE • OFFICIAL WEBSITE LAUNCHING SOON.</span>
-          </div>
-          <div className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]">
-            <span>— EMPOWERING WOMEN. ENGINEERING THE FUTURE.</span>
-            <ArrowUpRight className="h-3.5 w-3.5 text-[#ed027e]" />
-          </div>
-        </div>
-      </footer>
+      {/* Shared Site Footer with Contact & Legal */}
+      <Footer />
     </main>
   );
 }
