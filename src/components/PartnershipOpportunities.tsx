@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import {
   ArrowUpRight,
   BarChart3,
-  Briefcase,
+  BriefcaseBusiness,
   Mail,
   Target,
   TrendingUp,
@@ -17,8 +16,6 @@ import { Footer } from "./Footer";
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
   "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
-const PARTNERSHIP_INQUIRY_HREF =
-  "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry";
 
 const commercialValues = [
   {
@@ -27,7 +24,6 @@ const commercialValues = [
     title: "BUILD BRAND LEADERSHIP",
     description:
       "Premium association across the programme strengthens visibility, relevance and brand preference among participants and influential stakeholders.",
-    delay: "0ms",
   },
   {
     number: "02",
@@ -35,7 +31,6 @@ const commercialValues = [
     title: "STRENGTHEN TALENT PIPELINES",
     description:
       "Identify and engage a curated pool of high-potential graduates, professionals, entrepreneurs, and emerging executives.",
-    delay: "60ms",
   },
   {
     number: "03",
@@ -43,15 +38,13 @@ const commercialValues = [
     title: "ACCELERATE CUSTOMER GROWTH",
     description:
       "Consent-based engagement can generate qualified leads, product interest, referrals and long-term customer affinity.",
-    delay: "120ms",
   },
   {
     number: "04",
-    icon: Briefcase,
+    icon: BriefcaseBusiness,
     title: "ORIGINATE ENTERPRISE OPPORTUNITIES",
     description:
       "Discover women-owned businesses with potential to enter funding, procurement, supplier-development and market-access pipelines.",
-    delay: "180ms",
   },
   {
     number: "05",
@@ -59,7 +52,6 @@ const commercialValues = [
     title: "ADVANCE ESG COMMITMENTS",
     description:
       "Translate inclusion, skills development and transformation strategies into visible, measurable and reportable action.",
-    delay: "240ms",
   },
 ];
 
@@ -67,26 +59,39 @@ const partnershipTracks = [
   {
     id: "scholarships",
     number: "01",
-    label: "Scholarships and Bursaries",
-    value: "Access to tertiary, professional and executive education",
-    image: "/feature-image4.jpeg",
-    imageAlt: "Young professional women in an executive learning environment",
+    label: "SCHOLARSHIPS AND BURSARIES",
+    value: "ACCESS TO TERTIARY, PROFESSIONAL AND EXECUTIVE EDUCATION",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80",
+    imageAlt:
+      "Young professional women studying together in an academic setting",
+    overlayClass: "bg-black/10",
+    className: "bg-white text-[#171717]",
+    stackClass: "z-10",
   },
   {
     id: "placements",
     number: "02",
-    label: "Graduate Placements & Internships",
-    value: "Workplace experience and meaningful employment pathways",
-    image: "/feature-image7.jpg",
-    imageAlt: "African women professionals leading corporate innovation",
+    label: "GRADUATE PLACEMENTS AND INTERNSHIPS",
+    value: "WORKPLACE EXPERIENCE AND MEANINGFUL EMPLOYMENT",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
+    imageAlt: "Professional African woman in a business workplace setting",
+    overlayClass: "bg-[#E8197D]/20",
+    className: "bg-[#E8197D] text-white",
+    stackClass: "z-20",
   },
   {
     id: "funding",
     number: "03",
-    label: "Funding and Procurement",
-    value: "Capital, supplier development and commercial market access",
-    image: "/feature-image6.jpg",
-    imageAlt: "Enterprise founders and leaders in strategic discussions",
+    label: "FUNDING AND PROCUREMENT",
+    value: "CAPITAL, SUPPLIER DEVELOPMENT AND COMMERCIAL OPPORTUNITIES",
+    image:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80",
+    imageAlt: "Women in an enterprise business meeting discussing commerce",
+    overlayClass: "bg-[#3f3f3f]/30",
+    className: "bg-[#3f3f3f] text-white",
+    stackClass: "z-30",
   },
 ];
 
@@ -119,156 +124,73 @@ export function PartnershipOpportunities() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      return;
-    }
-    const heroImg = document.getElementById("partnerships-hero-parallax-img");
-    if (!heroImg) {
-      return;
-    }
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const speed = 0.3;
-      heroImg.style.transform = `translateY(${scrollY * speed}px) scale(1.12)`;
-    };
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <main className="min-h-screen w-full bg-[#ffffff] font-sans text-[#3f3f3f] selection:bg-[#ed027e] selection:text-[#ffffff]">
+    <main
+      id="top"
+      className="min-h-screen bg-white font-sans text-[#171717] selection:bg-[#ed027e] selection:text-white"
+    >
       {/* Hero Section */}
       <section className="relative flex min-h-screen flex-col">
         <div className="relative min-h-screen w-full overflow-hidden">
-          {/* Unified Site Header */}
+          {/* Stripped header replaced with Home page Header */}
           <Header currentPath="/partnerships" />
 
-          {/* Background Image with Ambient Overlay */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
-              id="partnerships-hero-parallax-img"
-              src="/feature-image2.jpg"
-              alt="EmpowaHer Leadership Partnership Ecosystem"
-              className="h-full w-full object-cover object-center will-change-transform"
-              style={{
-                transform: "translateY(0) scale(1.12)",
-              }}
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=85"
+              alt="Professional women collaborating in a bright contemporary workplace"
+              className="h-full w-full scale-[1.15] object-cover object-center"
             />
           </div>
           <div
-            className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/60 to-black/35"
+            className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.45)_45%,rgba(0,0,0,0.08)_100%)]"
             aria-hidden="true"
           />
 
-          {/* Hero Main Content */}
           <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-5 px-5 pb-10 sm:px-8 sm:pb-14 md:px-12 md:pb-16 lg:px-16 lg:pb-14">
-            {/* Status Badge */}
-            <div
-              className="hero-reveal flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3.5 py-1.5 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm sm:px-4 sm:text-[0.6875rem]"
-              style={{
-                animationDelay: "0ms",
-              }}
-            >
-              <span className="relative flex h-2 w-2 items-center justify-center">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ed027e] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
-              </span>
-              <span>Partnership Ecosystem</span>
-              <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>Summit 2026</span>
-            </div>
-
-            {/* Summit Overline */}
-            <div
-              className="hero-reveal flex flex-wrap items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/85 sm:text-xs lg:tracking-[0.2em]"
-              style={{
-                animationDelay: "60ms",
-              }}
-            >
-              <span>EmpowaHer™ Leadership Programme</span>
-              <span
-                className="inline-block h-3 w-px bg-white/40 align-middle"
-                aria-hidden="true"
-              />
-              <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
-                Partnership Opportunities
-              </span>
-            </div>
-
-            {/* 3-Column Hero Layout */}
+            <span className="text-[0.6875rem] font-bold uppercase tracking-[0.22em] text-white/80">
+              EmpowaHer™ / Partnership
+            </span>
             <div className="grid w-full grid-cols-1 items-end gap-y-6 text-left lg:grid-cols-[2fr_1.2fr_1fr] lg:gap-x-12">
-              <div
-                className="hero-reveal flex flex-col border-white/15 lg:border-r lg:pr-8"
-                style={{
-                  animationDelay: "120ms",
-                }}
-              >
-                <h1 className="font-heading text-[clamp(2.3rem,4.5vw,4.25rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">
-                  <span>A HIGH-VALUE LEADERSHIP,</span>
-                  <br />
-                  <span className="text-[#ed027e]">TALENT &amp; ENTERPRISE</span>
-                  <br />
-                  <span>ECOSYSTEM</span>
+              <div className="border-white/15 lg:border-r lg:pr-8">
+                <h1 className="max-w-[18ch] text-[clamp(2.5rem,5vw,5.4rem)] font-black uppercase leading-[0.9] tracking-[-0.055em] text-white">
+                  <span>A High-Value Leadership, Talent and Enterprise Ecosystem</span>
                 </h1>
-
-                {/* CTA Action Buttons */}
-                <div
-                  className="hero-reveal mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start"
-                  style={{
-                    animationDelay: "300ms",
-                  }}
-                >
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
                     href={PROGRAMME_PDF_PATH}
                     download="EmpowaHER-Programme-2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
+                    className="flex items-center justify-center rounded-full bg-[#ed027e] px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white shadow-lg transition-transform hover:scale-[1.03]"
                   >
                     <span>Download Programme (PDF)</span>
                   </a>
-
                   <a
                     href={PROSPECTUS_EMAIL_HREF}
-                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
+                    className="flex items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#171717]"
                   >
                     <span>Prospectus on Request</span>
                   </a>
-
                   <a
-                    href={PARTNERSHIP_INQUIRY_HREF}
-                    className="flex w-full items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm transition-all hover:border-[#ed027e] hover:bg-[#ed027e]/15 hover:text-white hover:scale-[1.02] sm:w-auto"
+                    href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry"
+                    className="flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-center text-[0.62rem] font-black uppercase tracking-[0.1em] text-white/90 backdrop-blur-sm transition-colors hover:border-[#ed027e] hover:bg-[#ed027e]/15 hover:text-white"
                   >
-                    <Mail className="h-3.5 w-3.5 text-[#ed027e]" />
                     <span>Contact Executive Team</span>
                   </a>
                 </div>
               </div>
 
-              <div
-                className="hero-reveal border-white/15 lg:border-r lg:pr-8"
-                style={{
-                  animationDelay: "180ms",
-                }}
-              >
-                <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
+              <div className="border-white/15 lg:border-r lg:pr-8">
+                <h2 className="max-w-[27ch] text-[clamp(1.125rem,2vw,1.5rem)] font-bold uppercase leading-[1.25] tracking-[-0.01em] text-white/80">
                   <span>
                     EmpowaHer is not a conventional sponsorship platform. It connects partners with Africa&apos;s next generation of women leaders through one integrated investment.
                   </span>
                 </h2>
               </div>
 
-              <div
-                className="hero-reveal"
-                style={{
-                  animationDelay: "240ms",
-                }}
-              >
-                <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
+              <div>
+                <p className="max-w-[30ch] text-sm leading-[1.65] text-white/60">
                   <span>
                     Designed for partners ready to build leadership visibility, strengthen talent pipelines, and convert inclusion commitments into measurable commercial opportunity.
                   </span>
@@ -279,52 +201,59 @@ export function PartnershipOpportunities() {
         </div>
       </section>
 
-      {/* 01 — Commercial Value Section */}
+      {/* Commercial Value Section — as is from cloned component */}
       <section
         id="commercial-value"
-        className="border-t-4 border-[#ed027e] bg-white px-5 py-16 sm:px-8 md:px-12 lg:px-16 lg:py-24"
+        className="border-t-4 border-[#E8197D] bg-white px-5 py-20 sm:px-8 lg:px-16 lg:py-28"
       >
-        <div className="mx-auto max-w-[1200px]">
-          <div className="reveal mb-12 max-w-2xl">
-            <div className="mb-3 border-l-2 border-[#ed027e] pl-2 text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#ed027e]">
-              <span>01 — Commercial Value</span>
-            </div>
-            <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-[#3f3f3f]">
-              <span>Strategic Opportunity &amp; Return</span>
+        <div className="mx-auto max-w-[1280px]">
+          <div className="mb-12 max-w-2xl">
+            <span className="mb-4 block text-[0.58rem] font-bold uppercase tracking-[0.24em] text-[#E8197D]">
+              Commercial Value
+            </span>
+            <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase leading-[0.9] tracking-[-0.05em]">
+              Strategic Opportunity &amp; Return
             </h2>
-            <p className="mt-4 text-[0.9375rem] leading-[1.65] text-[#3f3f3f]/75">
-              EmpowaHer delivers measurable business, talent and brand returns aligned with corporate strategic priorities.
-            </p>
           </div>
-
           <div className="border-t border-black/10">
-            {commercialValues.map((item) => {
-              const Icon = item.icon;
+            {commercialValues.map(({ number, icon: Icon, title, description }) => {
+              const isPinkRow =
+                number === "01" || number === "03" || number === "05";
               return (
                 <article
-                  key={item.number}
-                  className="reveal group relative grid grid-cols-[3.5rem_1fr] items-center gap-4 border-b border-black/10 px-3 py-7 transition-all duration-200 hover:border-l-4 hover:border-l-[#ed027e] hover:bg-[#ed027e]/[0.03] hover:pl-5 sm:grid-cols-[5rem_3rem_1fr] sm:gap-6 sm:py-8 lg:grid-cols-[6rem_3.5rem_1fr] lg:py-9"
-                  style={{
-                    transitionDelay: item.delay,
-                  }}
+                  key={number}
+                  className={`group relative grid grid-cols-[4rem_1fr] gap-5 border-b border-black/10 px-0 py-8 sm:grid-cols-[6rem_2rem_1fr] sm:gap-6 lg:grid-cols-[7rem_2.5rem_1fr] lg:py-10 ${
+                    isPinkRow
+                      ? "bg-[#E8197D] text-white hover:brightness-125 hover:scale-[1.02] hover:shadow-lg cursor-pointer transition-all duration-150"
+                      : Number(number) % 2 === 0
+                      ? "bg-[#F9F4F7] hover:bg-pink-100 hover:scale-[1.02] hover:shadow-md cursor-pointer transition-all duration-150"
+                      : "bg-white hover:bg-pink-100 hover:scale-[1.02] hover:shadow-md cursor-pointer transition-all duration-150"
+                  }`}
                 >
                   <span
                     aria-hidden="true"
-                    className="font-heading text-[3.5rem] font-black leading-none tracking-[-0.06em] text-black/10 transition-colors group-hover:text-[#ed027e]/30 sm:text-[4.5rem]"
+                    className={`text-[4.5rem] font-black leading-[0.72] tracking-[-0.08em] sm:text-[6rem] ${
+                      isPinkRow ? "text-white/20" : "text-black/10"
+                    }`}
                   >
-                    {item.number}
+                    {number}
                   </span>
-
-                  <div className="hidden sm:flex h-11 w-11 items-center justify-center rounded-xl bg-[#ed027e]/10 text-[#ed027e] transition-transform duration-200 group-hover:scale-110 group-hover:bg-[#ed027e] group-hover:text-white">
-                    <Icon className="h-5 w-5" strokeWidth={2} />
-                  </div>
-
+                  <Icon
+                    className={`mt-1 hidden h-6 w-6 sm:block ${
+                      isPinkRow ? "text-white" : "text-[#E8197D]"
+                    }`}
+                    strokeWidth={1.6}
+                  />
                   <div>
-                    <h3 className="font-heading text-lg font-black uppercase tracking-[-0.01em] text-[#3f3f3f] transition-colors group-hover:text-[#ed027e] sm:text-xl">
-                      {item.title}
+                    <h3 className="text-base font-black uppercase tracking-[-0.02em] sm:text-xl">
+                      {title}
                     </h3>
-                    <p className="mt-2 max-w-[68ch] text-sm leading-[1.65] text-[#3f3f3f]/70">
-                      {item.description}
+                    <p
+                      className={`mt-2 max-w-[66ch] text-sm leading-[1.65] ${
+                        isPinkRow ? "text-white/80" : "text-[#171717]/60"
+                      }`}
+                    >
+                      {description}
                     </p>
                   </div>
                 </article>
@@ -334,78 +263,80 @@ export function PartnershipOpportunities() {
         </div>
       </section>
 
-      {/* 02 — Signature Tracks Section */}
+      {/* Signature Tracks Section — as is from cloned component */}
       <section
         id="tracks"
-        className="w-full bg-[#0D0D0D] px-5 py-16 text-white sm:px-8 md:px-12 lg:px-16 lg:py-24"
+        className="w-full bg-[#0D0D0D] px-12 py-20 text-white lg:py-28"
       >
-        <div className="mx-auto max-w-[1200px]">
-          <div className="reveal grid w-full grid-cols-1 gap-6 border-b border-white/15 pb-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
-            <div>
-              <div className="mb-3 border-l-2 border-[#ed027e] pl-2 text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#ed027e]">
-                <span>02 — Signature Tracks</span>
-              </div>
-              <h2 className="font-heading text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-white">
-                <span>Signature Tracks</span>
-              </h2>
-            </div>
-            <p className="max-w-[34rem] self-end text-sm leading-[1.7] text-white/70 lg:text-base">
-              Partner-owned opportunities designed for visible investment in education, workplace experience, capital access and commercial growth.
-            </p>
+        <div className="grid w-full grid-cols-1 gap-8 border-b border-white/15 pb-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+          <div>
+            <span className="mb-5 block text-[0.62rem] font-bold uppercase tracking-[0.28em] text-[#E8197D]">
+              Signature Tracks
+            </span>
+            <h2 className="text-[clamp(3.2rem,8vw,7.5rem)] font-black uppercase leading-[0.82] tracking-[-0.07em] text-white">
+              Signature Tracks
+            </h2>
           </div>
-
-          <div className="grid w-full grid-cols-1 gap-6 pt-10 md:grid-cols-3 lg:gap-8">
-            {partnershipTracks.map((track, idx) => (
-              <article
-                key={track.id}
-                className="reveal group flex flex-col justify-between overflow-hidden rounded-2xl border-b-2 border-[#ed027e] bg-white/[0.03] transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-[#ed027e]/10"
-                style={{
-                  transitionDelay: `${idx * 80}ms`,
-                }}
-              >
-                <div className="relative h-56 w-full overflow-hidden">
-                  <Image
-                    src={track.image}
-                    alt={track.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-black/40 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="rounded-full bg-[#ed027e] px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.16em] text-white shadow-md">
-                      Track {track.number}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+          <p className="max-w-[34rem] self-end text-base leading-[1.7] text-white/65 lg:text-lg">
+            Partner-owned opportunities designed for visible investment in education, workplace experience, capital access and commercial growth.
+          </p>
+        </div>
+        <div className="grid w-full grid-cols-1 gap-6 pt-10 lg:grid-cols-[35fr_65fr] lg:gap-8">
+          <figure className="min-h-[520px] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+              alt="Professional African woman in a business workplace setting"
+              className="h-full w-full object-cover object-center"
+            />
+          </figure>
+          <div className="grid grid-cols-1 gap-6 lg:gap-8">
+            {partnershipTracks.slice(0, 2).map((_mpRecord) => {
+              const { id, number, label, value } = _mpRecord;
+              return (
+                <article
+                  key={id}
+                  className="flex min-h-[250px] flex-col justify-between border-b-2 border-[#E8197D] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:min-h-[310px] lg:p-10"
+                >
+                  <span className="text-[0.62rem] font-black uppercase tracking-[0.28em] text-[#E8197D]">
+                    Track {number}
+                  </span>
                   <div>
-                    <h3 className="font-heading text-2xl font-black uppercase leading-tight tracking-[-0.02em] text-white group-hover:text-[#ed027e] transition-colors">
-                      {track.label}
+                    <h3 className="max-w-[13ch] text-[clamp(2rem,4.2vw,4.4rem)] font-black uppercase leading-[0.88] tracking-[-0.055em] text-white">
+                      {label}
                     </h3>
-                    <p className="mt-3 text-xs font-semibold uppercase leading-relaxed tracking-[0.08em] text-white/60">
-                      {track.value}
+                    <p className="mt-5 max-w-[38ch] text-sm font-semibold uppercase leading-[1.55] tracking-[0.08em] text-white/62">
+                      {value}
                     </p>
                   </div>
-
-                  <div className="mt-6 flex items-center gap-2 pt-4 border-t border-white/10 text-xs font-bold uppercase tracking-[0.12em] text-[#ed027e] group-hover:text-white transition-colors">
-                    <a
-                      href={PARTNERSHIP_INQUIRY_HREF}
-                      className="flex items-center gap-1.5"
-                    >
-                      <span>Inquire About Track</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
+                </article>
+              );
+            })}
+            {partnershipTracks.slice(2).map((_mpRecord) => {
+              const { id, number, label, value } = _mpRecord;
+              return (
+                <article
+                  key={id}
+                  className="flex min-h-[320px] flex-col justify-between border-b-2 border-[#E8197D] bg-white/[0.025] p-8 transition-all duration-200 hover:scale-[1.01] hover:bg-white/5 lg:p-12"
+                >
+                  <span className="text-[0.62rem] font-black uppercase tracking-[0.28em] text-[#E8197D]">
+                    Track {number}
+                  </span>
+                  <div className="grid grid-cols-1 gap-5 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+                    <h3 className="max-w-[13ch] text-[clamp(2.2rem,5vw,5.8rem)] font-black uppercase leading-[0.86] tracking-[-0.06em] text-white">
+                      {label}
+                    </h3>
+                    <p className="max-w-[44ch] text-sm font-semibold uppercase leading-[1.65] tracking-[0.08em] text-white/62 lg:text-base">
+                      {value}
+                    </p>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Unified Site Footer with Contact & Legal */}
+      {/* Stripped footer replaced with Home page Footer */}
       <Footer />
     </main>
   );
