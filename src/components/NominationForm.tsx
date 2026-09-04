@@ -7,7 +7,6 @@ import {
   Check,
   CheckCircle2,
   ChevronRight,
-  Download,
   FileCheck,
   Send,
   Upload,
@@ -17,7 +16,6 @@ import { Footer } from "./Footer";
 
 const HERO_IMAGE_URL =
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=85";
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 
 const heroSteps = [
   { id: "nominee-info", number: 1, label: "Nominee Info", status: "completed" },
@@ -518,19 +516,6 @@ export function NominationForm() {
                   </a>
                 ))}
               </nav>
-
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <a
-                  href={PROGRAMME_PDF_PATH}
-                  download="EmpowaHER-Programme-2026.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#ed027e] hover:underline"
-                >
-                  <Download className="h-4 w-4" />
-                  <span>Download Prospectus</span>
-                </a>
-              </div>
             </div>
           </aside>
 
