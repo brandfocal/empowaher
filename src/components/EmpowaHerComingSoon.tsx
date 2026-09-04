@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -211,13 +210,6 @@ export function EmpowaHerComingSoon() {
                   >
                     <span>Prospectus on Request</span>
                   </a>
-
-                  <Link
-                    href="/partnerships"
-                    className="flex w-full items-center justify-center rounded-full border border-white/25 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm transition-all hover:border-[#ed027e] hover:bg-[#ed027e]/15 hover:text-white hover:scale-[1.02] sm:w-auto"
-                  >
-                    <span>Partnerships</span>
-                  </Link>
                 </div>
               </div>
 
@@ -289,23 +281,15 @@ export function EmpowaHerComingSoon() {
                 <span>Seven pillars of leadership, connection and opportunity</span>
               </p>
               {/* Text-Only CTA Button */}
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={PROGRAMME_PDF_PATH}
-                  download="EmpowaHER-Programme-2026.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90"
-                >
-                  <span>Download Programme (PDF)</span>
-                </a>
-                <Link
-                  href="/partnerships"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[#3f3f3f] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#3f3f3f] transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
-                >
-                  <span>Partnership Opportunities</span>
-                </Link>
-              </div>
+              <a
+                href={PROGRAMME_PDF_PATH}
+                download="EmpowaHER-Programme-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90 sm:w-auto"
+              >
+                <span>Download Programme (PDF)</span>
+              </a>
             </div>
 
             <div className="flex flex-col" aria-label="Programme detail pillars">
