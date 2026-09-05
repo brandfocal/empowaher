@@ -79,18 +79,18 @@ const leadershipQualities = [
 ];
 
 const assessmentAttributes = [
-  "Acts with integrity, self-awareness and personal accountability",
-  "Takes proactive initiative and executes through completion",
-  "Delivers verifiable, measurable professional impact",
-  "Thinks strategically and commercially beyond her immediate role",
-  "Communicates with clarity, authority and persuasive influence",
-  "Collaborates effectively across diverse teams and generations",
-  "Demonstrates robust commercial and organizational awareness",
-  "Learns rapidly, welcomes feedback and adapts with agility",
-  "Navigates ambiguity, complexity and change constructively",
-  "Actively creates pathways and mentorship for other young women",
-  "Demonstrates clear executive, entrepreneurial or board potential",
-  "Can represent her organization and EmpowaHer™ with distinction",
+  { id: 29, text: "Acts with integrity, self-awareness and personal accountability" },
+  { id: 30, text: "Takes proactive initiative and executes through completion" },
+  { id: 31, text: "Delivers verifiable, measurable professional impact" },
+  { id: 32, text: "Thinks strategically and commercially beyond her immediate role" },
+  { id: 33, text: "Communicates with clarity, authority and persuasive influence" },
+  { id: 34, text: "Collaborates effectively across diverse teams and generations" },
+  { id: 35, text: "Demonstrates robust commercial and organizational awareness" },
+  { id: 36, text: "Learns rapidly, welcomes feedback and adapts with agility" },
+  { id: 37, text: "Navigates ambiguity, complexity and change constructively" },
+  { id: 38, text: "Actively creates pathways and mentorship for other young women" },
+  { id: 39, text: "Demonstrates clear executive, entrepreneurial or board potential" },
+  { id: 40, text: "Can represent her organization and EmpowaHer™ with distinction" },
 ];
 
 const programmeStreams = [
@@ -106,28 +106,28 @@ const programmeStreams = [
 ];
 
 const nominatorDeclarations = [
-  "I am authorized to submit this formal endorsement on behalf of my organization.",
-  "The information provided in this nomination is true, accurate and complete.",
-  "I have discussed this nomination and programme commitment with the nominee.",
-  "The nominee meets the age requirement (18–35) and all eligibility criteria.",
-  "I consent to EmpowaWorx contacting me to verify and discuss this endorsement.",
-  "I understand that summit places are limited and completion does not guarantee selection.",
-  "I understand that all selection decisions made by EmpowaWorx are final.",
-  "I consent to the nominee's details being used for confidential assessment.",
-  "Our organization will support the nominee's full attendance and post-summit initiatives.",
-  "I accept the EmpowaHer™ programme terms and privacy policy.",
+  { id: 67, text: "I am authorized to submit this formal endorsement on behalf of my organization." },
+  { id: 68, text: "The information provided in this nomination is true, accurate and complete." },
+  { id: 69, text: "I have discussed this nomination and programme commitment with the nominee." },
+  { id: 70, text: "The nominee meets the age requirement (18–35) and all eligibility criteria." },
+  { id: 71, text: "I consent to EmpowaWorx contacting me to verify and discuss this endorsement." },
+  { id: 72, text: "I understand that summit places are limited and completion does not guarantee selection." },
+  { id: 73, text: "I understand that all selection decisions made by EmpowaWorx are final." },
+  { id: 74, text: "I consent to the nominee's details being used for confidential assessment." },
+  { id: 75, text: "Our organization will support the nominee's full attendance and post-summit initiatives." },
+  { id: 76, text: "I accept the EmpowaHer™ programme terms and privacy policy." },
 ];
 
 const nomineeAcceptance = [
-  "I accept this nomination and wish to be considered for the EmpowaHer™ Summit 2026.",
-  "I confirm that all personal and professional details provided are accurate.",
-  "I meet the age requirement of 18–35 on 29 October 2026.",
-  "I understand that EmpowaHer™ is an invitation-only leadership accelerator.",
-  "I commit to attending the complete three-day programme (29–31 Oct 2026) in Johannesburg.",
-  "I will actively participate in all tracks, labs, and the 100-day post-summit commitment.",
-  "I consent to participating in impact tracking and mentorship activities.",
-  "I understand that selection panel decisions are final.",
-  "I accept the EmpowaHer™ terms and conditions.",
+  { id: 80, text: "I accept this nomination and wish to be considered for the EmpowaHer™ Summit 2026." },
+  { id: 81, text: "I confirm that all personal and professional details provided are accurate." },
+  { id: 82, text: "I meet the age requirement of 18–35 on 29 October 2026." },
+  { id: 83, text: "I understand that EmpowaHer™ is an invitation-only leadership accelerator." },
+  { id: 84, text: "I commit to attending the complete three-day programme (29–31 Oct 2026) in Johannesburg." },
+  { id: 85, text: "I will actively participate in all tracks, labs, and the 100-day post-summit commitment." },
+  { id: 86, text: "I consent to participating in impact tracking and mentorship activities." },
+  { id: 87, text: "I understand that selection panel decisions are final." },
+  { id: 88, text: "I accept the EmpowaHer™ terms and conditions." },
 ];
 
 const ratingScale = [1, 2, 3, 4, 5];
@@ -136,26 +136,47 @@ type ToggleMap = Record<string, boolean>;
 
 const inputClass =
   "min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50";
-const dateInputClass =
-  "min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50 [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:rounded-md [&::-webkit-calendar-picker-indicator]:bg-white/15 [&::-webkit-calendar-picker-indicator]:p-1.5 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:brightness-200 hover:[&::-webkit-calendar-picker-indicator]:bg-[#ed027e] hover:[&::-webkit-calendar-picker-indicator]:brightness-250";
 const textareaClass =
   "min-h-[110px] w-full resize-y rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50";
 
 interface FormFieldProps {
   label: string;
+  name?: string;
+  id?: string;
+  type?: string;
   required?: boolean;
   children?: ReactNode;
   hint?: string;
+  placeholder?: string;
 }
 
-function FormField({ label, required = false, children, hint }: FormFieldProps) {
+function FormField({
+  label,
+  name,
+  id,
+  type = "text",
+  required = false,
+  children,
+  hint,
+  placeholder,
+}: FormFieldProps) {
+  const fieldId = id || name;
   return (
-    <label className="block text-left">
+    <label htmlFor={fieldId} className="block text-left">
       <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-white/60">
         {label}
         {required && <span className="ml-1 text-[#ed027e]">*</span>}
       </span>
-      {children || <input className={inputClass} placeholder={`Enter ${label.toLowerCase()}`} />}
+      {children || (
+        <input
+          name={name}
+          id={fieldId}
+          type={type}
+          required={required}
+          className={inputClass}
+          placeholder={placeholder || `Enter ${label.toLowerCase()}`}
+        />
+      )}
       {hint && <span className="mt-1 block text-[0.75rem] text-white/40">{hint}</span>}
     </label>
   );
@@ -163,11 +184,17 @@ function FormField({ label, required = false, children, hint }: FormFieldProps) 
 
 function FormDateInput({
   className = "",
+  name,
+  id,
+  required = true,
   ...props
 }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       type="date"
+      name={name}
+      id={id || name}
+      required={required}
       className={`${inputClass} [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:rounded-lg [&::-webkit-calendar-picker-indicator]:border [&::-webkit-calendar-picker-indicator]:border-white/35 [&::-webkit-calendar-picker-indicator]:bg-white/20 [&::-webkit-calendar-picker-indicator]:p-1.5 [&::-webkit-calendar-picker-indicator]:[filter:brightness(0)_invert(1)] hover:[&::-webkit-calendar-picker-indicator]:border-[#ed027e] hover:[&::-webkit-calendar-picker-indicator]:bg-[#ed027e] ${className}`}
       {...props}
     />
@@ -176,32 +203,56 @@ function FormDateInput({
 
 function FormTextArea({
   label,
+  name,
+  id,
   max,
   required = true,
+  placeholder = "Provide your detailed response...",
 }: {
   label: string;
+  name: string;
+  id?: string;
   max: number;
   required?: boolean;
+  placeholder?: string;
 }) {
+  const fieldId = id || name;
   return (
-    <FormField label={`${label} (max ${max} words)`} required={required}>
-      <textarea rows={4} className={textareaClass} placeholder="Provide your detailed response..." />
+    <FormField label={`${label} (max ${max} words)`} id={fieldId} required={required}>
+      <textarea
+        name={name}
+        id={fieldId}
+        rows={4}
+        required={required}
+        className={textareaClass}
+        placeholder={placeholder}
+      />
     </FormField>
   );
 }
 
 function ToggleRow({
+  fieldId,
   label,
   toggles,
   setToggles,
 }: {
+  fieldId: number | string;
   label: string;
   toggles: ToggleMap;
   setToggles: Dispatch<SetStateAction<ToggleMap>>;
 }) {
-  const isYes = toggles[label] === true;
+  const key = String(fieldId);
+  const isYes = toggles[key] !== false; // Default true
+
   return (
     <div className="flex flex-col items-start justify-between gap-3 border-b border-white/10 py-4.5 sm:flex-row sm:items-center sm:gap-6">
+      <input
+        type="hidden"
+        name={`input_${fieldId}`}
+        id={`input_${fieldId}`}
+        value={isYes ? "Yes" : "No"}
+      />
       <span
         className={`text-xs font-medium leading-relaxed transition-colors sm:text-sm ${
           isYes ? "text-white" : "text-white/70"
@@ -215,7 +266,7 @@ function ToggleRow({
           onClick={() =>
             setToggles((curr) => ({
               ...curr,
-              [label]: true,
+              [key]: true,
             }))
           }
           className={`min-h-9 min-w-16 rounded-full px-4 text-xs font-bold uppercase tracking-wider transition-all ${
@@ -231,11 +282,11 @@ function ToggleRow({
           onClick={() =>
             setToggles((curr) => ({
               ...curr,
-              [label]: false,
+              [key]: false,
             }))
           }
           className={`min-h-9 min-w-16 rounded-full px-4 text-xs font-bold uppercase tracking-wider transition-all ${
-            toggles[label] === false
+            !isYes
               ? "bg-[#3f3f3f] text-white shadow-md"
               : "border border-white/20 bg-white/5 text-white/60 hover:bg-white/10"
           }`}
@@ -249,24 +300,24 @@ function ToggleRow({
 
 export function NominationForm() {
   const [activeSection, setActiveSection] = useState("section-1");
-  const [ratings, setRatings] = useState<Record<string, number>>({});
+  const [ratings, setRatings] = useState<Record<number, number>>({});
   const [toggles, setToggles] = useState<ToggleMap>({
-    "I confirm the nominee can attend all three days.": true,
-    "I understand partial attendance may affect selection.": true,
-    "I will support post-programme participation.": true,
-    "I will share relevant learning internally.": true,
-    "I will support impact tracking after the Summit.": true,
-    "Would the nominee welcome a mentor introduction?": true,
-    "Can your organisation support a mentoring relationship?": true,
-    "May we contact this reference?": true,
-    "May we verify the information provided?": true,
+    "50": true,
+    "51": true,
+    "52": true,
+    "53": true,
+    "54": true,
+    "55": true,
+    "56": true,
+    "65": true,
+    "66": true,
   });
   const [selectedOrgType, setSelectedOrgType] = useState<string>("");
   const [selectedCareer, setSelectedCareer] = useState<string>("");
   const [selectedQuality, setSelectedQuality] = useState<string>("");
   const [selectedStreams, setSelectedStreams] = useState<string[]>([]);
-  const [nominatorChecks, setNominatorChecks] = useState<Record<string, boolean>>({});
-  const [nomineeChecks, setNomineeChecks] = useState<Record<string, boolean>>({});
+  const [nominatorChecks, setNominatorChecks] = useState<Record<number, boolean>>({});
+  const [nomineeChecks, setNomineeChecks] = useState<Record<number, boolean>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [uploadedFileName, setUploadedFileName] = useState<string>("");
 
@@ -308,17 +359,17 @@ export function NominationForm() {
     });
   };
 
-  const toggleNominatorCheck = (statement: string) => {
+  const toggleNominatorCheck = (id: number) => {
     setNominatorChecks((prev) => ({
       ...prev,
-      [statement]: !prev[statement],
+      [id]: !prev[id],
     }));
   };
 
-  const toggleNomineeCheck = (statement: string) => {
+  const toggleNomineeCheck = (id: number) => {
     setNomineeChecks((prev) => ({
       ...prev,
-      [statement]: !prev[statement],
+      [id]: !prev[id],
     }));
   };
 
@@ -571,7 +622,14 @@ export function NominationForm() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form
+                id="gform_1"
+                data-formid="1"
+                onSubmit={handleSubmit}
+                className="space-y-8"
+              >
+                <input type="hidden" name="gform_form_id" value="1" />
+
                 {/* Section 01: Nominator Information */}
                 <section
                   id="section-1"
@@ -590,15 +648,16 @@ export function NominationForm() {
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <FormField label="Full Name" required />
-                    <FormField label="Professional Title" required />
-                    <FormField label="Organisation / Institution" required />
-                    <FormField label="Official Work Email" required />
-                    <FormField label="Direct Contact Number" required />
-                    <FormField label="Relationship to Nominee" required />
+                    <FormField label="Full Name" name="input_1" id="input_1" required />
+                    <FormField label="Professional Title" name="input_3" id="input_3" required />
+                    <FormField label="Organisation / Institution" name="input_4" id="input_4" required />
+                    <FormField label="Official Work Email" name="input_5" id="input_5" type="email" required />
+                    <FormField label="Direct Contact Number" name="input_6" id="input_6" type="tel" required />
+                    <FormField label="Relationship to Nominee" name="input_7" id="input_7" required />
                   </div>
 
                   <div className="mt-8 border-t border-white/10 pt-6">
+                    <input type="hidden" name="input_8" id="input_8" value={selectedOrgType} />
                     <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-white/60">
                       Organisation Type <span className="text-[#ed027e]">*</span>
                     </span>
@@ -648,26 +707,29 @@ export function NominationForm() {
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <FormField label="Full Name of Nominee" required />
-                    <FormField label="Age on 29 Oct 2026 (18–35)" required>
+                    <FormField label="Full Name of Nominee" name="input_9" id="input_9" required />
+                    <FormField label="Age on 29 Oct 2026 (18–35)" name="input_10" id="input_10" required>
                       <input
                         type="number"
+                        name="input_10"
+                        id="input_10"
                         min="18"
                         max="35"
                         placeholder="e.g. 28"
+                        required
                         className={inputClass}
                       />
                     </FormField>
-                    <FormField label="Date of Birth" required>
-                      <FormDateInput />
+                    <FormField label="Date of Birth" name="input_11" id="input_11" required>
+                      <FormDateInput name="input_11" id="input_11" required />
                     </FormField>
-                    <FormField label="Nationality" required />
-                    <FormField label="Province / Country" required />
-                    <FormField label="Nominee Email" required />
-                    <FormField label="Nominee Phone" required />
-                    <FormField label="Current Job Title" required />
-                    <FormField label="Current Employer / Enterprise" required />
-                    <FormField label="LinkedIn Profile URL" />
+                    <FormField label="Nationality" name="input_12" id="input_12" required />
+                    <FormField label="Province / Country" name="input_13" id="input_13" required />
+                    <FormField label="Nominee Email" name="input_14" id="input_14" type="email" required />
+                    <FormField label="Nominee Phone" name="input_15" id="input_15" type="tel" required />
+                    <FormField label="Current Job Title" name="input_16" id="input_16" required />
+                    <FormField label="Current Employer / Enterprise" name="input_17" id="input_17" required />
+                    <FormField label="LinkedIn Profile URL" name="input_18" id="input_18" type="url" />
                   </div>
 
                   {/* CV Upload */}
@@ -685,6 +747,8 @@ export function NominationForm() {
                       </span>
                       <input
                         type="file"
+                        name="input_19"
+                        id="input_19"
                         accept=".pdf,.doc,.docx"
                         onChange={handleFileUpload}
                         className="sr-only"
@@ -694,6 +758,7 @@ export function NominationForm() {
 
                   {/* Career Stage Selection */}
                   <div className="mt-8 border-t border-white/10 pt-6">
+                    <input type="hidden" name="input_20" id="input_20" value={selectedCareer} />
                     <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-white/60">
                       Candidate Career Stage <span className="text-[#ed027e]">*</span>
                     </span>
@@ -744,22 +809,29 @@ export function NominationForm() {
 
                   <div className="space-y-6">
                     <FormTextArea
-                      label="Q26: Why have you selected this woman for the EmpowaHer™ Leadership Accelerator?"
+                      label="Q21: Why have you selected this woman for the EmpowaHer™ Leadership Accelerator?"
+                      name="input_21"
+                      id="input_21"
                       max={250}
                     />
                     <FormTextArea
-                      label="Q27: What leadership responsibility has she demonstrated without waiting for a formal title?"
+                      label="Q22: What leadership responsibility has she demonstrated without waiting for a formal title?"
+                      name="input_22"
+                      id="input_22"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q28: What verifiable, measurable impact has she created within your organisation or community?"
+                      label="Q23: What verifiable, measurable impact has she created within your organisation or community?"
+                      name="input_23"
+                      id="input_23"
                       max={250}
                     />
 
                     {/* Strongest Leadership Quality */}
                     <div className="border-y border-white/10 py-6">
+                      <input type="hidden" name="input_24" id="input_24" value={selectedQuality} />
                       <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-white/60">
-                        Q29: What is her single strongest leadership quality? <span className="text-[#ed027e]">*</span>
+                        Q24: What is her single strongest leadership quality? <span className="text-[#ed027e]">*</span>
                       </span>
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                         {leadershipQualities.map((quality) => (
@@ -789,19 +861,27 @@ export function NominationForm() {
                     </div>
 
                     <FormTextArea
-                      label="Q30: Explain how she concretely demonstrates this leadership quality."
+                      label="Q25: Explain how she concretely demonstrates this leadership quality"
+                      name="input_25"
+                      id="input_25"
                       max={150}
                     />
                     <FormTextArea
-                      label="Q31: What is the most significant leadership challenge she has navigated successfully?"
+                      label="Q26: What is the most significant leadership challenge she has navigated successfully?"
+                      name="input_26"
+                      id="input_26"
                       max={150}
                     />
                     <FormTextArea
-                      label="Q32: Why is this the pivotal moment in her career for accelerated development?"
+                      label="Q27: Why is this the pivotal moment in her career for accelerated development?"
+                      name="input_27"
+                      id="input_27"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q33: In what leadership capacity do you foresee her operating in three years?"
+                      label="Q28: In what leadership capacity do you foresee her operating in three years?"
+                      name="input_28"
+                      id="input_28"
                       max={150}
                     />
                   </div>
@@ -826,45 +906,54 @@ export function NominationForm() {
                   </div>
 
                   <div className="divide-y divide-white/10">
-                    {assessmentAttributes.map((attribute, idx) => (
-                      <div
-                        key={attribute}
-                        className="grid grid-cols-1 items-center gap-4 py-5 md:grid-cols-[1fr_auto]"
-                      >
-                        <div>
-                          <span className="font-heading text-xs font-bold text-[#ed027e]">
-                            Criterion {String(idx + 1).padStart(2, "0")}
-                          </span>
-                          <p className="mt-1 font-sans text-xs font-medium text-white/90 sm:text-sm">
-                            {attribute}
-                          </p>
+                    {assessmentAttributes.map((attribute, idx) => {
+                      const isSelectedValue = ratings[attribute.id];
+                      return (
+                        <div
+                          key={attribute.id}
+                          className="grid grid-cols-1 items-center gap-4 py-5 md:grid-cols-[1fr_auto]"
+                        >
+                          <input
+                            type="hidden"
+                            name={`input_${attribute.id}`}
+                            id={`input_${attribute.id}`}
+                            value={isSelectedValue || ""}
+                          />
+                          <div>
+                            <span className="font-heading text-xs font-bold text-[#ed027e]">
+                              Criterion {String(idx + 1).padStart(2, "0")} (ID: {attribute.id})
+                            </span>
+                            <p className="mt-1 font-sans text-xs font-medium text-white/90 sm:text-sm">
+                              {attribute.text}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {ratingScale.map((rating) => {
+                              const isSelected = isSelectedValue === rating;
+                              return (
+                                <button
+                                  type="button"
+                                  key={rating}
+                                  onClick={() =>
+                                    setRatings((prev) => ({
+                                      ...prev,
+                                      [attribute.id]: rating,
+                                    }))
+                                  }
+                                  className={`flex h-11 w-11 items-center justify-center rounded-xl font-heading text-sm font-black transition-all ${
+                                    isSelected
+                                      ? "bg-[#ed027e] text-white shadow-lg scale-105 ring-2 ring-[#ed027e]/50"
+                                      : "border border-white/15 bg-white/5 text-white/60 hover:border-[#ed027e]/40 hover:bg-white/10 hover:text-white"
+                                  }`}
+                                >
+                                  {rating}
+                                </button>
+                              );
+                            })}
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          {ratingScale.map((rating) => {
-                            const isSelected = ratings[attribute] === rating;
-                            return (
-                              <button
-                                type="button"
-                                key={rating}
-                                onClick={() =>
-                                  setRatings((prev) => ({
-                                    ...prev,
-                                    [attribute]: rating,
-                                  }))
-                                }
-                                className={`flex h-11 w-11 items-center justify-center rounded-xl font-heading text-sm font-black transition-all ${
-                                  isSelected
-                                    ? "bg-[#ed027e] text-white shadow-lg scale-105 ring-2 ring-[#ed027e]/50"
-                                    : "border border-white/15 bg-white/5 text-white/60 hover:border-[#ed027e]/40 hover:bg-white/10 hover:text-white"
-                                }`}
-                              >
-                                {rating}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Weighted Potential Score Summary & Captured Fields */}
@@ -916,14 +1005,17 @@ export function NominationForm() {
                     {/* Captured Score Field */}
                     <div className="mt-6 border-t border-white/10 pt-6">
                       <FormField
-                        label="Q34: Captured Weighted Score (%)"
+                        label="Q41: Captured Weighted Score (%)"
+                        name="input_41"
+                        id="input_41"
                         required
                         hint="Composite percentage score automatically recorded for candidate evaluation"
                       >
                         <div className="relative">
                           <input
                             type="text"
-                            name="weighted_score"
+                            name="input_41"
+                            id="input_41"
                             value={
                               ratedCount > 0
                                 ? `${weightedScorePercent}% (${totalScore} / ${maxScore} pts · Avg ${averageRating.toFixed(2)}/5)`
@@ -943,7 +1035,9 @@ export function NominationForm() {
 
                   <div className="mt-8 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q35: What specific evidence or track record supports your ratings above?"
+                      label="Q42: What specific evidence or track record supports your ratings above?"
+                      name="input_42"
+                      id="input_42"
                       max={200}
                     />
                   </div>
@@ -967,8 +1061,14 @@ export function NominationForm() {
                   </div>
 
                   <div>
+                    <input
+                      type="hidden"
+                      name="input_43"
+                      id="input_43"
+                      value={selectedStreams.join(", ")}
+                    />
                     <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-white/60">
-                      Q36: Select up to 3 Most Relevant Leadership Tracks <span className="text-[#ed027e]">*</span>
+                      Q43: Select up to 3 Most Relevant Leadership Tracks <span className="text-[#ed027e]">*</span>
                     </span>
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {programmeStreams.map((stream) => {
@@ -1002,15 +1102,21 @@ export function NominationForm() {
 
                   <div className="mt-8 space-y-6 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q37: Which core capability would most accelerate her career impact?"
+                      label="Q44: Which core capability would most accelerate her career impact?"
+                      name="input_44"
+                      id="input_44"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q38: How will she contribute uniquely to her cohort and peer network?"
+                      label="Q45: How will she contribute uniquely to her cohort and peer network?"
+                      name="input_45"
+                      id="input_45"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q39: What does meaningful programme success look like for her over 12 months?"
+                      label="Q46: What does meaningful programme success look like for her over 12 months?"
+                      name="input_46"
+                      id="input_46"
                       max={200}
                     />
                   </div>
@@ -1021,9 +1127,9 @@ export function NominationForm() {
                       Executive Sponsor within Organisation
                     </span>
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                      <FormField label="Executive Sponsor Name" required />
-                      <FormField label="Sponsor Title" required />
-                      <FormField label="Sponsor Work Email" required />
+                      <FormField label="Executive Sponsor Name" name="input_47" id="input_47" required />
+                      <FormField label="Sponsor Title" name="input_48" id="input_48" required />
+                      <FormField label="Sponsor Work Email" name="input_49" id="input_49" type="email" required />
                     </div>
                   </div>
                 </section>
@@ -1047,27 +1153,32 @@ export function NominationForm() {
 
                   <div className="divide-y divide-white/10">
                     <ToggleRow
-                      label="Q40: I confirm the nominee can attend all three summit days (29–31 Oct 2026)."
+                      fieldId={50}
+                      label="Q50: I confirm the nominee can attend all three summit days (29–31 Oct 2026)."
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q41: I understand partial attendance may affect summit qualification."
+                      fieldId={51}
+                      label="Q51: I understand partial attendance may affect summit qualification."
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q42: Our organization will support her post-programme 100-day commitment."
+                      fieldId={52}
+                      label="Q52: Our organization will support her post-programme 100-day commitment."
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q43: The nominee will have opportunities to share summit learnings internally."
+                      fieldId={53}
+                      label="Q53: The nominee will have opportunities to share summit learnings internally."
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q44: We will participate in 12-month post-summit impact tracking."
+                      fieldId={54}
+                      label="Q54: We will participate in 12-month post-summit impact tracking."
                       toggles={toggles}
                       setToggles={setToggles}
                     />
@@ -1090,12 +1201,14 @@ export function NominationForm() {
 
                   <div className="divide-y divide-white/10">
                     <ToggleRow
-                      label="Q46: Would the nominee benefit from an executive mentor introduction?"
+                      fieldId={55}
+                      label="Q55: Would the nominee benefit from an executive mentor introduction?"
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q47: Can your organisation support an active executive mentoring relationship?"
+                      fieldId={56}
+                      label="Q56: Can your organisation support an active executive mentoring relationship?"
                       toggles={toggles}
                       setToggles={setToggles}
                     />
@@ -1103,11 +1216,15 @@ export function NominationForm() {
 
                   <div className="mt-8 space-y-6 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q48: What specific mentorship focus would create the highest value?"
+                      label="Q57: What specific mentorship focus would create the highest value?"
+                      name="input_57"
+                      id="input_57"
                       max={150}
                     />
                     <FormTextArea
-                      label="Q49: Are there specific industry or board leader profiles we should consider?"
+                      label="Q58: Are there specific industry or board leader profiles we should consider?"
+                      name="input_58"
+                      id="input_58"
                       max={150}
                       required={false}
                     />
@@ -1129,22 +1246,24 @@ export function NominationForm() {
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                    <FormField label="Senior Reference Name" required />
-                    <FormField label="Professional Title" required />
-                    <FormField label="Organisation" required />
-                    <FormField label="Official Email" required />
-                    <FormField label="Phone Number" required />
-                    <FormField label="Professional Relationship" required />
+                    <FormField label="Senior Reference Name" name="input_59" id="input_59" required />
+                    <FormField label="Professional Title" name="input_60" id="input_60" required />
+                    <FormField label="Organisation" name="input_61" id="input_61" required />
+                    <FormField label="Official Email" name="input_62" id="input_62" type="email" required />
+                    <FormField label="Phone Number" name="input_63" id="input_63" type="tel" required />
+                    <FormField label="Professional Relationship" name="input_64" id="input_64" required />
                   </div>
 
                   <div className="mt-6 divide-y divide-white/10 border-t border-white/10 pt-4">
                     <ToggleRow
-                      label="Q51: May the selection committee contact this reference for verification?"
+                      fieldId={65}
+                      label="Q65: May the selection committee contact this reference for verification?"
                       toggles={toggles}
                       setToggles={setToggles}
                     />
                     <ToggleRow
-                      label="Q52: May we verify submitted achievements with relevant bodies?"
+                      fieldId={66}
+                      label="Q66: May we verify submitted achievements with relevant bodies?"
                       toggles={toggles}
                       setToggles={setToggles}
                     />
@@ -1167,34 +1286,40 @@ export function NominationForm() {
 
                   <div className="space-y-3.5">
                     {nominatorDeclarations.map((stmt) => {
-                      const isChecked = !!nominatorChecks[stmt];
+                      const isChecked = !!nominatorChecks[stmt.id];
                       return (
                         <label
-                          key={stmt}
+                          key={stmt.id}
                           className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-white/80 transition-colors hover:text-white sm:text-sm"
                         >
                           <input
                             type="checkbox"
+                            name={`input_${stmt.id}`}
+                            id={`input_${stmt.id}`}
+                            value="1"
                             checked={isChecked}
-                            onChange={() => toggleNominatorCheck(stmt)}
+                            onChange={() => toggleNominatorCheck(stmt.id)}
                             className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 bg-white/5 accent-[#ed027e]"
                           />
-                          <span>{stmt}</span>
+                          <span>{stmt.text}</span>
                         </label>
                       );
                     })}
                   </div>
 
                   <div className="mt-8 grid grid-cols-1 gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
-                    <FormField label="Q53: Nominator Full Name" required />
-                    <FormField label="Q54: Digital Signature (Type Full Name)" required>
+                    <FormField label="Q77: Nominator Full Name" name="input_77" id="input_77" required />
+                    <FormField label="Q78: Digital Signature (Type Full Name)" name="input_78" id="input_78" required>
                       <input
+                        name="input_78"
+                        id="input_78"
+                        required
                         className={`${inputClass} font-serif italic`}
                         placeholder="Type full legal name"
                       />
                     </FormField>
-                    <FormField label="Q55: Date of Endorsement" required>
-                      <FormDateInput />
+                    <FormField label="Q79: Date of Endorsement" name="input_79" id="input_79" required>
+                      <FormDateInput name="input_79" id="input_79" required />
                     </FormField>
                   </div>
                 </section>
@@ -1215,34 +1340,40 @@ export function NominationForm() {
 
                   <div className="space-y-3.5">
                     {nomineeAcceptance.map((stmt) => {
-                      const isChecked = !!nomineeChecks[stmt];
+                      const isChecked = !!nomineeChecks[stmt.id];
                       return (
                         <label
-                          key={stmt}
+                          key={stmt.id}
                           className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-white/80 transition-colors hover:text-white sm:text-sm"
                         >
                           <input
                             type="checkbox"
+                            name={`input_${stmt.id}`}
+                            id={`input_${stmt.id}`}
+                            value="1"
                             checked={isChecked}
-                            onChange={() => toggleNomineeCheck(stmt)}
+                            onChange={() => toggleNomineeCheck(stmt.id)}
                             className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 bg-white/5 accent-[#ed027e]"
                           />
-                          <span>{stmt}</span>
+                          <span>{stmt.text}</span>
                         </label>
                       );
                     })}
                   </div>
 
                   <div className="mt-8 grid grid-cols-1 gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
-                    <FormField label="Q56: Nominee Full Name" required />
-                    <FormField label="Q57: Nominee Digital Signature" required>
+                    <FormField label="Q89: Nominee Full Name" name="input_89" id="input_89" required />
+                    <FormField label="Q90: Nominee Digital Signature" name="input_90" id="input_90" required>
                       <input
+                        name="input_90"
+                        id="input_90"
+                        required
                         className={`${inputClass} font-serif italic`}
                         placeholder="Type full legal name"
                       />
                     </FormField>
-                    <FormField label="Q58: Date of Acceptance" required>
-                      <FormDateInput />
+                    <FormField label="Q91: Date of Acceptance" name="input_91" id="input_91" required>
+                      <FormDateInput name="input_91" id="input_91" required />
                     </FormField>
                   </div>
 
