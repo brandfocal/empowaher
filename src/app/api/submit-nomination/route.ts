@@ -123,14 +123,29 @@ export async function POST(req: NextRequest) {
     if (!response.ok) {
       const errorText = await response.text();
       let parsedError = errorText;
+      let errorCode = "";
       try {
         const jsonError = JSON.parse(errorText);
         parsedError = jsonError?.message || jsonError?.error || errorText;
+        errorCode = jsonError?.code || "";
       } catch {
         // use raw errorText
       }
 
       console.error("Gravity Forms API Error:", response.status, parsedError);
+
+      if (response.status === 404 && (errorCode === "rest_no_route" || parsedError.includes("No route was found"))) {
+        return NextResponse.json(
+          {
+            success: false,
+            status: 404,
+            error:
+              "The Gravity Forms REST API is not enabled on cms.empowaher.co.za. In WordPress Admin, go to Forms > Settings > REST API, check 'Enable REST API', and click 'Save Settings'. Also ensure API keys are generated under that section.",
+          },
+          { status: 404 }
+        );
+      }
+
       return NextResponse.json(
         {
           success: false,
