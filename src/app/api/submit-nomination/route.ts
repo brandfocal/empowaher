@@ -3,11 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 function formatUrl(rawUrl: string): string {
-  let url = rawUrl.trim().replace(/\/+$/, "");
-  if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
-    url = `https://${url}`;
-  }
-  return url;
+  let url = (rawUrl || "").trim();
+  if (!url) return "";
+
+  // Remove any duplicate or repeated protocols (e.g. https://https:// or http://https://)
+  url = url.replace(/^(https?:\/\/)+/gi, "");
+  url = url.replace(/^(https?:\/)+/gi, "");
+  url = url.replace(/^(https?:)+/gi, "");
+  url = url.replace(/\/+$/, "");
+
+  if (!url) return "";
+  return `https://${url}`;
 }
 
 export async function POST(req: NextRequest) {
