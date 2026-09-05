@@ -913,8 +913,8 @@ export function NominationForm() {
                       />
                     </div>
 
-                    {/* Captured Score & Tier Fields */}
-                    <div className="mt-6 grid grid-cols-1 gap-5 border-t border-white/10 pt-6 sm:grid-cols-2">
+                    {/* Captured Score Field */}
+                    <div className="mt-6 border-t border-white/10 pt-6">
                       <FormField
                         label="Q34: Captured Weighted Score (%)"
                         required
@@ -938,36 +938,12 @@ export function NominationForm() {
                           </span>
                         </div>
                       </FormField>
-
-                      <FormField
-                        label="Q35: Performance Caliber Tier"
-                        required
-                        hint="Calibrated rating tier classification"
-                      >
-                        <input
-                          type="text"
-                          name="caliber_tier"
-                          value={
-                            ratedCount === 0
-                              ? "Pending Assessment Ratings"
-                              : weightedScorePercent >= 90
-                              ? "Tier 1: Exceptional / Board & Executive Track"
-                              : weightedScorePercent >= 75
-                              ? "Tier 2: High Potential / Accelerated Pipeline"
-                              : weightedScorePercent >= 60
-                              ? "Tier 3: Emerging Leader / Developmental"
-                              : "Tier 4: Foundational"
-                          }
-                          readOnly
-                          className={`${inputClass} font-bold text-white/90 bg-white/[0.06]`}
-                        />
-                      </FormField>
                     </div>
                   </div>
 
                   <div className="mt-8 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q36: What specific evidence or track record supports your ratings above?"
+                      label="Q35: What specific evidence or track record supports your ratings above?"
                       max={200}
                     />
                   </div>
@@ -992,7 +968,7 @@ export function NominationForm() {
 
                   <div>
                     <span className="mb-3 block text-xs font-semibold uppercase tracking-wider text-white/60">
-                      Q35: Select up to 3 Most Relevant Leadership Tracks <span className="text-[#ed027e]">*</span>
+                      Q36: Select up to 3 Most Relevant Leadership Tracks <span className="text-[#ed027e]">*</span>
                     </span>
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {programmeStreams.map((stream) => {
@@ -1026,15 +1002,15 @@ export function NominationForm() {
 
                   <div className="mt-8 space-y-6 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q36: Which core capability would most accelerate her career impact?"
+                      label="Q37: Which core capability would most accelerate her career impact?"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q37: How will she contribute uniquely to her cohort and peer network?"
+                      label="Q38: How will she contribute uniquely to her cohort and peer network?"
                       max={200}
                     />
                     <FormTextArea
-                      label="Q38: What does meaningful programme success look like for her over 12 months?"
+                      label="Q39: What does meaningful programme success look like for her over 12 months?"
                       max={200}
                     />
                   </div>
