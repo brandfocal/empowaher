@@ -42,6 +42,47 @@ export async function POST(req: NextRequest) {
       }
     });
 
+    // Handle CV / Profile document upload (Field ID: 19)
+    const cvFile = formData.get("input_19");
+    if (cvFile && typeof cvFile === "object" && "arrayBuffer" in cvFile) {
+      const file = cvFile as File;
+      if (file.size > 0) {
+        const rawFileName = file.name || "nominee-cv.pdf";
+        const sanitizedFileName = rawFileName.replace(/[^a-zA-Z0-9._-]/g, "_");
+        let uploadedUrl = "";
+
+        if (wpUrl && consumerKey && consumerSecret) {
+          try {
+            const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
+            const fileBuffer = Buffer.from(await file.arrayBuffer());
+
+            const mediaRes = await fetch(`${wpUrl}/wp-json/wp/v2/media`, {
+              method: "POST",
+              headers: {
+                "Content-Disposition": `attachment; filename="${sanitizedFileName}"`,
+                "Content-Type": file.type || "application/pdf",
+                Authorization: `Basic ${authString}`,
+              },
+              body: fileBuffer,
+            });
+
+            if (mediaRes.ok) {
+              const mediaData = await mediaRes.json();
+              uploadedUrl = mediaData.source_url || mediaData.guid?.rendered || "";
+            } else {
+              console.warn("WordPress media upload returned status:", mediaRes.status);
+            }
+          } catch (mediaErr) {
+            console.warn("Could not upload to WordPress media library:", mediaErr);
+          }
+        }
+
+        const finalFileValue = uploadedUrl || sanitizedFileName;
+        inputValues["input_19"] = finalFileValue;
+        entryValues["19"] = finalFileValue;
+      }
+    }
+
     // Validate that a real WordPress or Webhook destination is configured
     const isPlaceholder =
       !wpUrl ||
