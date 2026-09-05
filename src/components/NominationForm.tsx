@@ -380,6 +380,9 @@ export function NominationForm() {
     }
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const scrollToFormSection = () => {
     const formSection = document.getElementById("nomination-form");
     if (formSection) {
@@ -387,16 +390,49 @@ export function NominationForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      scrollToFormSection();
-    }, 50);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const formElement = e.currentTarget;
+      const formData = new FormData(formElement);
+
+      const res = await fetch("/api/submit-nomination", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || `Submission failed with status ${res.status}`);
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        scrollToFormSection();
+      }, 50);
+    } catch (err: any) {
+      console.error("Nomination submission error:", err);
+      setSubmitError(
+        err?.message || "An error occurred while submitting the nomination. Please check your connection or Gravity Forms configuration."
+      );
+      setTimeout(() => {
+        const errorElem = document.getElementById("nomination-error-notice");
+        if (errorElem) {
+          errorElem.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 50);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
     setIsSubmitted(false);
+    setSubmitError(null);
     setTimeout(() => {
       scrollToFormSection();
     }, 50);
@@ -1393,6 +1429,22 @@ export function NominationForm() {
                     </FormField>
                   </div>
 
+                  {/* Error Notification */}
+                  {submitError && (
+                    <div
+                      id="nomination-error-notice"
+                      className="mt-6 rounded-2xl border border-red-500/40 bg-red-500/10 p-5 text-sm text-red-200"
+                    >
+                      <div className="flex items-start gap-3">
+                        <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-400" />
+                        <div>
+                          <strong className="block font-bold text-white">Submission Error</strong>
+                          <p className="mt-1 text-xs leading-relaxed text-red-200">{submitError}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Submission Notice */}
                   <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-xs italic text-white/60 sm:text-sm">
                     By submitting this nomination form, both nominator and nominee confirm that all information is accurate and agree to the EmpowaHer™ evaluation protocol.
@@ -1409,10 +1461,24 @@ export function NominationForm() {
 
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] px-10 py-4 font-heading text-sm font-black uppercase tracking-[0.14em] text-white shadow-xl transition-all hover:scale-[1.02] hover:bg-[#ed027e]/90 hover:shadow-2xl sm:w-auto"
+                      disabled={isSubmitting}
+                      className={`inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] px-10 py-4 font-heading text-sm font-black uppercase tracking-[0.14em] text-white shadow-xl transition-all ${
+                        isSubmitting
+                          ? "cursor-not-allowed opacity-75"
+                          : "hover:scale-[1.02] hover:bg-[#ed027e]/90 hover:shadow-2xl"
+                      } sm:w-auto`}
                     >
-                      <Send className="h-4 w-4" />
-                      <span>Submit Nomination</span>
+                      {isSubmitting ? (
+                        <>
+                          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                          <span>Submitting Nomination...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4" />
+                          <span>Submit Nomination</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </section>
