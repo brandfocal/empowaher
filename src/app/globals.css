@@ -285,3 +285,30 @@ p {
     will-change: auto;
   }
 }
+
+/* ==========================================================================
+   Date Inputs & Form Controls
+   ========================================================================== */
+input[type="date"] {
+  color-scheme: dark;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-right: -2px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  background-color: #ed027e !important;
+  border-color: #ed027e !important;
+  filter: brightness(0) invert(1) !important;
+  transform: scale(1.08);
+}
+

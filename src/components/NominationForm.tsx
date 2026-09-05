@@ -4,6 +4,8 @@ import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction
 import {
   AlertCircle,
   ArrowUpRight,
+  Award,
+  Calendar,
   Check,
   CheckCircle2,
   ChevronRight,
@@ -134,6 +136,8 @@ type ToggleMap = Record<string, boolean>;
 
 const inputClass =
   "min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50";
+const dateInputClass =
+  "min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50 [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:rounded-md [&::-webkit-calendar-picker-indicator]:bg-white/15 [&::-webkit-calendar-picker-indicator]:p-1.5 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:brightness-200 hover:[&::-webkit-calendar-picker-indicator]:bg-[#ed027e] hover:[&::-webkit-calendar-picker-indicator]:brightness-250";
 const textareaClass =
   "min-h-[110px] w-full resize-y rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white/90 outline-none transition-all duration-200 placeholder:text-white/30 focus:border-[#ed027e] focus:bg-white/[0.07] focus:ring-1 focus:ring-[#ed027e]/50";
 
@@ -154,6 +158,19 @@ function FormField({ label, required = false, children, hint }: FormFieldProps) 
       {children || <input className={inputClass} placeholder={`Enter ${label.toLowerCase()}`} />}
       {hint && <span className="mt-1 block text-[0.75rem] text-white/40">{hint}</span>}
     </label>
+  );
+}
+
+function FormDateInput({
+  className = "",
+  ...props
+}: React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <input
+      type="date"
+      className={`${inputClass} [color-scheme:dark] [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:rounded-lg [&::-webkit-calendar-picker-indicator]:border [&::-webkit-calendar-picker-indicator]:border-white/35 [&::-webkit-calendar-picker-indicator]:bg-white/20 [&::-webkit-calendar-picker-indicator]:p-1.5 [&::-webkit-calendar-picker-indicator]:[filter:brightness(0)_invert(1)] hover:[&::-webkit-calendar-picker-indicator]:border-[#ed027e] hover:[&::-webkit-calendar-picker-indicator]:bg-[#ed027e] ${className}`}
+      {...props}
+    />
   );
 }
 
@@ -252,6 +269,12 @@ export function NominationForm() {
   const [nomineeChecks, setNomineeChecks] = useState<Record<string, boolean>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [uploadedFileName, setUploadedFileName] = useState<string>("");
+
+  const ratedCount = Object.keys(ratings).length;
+  const totalScore = Object.values(ratings).reduce((acc, curr) => acc + curr, 0);
+  const maxScore = assessmentAttributes.length * 5;
+  const weightedScorePercent = ratedCount > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
+  const averageRating = ratedCount > 0 ? totalScore / ratedCount : 0;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -636,7 +659,7 @@ export function NominationForm() {
                       />
                     </FormField>
                     <FormField label="Date of Birth" required>
-                      <input type="date" className={inputClass} />
+                      <FormDateInput />
                     </FormField>
                     <FormField label="Nationality" required />
                     <FormField label="Province / Country" required />
@@ -844,9 +867,107 @@ export function NominationForm() {
                     ))}
                   </div>
 
+                  {/* Weighted Potential Score Summary & Captured Fields */}
+                  <div className="mt-8 rounded-2xl border border-[#ed027e]/30 bg-gradient-to-r from-[#ed027e]/10 via-white/[0.03] to-white/[0.02] p-6 sm:p-8">
+                    <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                      <div>
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#ed027e]">
+                          <Award className="h-4 w-4" />
+                          <span>Weighted Potential Index</span>
+                        </div>
+                        <h4 className="mt-1 font-heading text-2xl font-black uppercase text-white sm:text-3xl">
+                          Overall Weighted Score
+                        </h4>
+                        <p className="mt-1 text-xs text-white/60 sm:text-sm">
+                          Composite potential rating calibrated out of 100% across all 12 core leadership criteria.
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="rounded-2xl border border-white/15 bg-black/60 px-5 py-3.5 text-center sm:px-6 sm:py-4">
+                          <div className="font-heading text-3xl font-black text-[#ed027e] sm:text-4xl">
+                            {ratedCount > 0 ? `${weightedScorePercent}%` : "0%"}
+                          </div>
+                          <div className="text-[0.625rem] font-semibold uppercase tracking-wider text-white/60 sm:text-[0.6875rem]">
+                            {ratedCount} / {assessmentAttributes.length} Rated
+                          </div>
+                        </div>
+                        {ratedCount > 0 && (
+                          <div className="rounded-2xl border border-white/15 bg-black/60 px-4 py-3.5 text-center sm:px-5 sm:py-4">
+                            <div className="font-heading text-3xl font-black text-white sm:text-4xl">
+                              {averageRating.toFixed(2)}
+                            </div>
+                            <div className="text-[0.625rem] font-semibold uppercase tracking-wider text-white/60 sm:text-[0.6875rem]">
+                              Avg / 5.0
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Dynamic Score Bar */}
+                    <div className="mt-5 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-[#ed027e] to-[#ff5ca8] transition-all duration-500 ease-out"
+                        style={{ width: `${weightedScorePercent}%` }}
+                      />
+                    </div>
+
+                    {/* Captured Score & Tier Fields */}
+                    <div className="mt-6 grid grid-cols-1 gap-5 border-t border-white/10 pt-6 sm:grid-cols-2">
+                      <FormField
+                        label="Q34: Captured Weighted Score (%)"
+                        required
+                        hint="Composite percentage score automatically recorded for candidate evaluation"
+                      >
+                        <div className="relative">
+                          <input
+                            type="text"
+                            name="weighted_score"
+                            value={
+                              ratedCount > 0
+                                ? `${weightedScorePercent}% (${totalScore} / ${maxScore} pts · Avg ${averageRating.toFixed(2)}/5)`
+                                : ""
+                            }
+                            placeholder="Calculates automatically as you rate criteria (e.g. 85%)"
+                            readOnly
+                            className={`${inputClass} font-bold text-[#ed027e] bg-white/[0.06] pr-28`}
+                          />
+                          <span className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md bg-[#ed027e]/20 px-2.5 py-1 font-heading text-[0.6875rem] font-bold uppercase text-[#ed027e]">
+                            Auto-Captured
+                          </span>
+                        </div>
+                      </FormField>
+
+                      <FormField
+                        label="Q35: Performance Caliber Tier"
+                        required
+                        hint="Calibrated rating tier classification"
+                      >
+                        <input
+                          type="text"
+                          name="caliber_tier"
+                          value={
+                            ratedCount === 0
+                              ? "Pending Assessment Ratings"
+                              : weightedScorePercent >= 90
+                              ? "Tier 1: Exceptional / Board & Executive Track"
+                              : weightedScorePercent >= 75
+                              ? "Tier 2: High Potential / Accelerated Pipeline"
+                              : weightedScorePercent >= 60
+                              ? "Tier 3: Emerging Leader / Developmental"
+                              : "Tier 4: Foundational"
+                          }
+                          readOnly
+                          className={`${inputClass} font-bold text-white/90 bg-white/[0.06]`}
+                        />
+                      </FormField>
+                    </div>
+                  </div>
+
                   <div className="mt-8 border-t border-white/10 pt-6">
                     <FormTextArea
-                      label="Q34: What specific evidence or track record supports your ratings above?"
+                      label="Q36: What specific evidence or track record supports your ratings above?"
                       max={200}
                     />
                   </div>
@@ -1097,7 +1218,7 @@ export function NominationForm() {
                       />
                     </FormField>
                     <FormField label="Q55: Date of Endorsement" required>
-                      <input type="date" className={inputClass} />
+                      <FormDateInput />
                     </FormField>
                   </div>
                 </section>
@@ -1145,7 +1266,7 @@ export function NominationForm() {
                       />
                     </FormField>
                     <FormField label="Q58: Date of Acceptance" required>
-                      <input type="date" className={inputClass} />
+                      <FormDateInput />
                     </FormField>
                   </div>
 
