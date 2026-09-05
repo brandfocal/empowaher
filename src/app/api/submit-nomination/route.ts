@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const customEndpoint = formatUrl(process.env.GRAVITY_FORMS_SUBMISSION_ENDPOINT || "");
     const webhookUrl = formatUrl(process.env.GRAVITY_FORMS_WEBHOOK_URL || "");
 
-    // Build key-value maps
+    // Build key-value maps from incoming FormData
     const inputValues: Record<string, string> = {};
     const entryValues: Record<string, any> = { form_id: parseInt(formId, 10) || 1 };
 
@@ -44,44 +44,15 @@ export async function POST(req: NextRequest) {
 
     // Handle CV / Profile document upload (Field ID: 19)
     const cvFile = formData.get("input_19");
-    if (cvFile && typeof cvFile === "object" && "arrayBuffer" in cvFile) {
-      const file = cvFile as File;
-      if (file.size > 0) {
-        const rawFileName = file.name || "nominee-cv.pdf";
-        const sanitizedFileName = rawFileName.replace(/[^a-zA-Z0-9._-]/g, "_");
-        let uploadedUrl = "";
+    const hasFile =
+      cvFile &&
+      typeof cvFile === "object" &&
+      "arrayBuffer" in cvFile &&
+      (cvFile as File).size > 0;
 
-        if (wpUrl && consumerKey && consumerSecret) {
-          try {
-            const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
-            const fileBuffer = Buffer.from(await file.arrayBuffer());
-
-            const mediaRes = await fetch(`${wpUrl}/wp-json/wp/v2/media`, {
-              method: "POST",
-              headers: {
-                "Content-Disposition": `attachment; filename="${sanitizedFileName}"`,
-                "Content-Type": file.type || "application/pdf",
-                Authorization: `Basic ${authString}`,
-              },
-              body: fileBuffer,
-            });
-
-            if (mediaRes.ok) {
-              const mediaData = await mediaRes.json();
-              uploadedUrl = mediaData.source_url || mediaData.guid?.rendered || "";
-            } else {
-              console.warn("WordPress media upload returned status:", mediaRes.status);
-            }
-          } catch (mediaErr) {
-            console.warn("Could not upload to WordPress media library:", mediaErr);
-          }
-        }
-
-        const finalFileValue = uploadedUrl || sanitizedFileName;
-        inputValues["input_19"] = finalFileValue;
-        entryValues["19"] = finalFileValue;
-      }
-    }
+    const file = hasFile ? (cvFile as File) : null;
+    const rawFileName = file ? file.name || "nominee-cv.pdf" : "";
+    const sanitizedFileName = rawFileName.replace(/[^a-zA-Z0-9._-]/g, "_");
 
     // Validate that a real WordPress or Webhook destination is configured
     const isPlaceholder =
@@ -94,7 +65,7 @@ export async function POST(req: NextRequest) {
         {
           success: false,
           error:
-            "WordPress URL is not configured yet. Please add WORDPRESS_API_URL (e.g. https://empowaworx.co.za) and Gravity Forms API keys (GRAVITY_FORMS_CONSUMER_KEY & GRAVITY_FORMS_CONSUMER_SECRET) in Vercel Environment Variables or .env.local.",
+            "WordPress URL is not configured yet. Please add WORDPRESS_API_URL (e.g. https://cms.empowaher.co.za) and Gravity Forms API keys (GRAVITY_FORMS_CONSUMER_KEY & GRAVITY_FORMS_CONSUMER_SECRET) in Vercel Environment Variables or .env.local.",
         },
         { status: 400 }
       );
@@ -115,27 +86,62 @@ export async function POST(req: NextRequest) {
       urlObj.searchParams.set("consumer_secret", consumerSecret);
     }
 
-    const headers: Record<string, string> = {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      "User-Agent": "EmpowaHer-NextJS-Client/1.0",
-    };
+    let response: Response;
 
-    if (consumerKey && consumerSecret) {
-      const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
-      headers["Authorization"] = `Basic ${authString}`;
+    if (hasFile && file) {
+      // 1. Multipart Submission (Native Gravity Forms File Upload)
+      const gfFormData = new FormData();
+      gfFormData.append("input_values", JSON.stringify(inputValues));
+
+      // Append all individual input fields
+      for (const [k, v] of Object.entries(inputValues)) {
+        gfFormData.append(k, v);
+      }
+
+      // Attach file in standard Gravity Forms multipart parameters
+      gfFormData.append("input_19", file, sanitizedFileName);
+      gfFormData.append("file_19", file, sanitizedFileName);
+      gfFormData.append("input_19_1", file, sanitizedFileName);
+
+      const multipartHeaders: Record<string, string> = {
+        Accept: "application/json",
+        "User-Agent": "EmpowaHer-NextJS-Client/1.0",
+      };
+
+      if (consumerKey && consumerSecret) {
+        const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
+        multipartHeaders["Authorization"] = `Basic ${authString}`;
+      }
+
+      response = await fetch(urlObj.toString(), {
+        method: "POST",
+        headers: multipartHeaders,
+        body: gfFormData,
+      });
+    } else {
+      // 2. Standard JSON Submission when no file is uploaded
+      const jsonHeaders: Record<string, string> = {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "User-Agent": "EmpowaHer-NextJS-Client/1.0",
+      };
+
+      if (consumerKey && consumerSecret) {
+        const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
+        jsonHeaders["Authorization"] = `Basic ${authString}`;
+      }
+
+      const submissionPayload = {
+        input_values: inputValues,
+        ...inputValues,
+      };
+
+      response = await fetch(urlObj.toString(), {
+        method: "POST",
+        headers: jsonHeaders,
+        body: JSON.stringify(submissionPayload),
+      });
     }
-
-    const submissionPayload = {
-      input_values: inputValues,
-      ...inputValues,
-    };
-
-    let response = await fetch(urlObj.toString(), {
-      method: "POST",
-      headers,
-      body: JSON.stringify(submissionPayload),
-    });
 
     // Fallback: If /submissions endpoint is 404 or fails, try the /entries endpoint
     if (!response.ok && wpUrl && !customEndpoint && !webhookUrl) {
@@ -145,19 +151,52 @@ export async function POST(req: NextRequest) {
         entriesUrl.searchParams.set("consumer_secret", consumerSecret);
       }
 
-      const entriesResponse = await fetch(entriesUrl.toString(), {
-        method: "POST",
-        headers,
-        body: JSON.stringify(entryValues),
-      });
+      const authHeaders: Record<string, string> = {
+        Accept: "application/json",
+      };
+      if (consumerKey && consumerSecret) {
+        const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
+        authHeaders["Authorization"] = `Basic ${authString}`;
+      }
 
-      if (entriesResponse.ok) {
-        const data = await entriesResponse.json();
-        return NextResponse.json({
-          success: true,
-          method: "entries",
-          data,
+      if (hasFile && file) {
+        const gfEntriesFormData = new FormData();
+        entryValues["19"] = sanitizedFileName;
+        for (const [k, v] of Object.entries(entryValues)) {
+          gfEntriesFormData.append(k, String(v));
+        }
+        gfEntriesFormData.append("input_19", file, sanitizedFileName);
+
+        const entriesResponse = await fetch(entriesUrl.toString(), {
+          method: "POST",
+          headers: authHeaders,
+          body: gfEntriesFormData,
         });
+
+        if (entriesResponse.ok) {
+          const data = await entriesResponse.json();
+          return NextResponse.json({
+            success: true,
+            method: "entries",
+            data,
+          });
+        }
+      } else {
+        authHeaders["Content-Type"] = "application/json";
+        const entriesResponse = await fetch(entriesUrl.toString(), {
+          method: "POST",
+          headers: authHeaders,
+          body: JSON.stringify(entryValues),
+        });
+
+        if (entriesResponse.ok) {
+          const data = await entriesResponse.json();
+          return NextResponse.json({
+            success: true,
+            method: "entries",
+            data,
+          });
+        }
       }
     }
 
