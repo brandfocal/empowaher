@@ -380,10 +380,26 @@ export function NominationForm() {
     }
   };
 
+  const scrollToFormSection = () => {
+    const formSection = document.getElementById("nomination-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      scrollToFormSection();
+    }, 50);
+  };
+
+  const handleResetForm = () => {
+    setIsSubmitted(false);
+    setTimeout(() => {
+      scrollToFormSection();
+    }, 50);
   };
 
   return (
@@ -562,7 +578,7 @@ export function NominationForm() {
       </aside>
 
       {/* Form Workspace Section */}
-      <div id="nomination-form" className="w-full bg-[#0D0D0D] px-5 py-14 sm:px-8 lg:px-14 lg:py-20">
+      <div id="nomination-form" className="w-full scroll-mt-24 bg-[#0D0D0D] px-5 py-14 sm:px-8 lg:px-14 lg:py-20">
         <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-10 lg:grid-cols-[300px_1fr] lg:gap-14">
           {/* Sticky Navigation Sidebar */}
           <aside className="hidden lg:block">
@@ -595,7 +611,7 @@ export function NominationForm() {
           {/* Form Content */}
           <div className="w-full">
             {isSubmitted ? (
-              <div className="rounded-3xl border border-white/15 bg-[#171717] p-8 text-center sm:p-12 lg:p-16">
+              <div id="nomination-success" className="rounded-3xl border border-white/15 bg-[#171717] p-8 text-center sm:p-12 lg:p-16">
                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#ed027e]/20 text-[#ed027e] ring-8 ring-[#ed027e]/10">
                   <CheckCircle2 className="h-10 w-10" />
                 </div>
@@ -608,7 +624,7 @@ export function NominationForm() {
                 <div className="mt-8 flex justify-center gap-4">
                   <button
                     type="button"
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={handleResetForm}
                     className="rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#ed027e]/90"
                   >
                     Submit Another Nomination
