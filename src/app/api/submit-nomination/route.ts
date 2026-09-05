@@ -2,24 +2,33 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+function formatUrl(rawUrl: string): string {
+  let url = rawUrl.trim().replace(/\/+$/, "");
+  if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
+    url = `https://${url}`;
+  }
+  return url;
+}
+
 export async function POST(req: NextRequest) {
+  let attemptedUrl = "";
   try {
     const formData = await req.formData();
-    const wpUrl = (process.env.WORDPRESS_API_URL || process.env.NEXT_PUBLIC_WORDPRESS_URL || "").replace(/\/+$/, "");
+    const rawWpUrl = process.env.WORDPRESS_API_URL || process.env.NEXT_PUBLIC_WORDPRESS_URL || "";
+    const wpUrl = formatUrl(rawWpUrl);
     const formId = process.env.GRAVITY_FORMS_FORM_ID || process.env.NEXT_PUBLIC_GRAVITY_FORMS_FORM_ID || "1";
-    const consumerKey = process.env.GRAVITY_FORMS_CONSUMER_KEY || "";
-    const consumerSecret = process.env.GRAVITY_FORMS_CONSUMER_SECRET || "";
-    const customEndpoint = process.env.GRAVITY_FORMS_SUBMISSION_ENDPOINT || "";
-    const webhookUrl = process.env.GRAVITY_FORMS_WEBHOOK_URL || "";
+    const consumerKey = (process.env.GRAVITY_FORMS_CONSUMER_KEY || "").trim();
+    const consumerSecret = (process.env.GRAVITY_FORMS_CONSUMER_SECRET || "").trim();
+    const customEndpoint = formatUrl(process.env.GRAVITY_FORMS_SUBMISSION_ENDPOINT || "");
+    const webhookUrl = formatUrl(process.env.GRAVITY_FORMS_WEBHOOK_URL || "");
 
-    // Build key-value map from incoming FormData
+    // Build key-value maps
     const inputValues: Record<string, string> = {};
     const entryValues: Record<string, any> = { form_id: parseInt(formId, 10) || 1 };
 
     formData.forEach((value, key) => {
       if (typeof value === "string") {
         inputValues[key] = value;
-        // Also map "input_X" -> "X" for /entries endpoint
         const numericMatch = key.match(/^input_(\d+)$/);
         if (numericMatch) {
           entryValues[numericMatch[1]] = value;
@@ -27,13 +36,18 @@ export async function POST(req: NextRequest) {
       }
     });
 
-    // Check if WordPress or Webhook target is defined
-    if (!wpUrl && !customEndpoint && !webhookUrl) {
+    // Validate that a real WordPress or Webhook destination is configured
+    const isPlaceholder =
+      !wpUrl ||
+      wpUrl.includes("your-wordpress-domain") ||
+      wpUrl.includes("example.com");
+
+    if (isPlaceholder && !customEndpoint && !webhookUrl) {
       return NextResponse.json(
         {
           success: false,
           error:
-            "WordPress / Gravity Forms environment variables are not configured in Vercel or .env.local. Please set WORDPRESS_API_URL or GRAVITY_FORMS_SUBMISSION_ENDPOINT.",
+            "WordPress URL is not configured yet. Please add WORDPRESS_API_URL (e.g. https://empowaworx.co.za) and Gravity Forms API keys (GRAVITY_FORMS_CONSUMER_KEY & GRAVITY_FORMS_CONSUMER_SECRET) in Vercel Environment Variables or .env.local.",
         },
         { status: 400 }
       );
@@ -46,18 +60,18 @@ export async function POST(req: NextRequest) {
     } else if (!targetUrl && wpUrl) {
       targetUrl = `${wpUrl}/wp-json/gf/v2/forms/${formId}/submissions`;
     }
+    attemptedUrl = targetUrl;
 
-    // Add query param authentication backup if keys exist
     const urlObj = new URL(targetUrl);
     if (consumerKey && consumerSecret && !urlObj.searchParams.has("consumer_key")) {
       urlObj.searchParams.set("consumer_key", consumerKey);
       urlObj.searchParams.set("consumer_secret", consumerSecret);
     }
 
-    // Prepare Basic Auth header
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
       Accept: "application/json",
+      "User-Agent": "EmpowaHer-NextJS-Client/1.0",
     };
 
     if (consumerKey && consumerSecret) {
@@ -65,7 +79,6 @@ export async function POST(req: NextRequest) {
       headers["Authorization"] = `Basic ${authString}`;
     }
 
-    // Primary attempt: Submissions API endpoint payload
     const submissionPayload = {
       input_values: inputValues,
       ...inputValues,
@@ -77,7 +90,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify(submissionPayload),
     });
 
-    // If /submissions returns 404 or fails, try the /entries endpoint
+    // Fallback: If /submissions endpoint is 404 or fails, try the /entries endpoint
     if (!response.ok && wpUrl && !customEndpoint && !webhookUrl) {
       const entriesUrl = new URL(`${wpUrl}/wp-json/gf/v2/entries`);
       if (consumerKey && consumerSecret) {
@@ -103,12 +116,20 @@ export async function POST(req: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("Gravity Forms API Error:", response.status, errorText);
+      let parsedError = errorText;
+      try {
+        const jsonError = JSON.parse(errorText);
+        parsedError = jsonError?.message || jsonError?.error || errorText;
+      } catch {
+        // use raw errorText
+      }
+
+      console.error("Gravity Forms API Error:", response.status, parsedError);
       return NextResponse.json(
         {
           success: false,
           status: response.status,
-          error: `Gravity Forms API returned status ${response.status}: ${errorText}`,
+          error: `Gravity Forms (${urlObj.origin}) returned status ${response.status}: ${parsedError}`,
         },
         { status: response.status }
       );
@@ -121,10 +142,13 @@ export async function POST(req: NextRequest) {
     });
   } catch (error: any) {
     console.error("Submission handler error:", error);
+    const causeCode = error?.cause?.code ? ` (${error.cause.code})` : "";
+    const detail = error?.cause?.message || error?.message || "Connection failed";
+
     return NextResponse.json(
       {
         success: false,
-        error: error?.message || "Internal server error submitting nomination.",
+        error: `Could not connect to WordPress server at ${attemptedUrl || "configured URL"}: ${detail}${causeCode}. Please verify the WORDPRESS_API_URL and Gravity Forms REST API settings.`,
       },
       { status: 500 }
     );
