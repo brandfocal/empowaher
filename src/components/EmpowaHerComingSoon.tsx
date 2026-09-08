@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { NewsBanner } from "./NewsBanner";
 
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
@@ -242,6 +243,9 @@ export function EmpowaHerComingSoon() {
           </div>
         </div>
       </section>
+ 
+      {/* Latest News & Press Release Banner */}
+      <NewsBanner />
 
       {/* Programme Detail Section with feature-image9.jpg */}
       <section
