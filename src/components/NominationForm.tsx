@@ -338,8 +338,8 @@ export function NominationForm() {
     }
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const speed = 0.3;
-      heroImg.style.transform = `translateY(${scrollY * speed}px) scale(1.12)`;
+      const speed = 0.18;
+      heroImg.style.transform = `translateY(${scrollY * speed}px)`;
     };
     window.addEventListener("scroll", handleScroll, {
       passive: true,
@@ -453,14 +453,15 @@ export function NominationForm() {
             id="nomination-hero-parallax-img"
             src={HERO_IMAGE_URL}
             alt="African business woman executive in corporate boardroom"
-            className="h-full w-full scale-[1.15] object-cover object-center will-change-transform"
+            className="h-full w-full object-cover object-[52%_4rem] sm:object-[52%_4.5rem] will-change-transform"
             style={{
-              transform: "translateY(0) scale(1.12)",
+              transform: "translateY(0)",
+              transformOrigin: "top center",
             }}
           />
         </div>
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-black/65 to-black/35"
+          className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-black/55 to-black/20"
           aria-hidden="true"
         />
 

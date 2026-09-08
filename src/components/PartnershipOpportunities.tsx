@@ -122,8 +122,8 @@ export function PartnershipOpportunities() {
     }
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const speed = 0.3;
-      heroImg.style.transform = `translateY(${scrollY * speed}px) scale(1.12)`;
+      const speed = 0.18;
+      heroImg.style.transform = `translateY(${scrollY * speed}px)`;
     };
     window.addEventListener("scroll", handleScroll, {
       passive: true,
@@ -148,14 +148,15 @@ export function PartnershipOpportunities() {
               id="partnerships-hero-parallax-img"
               src="/feature-image13.jpg"
               alt="Professional women collaborating in a bright contemporary workplace"
-              className="h-full w-full scale-[1.15] object-cover object-center will-change-transform"
+              className="h-full w-full object-cover object-[54%_4rem] sm:object-[54%_4.5rem] will-change-transform"
               style={{
-                transform: "translateY(0) scale(1.12)",
+                transform: "translateY(0)",
+                transformOrigin: "top center",
               }}
             />
           </div>
           <div
-            className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/60 to-black/35"
+            className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/20"
             aria-hidden="true"
           />
 
