@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { LeadershipProgramme } from "@/components/LeadershipProgramme";
+import { EmpowaHerProgramme } from "@/components/EmpowaHerProgramme";
 
 export const metadata: Metadata = {
   title: "Leadership Programme | EmpowaHer™ Summit 2026",
   description:
-    "Explore the nine integrated leadership tracks of the EmpowaHer™ Leadership Programme 2026 — developing Africa's next generation of women leaders.",
+    "Explore the comprehensive three-day agenda and nine integrated leadership tracks of the EmpowaHer™ Leadership Summit 2026.",
 };
 
 export default function LeadershipProgrammePage() {
-  return <LeadershipProgramme />;
+  return <EmpowaHerProgramme />;
 }
