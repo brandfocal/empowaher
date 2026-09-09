@@ -93,7 +93,7 @@ export function ContactPage() {
               id="contact-hero-parallax-img"
               src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&q=80"
               alt="EmpowaHer executive woman leader in Johannesburg"
-              className="h-full w-full object-cover object-[center_28%] will-change-transform"
+              className="h-full w-full object-cover object-[center_top] sm:object-[center_12%] will-change-transform"
               style={{
                 transform: "translateY(0)",
                 transformOrigin: "top center",
@@ -101,7 +101,7 @@ export function ContactPage() {
             />
           </div>
           <div
-            className="absolute inset-0 bg-gradient-to-t from-[#1C2128] via-black/60 to-black/30"
+            className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/20"
             aria-hidden="true"
           />
 
@@ -126,10 +126,10 @@ export function ContactPage() {
               className="hero-reveal flex flex-wrap items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/85 sm:text-xs lg:tracking-[0.2em]"
               style={{ animationDelay: "60ms" }}
             >
-              <span>Get In Touch</span>
+              <span>EmpowaHer™ Leadership Programme</span>
               <span className="inline-block h-3 w-px bg-white/40 align-middle" aria-hidden="true" />
               <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
-                Summit 2026
+                Executive Desk
               </span>
             </div>
 
@@ -141,11 +141,13 @@ export function ContactPage() {
               >
                 <h1
                   id="hero-heading"
-                  className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-white"
+                  className="font-heading text-[clamp(2.5rem,5.2vw,4.75rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-white"
                 >
                   <span>START A</span>
                   <br />
-                  <span className="text-[#ed027e]">CONVERSATION</span>
+                  <span className="text-[#ed027e]">STRATEGIC</span>
+                  <br />
+                  <span>CONVERSATION</span>
                 </h1>
 
                 {/* Hero CTAs */}
@@ -173,13 +175,13 @@ export function ContactPage() {
                 className="hero-reveal border-white/15 lg:border-r lg:pr-8"
                 style={{ animationDelay: "180ms" }}
               >
-                <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
+                <h2 className="font-heading text-[clamp(1.15rem,2vw,1.6rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
                   <span>
                     Direct Leadership Access to Africa&apos;s Emerging Executive Ecosystem
                   </span>
                 </h2>
                 <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/60">
-                  <span>EmpowaWorx House, Randburg, Johannesburg</span>
+                  <span>29–31 October 2026 • EmpowaWorx House, Randburg</span>
                 </p>
               </div>
 
@@ -187,7 +189,7 @@ export function ContactPage() {
                 className="hero-reveal"
                 style={{ animationDelay: "240ms" }}
               >
-                <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
+                <p className="font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/75">
                   <span>
                     Whether you represent a nominating corporate, aspiring partner, prospective delegate, or press institution, our executive team is ready to connect.
                   </span>
