@@ -23,16 +23,18 @@ const inquiryTypes = [
 ];
 
 const initialForm = {
-  name: "",
-  email: "",
-  organisation: "",
-  phone: "",
-  message: "",
+  input_1: "", // Full Name ID: 1
+  input_3: "", // Email Address ID: 3
+  input_4: "", // Organisation / Company ID: 4
+  input_5: "", // Contact Telephone ID: 5
+  input_6: "General Inquiry", // Nature of Inquiry ID: 6
+  input_8: "", // Message ID: 8
 };
 
 export function ContactPage() {
   const [inquiry, setInquiry] = useState("General Inquiry");
-  const [formState, setFormState] = useState<"idle" | "loading" | "success">("idle");
+  const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [form, setForm] = useState(initialForm);
 
   useEffect(() => {
@@ -59,18 +61,44 @@ export function ContactPage() {
       [field]: value,
     }));
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormState("loading");
-    window.setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      const formElement = event.currentTarget;
+      const formData = new FormData(formElement);
+
+      // Ensure input_6 is explicitly set to the current inquiry selection
+      formData.set("input_6", inquiry);
+
+      const res = await fetch("/api/submit-contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || `Submission failed with status ${res.status}`);
+      }
+
       setFormState("success");
-    }, 1500);
+    } catch (err: any) {
+      console.error("Contact form submission error:", err);
+      setErrorMessage(
+        err?.message || "An error occurred while submitting your message. Please try again."
+      );
+      setFormState("error");
+    }
   };
 
   const resetForm = () => {
     setForm(initialForm);
     setInquiry("General Inquiry");
     setFormState("idle");
+    setErrorMessage("");
   };
 
   const fieldClass =
@@ -453,9 +481,18 @@ export function ContactPage() {
 
           {/* Form Card */}
           <form
+            id="gform_2"
+            data-formid="2"
+            method="POST"
             onSubmit={handleSubmit}
             className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm md:p-8 lg:p-10"
           >
+            {/* Gravity Forms Hidden Fields (Form ID 2) */}
+            <input type="hidden" name="gform_form_id" value="2" />
+            <input type="hidden" name="is_submit_2" value="1" />
+            <input type="hidden" name="gform_submit" value="2" />
+            <input type="hidden" id="input_2_6" name="input_6" value={inquiry} />
+
             {formState === "success" ? (
               <div className="flex min-h-[420px] flex-col items-center justify-center text-center md:min-h-[520px]">
                 <CheckCircle2 size={56} className="text-[#ed027e]" strokeWidth={1.5} />
@@ -477,24 +514,43 @@ export function ContactPage() {
               </div>
             ) : (
               <div className="space-y-6">
+                {/* Submission Error Banner */}
+                {formState === "error" && errorMessage && (
+                  <div
+                    id="contact-error-notice"
+                    role="alert"
+                    className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-xs leading-relaxed text-red-200"
+                  >
+                    <p className="font-bold uppercase tracking-wider text-red-400">Submission Notice</p>
+                    <p className="mt-1">{errorMessage}</p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <label className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
+                  {/* Full Name (Field ID: 1) */}
+                  <label htmlFor="input_2_1" className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                     <span>Full Name *</span>
                     <input
                       required
-                      value={form.name}
-                      onChange={(event) => updateField("name", event.target.value)}
+                      id="input_2_1"
+                      name="input_1"
+                      value={form.input_1}
+                      onChange={(event) => updateField("input_1", event.target.value)}
                       className={fieldClass}
                       placeholder="Your full name"
                     />
                   </label>
-                  <label className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
+
+                  {/* Email Address (Field ID: 3) */}
+                  <label htmlFor="input_2_3" className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                     <span>Email Address *</span>
                     <input
                       required
                       type="email"
-                      value={form.email}
-                      onChange={(event) => updateField("email", event.target.value)}
+                      id="input_2_3"
+                      name="input_3"
+                      value={form.input_3}
+                      onChange={(event) => updateField("input_3", event.target.value)}
                       className={fieldClass}
                       placeholder="name@organisation.com"
                     />
@@ -502,26 +558,35 @@ export function ContactPage() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <label className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
+                  {/* Organisation / Company (Field ID: 4) */}
+                  <label htmlFor="input_2_4" className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                     <span>Organisation / Company</span>
                     <input
-                      value={form.organisation}
-                      onChange={(event) => updateField("organisation", event.target.value)}
+                      id="input_2_4"
+                      name="input_4"
+                      value={form.input_4}
+                      onChange={(event) => updateField("input_4", event.target.value)}
                       className={fieldClass}
                       placeholder="Your organisation name"
                     />
                   </label>
-                  <label className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
+
+                  {/* Contact Telephone (Field ID: 5) */}
+                  <label htmlFor="input_2_5" className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                     <span>Contact Telephone</span>
                     <input
-                      value={form.phone}
-                      onChange={(event) => updateField("phone", event.target.value)}
+                      id="input_2_5"
+                      name="input_5"
+                      type="tel"
+                      value={form.input_5}
+                      onChange={(event) => updateField("input_5", event.target.value)}
                       className={fieldClass}
                       placeholder="+27 ..."
                     />
                   </label>
                 </div>
 
+                {/* Nature of Inquiry (Field ID: 6) */}
                 <fieldset>
                   <legend className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                     <span>Nature of Inquiry</span>
@@ -532,10 +597,13 @@ export function ContactPage() {
                         key={type.id}
                         type="button"
                         aria-pressed={inquiry === type.label}
-                        onClick={() => setInquiry(type.label)}
+                        onClick={() => {
+                          setInquiry(type.label);
+                          updateField("input_6", type.label);
+                        }}
                         className={`cursor-pointer rounded-full px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.1em] transition-all ${
                           inquiry === type.label
-                            ? "bg-[#ed027e] text-white shadow-md shadow-[#ed027e]/25"
+                            ? "bg-[#ed027e] text-white shadow-md shadow-[#ed027e]/25 ring-1 ring-[#ed027e]"
                             : "border border-white/20 bg-transparent text-white/70 hover:border-[#ed027e]/60 hover:text-white"
                         }`}
                       >
@@ -545,13 +613,16 @@ export function ContactPage() {
                   </div>
                 </fieldset>
 
-                <label className="block text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
+                {/* Message (Field ID: 8) */}
+                <label htmlFor="input_2_8" className="block text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
                   <span>Message *</span>
                   <textarea
                     required
                     rows={5}
-                    value={form.message}
-                    onChange={(event) => updateField("message", event.target.value)}
+                    id="input_2_8"
+                    name="input_8"
+                    value={form.input_8}
+                    onChange={(event) => updateField("input_8", event.target.value)}
                     className={`${fieldClass} min-h-[130px] resize-y`}
                     placeholder="Provide details about your inquiry, proposal, or question..."
                   />
