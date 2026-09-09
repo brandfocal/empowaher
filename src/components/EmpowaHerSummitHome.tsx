@@ -87,68 +87,158 @@ export function EmpowaHerSummitHome() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mediaQuery.matches) {
+      return;
+    }
+    const heroImg = document.getElementById("hero-parallax-img");
+    if (!heroImg) {
+      return;
+    }
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const speed = 0.18;
+      heroImg.style.transform = `translateY(${scrollY * speed}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main
       id="top"
       className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#3f3f3f] selection:bg-[#ed027e] selection:text-white"
     >
-      {/* Site-wide Established Header */}
-      <Header currentPath="/" />
-
       {/* Hero Section */}
-      <section
-        className="relative flex min-h-[100svh] items-end bg-[#1C2128] text-white"
-        style={{
-          backgroundImage:
-            "linear-gradient(to top, rgba(28,33,40,.97) 0%, rgba(28,33,40,.62) 45%, rgba(28,33,40,.12) 100%), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        aria-labelledby="hero-heading"
-      >
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-8 px-4 pb-12 pt-28 md:grid-cols-[6fr_3fr] md:px-6 md:pb-16 lg:grid-cols-[6fr_3fr_3fr] lg:gap-10 lg:px-12 lg:pb-20">
-          <div className="lg:border-r lg:border-white/15 lg:pr-10">
-            <p className="mb-5 border-l-2 border-[#ed027e] pl-3 text-[0.62rem] font-black uppercase tracking-[0.24em] text-[#ed027e]">
-              <span>EmpowaHer™ Leadership Summit 2026</span>
-            </p>
-            <h1
-              id="hero-heading"
-              className="font-heading max-w-[11ch] text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+      <section className="relative flex min-h-screen flex-col">
+        <div className="relative min-h-screen w-full overflow-hidden">
+          {/* Top Navigation */}
+          <Header currentPath="/" />
+
+          {/* Background Image with Ambient Overlay */}
+          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+            <img
+              id="hero-parallax-img"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80"
+              alt="EmpowaHer Leadership Summit"
+              className="h-full w-full object-cover object-[center_4rem] sm:object-[center_4.5rem] will-change-transform"
+              style={{
+                transform: "translateY(0)",
+                transformOrigin: "top center",
+              }}
+            />
+          </div>
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/20"
+            aria-hidden="true"
+          />
+
+          {/* Hero Main Content */}
+          <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-5 px-5 pb-10 sm:px-8 sm:pb-14 md:px-12 md:pb-16 lg:px-16 lg:pb-14">
+            {/* Status Badge Eyebrow */}
+            <div
+              className="hero-reveal flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3.5 py-1.5 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm sm:px-4 sm:text-[0.6875rem]"
+              style={{
+                animationDelay: "0ms",
+              }}
             >
-              <span>THE FUTURE IS FEMALE™</span>
-            </h1>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/nominate"
-                className="inline-flex items-center justify-center rounded-full bg-[#ed027e] px-7 py-3.5 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-[#ed027e] focus:ring-offset-2 focus:ring-offset-[#1C2128]"
-              >
-                <span>Nominate a Leader</span>
-              </Link>
-              <Link
-                href="/partnerships"
-                className="inline-flex items-center justify-center rounded-full border-2 border-white/70 bg-white/10 px-7 py-3.5 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#1C2128] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#1C2128]"
-              >
-                <span>Partner With Us</span>
-              </Link>
-            </div>
-          </div>
-          <div className="hidden md:block md:border-r md:border-white/15 md:pr-8 lg:pr-10">
-            <p className="text-[0.68rem] font-black uppercase tracking-[0.2em] text-white/60">
-              <span>29–31 October 2026</span>
-            </p>
-            <p className="mt-4 max-w-[18ch] text-[0.68rem] font-black uppercase leading-relaxed tracking-[0.2em] text-white/60">
-              <span>EmpowaWorx House, Randburg, Johannesburg</span>
-            </p>
-          </div>
-          <div className="hidden lg:block">
-            <p className="max-w-[29ch] text-sm leading-relaxed text-white/65">
-              <span>
-                EmpowaHer™ is a three-day leadership experience designed to
-                prepare Africa’s next generation of women leaders to compete,
-                lead and succeed across business, government, entrepreneurship
-                and the boardroom.
+              <span className="relative flex h-2 w-2 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ed027e] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
               </span>
-            </p>
+              <span>EmpowaHer™ Leadership Summit 2026</span>
+              <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
+              <span>29–31 October 2026</span>
+            </div>
+
+            {/* Summit Overline */}
+            <div
+              className="hero-reveal flex flex-wrap items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/85 sm:text-xs lg:tracking-[0.2em]"
+              style={{
+                animationDelay: "60ms",
+              }}
+            >
+              <span>EmpowaHer™ Leadership Summit</span>
+              <span
+                className="inline-block h-3 w-px bg-white/40 align-middle"
+                aria-hidden="true"
+              />
+              <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
+                The Future Is Female™
+              </span>
+            </div>
+
+            {/* 3-Column Hero Layout */}
+            <div className="grid w-full grid-cols-1 items-end gap-y-6 text-left lg:grid-cols-[2fr_1.2fr_1fr] lg:gap-x-12">
+              <div
+                className="hero-reveal flex flex-col border-white/15 lg:border-r lg:pr-8"
+                style={{
+                  animationDelay: "120ms",
+                }}
+              >
+                <h1 className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">
+                  <span>THE FUTURE</span>
+                  <br />
+                  <span className="text-[#ed027e]">IS FEMALE™</span>
+                </h1>
+
+                {/* Hero CTAs */}
+                <div
+                  className="hero-reveal mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start"
+                  style={{
+                    animationDelay: "300ms",
+                  }}
+                >
+                  <Link
+                    href="/nominate"
+                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
+                  >
+                    <span>Nominate a Leader</span>
+                  </Link>
+                  <Link
+                    href="/partnerships"
+                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
+                  >
+                    <span>Partner With Us</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div
+                className="hero-reveal border-white/15 lg:border-r lg:pr-8"
+                style={{
+                  animationDelay: "180ms",
+                }}
+              >
+                <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
+                  <span>
+                    A Three-Day Leadership Experience for Africa&apos;s Next Generation of Women Leaders (18–35)
+                  </span>
+                </h2>
+                <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/60">
+                  <span>EmpowaWorx House, Randburg, Johannesburg</span>
+                </p>
+              </div>
+
+              <div
+                className="hero-reveal"
+                style={{
+                  animationDelay: "240ms",
+                }}
+              >
+                <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
+                  <span>
+                    EmpowaHer™ is a three-day leadership experience designed to
+                    prepare Africa’s next generation of women leaders to compete,
+                    lead and succeed across business, government, entrepreneurship
+                    and the boardroom.
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
