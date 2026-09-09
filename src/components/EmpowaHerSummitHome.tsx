@@ -118,16 +118,16 @@ export function EmpowaHerSummitHome() {
           {/* Top Navigation */}
           <Header currentPath="/" />
 
-          {/* Background Image with Ambient Overlay */}
+          {/* Background Image with Ambient Overlay using feature-image8.jpg */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="hero-parallax-img"
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80"
+              src="/feature-image8.jpg"
               alt="EmpowaHer Leadership Summit"
-              className="h-full w-full object-cover object-[center_4rem] sm:object-[center_4.5rem] will-change-transform"
+              className="h-full w-full object-cover object-[62%_4rem] sm:object-[60%_4.5rem] will-change-transform"
               style={{
                 transform: "translateY(0)",
-                transformOrigin: "top center",
+                transformOrigin: "top right",
               }}
             />
           </div>
@@ -616,13 +616,6 @@ export function EmpowaHerSummitHome() {
                 <span>Start a conversation.</span>
               </p>
               <div className="mt-4 flex flex-col gap-2.5 text-sm leading-[1.55] text-[#3f3f3f]/80">
-                <a
-                  href="mailto:hello@empowaworx.co.za"
-                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
-                >
-                  <Mail size={14} className="text-[#ed027e] shrink-0" />
-                  <span>hello@empowaworx.co.za</span>
-                </a>
                 <a
                   href="mailto:doric@empowaworx.co.za"
                   className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
