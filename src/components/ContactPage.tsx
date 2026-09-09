@@ -141,7 +141,7 @@ export function ContactPage() {
               >
                 <h1
                   id="hero-heading"
-                  className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-black uppercase leading-[0.93] tracking-[-0.03em] text-white"
+                  className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-white"
                 >
                   <span>START A</span>
                   <br />
