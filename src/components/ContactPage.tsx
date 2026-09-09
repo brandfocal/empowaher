@@ -91,6 +91,12 @@ export function ContactPage() {
         err?.message || "An error occurred while submitting your message. Please try again."
       );
       setFormState("error");
+      setTimeout(() => {
+        const errorNotice = document.getElementById("contact-error-notice");
+        if (errorNotice) {
+          errorNotice.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 50);
     }
   };
 

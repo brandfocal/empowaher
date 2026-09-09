@@ -2,7 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-function formatUrl(rawUrl: string): string {
+// Prevent Node.js TLS rejection issues with custom/corporate hosting SSLs
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+function formatGfApiUrl(rawUrl: string): string {
   let url = (rawUrl || "").trim();
   if (!url) return "";
 
@@ -13,73 +16,125 @@ function formatUrl(rawUrl: string): string {
   url = url.replace(/\/+$/, "");
 
   if (!url) return "";
-  return `https://${url}`;
+  let fullUrl = `https://${url}`;
+
+  // If the user provided the base WordPress domain, append the Gravity Forms v2 API path
+  if (!fullUrl.includes("/wp-json/gf/v2")) {
+    fullUrl = `${fullUrl}/wp-json/gf/v2`;
+  }
+
+  return fullUrl;
 }
 
 export async function POST(req: NextRequest) {
   let attemptedUrl = "";
   try {
-    const formData = await req.formData();
-    const rawWpUrl = process.env.WORDPRESS_API_URL || process.env.NEXT_PUBLIC_WORDPRESS_URL || "";
-    const wpUrl = formatUrl(rawWpUrl);
-    const formId = process.env.GRAVITY_FORMS_CONTACT_FORM_ID || "2";
-    const consumerKey = (process.env.GRAVITY_FORMS_CONSUMER_KEY || "").trim();
-    const consumerSecret = (process.env.GRAVITY_FORMS_CONSUMER_SECRET || "").trim();
-    const customEndpoint = formatUrl(
-      process.env.GRAVITY_FORMS_CONTACT_SUBMISSION_ENDPOINT ||
-        process.env.GRAVITY_FORMS_SUBMISSION_ENDPOINT ||
-        ""
-    );
-    const webhookUrl = formatUrl(
-      process.env.GRAVITY_FORMS_CONTACT_WEBHOOK_URL ||
-        process.env.GRAVITY_FORMS_WEBHOOK_URL ||
-        ""
-    );
+    // Resolve WordPress Gravity Forms API endpoint
+    // Standard variables matching team documentation (GF_API_URL, WP_API_URL, WORDPRESS_API_URL)
+    const rawApiUrl = (
+      process.env.GF_API_URL ||
+      process.env.WP_API_URL ||
+      process.env.WORDPRESS_API_URL ||
+      process.env.NEXT_PUBLIC_WORDPRESS_URL ||
+      ""
+    ).trim();
 
-    // Build key-value maps from incoming FormData
+    const gfApiUrl = formatGfApiUrl(rawApiUrl);
+
+    // Consumer Key resolution
+    const consumerKey = (
+      process.env.GF_CONSUMER_KEY ||
+      process.env.GRAVITY_FORMS_CONSUMER_KEY ||
+      process.env.WP_CONSUMER_KEY ||
+      process.env.WP_GF_CONSUMER_KEY ||
+      ""
+    ).trim();
+
+    // Consumer Secret resolution
+    const consumerSecret = (
+      process.env.GF_CONSUMER_SECRET ||
+      process.env.GRAVITY_FORMS_CONSUMER_SECRET ||
+      process.env.WP_CONSUMER_SECRET ||
+      process.env.WP_GF_CONSUMER_SECRET ||
+      ""
+    ).trim();
+
+    // Contact form ID (default: 2 as specified)
+    const formId = (
+      process.env.GF_CONTACT_FORM_ID ||
+      process.env.GRAVITY_FORMS_CONTACT_FORM_ID ||
+      process.env.GF_FORM_ID ||
+      "2"
+    ).trim();
+
+    // Optional direct submission endpoint or webhook overrides
+    const customEndpoint = (
+      process.env.GRAVITY_FORMS_CONTACT_SUBMISSION_ENDPOINT ||
+      process.env.GRAVITY_FORMS_SUBMISSION_ENDPOINT ||
+      ""
+    ).trim();
+
+    const webhookUrl = (
+      process.env.GRAVITY_FORMS_CONTACT_WEBHOOK_URL ||
+      process.env.GRAVITY_FORMS_WEBHOOK_URL ||
+      ""
+    ).trim();
+
+    // Parse incoming data (supports both JSON and multipart/form-data)
     const inputValues: Record<string, string> = {};
     const entryValues: Record<string, any> = { form_id: parseInt(formId, 10) || 2 };
 
-    formData.forEach((value, key) => {
-      if (typeof value === "string") {
-        inputValues[key] = value;
-        const numericMatch = key.match(/^input_(\d+)$/);
-        if (numericMatch) {
-          entryValues[numericMatch[1]] = value;
+    const contentType = req.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
+      const json = await req.json();
+      const rawData = json.formData || json.input_values || json;
+      for (const [key, value] of Object.entries(rawData)) {
+        if (typeof value === "string") {
+          inputValues[key] = value;
+          const numericMatch = key.match(/^input_(\d+)$/);
+          if (numericMatch) {
+            entryValues[numericMatch[1]] = value;
+          }
         }
       }
-    });
+    } else {
+      const formData = await req.formData();
+      formData.forEach((value, key) => {
+        if (typeof value === "string") {
+          inputValues[key] = value;
+          const numericMatch = key.match(/^input_(\d+)$/);
+          if (numericMatch) {
+            entryValues[numericMatch[1]] = value;
+          }
+        }
+      });
+    }
 
-    // Map named parameters as fallback if inputs weren't prefixed with input_
-    if (!inputValues["input_1"] && formData.get("name")) {
-      const val = String(formData.get("name"));
-      inputValues["input_1"] = val;
-      entryValues["1"] = val;
+    // Semantic fallback mapping if fields weren't prefixed with input_
+    if (!inputValues["input_1"] && inputValues["name"]) {
+      inputValues["input_1"] = inputValues["name"];
+      entryValues["1"] = inputValues["name"];
     }
-    if (!inputValues["input_3"] && formData.get("email")) {
-      const val = String(formData.get("email"));
-      inputValues["input_3"] = val;
-      entryValues["3"] = val;
+    if (!inputValues["input_3"] && inputValues["email"]) {
+      inputValues["input_3"] = inputValues["email"];
+      entryValues["3"] = inputValues["email"];
     }
-    if (!inputValues["input_4"] && formData.get("organisation")) {
-      const val = String(formData.get("organisation"));
-      inputValues["input_4"] = val;
-      entryValues["4"] = val;
+    if (!inputValues["input_4"] && inputValues["organisation"]) {
+      inputValues["input_4"] = inputValues["organisation"];
+      entryValues["4"] = inputValues["organisation"];
     }
-    if (!inputValues["input_5"] && formData.get("phone")) {
-      const val = String(formData.get("phone"));
-      inputValues["input_5"] = val;
-      entryValues["5"] = val;
+    if (!inputValues["input_5"] && inputValues["phone"]) {
+      inputValues["input_5"] = inputValues["phone"];
+      entryValues["5"] = inputValues["phone"];
     }
-    if (!inputValues["input_6"] && formData.get("inquiry")) {
-      const val = String(formData.get("inquiry"));
-      inputValues["input_6"] = val;
-      entryValues["6"] = val;
+    if (!inputValues["input_6"] && inputValues["inquiry"]) {
+      inputValues["input_6"] = inputValues["inquiry"];
+      entryValues["6"] = inputValues["inquiry"];
     }
-    if (!inputValues["input_8"] && formData.get("message")) {
-      const val = String(formData.get("message"));
-      inputValues["input_8"] = val;
-      entryValues["8"] = val;
+    if (!inputValues["input_8"] && inputValues["message"]) {
+      inputValues["input_8"] = inputValues["message"];
+      entryValues["8"] = inputValues["message"];
     }
 
     // Validate required fields
@@ -94,90 +149,78 @@ export async function POST(req: NextRequest) {
     }
 
     // Check if WordPress or Webhook destination is configured
-    const isPlaceholder =
-      !wpUrl ||
-      wpUrl.includes("your-wordpress-domain") ||
-      wpUrl.includes("example.com");
+    const isMissingConfig =
+      (!gfApiUrl || !consumerKey || !consumerSecret) &&
+      !customEndpoint &&
+      !webhookUrl;
 
-    if (isPlaceholder && !customEndpoint && !webhookUrl) {
-      // In preview or development environment where WordPress credentials aren't yet populated in .env.local,
-      // record the entry safely and return success with preview indicator
-      console.log("[Gravity Forms Contact Form 2 Preview Submission]:", {
-        form_id: 2,
-        input_1_fullName: inputValues["input_1"],
-        input_3_email: inputValues["input_3"],
-        input_4_organisation: inputValues["input_4"],
-        input_5_phone: inputValues["input_5"],
-        input_6_natureOfInquiry: inputValues["input_6"],
-        input_8_message: inputValues["input_8"],
+    if (isMissingConfig) {
+      console.error("[Gravity Forms Setup Error]: Missing API credentials.", {
+        hasUrl: !!gfApiUrl,
+        hasKey: !!consumerKey,
+        hasSecret: !!consumerSecret,
       });
 
-      return NextResponse.json({
-        success: true,
-        previewMode: true,
-        message:
-          "Message accepted in preview mode. Set WORDPRESS_API_URL and Gravity Forms API keys in Vercel to transmit directly to WordPress.",
-        entry: entryValues,
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Gravity Forms is not connected. Missing environment variables: GF_API_URL (e.g. https://forms.empowaworx.co.za/wp-json/gf/v2), GF_CONSUMER_KEY, and GF_CONSUMER_SECRET. Please configure these in your Vercel Project Settings (Settings > Environment Variables) or local .env.local file.",
+        },
+        { status: 500 }
+      );
     }
 
-    // Determine target URL for live Gravity Forms transmission
+    // Determine target URL for live Gravity Forms submission
     let targetUrl = customEndpoint;
     if (!targetUrl && webhookUrl) {
       targetUrl = webhookUrl;
-    } else if (!targetUrl && wpUrl) {
-      targetUrl = `${wpUrl}/wp-json/gf/v2/forms/${formId}/submissions`;
+    } else if (!targetUrl && gfApiUrl) {
+      const separator = gfApiUrl.includes("?") ? "&" : "?";
+      targetUrl = `${gfApiUrl}/forms/${formId}/submissions${separator}consumer_key=${encodeURIComponent(
+        consumerKey
+      )}&consumer_secret=${encodeURIComponent(consumerSecret)}`;
     }
     attemptedUrl = targetUrl;
 
-    const urlObj = new URL(targetUrl);
-    if (consumerKey && consumerSecret && !urlObj.searchParams.has("consumer_key")) {
-      urlObj.searchParams.set("consumer_key", consumerKey);
-      urlObj.searchParams.set("consumer_secret", consumerSecret);
-    }
+    const authHeader =
+      consumerKey && consumerSecret
+        ? `Basic ${Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64")}`
+        : "";
 
-    const jsonHeaders: Record<string, string> = {
+    const headers: Record<string, string> = {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "User-Agent": "EmpowaHer-NextJS-Client/1.0",
+      "User-Agent": "EmpowaHer-Vercel-Client/1.0",
     };
 
-    if (consumerKey && consumerSecret) {
-      const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
-      jsonHeaders["Authorization"] = `Basic ${authString}`;
+    if (authHeader) {
+      headers["Authorization"] = authHeader;
     }
 
+    // Payload for /submissions endpoint:
+    // Gravity Forms accepts { input_1: "...", input_3: "..." }
     const submissionPayload = {
       input_values: inputValues,
       ...inputValues,
     };
 
-    let response = await fetch(urlObj.toString(), {
+    let response = await fetch(targetUrl, {
       method: "POST",
-      headers: jsonHeaders,
+      headers,
       body: JSON.stringify(submissionPayload),
     });
 
-    // Fallback: If /submissions endpoint fails, try the /entries endpoint
-    if (!response.ok && wpUrl && !customEndpoint && !webhookUrl) {
-      const entriesUrl = new URL(`${wpUrl}/wp-json/gf/v2/entries`);
-      if (consumerKey && consumerSecret) {
-        entriesUrl.searchParams.set("consumer_key", consumerKey);
-        entriesUrl.searchParams.set("consumer_secret", consumerSecret);
-      }
+    // Fallback: If /submissions returns 404 or fails, try the /entries endpoint
+    if (!response.ok && gfApiUrl && !customEndpoint && !webhookUrl) {
+      const entriesSeparator = gfApiUrl.includes("?") ? "&" : "?";
+      const entriesUrl = `${gfApiUrl}/entries${entriesSeparator}consumer_key=${encodeURIComponent(
+        consumerKey
+      )}&consumer_secret=${encodeURIComponent(consumerSecret)}`;
 
-      const authHeaders: Record<string, string> = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      };
-      if (consumerKey && consumerSecret) {
-        const authString = Buffer.from(`${consumerKey}:${consumerSecret}`).toString("base64");
-        authHeaders["Authorization"] = `Basic ${authString}`;
-      }
-
-      const entriesResponse = await fetch(entriesUrl.toString(), {
+      const entriesResponse = await fetch(entriesUrl, {
         method: "POST",
-        headers: authHeaders,
+        headers,
         body: JSON.stringify(entryValues),
       });
 
@@ -186,51 +229,58 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           success: true,
           method: "entries",
+          entry_id: data.id || data.entry_id,
           data,
         });
       }
     }
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      let parsedError = errorText;
-      let errorCode = "";
-      try {
-        const jsonError = JSON.parse(errorText);
-        parsedError = jsonError?.message || jsonError?.error || errorText;
-        errorCode = jsonError?.code || "";
-      } catch {
-        // use raw errorText
-      }
+    const responseText = await response.text();
+    let responseData: any = {};
+    try {
+      responseData = JSON.parse(responseText);
+    } catch {
+      responseData = { message: responseText };
+    }
 
-      console.error("Gravity Forms Contact API Error:", response.status, parsedError);
+    if (!response.ok || responseData.is_valid === false) {
+      console.error("Gravity Forms Contact API Error:", response.status, responseData);
 
-      if (response.status === 404 && (errorCode === "rest_no_route" || parsedError.includes("No route was found"))) {
-        return NextResponse.json(
-          {
-            success: false,
-            status: 404,
-            error:
-              "The Gravity Forms REST API is not enabled on the WordPress server. In WordPress Admin, go to Forms > Settings > REST API, check 'Enable REST API', and save settings.",
-          },
-          { status: 404 }
-        );
+      let errorMsg =
+        responseData.message || `Gravity Forms returned HTTP status ${response.status}`;
+
+      if (
+        responseData.validation_messages &&
+        typeof responseData.validation_messages === "object"
+      ) {
+        const valErrors = Object.entries(responseData.validation_messages)
+          .map(([id, msg]) => `Field ${id}: ${msg}`)
+          .join("; ");
+        errorMsg = `Validation failed: ${valErrors}`;
+      } else if (
+        response.status === 404 &&
+        (responseData.code === "rest_no_route" ||
+          String(responseData.message).includes("No route was found"))
+      ) {
+        errorMsg =
+          "Gravity Forms REST API is not enabled on the WordPress server. In WordPress Admin, go to Forms > Settings > REST API, enable the API, and create Read/Write API keys.";
       }
 
       return NextResponse.json(
         {
           success: false,
           status: response.status,
-          error: `Gravity Forms returned status ${response.status}: ${parsedError}`,
+          error: errorMsg,
+          details: responseData,
         },
-        { status: response.status }
+        { status: response.status >= 400 ? response.status : 400 }
       );
     }
 
-    const data = await response.json();
     return NextResponse.json({
       success: true,
-      data,
+      entry_id: responseData.entry_id,
+      data: responseData,
     });
   } catch (error: any) {
     console.error("Contact submission handler error:", error);
@@ -240,7 +290,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: `Could not connect to WordPress server at ${attemptedUrl || "configured URL"}: ${detail}${causeCode}. Please verify the WORDPRESS_API_URL and Gravity Forms settings.`,
+        error: `Could not connect to WordPress server at ${attemptedUrl || "configured URL"}: ${detail}${causeCode}. Please verify your GF_API_URL and Gravity Forms credentials.`,
       },
       { status: 500 }
     );
