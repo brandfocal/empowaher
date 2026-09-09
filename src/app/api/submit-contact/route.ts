@@ -5,9 +5,11 @@ export const runtime = "nodejs";
 // Prevent Node.js TLS rejection issues with custom/corporate hosting SSLs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+const DEFAULT_GF_API_URL = "https://cms.empowaher.co.za/wp-json/gf/v2";
+
 function formatGfApiUrl(rawUrl: string): string {
   let url = (rawUrl || "").trim();
-  if (!url) return "";
+  if (!url) return DEFAULT_GF_API_URL;
 
   // Remove duplicate or repeated protocols
   url = url.replace(/^(https?:\/\/)+/gi, "");
@@ -15,7 +17,7 @@ function formatGfApiUrl(rawUrl: string): string {
   url = url.replace(/^(https?:)+/gi, "");
   url = url.replace(/\/+$/, "");
 
-  if (!url) return "";
+  if (!url) return DEFAULT_GF_API_URL;
   let fullUrl = `https://${url}`;
 
   // If the user provided the base WordPress domain, append the Gravity Forms v2 API path
@@ -36,12 +38,12 @@ export async function POST(req: NextRequest) {
       process.env.WP_API_URL ||
       process.env.WORDPRESS_API_URL ||
       process.env.NEXT_PUBLIC_WORDPRESS_URL ||
-      ""
+      DEFAULT_GF_API_URL
     ).trim();
 
     const gfApiUrl = formatGfApiUrl(rawApiUrl);
 
-    // Consumer Key resolution
+    // Optional Consumer Key & Secret resolution
     const consumerKey = (
       process.env.GF_CONSUMER_KEY ||
       process.env.GRAVITY_FORMS_CONSUMER_KEY ||
@@ -50,7 +52,6 @@ export async function POST(req: NextRequest) {
       ""
     ).trim();
 
-    // Consumer Secret resolution
     const consumerSecret = (
       process.env.GF_CONSUMER_SECRET ||
       process.env.GRAVITY_FORMS_CONSUMER_SECRET ||
@@ -148,38 +149,19 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check if WordPress or Webhook destination is configured
-    const isMissingConfig =
-      (!gfApiUrl || !consumerKey || !consumerSecret) &&
-      !customEndpoint &&
-      !webhookUrl;
-
-    if (isMissingConfig) {
-      console.error("[Gravity Forms Setup Error]: Missing API credentials.", {
-        hasUrl: !!gfApiUrl,
-        hasKey: !!consumerKey,
-        hasSecret: !!consumerSecret,
-      });
-
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            "Gravity Forms is not connected. Missing environment variables: GF_API_URL (e.g. https://forms.empowaworx.co.za/wp-json/gf/v2), GF_CONSUMER_KEY, and GF_CONSUMER_SECRET. Please configure these in your Vercel Project Settings (Settings > Environment Variables) or local .env.local file.",
-        },
-        { status: 500 }
-      );
-    }
-
     // Determine target URL for live Gravity Forms submission
     let targetUrl = customEndpoint;
     if (!targetUrl && webhookUrl) {
       targetUrl = webhookUrl;
     } else if (!targetUrl && gfApiUrl) {
-      const separator = gfApiUrl.includes("?") ? "&" : "?";
-      targetUrl = `${gfApiUrl}/forms/${formId}/submissions${separator}consumer_key=${encodeURIComponent(
-        consumerKey
-      )}&consumer_secret=${encodeURIComponent(consumerSecret)}`;
+      if (consumerKey && consumerSecret) {
+        const separator = gfApiUrl.includes("?") ? "&" : "?";
+        targetUrl = `${gfApiUrl}/forms/${formId}/submissions${separator}consumer_key=${encodeURIComponent(
+          consumerKey
+        )}&consumer_secret=${encodeURIComponent(consumerSecret)}`;
+      } else {
+        targetUrl = `${gfApiUrl}/forms/${formId}/submissions`;
+      }
     }
     attemptedUrl = targetUrl;
 
@@ -198,8 +180,7 @@ export async function POST(req: NextRequest) {
       headers["Authorization"] = authHeader;
     }
 
-    // Payload for /submissions endpoint:
-    // Gravity Forms accepts { input_1: "...", input_3: "..." }
+    // Payload for Gravity Forms /submissions endpoint
     const submissionPayload = {
       input_values: inputValues,
       ...inputValues,
@@ -211,8 +192,8 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify(submissionPayload),
     });
 
-    // Fallback: If /submissions returns 404 or fails, try the /entries endpoint
-    if (!response.ok && gfApiUrl && !customEndpoint && !webhookUrl) {
+    // Fallback: If /submissions returns 404 or fails and keys are provided, try /entries endpoint
+    if (!response.ok && gfApiUrl && consumerKey && consumerSecret && !customEndpoint && !webhookUrl) {
       const entriesSeparator = gfApiUrl.includes("?") ? "&" : "?";
       const entriesUrl = `${gfApiUrl}/entries${entriesSeparator}consumer_key=${encodeURIComponent(
         consumerKey
@@ -280,6 +261,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       success: true,
       entry_id: responseData.entry_id,
+      confirmation_message: responseData.confirmation_message,
       data: responseData,
     });
   } catch (error: any) {
