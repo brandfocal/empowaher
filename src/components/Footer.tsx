@@ -131,7 +131,7 @@ export function Footer() {
       <div className="border-t border-white/10 bg-black px-5 py-8 text-white/60 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 text-left text-xs font-semibold uppercase tracking-[0.12em] md:flex-row md:items-center">
           <div>
-            <span>© {new Date().getFullYear()} EMPOWAHER • AN EMPOWAWORX INITIATIVE • OFFICIAL WEBSITE LAUNCHING SOON.</span>
+            <span>© {new Date().getFullYear()} EMPOWAHER • AN EMPOWAWORX INITIATIVE</span>
           </div>
           <div className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]">
             <span>— EMPOWERING WOMEN. ENGINEERING THE FUTURE.</span>

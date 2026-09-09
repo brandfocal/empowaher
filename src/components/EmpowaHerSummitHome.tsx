@@ -124,7 +124,7 @@ export function EmpowaHerSummitHome() {
               id="hero-parallax-img"
               src="/feature-image8.jpg"
               alt="EmpowaHer Leadership Summit"
-              className="h-full w-full object-cover object-[62%_4rem] sm:object-[60%_4.5rem] will-change-transform"
+              className="h-full w-full object-cover object-[62%_0.75rem] sm:object-[60%_1rem] lg:object-[60%_top] will-change-transform"
               style={{
                 transform: "translateY(0)",
                 transformOrigin: "top right",
