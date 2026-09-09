@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
@@ -582,7 +582,7 @@ export function EmpowaHerSummitHome() {
         aria-labelledby="about-heading"
       >
         <div className="border-b border-[#1C2128]/10 px-4 pb-0 pt-12 md:px-6 lg:px-12 lg:pt-16">
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-7xl text-center">
             <p className="mb-6 text-[0.62rem] font-black uppercase tracking-[0.3em] text-[#ed027e]">
               <span>PRODUCED BY EMPOWAWORX</span>
             </p>
@@ -615,15 +615,33 @@ export function EmpowaHerSummitHome() {
               <p className="font-heading mt-4 text-2xl font-black uppercase leading-[1] tracking-[-0.03em] text-[#1C2128]">
                 <span>Start a conversation.</span>
               </p>
-              <a
-                href="mailto:hello@empowaworx.co.za"
-                className="mt-4 block text-sm font-semibold text-[#3f3f3f]/70 transition-colors hover:text-[#ed027e]"
-              >
-                hello@empowaworx.co.za
-              </a>
-              <p className="mt-1.5 text-sm text-[#3f3f3f]/50">
-                <span>Johannesburg, South Africa</span>
-              </p>
+              <div className="mt-4 flex flex-col gap-2.5 text-sm leading-[1.55] text-[#3f3f3f]/80">
+                <a
+                  href="mailto:hello@empowaworx.co.za"
+                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
+                >
+                  <Mail size={14} className="text-[#ed027e] shrink-0" />
+                  <span>hello@empowaworx.co.za</span>
+                </a>
+                <a
+                  href="mailto:doric@empowaworx.co.za"
+                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
+                >
+                  <Mail size={14} className="text-[#ed027e] shrink-0" />
+                  <span>doric@empowaworx.co.za</span>
+                </a>
+                <a
+                  href="tel:+27114827256"
+                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
+                >
+                  <Phone size={14} className="text-[#ed027e] shrink-0" />
+                  <span className="tabular-nums">+27 (0) 11 482 7256</span>
+                </a>
+                <div className="flex items-start gap-2.5 pt-1 text-xs text-[#3f3f3f]/70">
+                  <MapPin size={15} className="text-[#ed027e] shrink-0 mt-0.5" />
+                  <span>EmpowaWorx House, 364 Pine Avenue, Ferndale, Randburg 2194</span>
+                </div>
+              </div>
             </div>
             <div className="flex flex-col justify-center py-10 md:py-12 md:pl-10">
               <p className="text-[0.62rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
