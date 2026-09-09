@@ -18,6 +18,7 @@ const navItems = [
   { label: "Partnerships", href: "/partnerships" },
   { label: "Selection Criteria", href: "/selection-criteria" },
   { label: "Press Release", href: "/press-release" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header({ currentPath = "/" }: HeaderProps) {
