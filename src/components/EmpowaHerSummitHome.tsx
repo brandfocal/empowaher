@@ -262,9 +262,9 @@ export function EmpowaHerSummitHome() {
         <div className="mx-auto grid max-w-7xl lg:grid-cols-[5fr_7fr]">
           <div className="relative hidden min-h-[420px] overflow-hidden rounded-2xl lg:block m-4">
             <img
-              src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80"
+              src="/simphiwe-masiza.jpg"
               alt="Simphiwe Masiza, Founder of EmpowaWorx"
-              className="h-full w-full rounded-2xl object-cover object-[center_20%]"
+              className="h-full w-full rounded-2xl object-cover object-[center_15%]"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/50 to-transparent px-8 pb-8 pt-20">
               <p className="text-[0.7rem] font-black uppercase tracking-[0.22em] text-white">
@@ -301,7 +301,7 @@ export function EmpowaHerSummitHome() {
             </figure>
             <div className="flex items-center gap-4 border-t border-[#1C2128]/10 pt-6 lg:hidden">
               <img
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80"
+                src="/simphiwe-masiza.jpg"
                 alt="Simphiwe Masiza"
                 className="h-14 w-14 rounded-full object-cover object-top ring-2 ring-[#ed027e] ring-offset-2 ring-offset-white"
               />
@@ -385,7 +385,7 @@ export function EmpowaHerSummitHome() {
             ))}
             <figure className="relative m-0 overflow-hidden bg-[#1C2128]">
               <img
-                src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=1200&q=80"
+                src="/programme-overview.jpg"
                 alt="EmpowaHer programme session in action"
                 className="h-full min-h-[220px] w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 lg:min-h-[320px]"
               />
