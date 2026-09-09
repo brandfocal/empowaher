@@ -119,9 +119,9 @@ export function ContactPage() {
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <img
               id="contact-hero-parallax-img"
-              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&q=80"
-              alt="EmpowaHer executive woman leader in Johannesburg"
-              className="h-full w-full object-cover object-[center_top] sm:object-[center_12%] will-change-transform"
+              src="/contact-us.jpg"
+              alt="EmpowaHer executive leadership - Contact Secretariat"
+              className="h-full w-full object-cover object-[center_top] sm:object-[center_15%] will-change-transform"
               style={{
                 transform: "translateY(0)",
                 transformOrigin: "top center",
