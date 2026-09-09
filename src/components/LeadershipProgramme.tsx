@@ -274,7 +274,7 @@ export function LeadershipProgramme() {
             <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
               <span>01 — Leadership Tracks</span>
             </div>
-            <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-[#3f3f3f]">
+            <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-[#3f3f3f]">
               <span>The Full Development Journey</span>
             </h2>
             <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-[#3f3f3f]/70">
