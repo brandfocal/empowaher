@@ -28,7 +28,7 @@ export function Header({ currentPath = "/" }: HeaderProps) {
         />
       </Link>
 
-      <div className="flex items-center gap-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-5 sm:text-[0.6875rem]">
+      <div className="flex items-center gap-2.5 text-[0.625rem] font-semibold uppercase tracking-[0.12em] sm:gap-4 sm:text-[0.6875rem]">
         {isHomePage ? (
           <a
             href="#programme"
@@ -47,6 +47,13 @@ export function Header({ currentPath = "/" }: HeaderProps) {
             <span>Programme Detail</span>
           </a>
         )}
+
+        <Link
+          href="/nominate"
+          className="block rounded-full bg-[#ed027e] px-3.5 py-1.5 font-bold text-white shadow-sm transition-all hover:bg-[#ed027e]/90 hover:scale-[1.03] active:scale-95 sm:px-5 sm:py-2"
+        >
+          <span>Nominate</span>
+        </Link>
 
         <div className="hidden sm:block">
           <SocialIcons compact variant="dark" />

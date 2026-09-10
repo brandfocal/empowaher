@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
@@ -196,21 +197,21 @@ export function EmpowaHerComingSoon() {
                     animationDelay: "300ms",
                   }}
                 >
+                  <Link
+                    href="/nominate"
+                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
+                  >
+                    <span>Nominate a Leader</span>
+                  </Link>
+
                   <a
                     href={PROGRAMME_PDF_PATH}
                     download="EmpowaHER-Programme-2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
-                  >
-                    <span>Download Programme (PDF)</span>
-                  </a>
-
-                  <a
-                    href={PROSPECTUS_EMAIL_HREF}
                     className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
                   >
-                    <span>Prospectus on Request</span>
+                    <span>Download Programme (PDF)</span>
                   </a>
                 </div>
               </div>
