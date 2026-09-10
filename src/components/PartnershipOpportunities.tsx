@@ -2,8 +2,14 @@
 
 import { useEffect } from "react";
 import {
+  ArrowUpRight,
+  Award,
   BarChart3,
   BriefcaseBusiness,
+  Download,
+  Mail,
+  Phone,
+  ShieldCheck,
   Target,
   TrendingUp,
   Users,
@@ -406,6 +412,141 @@ export function PartnershipOpportunities() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — Call For Strategic Partners & Funders */}
+      <section
+        id="funder-cta"
+        className="relative w-full overflow-hidden border-t-4 border-[#ed027e] bg-gradient-to-b from-[#11161F] via-[#0D0D0D] to-black px-5 py-20 text-white sm:px-8 lg:px-16 lg:py-28"
+      >
+        {/* Glow ambient circles */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#ed027e]/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 -bottom-24 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-[1280px]">
+          <div className="reveal grid w-full grid-cols-1 gap-8 border-b border-white/15 pb-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+            <div>
+              <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
+                <span>03 — For Prospective Funders &amp; Strategic Partners</span>
+              </div>
+              <h2 className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white">
+                <span>Invest In Africa’s</span>
+                <br />
+                <span className="text-[#ed027e]">Female Leadership Capital.</span>
+              </h2>
+            </div>
+            <div className="flex flex-col justify-end">
+              <p className="max-w-[34rem] font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/75 sm:text-base">
+                Join forward-thinking corporations, Development Finance Institutions (DFIs), foundations, and impact investors aligning institutional capital with measurable female leadership progression.
+              </p>
+            </div>
+          </div>
+
+          {/* Partnership Tiers & Value Pillars Grid */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.06]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ed027e]/20 text-[#ed027e]">
+                <Award className="h-5 w-5" />
+              </div>
+              <h3 className="font-heading mt-4 text-base font-bold uppercase text-white">
+                Title &amp; Plenary Partner
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/65">
+                Unrivalled brand association across all mainstage proceedings, keynotes, and media broadcasts.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.06]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ed027e]/20 text-[#ed027e]">
+                <BriefcaseBusiness className="h-5 w-5" />
+              </div>
+              <h3 className="font-heading mt-4 text-base font-bold uppercase text-white">
+                Track &amp; Masterclass Host
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/65">
+                Direct ownership of one of the 9 executive tracks, positioning your leaders as continental subject authorities.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.06]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ed027e]/20 text-[#ed027e]">
+                <Users className="h-5 w-5" />
+              </div>
+              <h3 className="font-heading mt-4 text-base font-bold uppercase text-white">
+                Cohort Scholarship Sponsor
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/65">
+                Sponsor fully funded cohorts of 10, 25, or 50 high-calibre young women from under-represented sectors.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.06]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ed027e]/20 text-[#ed027e]">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <h3 className="font-heading mt-4 text-base font-bold uppercase text-white">
+                ESG &amp; Impact Audited
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/65">
+                Receive audited impact metrics, talent placement tracking, and compliance documentation for ESG reporting.
+              </p>
+            </div>
+          </div>
+
+          {/* Action Callout Box */}
+          <div className="mt-12 rounded-3xl border border-[#ed027e]/30 bg-gradient-to-r from-[#ed027e]/15 via-[#1C2128] to-[#ed027e]/10 p-8 sm:p-12">
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div className="max-w-[48rem]">
+                <span className="rounded-full bg-[#ed027e] px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white">
+                  Limited Partnership Positions
+                </span>
+                <h3 className="font-heading mt-3 text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+                  Download The Complete Partnership Proposal &amp; Prospectus
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">
+                  Detailed breakdown of corporate sponsorship packages, branding deliverables, executive cohort demographics, and bespoke commercial integration options.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:shrink-0">
+                <a
+                  href="/EmpowaHer-Partnership-Proposal-2026.pdf"
+                  download="EmpowaHer-Partnership-Proposal-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-8 py-4 font-heading text-xs font-black uppercase tracking-[0.14em] text-white shadow-xl shadow-[#ed027e]/30 transition-all duration-200 hover:scale-[1.03] hover:bg-[#ed027e]/90"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Prospectus (PDF)</span>
+                </a>
+
+                <a
+                  href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Strategic%20Partnership%20and%20Sponsorship%20Inquiry"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-200 hover:bg-white hover:text-black hover:scale-[1.02]"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>Schedule Strategic Meeting</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/60">
+              <div className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-[#ed027e]" />
+                <span>Executive Office Landline: +27 (0) 11 482 7256</span>
+              </div>
+              <div>
+                <span>Direct Executive Desk: doric@empowaworx.co.za</span>
+              </div>
             </div>
           </div>
         </div>

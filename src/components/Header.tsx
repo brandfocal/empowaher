@@ -12,12 +12,12 @@ interface HeaderProps {
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Programme", href: "/programme" },
   { label: "Leadership Tracks", href: "/leadership-programme" },
   { label: "Vision & Impact", href: "/vision-and-impact" },
   { label: "Partnerships", href: "/partnerships" },
   { label: "Selection Criteria", href: "/selection-criteria" },
-  { label: "Press Release", href: "/press-release" },
+  { label: "Media", href: "/media" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
 

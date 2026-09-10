@@ -338,19 +338,10 @@ export function ContactPage() {
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
                   <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
                   <a
-                    href="mailto:hello@empowaworx.co.za"
+                    href="mailto:info@empowaworx.co.za"
                     className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
                   >
-                    <span>hello@empowaworx.co.za</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
-                  <Phone className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                  <a
-                    href="tel:+27786489522"
-                    className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                  >
-                    <span>+27 (0) 78 648 9522</span>
+                    <span>info@empowaworx.co.za</span>
                   </a>
                 </div>
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
@@ -386,6 +377,15 @@ export function ContactPage() {
                     className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
                   >
                     <span>doric@empowaworx.co.za</span>
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
+                  <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
+                  <a
+                    href="mailto:partnerships@empowaworx.co.za?subject=EmpowaHer%20Strategic%20Partnership%20Inquiry"
+                    className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
+                  >
+                    <span>partnerships@empowaworx.co.za</span>
                   </a>
                 </div>
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">

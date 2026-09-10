@@ -2,10 +2,21 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Download,
+  FileText,
+  Mail,
+  MapPin,
+  Phone,
+  Play,
+  Tv,
+} from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
+import { CountdownTimer } from "./CountdownTimer";
 
 const programmeFeatures = [
   {
@@ -243,6 +254,9 @@ export function EmpowaHerSummitHome() {
         </div>
       </section>
 
+      {/* Live Summit Countdown Timer Ribbon */}
+      <CountdownTimer />
+
       {/* Established News Banner */}
       <NewsBanner />
 
@@ -322,6 +336,119 @@ export function EmpowaHerSummitHome() {
                 <span>Explore the full Vision &amp; Impact</span>
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Video & Platform Architecture Showcase Section */}
+      <section
+        id="media"
+        className="relative border-t-[6px] border-[#ed027e] bg-[#0A0D11] py-16 text-white sm:py-20 lg:py-28"
+        aria-labelledby="media-heading"
+      >
+        {/* Glow backdrop effects */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 top-20 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 bottom-20 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+          {/* Section Header */}
+          <div className="grid grid-cols-1 items-end gap-8 border-b border-white/10 pb-12 lg:grid-cols-[1.3fr_0.7fr]">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
+                <Tv className="h-3 w-3" />
+                <span>PLATFORM ARCHITECTURE IN ACTION</span>
+              </div>
+              <h2
+                id="media-heading"
+                className="font-heading max-w-[15ch] text-[clamp(2.5rem,5.5vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-white [text-wrap:balance]"
+              >
+                <span>EmpowaWomen™</span>
+                <br />
+                <span className="text-[#ed027e]">Highlight Reel.</span>
+              </h2>
+            </div>
+
+            <div className="flex flex-col gap-4 lg:items-end">
+              <p className="max-w-[42ch] font-sans text-sm sm:text-base leading-relaxed text-white/75 lg:text-right">
+                Witness the scale, production excellence, and transformative convening power of our leadership-platform architecture in action across Africa.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/media"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-6 py-3 text-[0.6875rem] font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                >
+                  <span>Visit Media Hub</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <a
+                  href="https://www.youtube.com/watch?v=g2T0dzTqQZk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-[0.6875rem] font-black uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
+                >
+                  <Play className="h-3 w-3 fill-current" />
+                  <span>Watch on YouTube</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Cinema Player Container */}
+          <div className="mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black shadow-2xl shadow-black/80">
+            <div className="relative w-full aspect-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/g2T0dzTqQZk?rel=0&modestbranding=1"
+                title="EmpowaWomen™ Leadership Highlight Reel"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+          </div>
+
+          {/* 3 Architecture Pillars Grid */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.05]">
+              <div className="text-[0.6875rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                01 — Multi-Sector Convening
+              </div>
+              <h3 className="font-heading mt-3 text-lg font-black uppercase text-white">
+                Cabinet, Corporate &amp; Global Icons
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                A verified stage uniting high-calibre women leaders with ministers, enterprise founders, and multinational board chairs.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.05]">
+              <div className="text-[0.6875rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                02 — Broadcast-Calibre Infrastructure
+              </div>
+              <h3 className="font-heading mt-3 text-lg font-black uppercase text-white">
+                High-Impact Experiential Design
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                World-class production, curated masterclass studios, and immersive media delivery that amplifies participant influence.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.05]">
+              <div className="text-[0.6875rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                03 — Pan-African Pipeline
+              </div>
+              <h3 className="font-heading mt-3 text-lg font-black uppercase text-white">
+                200 Emerging Leaders (18–35)
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                A rigorous, measurable talent springboard accelerating exceptional young women into boardrooms and commercial leadership.
+              </p>
             </div>
           </div>
         </div>
@@ -414,6 +541,86 @@ export function EmpowaHerSummitHome() {
                 </span>
               </div>
             ))}
+          </div>
+
+          {/* Programme PDF & Itinerary CTA Banner */}
+          <div className="mt-10 rounded-2xl border border-[#ed027e]/30 bg-gradient-to-r from-[#ed027e]/15 via-[#151921] to-[#ed027e]/10 p-6 sm:p-8">
+            <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+              <div>
+                <span className="rounded-full bg-[#ed027e] px-3 py-0.5 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white">
+                  Official 2026 Programme Itinerary
+                </span>
+                <h3 className="font-heading mt-2 text-xl font-bold uppercase text-white sm:text-2xl">
+                  Download The Complete 3-Day Summit Programme
+                </h3>
+                <p className="mt-1 max-w-[50ch] text-xs sm:text-sm text-white/70">
+                  Comprehensive breakdown of opening plenaries, 9 executive tracks, speakers faculty, and graduation ceremonies.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a
+                  href="/EmpowaHER-Programme-2026.pdf"
+                  download="EmpowaHER-Programme-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Programme (PDF)</span>
+                </a>
+                <Link
+                  href="/programme"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white hover:border-[#ed027e]"
+                >
+                  <span>View Online Itinerary</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Official Press Release CTA Section */}
+      <section
+        id="press-release-cta"
+        className="relative border-t-[6px] border-[#ed027e] bg-[#11161F] py-14 text-white sm:py-16 lg:py-20"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+            <div>
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                <FileText className="h-3 w-3" />
+                <span>OFFICIAL MEDIA ANNOUNCEMENT • 8 SEPTEMBER 2026</span>
+              </div>
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-white">
+                EmpowaHer Opens Nominations for 200 of Africa’s Next Generation of Women Leaders
+              </h2>
+              <p className="mt-4 max-w-[54ch] text-sm leading-relaxed text-white/75 sm:text-base">
+                Official announcement detailing the opening of continent-wide nominations for young women aged 18–35 to participate in the flagship 2026 executive leadership experience at EmpowaWorx House.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
+              <a
+                href="/EmpowaHer-Media-Release-2026.pdf"
+                download="EmpowaHer-Media-Release-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+              >
+                <Download className="h-4 w-4" />
+                <span>Download Press Release (PDF)</span>
+              </a>
+
+              <Link
+                href="/media"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+              >
+                <span>Visit Media Hub &amp; Press Centre</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -552,24 +759,55 @@ export function EmpowaHerSummitHome() {
             ))}
           </div>
         </div>
-        <div className="bg-[#1C2128] px-4 py-10 md:px-6 lg:px-12">
-          <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-heading text-[clamp(1.25rem,2.5vw,2rem)] font-black uppercase leading-[1.1] tracking-[-0.03em] text-white">
-              <span>
-                Ready to invest in Africa’s next generation of women leaders?
-              </span>
-            </p>
-            <div className="flex shrink-0 flex-col gap-2 sm:items-end">
-              <Link
-                href="/partnerships"
-                className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-8 py-4 text-[0.68rem] font-black uppercase tracking-[0.12em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-[#ed027e] focus:ring-offset-2 focus:ring-offset-[#1C2128]"
-              >
-                <span>Explore Partnership Opportunities</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-              <p className="text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/40">
-                <span>Limited positions available</span>
+        {/* Powerhouse Partnership & Sponsorship CTA for Funders & Strategic Partners */}
+        <div id="partnerships-cta" className="border-t border-[#1C2128]/10 bg-gradient-to-b from-[#11161F] via-[#0A0D11] to-black px-4 py-16 text-white md:px-6 lg:px-12 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
+                  <BriefcaseBusiness className="h-3 w-3" />
+                  <span>FOR PROSPECTIVE FUNDERS &amp; CORPORATE SPONSORS</span>
+                </span>
+                <h3 className="font-heading mt-4 text-[clamp(2.25rem,4.5vw,4rem)] font-black uppercase leading-[0.95] tracking-tight text-white">
+                  <span>Invest In Africa’s</span>
+                  <br />
+                  <span className="text-[#ed027e]">Next Generation Of Leaders.</span>
+                </h3>
+              </div>
+              <p className="max-w-[42ch] text-sm leading-relaxed text-white/75 sm:text-base lg:text-right">
+                Align institutional capital with measurable female leadership advancement. Partner across Title &amp; Plenary sponsorships, executive track ownership, and fully funded cohort bursaries.
               </p>
+            </div>
+
+            {/* High-Impact Action Bar */}
+            <div className="mt-10 rounded-2xl border border-[#ed027e]/30 bg-white/[0.03] p-8 sm:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+              <div>
+                <h4 className="font-heading text-xl sm:text-2xl font-black uppercase text-white">
+                  Download The Complete Partnership Proposal &amp; Prospectus
+                </h4>
+                <p className="mt-1 text-xs sm:text-sm text-white/70 max-w-[50ch]">
+                  Access detailed investment tiers, corporate benefits, demographic data, and strategic activation models.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a
+                  href="/EmpowaHer-Partnership-Proposal-2026.pdf"
+                  download="EmpowaHer-Partnership-Proposal-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-4 text-xs font-black uppercase tracking-[0.14em] text-white shadow-xl shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Prospectus (PDF)</span>
+                </a>
+                <Link
+                  href="/partnerships"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-white"
+                >
+                  <span>Explore Partnership Opportunities</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

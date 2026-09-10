@@ -83,13 +83,6 @@ export function Footer() {
                   <span>doric@empowaworx.co.za</span>
                 </a>
                 <a
-                  href="tel:+27786489522"
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <Phone size={14} className="text-[#ed027e] shrink-0" />
-                  <span className="tabular-nums">+27 (0) 78 648 9522</span>
-                </a>
-                <a
                   href="tel:+27114827256"
                   className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
                 >
