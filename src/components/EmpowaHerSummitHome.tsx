@@ -17,6 +17,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
 import { CountdownTimer } from "./CountdownTimer";
+import { EmpowaHerTeam } from "./EmpowaHerTeam";
 
 const programmeFeatures = [
   {
@@ -894,6 +895,9 @@ export function EmpowaHerSummitHome() {
           </div>
         </div>
       </section>
+
+      {/* EmpowaHer Leadership Team Section */}
+      <EmpowaHerTeam />
 
       {/* Site-wide Established Shared Footer */}
       <Footer />
