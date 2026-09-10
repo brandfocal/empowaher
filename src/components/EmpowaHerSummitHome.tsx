@@ -208,7 +208,7 @@ export function EmpowaHerSummitHome() {
                     href="/nominate"
                     className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
                   >
-                    <span>Nominate a Leader</span>
+                    <span>Nominate Now</span>
                   </Link>
                   <Link
                     href="/partnerships"
