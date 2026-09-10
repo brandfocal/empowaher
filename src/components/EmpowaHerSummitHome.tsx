@@ -814,6 +814,9 @@ export function EmpowaHerSummitHome() {
         </div>
       </section>
 
+      {/* EmpowaHer Leadership Team Section */}
+      <EmpowaHerTeam />
+
       {/* Produced by EmpowaWorx Section */}
       <section
         id="about"
@@ -895,9 +898,6 @@ export function EmpowaHerSummitHome() {
           </div>
         </div>
       </section>
-
-      {/* EmpowaHer Leadership Team Section */}
-      <EmpowaHerTeam />
 
       {/* Site-wide Established Shared Footer */}
       <Footer />
