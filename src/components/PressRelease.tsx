@@ -658,6 +658,13 @@ export function PressRelease() {
                     <span className="tabular-nums">+27 (0) 11 482 7256 / 7257</span>
                   </a>
                   <a
+                    href="tel:+27652678169"
+                    className="flex items-center gap-3 transition-colors hover:text-[#ed027e]"
+                  >
+                    <Phone size={16} className="shrink-0 text-[#ed027e]" aria-hidden="true" />
+                    <span className="tabular-nums">+27 (0) 65 267 8169</span>
+                  </a>
+                  <a
                     href="https://www.empowaher.co.za"
                     target="_blank"
                     rel="noopener noreferrer"

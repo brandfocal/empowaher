@@ -205,7 +205,7 @@ export function MediaPage() {
                     info@empowaworx.co.za
                   </a>
                   <p className="pt-2 text-xs text-white/50">
-                    Office Landline: +27 (0) 11 482 7256
+                    Office Landline: +27 (0) 11 482 7256 / Direct: +27 (0) 65 267 8169
                   </p>
                 </div>
               </div>

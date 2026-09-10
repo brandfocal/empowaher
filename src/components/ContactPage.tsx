@@ -346,12 +346,21 @@ export function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
                   <Phone className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                  <a
-                    href="tel:+27114827256"
-                    className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                  >
-                    <span>+27 (0) 11 482 7256</span>
-                  </a>
+                  <div className="flex flex-wrap items-center gap-x-2">
+                    <a
+                      href="tel:+27114827256"
+                      className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
+                    >
+                      <span>+27 (0) 11 482 7256</span>
+                    </a>
+                    <span className="text-[#3f3f3f]/40">/</span>
+                    <a
+                      href="tel:+27652678169"
+                      className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
+                    >
+                      <span>+27 (0) 65 267 8169</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -473,6 +482,16 @@ export function ContactPage() {
                 <div>
                   <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white/50">Direct Telephone</p>
                   <p className="text-sm font-semibold text-white/90">+27 (0) 11 482 7256</p>
+                </div>
+              </a>
+              <a
+                href="tel:+27652678169"
+                className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4.5 transition-all hover:border-[#ed027e] hover:bg-white/10"
+              >
+                <Phone className="h-5 w-5 shrink-0 text-[#ed027e]" strokeWidth={2} />
+                <div>
+                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white/50">Mobile / Direct</p>
+                  <p className="text-sm font-semibold text-white/90">+27 (0) 65 267 8169</p>
                 </div>
               </a>
               <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4.5">

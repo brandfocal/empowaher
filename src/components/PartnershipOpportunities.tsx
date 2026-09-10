@@ -542,7 +542,7 @@ export function PartnershipOpportunities() {
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/60">
               <div className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5 text-[#ed027e]" />
-                <span>Executive Office Landline: +27 (0) 11 482 7256</span>
+                <span>Executive Office: +27 (0) 11 482 7256 / +27 (0) 65 267 8169</span>
               </div>
               <div>
                 <span>Direct Executive Desk: doric@empowaworx.co.za</span>

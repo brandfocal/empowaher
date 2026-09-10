@@ -817,6 +817,9 @@ export function EmpowaHerSummitHome() {
       {/* EmpowaHer Leadership Team Section */}
       <EmpowaHerTeam />
 
+      {/* Horizontal Divider between Team and EmpowaWorx */}
+      <div className="w-full border-t border-[#1C2128]/12" />
+
       {/* Produced by EmpowaWorx Section */}
       <section
         id="about"
@@ -871,6 +874,13 @@ export function EmpowaHerSummitHome() {
                 >
                   <Phone size={14} className="text-[#ed027e] shrink-0" />
                   <span className="tabular-nums">+27 (0) 11 482 7256</span>
+                </a>
+                <a
+                  href="tel:+27652678169"
+                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
+                >
+                  <Phone size={14} className="text-[#ed027e] shrink-0" />
+                  <span className="tabular-nums">+27 (0) 65 267 8169</span>
                 </a>
                 <div className="flex items-start gap-2.5 pt-1 text-xs text-[#3f3f3f]/70">
                   <MapPin size={15} className="text-[#ed027e] shrink-0 mt-0.5" />
