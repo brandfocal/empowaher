@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { SocialIcons } from "./SocialIcons";
 
 interface HeaderProps {
   currentPath?: string;
@@ -90,10 +89,6 @@ export function Header({ currentPath = "/" }: HeaderProps) {
             <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
 
-          <div className="hidden 2xl:block">
-            <SocialIcons compact variant="dark" />
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             type="button"
@@ -152,10 +147,6 @@ export function Header({ currentPath = "/" }: HeaderProps) {
             >
               <span>Download Programme (PDF)</span>
             </a>
-
-            <div className="mt-2 flex justify-center">
-              <SocialIcons compact variant="dark" />
-            </div>
           </div>
         </div>
       )}
