@@ -275,23 +275,45 @@ export function PartnershipOpportunities() {
     setSubmitError(null);
 
     try {
+      // Gravity Forms Form ID 3 field mapping:
+      // Field 1:  Partnership Package
+      // Field 3:  Full Name
+      // Field 4:  Executive Role / Designation
+      // Field 5:  Organisation / Company Name
+      // Field 6:  Industry Sector
+      // Field 7:  Work Email Address
+      // Field 8:  Phone / Mobile Number
+      // Field 9:  Key Strategic Objectives
+      // Field 10: Proposed Focus Area / Notes
       const payload = {
-        name: formData.fullName,
+        input_1: selectedPackage,
+        input_3: formData.fullName,
+        input_4: formData.jobTitle,
+        input_5: formData.organisation,
+        input_6: selectedSector,
+        input_7: formData.email,
+        input_8: formData.phone,
+        input_9: selectedObjectives.join(", "),
+        input_10: formData.message || "",
+        package: selectedPackage,
+        fullName: formData.fullName,
+        jobTitle: formData.jobTitle,
+        organisation: formData.organisation,
+        sector: selectedSector,
         email: formData.email,
-        organisation: `${formData.organisation} (${formData.jobTitle}${selectedSector ? `, ${selectedSector}` : ""})`,
         phone: formData.phone,
-        inquiry: `Partnership Package: ${selectedPackage}${selectedObjectives.length > 0 ? ` | Objectives: ${selectedObjectives.join(", ")}` : ""}`,
-        message: `Preferred Partnership Package: ${selectedPackage}\nDesignation: ${formData.jobTitle}\nSector: ${selectedSector || "Not specified"}\nKey Strategic Objectives: ${selectedObjectives.length > 0 ? selectedObjectives.join(", ") : "Not specified"}\n\nMessage / Notes:\n${formData.message || "No additional notes provided."}`,
+        objectives: selectedObjectives,
+        message: formData.message,
       };
 
-      const res = await fetch("/api/submit-contact", {
+      const res = await fetch("/api/submit-partnership", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
-      if (!res.ok && data.is_valid === false) {
+      if (!res.ok || !data.success) {
         throw new Error(data.error || "Submission could not be completed. Please try again or contact our executive desk.");
       }
 
@@ -854,9 +876,19 @@ export function PartnershipOpportunities() {
             </div>
           ) : (
             <form
+              id="gform_3"
+              data-formid="3"
+              method="POST"
               onSubmit={handleSubmit}
               className="rounded-3xl border border-white/15 bg-white/[0.025] p-6 shadow-2xl backdrop-blur-md sm:p-10 lg:p-12"
             >
+              {/* Gravity Forms Hidden Fields (Form ID 3) */}
+              <input type="hidden" name="gform_form_id" value="3" />
+              <input type="hidden" name="is_submit_3" value="1" />
+              <input type="hidden" name="gform_submit" value="3" />
+              <input type="hidden" id="input_3_1" name="input_1" value={selectedPackage} />
+              <input type="hidden" id="input_3_9" name="input_9" value={selectedObjectives.join(", ")} />
+
               {submitError && (
                 <div className="mb-8 rounded-2xl border border-red-500/50 bg-red-500/10 p-5 text-sm text-red-200">
                   <p className="font-bold">Submission Notice:</p>
@@ -912,12 +944,12 @@ export function PartnershipOpportunities() {
 
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="partner-fullName" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_3" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Full Name <span className="text-[#ed027e]">*</span>
                     </label>
                     <input
-                      id="partner-fullName"
-                      name="fullName"
+                      id="input_3_3"
+                      name="input_3"
                       type="text"
                       required
                       value={formData.fullName}
@@ -928,12 +960,12 @@ export function PartnershipOpportunities() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-jobTitle" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_4" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Executive Role / Designation <span className="text-[#ed027e]">*</span>
                     </label>
                     <input
-                      id="partner-jobTitle"
-                      name="jobTitle"
+                      id="input_3_4"
+                      name="input_4"
                       type="text"
                       required
                       value={formData.jobTitle}
@@ -944,12 +976,12 @@ export function PartnershipOpportunities() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-organisation" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_5" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Organisation / Company Name <span className="text-[#ed027e]">*</span>
                     </label>
                     <input
-                      id="partner-organisation"
-                      name="organisation"
+                      id="input_3_5"
+                      name="input_5"
                       type="text"
                       required
                       value={formData.organisation}
@@ -960,12 +992,12 @@ export function PartnershipOpportunities() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-sector" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_6" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Industry Sector <span className="text-[#ed027e]">*</span>
                     </label>
                     <select
-                      id="partner-sector"
-                      name="sector"
+                      id="input_3_6"
+                      name="input_6"
                       required
                       value={selectedSector}
                       onChange={(e) => setSelectedSector(e.target.value)}
@@ -983,12 +1015,12 @@ export function PartnershipOpportunities() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-email" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_7" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Work Email Address <span className="text-[#ed027e]">*</span>
                     </label>
                     <input
-                      id="partner-email"
-                      name="email"
+                      id="input_3_7"
+                      name="input_7"
                       type="email"
                       required
                       value={formData.email}
@@ -999,12 +1031,12 @@ export function PartnershipOpportunities() {
                   </div>
 
                   <div>
-                    <label htmlFor="partner-phone" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                    <label htmlFor="input_3_8" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                       Phone / Mobile Number <span className="text-[#ed027e]">*</span>
                     </label>
                     <input
-                      id="partner-phone"
-                      name="phone"
+                      id="input_3_8"
+                      name="input_8"
                       type="tel"
                       required
                       value={formData.phone}
@@ -1058,12 +1090,12 @@ export function PartnershipOpportunities() {
 
               {/* Additional Message / Integration Idea */}
               <div className="mb-10">
-                <label htmlFor="partner-message" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                <label htmlFor="input_3_10" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
                   Proposed Focus Area / Bespoke Requirements (Optional)
                 </label>
                 <textarea
-                  id="partner-message"
-                  name="message"
+                  id="input_3_10"
+                  name="input_10"
                   rows={4}
                   value={formData.message}
                   onChange={handleInputChange}
