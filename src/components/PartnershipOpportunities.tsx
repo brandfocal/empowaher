@@ -443,7 +443,7 @@ export function PartnershipOpportunities() {
               id="partnerships-hero-parallax-img"
               src="/feature-image13.jpg"
               alt="Professional women collaborating in a bright contemporary workplace"
-              className="h-full w-full object-cover object-[54%_4rem] sm:object-[54%_4.5rem] will-change-transform"
+              className="h-full w-full object-cover object-[54%_0] sm:object-[54%_-2.75rem] lg:object-[54%_-3.5rem] will-change-transform"
               style={{
                 transform: "translateY(0)",
                 transformOrigin: "top center",
