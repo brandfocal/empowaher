@@ -5,18 +5,202 @@ import {
   AlertCircle,
   ArrowUpRight,
   Award,
+  BriefcaseBusiness,
+  Building2,
   Calendar,
   Check,
   CheckCircle2,
   ChevronRight,
+  Download,
   FileCheck,
+  GraduationCap,
+  Scale,
   Send,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  TrendingUp,
   Upload,
+  Users,
 } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 const HERO_IMAGE_URL = "/feature-image14.jpg";
+
+const selectionJourneySteps = [
+  {
+    number: "01",
+    title: "Eligibility & Screening",
+    description: "Verified against the 18–35 age threshold, proven leadership record, and authorized nominator status.",
+  },
+  {
+    number: "02",
+    title: "Formal Endorsement",
+    description: "Submission of comprehensive 10-point dossier by an authorized organizational or industry leader.",
+  },
+  {
+    number: "03",
+    title: "7-Pillar Evaluation",
+    description: "Rigorous, independent committee assessment scored against our weighted merit-based model.",
+  },
+  {
+    number: "04",
+    title: "Selection & Compact",
+    description: "Official cohort invitation, track allocation, and onboarding into the 100-day leadership compact.",
+  },
+];
+
+const nominatorTypes = [
+  {
+    number: "01",
+    role: "CEOs & Managing Directors",
+    desc: "Executive leaders championing emerging women talent within corporate enterprises",
+  },
+  {
+    number: "02",
+    role: "Board Chairs & Non-Executive Directors",
+    desc: "Governance leaders identifying future board and committee successors",
+  },
+  {
+    number: "03",
+    role: "ExCo Members & C-Suite Executives",
+    desc: "Functional heads sponsoring high-performing women across corporate divisions",
+  },
+  {
+    number: "04",
+    role: "Directors-General & Public Sector Leaders",
+    desc: "Civic and government heads developing next-generation public administrators",
+  },
+  {
+    number: "05",
+    role: "Vice-Chancellors & Academic Deans",
+    desc: "Higher education leaders nominating exceptional postgraduates and researchers",
+  },
+  {
+    number: "06",
+    role: "Industry & Association Leaders",
+    desc: "Professional bodies and ecosystem founders elevating sector innovators",
+  },
+];
+
+const candidateCategories = [
+  {
+    number: "01",
+    category: "High-Potential Corporate Professionals",
+    desc: "Women in corporate pipelines preparing for executive and senior management roles",
+  },
+  {
+    number: "02",
+    category: "Entrepreneurs & Venture Founders",
+    desc: "Founders of commercial or social enterprises poised for scale, investment, and market expansion",
+  },
+  {
+    number: "03",
+    category: "Aspiring Board Members & Governance Fellows",
+    desc: "Professionals seeking director-level readiness, board literacy, and committee exposure",
+  },
+  {
+    number: "04",
+    category: "Graduates & Academic Achievers",
+    desc: "Top graduates and scholars demonstrating early leadership and intellectual capability",
+  },
+  {
+    number: "05",
+    category: "Civic Leaders & Social Innovators",
+    desc: "Community champions translating social purpose into measurable regional impact",
+  },
+  {
+    number: "06",
+    category: "Women Actively Advancing Others",
+    desc: "Leaders with an established record of mentoring, sponsorship, and peer empowerment",
+  },
+];
+
+const candidateCommitments = [
+  {
+    number: "01",
+    title: "Full Summit Attendance",
+    detail: "Attend the complete three-day programme in Johannesburg: 29–31 October 2026.",
+  },
+  {
+    number: "02",
+    title: "Active Track Participation",
+    detail: "Engage in all masterclasses, labs, simulations, and assigned executive tracks.",
+  },
+  {
+    number: "03",
+    title: "Executive Dialogue",
+    detail: "Contribute proactively to peer exchanges and plenary boardroom sessions.",
+  },
+  {
+    number: "04",
+    title: "100-Day Action Roadmap",
+    detail: "Formulate and commit to a structured post-summit leadership roadmap with measurable outcomes.",
+  },
+  {
+    number: "05",
+    title: "Knowledge Transfer",
+    detail: "Share summit learnings, methodologies, and tools within your nominating organisation.",
+  },
+  {
+    number: "06",
+    title: "Mentorship Pledge",
+    detail: "Commit to mentoring at least one emerging young woman leader for 12 months post-summit.",
+  },
+];
+
+const evaluationCriteria = [
+  {
+    number: "01",
+    label: "Leadership Potential & Initiative",
+    weight: "25%",
+    numericWeight: 25,
+    description: "Demonstrated ability to drive change, mobilize teams, and take accountability for outcomes.",
+  },
+  {
+    number: "02",
+    label: "Demonstrated Impact & Achievement",
+    weight: "20%",
+    numericWeight: 20,
+    description: "Tangible professional, entrepreneurial, or academic milestones with verifiable results.",
+  },
+  {
+    number: "03",
+    label: "Integrity & Personal Accountability",
+    weight: "15%",
+    numericWeight: 15,
+    description: "Uncompromising ethical standards, resilience, self-awareness, and values-led decision making.",
+  },
+  {
+    number: "04",
+    label: "Board & Executive Potential",
+    weight: "15%",
+    numericWeight: 15,
+    description: "Strategic aptitude, governance readiness, and commercial or organizational acumen.",
+  },
+  {
+    number: "05",
+    label: "Future-Ready Capabilities",
+    weight: "10%",
+    numericWeight: 10,
+    description: "Digital fluency, innovative mindset, adaptability, and cross-functional problem solving.",
+  },
+  {
+    number: "06",
+    label: "Commitment to Advancing Women",
+    weight: "10%",
+    numericWeight: 10,
+    description: "Evidence of championing peers, mentorship involvement, and contributing to collective growth.",
+  },
+  {
+    number: "07",
+    label: "Post-Programme Impact Plan",
+    weight: "5%",
+    numericWeight: 5,
+    description: "Clear, actionable vision for applying programme outcomes to create measurable value.",
+  },
+];
 
 const heroSteps = [
   { id: "nominee-info", number: 1, label: "Nominee Info", status: "completed" },
@@ -444,7 +628,7 @@ export function NominationForm() {
       className="min-h-screen bg-[#0D0D0D] font-sans text-white selection:bg-[#ed027e] selection:text-[#ffffff]"
     >
       {/* Top Header */}
-      <Header currentPath="/nomination-form" />
+      <Header currentPath="/nomination" />
 
       {/* Hero Section */}
       <section className="relative flex min-h-screen flex-col overflow-hidden bg-black text-white">
@@ -478,7 +662,7 @@ export function NominationForm() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ed027e] opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
             </span>
-            <span>Nomination Portal</span>
+            <span>Candidate Selection &amp; Nomination</span>
             <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
             <span>Summit 2026</span>
           </div>
@@ -496,7 +680,7 @@ export function NominationForm() {
               aria-hidden="true"
             />
             <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
-              Official Endorsement Form
+              Official Nomination Portal
             </span>
           </div>
 
@@ -509,11 +693,11 @@ export function NominationForm() {
               }}
             >
               <h1 className="font-heading text-[clamp(2.3rem,4.5vw,4.25rem)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">
-                <span>NOMINATE A</span>
+                <span>OFFICIAL</span>
                 <br />
-                <span className="text-[#ed027e]">LEADER FOR</span>
+                <span className="text-[#ed027e]">NOMINATION &amp;</span>
                 <br />
-                <span>EMPOWAHER™</span>
+                <span>SELECTION</span>
               </h1>
 
               {/* Hero CTAs */}
@@ -527,15 +711,15 @@ export function NominationForm() {
                   href="#nomination-form"
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#ed027e]/90 hover:scale-[1.02] hover:shadow-xl sm:w-auto"
                 >
-                  <span>Start Nomination</span>
+                  <span>Submit Nomination</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
 
                 <a
-                  href="/selection-criteria"
-                  className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] hover:shadow-lg sm:w-auto"
+                  href="#eligibility-framework"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-[#0D0D0D] hover:scale-[1.02] hover:shadow-lg sm:w-auto"
                 >
-                  <span>View Criteria</span>
+                  <span>Eligibility &amp; Criteria</span>
                 </a>
               </div>
             </div>
@@ -548,7 +732,7 @@ export function NominationForm() {
             >
               <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
                 <span>
-                  Submit a Formal Endorsement for the 2026 EmpowaHer™ Leadership Summit
+                  Identifying, Evaluating, and Elevating Africa&apos;s Next 200 Women Leaders
                 </span>
               </h2>
             </div>
@@ -561,7 +745,7 @@ export function NominationForm() {
             >
               <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
                 <span>
-                  Candidates must be nominated by an authorized senior leader. Self-nominations are not accepted. Places are strictly limited to 200 selected women.
+                  A transparent, merit-driven selection process connecting emerging women aged 18–35 to executive mentorship, board governance, and commercial capital.
                 </span>
               </p>
             </div>
@@ -600,6 +784,246 @@ export function NominationForm() {
                 );
               })}
             </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* 01 — Selection Journey */}
+      <section
+        id="nomination-journey"
+        className="border-t-4 border-[#ed027e] bg-[#111111] px-5 py-16 text-white sm:px-8 lg:px-14 lg:py-20"
+        aria-labelledby="journey-heading"
+      >
+        <div className="mx-auto max-w-[1380px]">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-3 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.22em] text-[#ed027e]">
+              <span>01 — Selection Journey</span>
+            </p>
+            <h2
+              id="journey-heading"
+              className="font-heading text-[clamp(2.2rem,4.5vw,3.75rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white"
+            >
+              <span>A Clear, Credible Pathway</span>
+            </h2>
+            <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
+              Four intentional milestones moving candidates from nomination through independent evaluation to full summit participation.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {selectionJourneySteps.map((step) => (
+              <article
+                key={step.number}
+                className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-all duration-300 hover:border-[#ed027e]/60 hover:bg-white/[0.06]"
+              >
+                <span className="font-heading text-4xl font-black text-[#ed027e]/40 transition-colors group-hover:text-[#ed027e]">
+                  {step.number}
+                </span>
+                <h3 className="font-heading mt-4 text-lg font-bold uppercase text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/70">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 02 — Eligibility Framework */}
+      <section
+        id="eligibility-framework"
+        className="border-t-4 border-[#ed027e] bg-white px-5 py-16 text-[#3f3f3f] sm:px-8 lg:px-14 lg:py-24"
+        aria-labelledby="eligibility-heading"
+      >
+        <div className="mx-auto max-w-[1380px]">
+          <div className="mb-14 grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end">
+            <div>
+              <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
+                <span>02 — Eligibility Framework</span>
+              </p>
+              <h2
+                id="eligibility-heading"
+                className="font-heading text-[clamp(2.35rem,5.5vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-[#0D0D0D]"
+              >
+                <span>Who Can Nominate &amp; Who Qualifies</span>
+              </h2>
+            </div>
+            <p className="max-w-[42ch] font-sans text-[0.95rem] leading-[1.65] text-[#3f3f3f]/75 lg:justify-self-end">
+              To safeguard cohort calibre and impact, candidates must be high-potential women aged 18–35 formally endorsed by recognized organizational leaders.
+            </p>
+          </div>
+
+          {/* Candidate Categories */}
+          <div className="mb-16">
+            <h3 className="font-heading mb-6 text-sm font-black uppercase tracking-[0.18em] text-[#ed027e]">
+              Target Candidate Profiles (Aged 18–35)
+            </h3>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {candidateCategories.map((item) => (
+                <article
+                  key={item.number}
+                  className="rounded-2xl border border-black/10 bg-[#F9F4F7]/60 p-6 transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white hover:shadow-md"
+                >
+                  <span className="font-heading text-xs font-black uppercase tracking-widest text-[#ed027e]">
+                    Profile {item.number}
+                  </span>
+                  <h4 className="font-heading mt-2 text-base font-bold uppercase text-[#0D0D0D]">
+                    {item.category}
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-[#3f3f3f]/75">
+                    {item.desc}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Nominator Categories */}
+          <div>
+            <h3 className="font-heading mb-6 text-sm font-black uppercase tracking-[0.18em] text-[#0D0D0D]">
+              Authorized Nominating Authorities
+            </h3>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {nominatorTypes.map((item) => (
+                <article
+                  key={item.number}
+                  className="rounded-2xl border border-black/10 bg-white p-6 shadow-xs transition-all duration-300 hover:border-[#ed027e]/40 hover:shadow-md"
+                >
+                  <span className="font-heading text-xs font-black uppercase tracking-widest text-[#ed027e]">
+                    Authority {item.number}
+                  </span>
+                  <h4 className="font-heading mt-2 text-base font-bold uppercase text-[#0D0D0D]">
+                    {item.role}
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-[#3f3f3f]/75">
+                    {item.desc}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — Requirements & Commitments */}
+      <section
+        id="requirements-compact"
+        className="border-t-4 border-[#ed027e] bg-[#0D0D0D] px-5 py-16 text-white sm:px-8 lg:px-14 lg:py-24"
+        aria-labelledby="commitments-heading"
+      >
+        <div className="mx-auto max-w-[1380px]">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.22em] text-[#ed027e]">
+              <span>03 — Requirements &amp; Compact</span>
+            </p>
+            <h2
+              id="commitments-heading"
+              className="font-heading text-[clamp(2.35rem,5.5vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-white"
+            >
+              <span>The Six Candidate Commitments</span>
+            </h2>
+            <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
+              Selection carries responsibility. Selected leaders agree to the following commitments to maximize knowledge transfer and peer elevation.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {candidateCommitments.map((item) => (
+              <article
+                key={item.number}
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm transition-all duration-300 hover:border-[#ed027e] hover:bg-white/[0.06]"
+              >
+                <span className="font-heading text-xs font-black uppercase tracking-widest text-[#ed027e]">
+                  Commitment {item.number}
+                </span>
+                <h3 className="font-heading mt-2 text-lg font-bold uppercase text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-white/75">
+                  {item.detail}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 04 — 7-Pillar Evaluation Framework */}
+      <section
+        id="evaluation-framework"
+        className="border-t-4 border-[#ed027e] bg-[#141414] px-5 py-16 text-white sm:px-8 lg:px-14 lg:py-24"
+        aria-labelledby="evaluation-heading"
+      >
+        <div className="mx-auto max-w-[1380px]">
+          <div className="mb-12 grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end">
+            <div>
+              <p className="mb-3 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.22em] text-[#ed027e]">
+                <span>04 — Evaluation &amp; Selection Model</span>
+              </p>
+              <h2
+                id="evaluation-heading"
+                className="font-heading text-[clamp(2.35rem,5.5vw,4.5rem)] font-black uppercase leading-[0.95] tracking-[-0.02em] text-white"
+              >
+                <span>7-Pillar Weighted Assessment</span>
+              </h2>
+            </div>
+            <p className="max-w-[42ch] font-sans text-sm leading-relaxed text-white/70 lg:justify-self-end">
+              Every nomination is evaluated independently against a structured weighting model, ensuring transparent, objective, and high-impact selection.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {evaluationCriteria.map((item) => (
+              <article
+                key={item.number}
+                className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:border-[#ed027e]/50 hover:bg-white/[0.05]"
+              >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className="font-heading text-sm font-black text-[#ed027e]">
+                      {item.number}
+                    </span>
+                    <h3 className="font-heading text-base font-bold uppercase tracking-wide text-white">
+                      {item.label}
+                    </h3>
+                  </div>
+                  <span className="inline-flex w-fit items-center rounded-full bg-[#ed027e]/20 px-3 py-1 font-heading text-xs font-black text-[#ed027e]">
+                    Weight: {item.weight}
+                  </span>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-white/70 sm:text-sm">
+                  {item.description}
+                </p>
+                {/* Visual weight bar */}
+                <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-[#ed027e] transition-all duration-500"
+                    style={{ width: `${item.numericWeight * 4}%` }}
+                  />
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Jump to Form Action Banner */}
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-[#ed027e]/40 bg-gradient-to-r from-[#ed027e]/20 via-white/[0.04] to-transparent p-8 sm:flex-row sm:items-center">
+            <div>
+              <h3 className="font-heading text-xl font-bold uppercase text-white">
+                Ready to Endorse a Candidate?
+              </h3>
+              <p className="mt-1 text-xs text-white/70 sm:text-sm">
+                Complete the official multi-section nomination form below.
+              </p>
+            </div>
+            <a
+              href="#nomination-form"
+              className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-7 py-3 font-heading text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-all hover:scale-105 hover:bg-[#ed027e]/90"
+            >
+              <span>Go to Nomination Form</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>

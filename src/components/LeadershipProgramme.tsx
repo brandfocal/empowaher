@@ -11,74 +11,56 @@ const PROSPECTUS_EMAIL_HREF =
 const tracks = [
   {
     id: 1,
-    name: "Strategic Leadership & Executive Presence",
-    descriptor:
-      "Command the room, define direction, and build the authority that moves organisations forward.",
-    image: "/feature-image10.jpg",
-    accentColor: "#ed027e",
-  },
-  {
-    id: 2,
-    name: "Financial Acumen & Business Literacy",
-    descriptor:
-      "Decode balance sheets, drive profitability, and speak the language of the boardroom.",
-    image: "/feature-image11.jpg",
-    accentColor: "#B01060",
-  },
-  {
-    id: 3,
-    name: "Innovation & Digital Transformation",
-    descriptor:
-      "Lead technology adoption, champion innovation culture, and future-proof your organisation.",
-    image: "/feature-image12.jpg",
-    accentColor: "#7B1FA0",
-  },
-  {
-    id: 4,
-    name: "People Leadership & Organisational Culture",
-    descriptor:
-      "Attract, retain, and inspire diverse talent while shaping cultures that perform.",
-    image: "/feature-image13.jpg",
-    accentColor: "#3D0C6B",
-  },
-  {
-    id: 5,
-    name: "Stakeholder Engagement & Communication",
-    descriptor:
-      "Influence across functions, manage up, and build coalitions that get things done.",
-    image: "/feature-image14.jpg",
-    accentColor: "#ed027e",
-  },
-  {
-    id: 6,
-    name: "Entrepreneurship & Venture Development",
-    descriptor:
-      "Identify opportunities, build ventures, and instil entrepreneurial thinking within any organisation.",
-    image: "/feature-image15.jpg",
+    name: "Entrepreneurship, Innovation & Funding",
+    image: "/streams/Entrepreneurship.jpg",
     accentColor: "#0D4A5E",
   },
   {
-    id: 7,
-    name: "Social Impact & Sustainable Development",
-    descriptor:
-      "Align business goals with the SDGs and lead with purpose at every decision point.",
-    image: "/feature-image16.jpg",
+    id: 2,
+    name: "Digital Leadership, AI & Career Growth",
+    image: "/streams/Digital-Transformation.jpg",
+    accentColor: "#7B1FA0",
+  },
+  {
+    id: 3,
+    name: "Citizenship & Social Impact",
+    image: "/streams/Social-Impact.jpg",
     accentColor: "#4A1942",
   },
   {
+    id: 4,
+    name: "Personal Leadership & Career Transformation",
+    image: "/streams/Strategic-Leadership.jpg",
+    accentColor: "#ed027e",
+  },
+  {
+    id: 5,
+    name: "Personal Finance & Wealth Creation",
+    image: "/streams/Financial-Acumen.jpg",
+    accentColor: "#B01060",
+  },
+  {
+    id: 6,
+    name: "Health, Wellness & Sustainable Performance",
+    image: "/streams/People-Leadership.jpg",
+    accentColor: "#3D0C6B",
+  },
+  {
+    id: 7,
+    name: "Rights, Relationships & Executive Parenting",
+    image: "/streams/Communication.jpg",
+    accentColor: "#ed027e",
+  },
+  {
     id: 8,
-    name: "Africa-Centric Strategy & Global Markets",
-    descriptor:
-      "Navigate Africa's economic landscape and position your enterprise for global growth.",
-    image: "/feature-image17.jpg",
+    name: "Education & Executive Development",
+    image: "/streams/Africa-Centric.jpg",
     accentColor: "#7B0D3C",
   },
   {
     id: 9,
     name: "Leadership, Governance & Board Readiness",
-    descriptor:
-      "Master board dynamics, governance frameworks, and the director-level mindset required at the top.",
-    image: "/feature-image18.jpg",
+    image: "/streams/Board-Readiness.jpg",
     accentColor: "#C4185C",
   },
 ];
@@ -274,7 +256,7 @@ export function LeadershipProgramme() {
             <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
               <span>01 — Leadership Tracks</span>
             </div>
-            <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-[#3f3f3f]">
+            <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-[#3f3f3f]">
               <span>The Full Development Journey</span>
             </h2>
             <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-[#3f3f3f]/70">
@@ -338,9 +320,6 @@ export function LeadershipProgramme() {
                   <h3 className="font-heading text-[clamp(1.25rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
                     {track.name}
                   </h3>
-                  <p className="mt-3.5 font-sans text-[0.9375rem] font-medium leading-[1.65] text-white/85 transition-opacity duration-300 group-hover:text-white">
-                    {track.descriptor}
-                  </p>
                 </div>
               </article>
             ))}

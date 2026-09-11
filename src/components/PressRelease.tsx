@@ -208,7 +208,7 @@ function SectionHeader({
       <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
         <span>{overline}</span>
       </div>
-      <h2 className="max-w-4xl font-heading text-[clamp(1.5rem,2.5vw,2.25rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-[#3f3f3f]">
+      <h2 className="max-w-4xl font-heading text-[clamp(2rem,3.8vw,3.25rem)] font-black uppercase leading-[1.05] tracking-[-0.02em] text-[#3f3f3f]">
         <span>{heading}</span>
       </h2>
       <div className="mt-4 h-0.5 w-12 bg-[#ed027e]" aria-hidden="true" />
@@ -656,6 +656,13 @@ export function PressRelease() {
                   >
                     <Phone size={16} className="shrink-0 text-[#ed027e]" aria-hidden="true" />
                     <span className="tabular-nums">+27 (0) 11 482 7256 / 7257</span>
+                  </a>
+                  <a
+                    href="tel:+27652678169"
+                    className="flex items-center gap-3 transition-colors hover:text-[#ed027e]"
+                  >
+                    <Phone size={16} className="shrink-0 text-[#ed027e]" aria-hidden="true" />
+                    <span className="tabular-nums">+27 (0) 65 267 8169</span>
                   </a>
                   <a
                     href="https://www.empowaher.co.za"

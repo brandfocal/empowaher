@@ -8,6 +8,7 @@ import {
   Download,
   Building2,
   Calendar,
+  Quote,
   Sparkles,
   Target,
   TrendingUp,
@@ -147,7 +148,7 @@ export function VisionImpact() {
       <section className="relative flex min-h-screen flex-col bg-[#0D0D0D]">
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Header Navigation */}
-          <Header currentPath="/vision-and-impact" />
+          <Header currentPath="/about-us" />
 
           {/* Background Image with Ambient Overlay */}
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -175,7 +176,7 @@ export function VisionImpact() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ed027e] opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
               </span>
-              <span>Vision &amp; Strategic Imperative</span>
+              <span>About Us | Strategic Imperative</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
               <span>Summit 2026</span>
             </div>
@@ -188,7 +189,7 @@ export function VisionImpact() {
                 aria-hidden="true"
               />
               <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
-                Vision &amp; Impact
+                About Us
               </span>
             </div>
 
@@ -196,11 +197,11 @@ export function VisionImpact() {
             <div className="grid w-full grid-cols-1 items-end gap-y-6 text-left lg:grid-cols-[2fr_1.2fr_1fr] lg:gap-x-12">
               <div className="hero-reveal flex flex-col border-white/15 lg:border-r lg:pr-8">
                 <h1 className="font-heading text-[clamp(2.4rem,5.2vw,4.75rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-white">
-                  <span>THE</span>
+                  <span>ABOUT</span>
                   <br />
-                  <span className="text-[#ed027e]">STRATEGIC</span>
+                  <span className="text-[#ed027e]">EMPOWAHER</span>
                   <br />
-                  <span>IMPERATIVE</span>
+                  <span>PLATFORM</span>
                 </h1>
 
                 {/* Hero CTAs */}
@@ -214,21 +215,10 @@ export function VisionImpact() {
                   </Link>
 
                   <a
-                    href="#response"
+                    href="#purpose"
                     className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 font-heading text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-[#0D0D0D] hover:scale-105 hover:shadow-lg sm:w-auto"
                   >
-                    <span>Read The Brief</span>
-                  </a>
-
-                  <a
-                    href={PROGRAMME_PDF_PATH}
-                    download="EmpowaHER-Programme-2026.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden xl:inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-transparent px-6 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/90 transition-all hover:border-[#ed027e] hover:text-[#ed027e]"
-                  >
-                    <Download className="h-4 w-4" />
-                    <span>Programme (PDF)</span>
+                    <span>Our Purpose</span>
                   </a>
                 </div>
               </div>
@@ -236,17 +226,15 @@ export function VisionImpact() {
               <div className="hero-reveal border-white/15 lg:border-r lg:pr-8">
                 <h2 className="font-heading text-[clamp(1.2rem,2.1vw,1.75rem)] font-bold uppercase leading-[1.22] tracking-[-0.01em] text-white/95">
                   <span>
-                    Invest in the Women Who Will Lead Africa&apos;s Next Economy
+                    Equipping Africa&apos;s Next Generation of Women Leaders for Measurable Impact
                   </span>
                 </h2>
               </div>
 
               <div className="hero-reveal">
-                <p className="font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/70">
+                <p className="font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/80">
                   <span>
-                    Africa does not lack talented and ambitious women. The critical gap is an integrated pipeline that
-                    identifies high-potential leaders early and connects them to careers, capital, and board
-                    opportunities.
+                    EmpowaHer™ is an invitation-led executive leadership accelerator and opportunity platform designed to identify, develop, connect, and advance 200 exceptional emerging women leaders aged 18–35. We bridge the gap between potential and power by linking ambition directly to executive sponsorship, venture capital, commercial supply chains, and board-level influence.
                   </span>
                 </p>
               </div>
@@ -292,7 +280,7 @@ export function VisionImpact() {
           <div className="mb-14 grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end">
             <div>
               <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-                <span>The Challenge</span>
+                <span>01 — Strategic Relevance</span>
               </p>
               <h2
                 id="challenge-heading"
@@ -301,10 +289,9 @@ export function VisionImpact() {
                 <span>Six Organisational Pressures</span>
               </h2>
             </div>
-            <p className="max-w-[38ch] font-sans text-[0.95rem] leading-[1.65] text-[#3f3f3f]/75 lg:justify-self-end">
+            <p className="max-w-[42ch] font-sans text-[0.95rem] leading-[1.65] text-[#3f3f3f]/75 lg:justify-self-end">
               <span>
-                The strategic conditions shaping how Africa&apos;s most ambitious organisations attract, retain, and advance
-                high-impact leadership talent.
+                The critical economic, governance, and technological conditions shaping how Africa&apos;s leading institutions attract, retain, and elevate high-impact female talent.
               </span>
             </p>
           </div>
@@ -361,47 +348,78 @@ export function VisionImpact() {
 
       {/* 02 — The Response: One Integrated Platform */}
       <section
-        id="response"
+        id="purpose"
         className="border-t-4 border-[#ed027e] bg-[#F9F4F7] px-5 py-16 sm:px-8 lg:px-14 lg:py-24 text-[#3f3f3f]"
-        aria-labelledby="response-heading"
+        aria-labelledby="purpose-heading"
       >
         <div className="mx-auto max-w-[1380px]">
           <div className="mb-10 max-w-[800px]">
             <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-              <span>The Response</span>
+              <span>02 — Our Purpose</span>
             </p>
             <h2
-              id="response-heading"
+              id="purpose-heading"
               className="font-heading text-[clamp(2.35rem,5.5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-[#0D0D0D]"
             >
-              <span>One Integrated Platform</span>
+              <span>One Integrated Leadership Platform</span>
             </h2>
           </div>
 
-          <div className="rounded-2xl border border-[#3f3f3f]/15 bg-white p-8 sm:p-12 lg:p-16 shadow-xl relative overflow-hidden">
-            <span
+          <div className="relative overflow-hidden rounded-3xl border border-[#1C2128]/10 bg-white p-8 sm:p-12 lg:p-16 shadow-[0_25px_60px_-15px_rgba(237,2,126,0.08)]">
+            {/* Top decorative accent bar */}
+            <div
               aria-hidden="true"
-              className="absolute -right-6 -bottom-10 select-none font-heading text-[12rem] font-black leading-none text-[#ed027e]/[0.05]"
-            >
-              &ldquo;
-            </span>
-            <blockquote className="relative z-10 max-w-[1000px] font-heading text-[clamp(1.35rem,2.8vw,2.35rem)] font-bold italic leading-[1.25] tracking-[-0.02em] text-[#0D0D0D]">
-              <span>
-                &ldquo;EmpowaHer™ integrates these priorities into one commercially relevant leadership and opportunity
-                platform. It connects partners to a curated pipeline of future employees, customers, entrepreneurs,
-                suppliers, executives, and board leaders.&rdquo;
+              className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-[#ed027e] via-[#c40167] to-[#0D0D0D]"
+            />
+
+            {/* Header / Context row */}
+            <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-[#1C2128]/10 pb-6">
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ed027e]/10 text-[#ed027e]">
+                  <Quote className="h-6 w-6 fill-[#ed027e]" />
+                </div>
+                <div>
+                  <p className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                    Executive Mandate
+                  </p>
+                  <p className="font-sans text-xs font-medium text-[#3f3f3f]/60">
+                    EmpowaHer™ Strategic Vision
+                  </p>
+                </div>
+              </div>
+              <span className="inline-flex items-center rounded-full border border-[#1C2128]/10 bg-[#F9F4F7] px-3.5 py-1 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#1C2128]/70">
+                Summit 2026 Charter
               </span>
+            </div>
+
+            {/* Polished Quotation Body */}
+            <blockquote className="relative z-10 max-w-[1050px]">
+              <p className="font-sans text-[clamp(1.15rem,2.2vw,1.75rem)] font-normal leading-[1.65] sm:leading-[1.6] text-[#1C2128] tracking-[-0.01em]">
+                &ldquo;EmpowaHer™ translates leadership ambition into{" "}
+                <strong className="font-semibold text-[#0D0D0D]">
+                  verified economic and governance authority
+                </strong>
+                . Through an integrated continuum of immersive learning, C-suite mentorship, venture enablement, and boardroom exposure, we ensure emerging women leaders don&apos;t merely participate in Africa&apos;s economy—
+                <strong className="font-semibold text-[#ed027e]">
+                  they shape its trajectory
+                </strong>
+                .&rdquo;
+              </p>
             </blockquote>
-            <div className="mt-8 flex flex-wrap items-center gap-3 pt-6 border-t border-[#3f3f3f]/10">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#ed027e]/10 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#ed027e]">
+
+            {/* Key Pillars & Metrics Strip */}
+            <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-[#1C2128]/10 pt-7">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#ed027e]/10 px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#ed027e]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Curated Talent Pipeline</span>
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0D0D0D]/5 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#0D0D0D]">
-                <span>200 Emerging Leaders</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#1C2128]/15 bg-white px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#1C2128]">
+                <Users className="h-3.5 w-3.5 text-[#ed027e]" />
+                <span><strong className="text-[#ed027e]">200</strong> Emerging Leaders</span>
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0D0D0D]/5 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#0D0D0D]">
-                <span>9 Executive Tracks</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#1C2128]/15 bg-white px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#1C2128]">
+                <TrendingUp className="h-3.5 w-3.5 text-[#ed027e]" />
+                <span><strong className="text-[#ed027e]">9</strong> Executive Tracks</span>
               </span>
             </div>
           </div>
@@ -410,7 +428,7 @@ export function VisionImpact() {
 
       {/* 03 — The Proposition: Not a Conference. A Pipeline. */}
       <section
-        id="partner"
+        id="impact"
         className="border-t-4 border-[#ed027e] bg-[#0D0D0D] px-5 py-16 sm:px-8 lg:px-14 lg:py-24 text-white"
         aria-labelledby="proposition-heading"
       >
@@ -436,7 +454,7 @@ export function VisionImpact() {
 
           <div>
             <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-              <span>The Proposition</span>
+              <span>03 — Measurable Impact</span>
             </p>
             <h2
               id="proposition-heading"

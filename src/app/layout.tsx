@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Barlow_Condensed } from "next/font/google";
 import { ScrollObserver } from "@/components/ScrollObserver";
+import { BackToTop } from "@/components/BackToTop";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ScrollObserver />
+        <BackToTop />
         {children}
       </body>
     </html>
