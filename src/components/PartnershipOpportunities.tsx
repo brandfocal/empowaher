@@ -1,15 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowUpRight,
   Award,
   BarChart3,
   BriefcaseBusiness,
+  Building2,
+  Check,
+  CheckCircle2,
+  ChevronDown,
   Download,
   Mail,
   Phone,
+  Send,
   ShieldCheck,
+  Sparkles,
   Target,
   TrendingUp,
   Users,
@@ -21,6 +27,125 @@ const PROSPECTUS_EMAIL_HREF =
   "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
 const PARTNERSHIP_INQUIRY_HREF =
   "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry";
+
+const partnershipPackages = [
+  {
+    id: "naming-rights",
+    level: "Naming Rights Partner",
+    tagline: "Foremost Strategic Association",
+    roleAndValue:
+      "Become the programme’s foremost strategic partner and own its highest level of brand association. Shape the overarching leadership narrative, secure dominant visibility across the full three-day journey, position senior executives on premier platforms and activate category-exclusive talent, customer, enterprise and ESG opportunities.",
+    benefits: [
+      "Programme-wide title co-branding across all digital, print, and stage collateral",
+      "Keynote speaking platform at the Opening Plenary and Global Leadership Finale",
+      "Category exclusivity across talent pipeline, enterprise, and ESG activations",
+      "Executive host positioning for flagship masterclasses and opportunity platforms",
+      "Curated direct access to the 200 selected emerging women leaders",
+      "Comprehensive post-programme impact reporting and longitudinal cohort tracking",
+    ],
+    highlight: true,
+  },
+  {
+    id: "official-partner",
+    level: "Official Partner",
+    tagline: "Major Programme Pillar Leadership",
+    roleAndValue:
+      "Lead a major programme pillar aligned with your organisation’s strategic priorities. Secure prominent brand positioning, executive thought leadership, curated stakeholder engagement, and the opportunity to launch a meaningful talent, education, enterprise or leadership commitment.",
+    benefits: [
+      "Branding and leadership of an official summit programme pillar",
+      "Executive panelist position and thought-leadership spotlight",
+      "Curated stakeholder roundtables and direct talent pipeline access",
+      "Platform to launch scholarship, employment, or supplier-diversity initiatives",
+      "High-visibility brand placement across media releases and digital coverage",
+      "Post-summit participation analytics and ESG compliance documentation",
+    ],
+    highlight: false,
+  },
+  {
+    id: "industry-partner",
+    level: "Industry Partner",
+    tagline: "High-Contact Delegate Experience",
+    roleAndValue:
+      "Own a distinctive, high-contact delegate experience such as the Opportunity Exchange™, Capital Room™, Digital Leadership Lab or Graduation Experience. Create memorable brand engagement, demonstrate products or services and generate consent-based customer, talent and enterprise leads.",
+    benefits: [
+      "Exclusive experiential ownership of a dedicated summit destination",
+      "Product showcase, hands-on lab demonstration, or simulation lead",
+      "Consent-based lead generation across qualified emerging leaders",
+      "Curated connections to women entrepreneurs, funders, and procurement heads",
+      "Targeted networking and interactive breakout sessions",
+      "Branded event photography, video assets, and social amplification",
+    ],
+    highlight: false,
+  },
+  {
+    id: "experience-partner",
+    level: "Experience Partner",
+    tagline: "Sector-Specific Pipeline Leadership",
+    roleAndValue:
+      "Lead a sector-specific leadership, talent or enterprise pipeline. Position your organisation as an industry authority while identifying future employees, women-owned suppliers, emerging entrepreneurs, and potential customers within a strategically relevant audience.",
+    benefits: [
+      "Position your brand as the leading sector authority in your industry",
+      "Identification and engagement of specialized technical and executive talent",
+      "Dedicated interactive session with relevant startup founders and suppliers",
+      "Brand recognition across track-specific publications and badges",
+      "Opportunity to deliver specialist case studies or executive masterclasses",
+    ],
+    highlight: false,
+  },
+  {
+    id: "panel-partner",
+    level: "Panel Partner",
+    tagline: "Executive Thought Leadership Alignment",
+    roleAndValue:
+      "Align your brand with one focused, high-value leadership conversation. Position an appropriately qualified executive as a thought leader, engage a relevant audience segment and extend the conversation through approved digital content and stakeholder engagement.",
+    benefits: [
+      "Speaking role for a senior executive on a premier plenary panel",
+      "Positioning as a leading voice on innovation, leadership, and transformation",
+      "Distribution of institutional thought leadership, research, or policy papers",
+      "Digital content integration and interview clips across EmpowaHer channels",
+      "Direct delegate engagement following the executive panel discussion",
+    ],
+    highlight: false,
+  },
+  {
+    id: "premium-exhibitor",
+    level: "Premium Exhibitor",
+    tagline: "Opportunity Marketplace Activation",
+    roleAndValue:
+      "Secure a premium activation within the Opportunity Marketplace. Showcase products, services, careers, funding or development opportunities while generating qualified, consent-based leads through scheduled delegate engagement.",
+    benefits: [
+      "Dedicated exhibition space inside the Opportunity Marketplace",
+      "Direct engagement with delegates for talent recruitment and product adoption",
+      "Scheduled walkthroughs and interactive booth demonstrations",
+      "Company listing in the official summit guide, digital prospectus, and app",
+      "Direct face-to-face contact with all 200 summit delegates and invited executives",
+    ],
+    highlight: false,
+  },
+];
+
+const industrySectors = [
+  "Financial Services & Banking",
+  "Technology, Telecoms & Digital",
+  "Energy, Mining & Resources",
+  "FMCG, Retail & Consumer Goods",
+  "Healthcare, Life Sciences & Pharmaceuticals",
+  "Professional, Legal & Advisory Services",
+  "Manufacturing, Automotive & Logistics",
+  "Government & Public Sector Agencies",
+  "Development Finance & Philanthropic Foundations",
+  "Higher Education & Business Schools",
+  "Other",
+];
+
+const strategicObjectivesList = [
+  "Talent Pipeline & Executive Recruitment",
+  "Brand Leadership & Executive Visibility",
+  "Women-Owned Enterprise & Supplier Development",
+  "Customer Acquisition & High-Value Engagement",
+  "ESG, DE&I & Measurable Impact Reporting",
+  "Opportunity Marketplace Exhibition & Product Showcase",
+];
 
 const commercialValues = [
   {
@@ -89,6 +214,116 @@ const partnershipTracks = [
 ];
 
 export function PartnershipOpportunities() {
+  const [selectedPackage, setSelectedPackage] = useState<string>("Official Partner");
+  const [selectedSector, setSelectedSector] = useState<string>("");
+  const [selectedObjectives, setSelectedObjectives] = useState<string[]>([]);
+  const [revealedDeliverables, setRevealedDeliverables] = useState<Record<string, boolean>>({});
+  const [formData, setFormData] = useState({
+    fullName: "",
+    jobTitle: "",
+    organisation: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const toggleDeliverables = (pkgId: string) => {
+    setRevealedDeliverables((prev) => ({
+      ...prev,
+      [pkgId]: !prev[pkgId],
+    }));
+  };
+
+  const allRevealed = partnershipPackages.every((pkg) => revealedDeliverables[pkg.id]);
+
+  const toggleAllDeliverables = () => {
+    const nextState = !allRevealed;
+    const updated: Record<string, boolean> = {};
+    partnershipPackages.forEach((pkg) => {
+      updated[pkg.id] = nextState;
+    });
+    setRevealedDeliverables(updated);
+  };
+
+  const handlePackageSelect = (pkgName: string) => {
+    setSelectedPackage(pkgName);
+    const formElem = document.getElementById("partnership-form");
+    if (formElem) {
+      formElem.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const toggleObjective = (obj: string) => {
+    setSelectedObjectives((prev) =>
+      prev.includes(obj) ? prev.filter((item) => item !== obj) : [...prev, obj]
+    );
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const payload = {
+        name: formData.fullName,
+        email: formData.email,
+        organisation: `${formData.organisation} (${formData.jobTitle}${selectedSector ? `, ${selectedSector}` : ""})`,
+        phone: formData.phone,
+        inquiry: `Partnership Package: ${selectedPackage}${selectedObjectives.length > 0 ? ` | Objectives: ${selectedObjectives.join(", ")}` : ""}`,
+        message: `Preferred Partnership Package: ${selectedPackage}\nDesignation: ${formData.jobTitle}\nSector: ${selectedSector || "Not specified"}\nKey Strategic Objectives: ${selectedObjectives.length > 0 ? selectedObjectives.join(", ") : "Not specified"}\n\nMessage / Notes:\n${formData.message || "No additional notes provided."}`,
+      };
+
+      const res = await fetch("/api/submit-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (!res.ok && data.is_valid === false) {
+        throw new Error(data.error || "Submission could not be completed. Please try again or contact our executive desk.");
+      }
+
+      setIsSubmitted(true);
+      const formElem = document.getElementById("partnership-form");
+      if (formElem) {
+        formElem.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } catch (err: any) {
+      console.error("Partnership form error:", err);
+      setSubmitError(
+        err?.message || "An unexpected error occurred. You can also email our executive office directly at doric@empowaworx.co.za."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReset = () => {
+    setIsSubmitted(false);
+    setSubmitError(null);
+    setFormData({
+      fullName: "",
+      jobTitle: "",
+      organisation: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+    setSelectedObjectives([]);
+  };
+
   useEffect(() => {
     const revealElements = Array.from(
       document.querySelectorAll<HTMLElement>(".reveal")
@@ -225,16 +460,17 @@ export function PartnershipOpportunities() {
                   }}
                 >
                   <a
-                    href={PROSPECTUS_EMAIL_HREF}
-                    className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
+                    href="#partnership-form"
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all hover:bg-[#ed027e]/90 hover:scale-[1.02] sm:w-auto"
                   >
-                    <span>Prospectus on Request</span>
+                    <span>Partner With Us</span>
+                    <ArrowUpRight className="h-4 w-4" />
                   </a>
                   <a
-                    href={PARTNERSHIP_INQUIRY_HREF}
-                    className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
+                    href="#packages"
+                    className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
                   >
-                    <span>Contact Executive Team</span>
+                    <span>View Packages</span>
                   </a>
                 </div>
               </div>
@@ -417,7 +653,452 @@ export function PartnershipOpportunities() {
         </div>
       </section>
 
-      {/* 03 — Call For Strategic Partners & Funders */}
+      {/* 03 — Available Partnership Packages */}
+      <section
+        id="packages"
+        className="relative w-full border-t-4 border-[#ed027e] bg-[#111111] px-5 py-20 text-white sm:px-8 lg:px-16 lg:py-28"
+      >
+        <div className="mx-auto max-w-[1280px]">
+          <div className="reveal grid w-full grid-cols-1 gap-8 border-b border-white/15 pb-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+            <div>
+              <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
+                <span>03 — Partnership Architecture</span>
+              </div>
+              <h2 className="font-heading text-[clamp(2.5rem,4.5vw,4.25rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white">
+                <span>Available Package Categories</span>
+                <br />
+                <span className="text-[#ed027e]">&amp; Strategic Benefits</span>
+              </h2>
+            </div>
+            <div className="flex flex-col justify-end">
+              <p className="max-w-[34rem] font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/75 sm:text-base">
+                Derived directly from our official 2026 Partnership Proposal. Each tier is purposefully designed to convert corporate investment into measurable talent, enterprise, customer, and ESG outcomes.
+              </p>
+              <div className="mt-4">
+                <button
+                  type="button"
+                  onClick={toggleAllDeliverables}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-4 py-2 font-heading text-xs font-bold uppercase tracking-wider text-white transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
+                >
+                  <span>{allRevealed ? "Hide All Deliverables" : "Reveal All Deliverables"}</span>
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      allRevealed ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Package Cards Grid */}
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {partnershipPackages.map((pkg) => {
+              const isSelected = selectedPackage === pkg.level;
+              return (
+                <article
+                  key={pkg.id}
+                  className={`reveal group relative flex flex-col justify-between rounded-3xl border p-8 transition-all duration-300 ${
+                    pkg.highlight
+                      ? "border-[#ed027e] bg-gradient-to-b from-[#ed027e]/15 via-white/[0.04] to-black shadow-2xl shadow-[#ed027e]/15"
+                      : "border-white/15 bg-white/[0.03] hover:border-[#ed027e]/60 hover:bg-white/[0.06]"
+                  } ${isSelected ? "ring-2 ring-[#ed027e]" : ""}`}
+                >
+                  {pkg.highlight && (
+                    <span className="absolute -top-3 left-8 inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-3.5 py-1 font-heading text-[0.625rem] font-black uppercase tracking-[0.18em] text-white shadow-md">
+                      <Sparkles className="h-3 w-3" />
+                      <span>Premier Tier</span>
+                    </span>
+                  )}
+
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#ed027e]">
+                        {pkg.tagline}
+                      </span>
+                      {isSelected && (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ed027e] text-white">
+                          <Check className="h-3 w-3" />
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="font-heading mt-3 text-2xl font-black uppercase text-white sm:text-3xl">
+                      {pkg.level}
+                    </h3>
+
+                    <p className="mt-4 text-xs font-medium leading-relaxed text-white/80 sm:text-sm">
+                      {pkg.roleAndValue}
+                    </p>
+
+                    <div className="mt-6 border-t border-white/10 pt-5">
+                      <button
+                        type="button"
+                        onClick={() => toggleDeliverables(pkg.id)}
+                        className="group/toggle flex w-full items-center justify-between rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 text-left transition-all duration-200 hover:border-[#ed027e]/60 hover:bg-[#ed027e]/10"
+                        aria-expanded={Boolean(revealedDeliverables[pkg.id])}
+                      >
+                        <span className="font-heading text-[0.6875rem] font-bold uppercase tracking-wider text-white/85 group-hover/toggle:text-[#ed027e] transition-colors">
+                          {revealedDeliverables[pkg.id]
+                            ? "Hide Strategic Deliverables"
+                            : "Reveal Key Strategic Deliverables"}
+                        </span>
+                        <span className="flex items-center gap-1.5 text-xs text-[#ed027e]">
+                          <span className="text-[0.6875rem] font-bold">({pkg.benefits.length})</span>
+                          <ChevronDown
+                            className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                              revealedDeliverables[pkg.id] ? "rotate-180" : ""
+                            }`}
+                          />
+                        </span>
+                      </button>
+
+                      {revealedDeliverables[pkg.id] && (
+                        <div className="mt-4 pt-1 animate-in fade-in duration-300">
+                          <span className="mb-3 block font-heading text-[0.6875rem] font-bold uppercase tracking-wider text-white/60">
+                            Key Strategic Deliverables:
+                          </span>
+                          <ul className="space-y-2.5">
+                            {pkg.benefits.map((benefit, i) => (
+                              <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed text-white/75">
+                                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#ed027e]" />
+                                <span>{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-4">
+                    <button
+                      type="button"
+                      onClick={() => handlePackageSelect(pkg.level)}
+                      className={`flex w-full items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-[0.14em] transition-all duration-200 ${
+                        isSelected
+                          ? "bg-white text-black shadow-lg hover:bg-white/90"
+                          : "border border-white/30 bg-white/5 text-white hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
+                      }`}
+                    >
+                      <span>{isSelected ? "Selected in Form" : "Select Package"}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 04 — Partnership Lead-Generation Form */}
+      <section
+        id="partnership-form"
+        className="relative w-full scroll-mt-20 border-t-4 border-[#ed027e] bg-[#0D0D0D] px-5 py-20 text-white sm:px-8 lg:px-16 lg:py-28"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="mb-12 text-center">
+            <div className="mb-3 inline-block border-b-2 border-[#ed027e] pb-1 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
+              <span>04 — Express Partnership Interest</span>
+            </div>
+            <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4.25rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white">
+              <span>Partner With EmpowaHer™ 2026</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-[46rem] font-sans text-sm leading-relaxed text-white/70 sm:text-base">
+              Submit your expression of interest below. Our executive leadership team will promptly review your strategic priorities and provide the confidential prospectus and tailored proposal.
+            </p>
+          </div>
+
+          {isSubmitted ? (
+            <div className="rounded-3xl border border-[#ed027e]/40 bg-gradient-to-b from-[#ed027e]/15 via-white/[0.04] to-black p-8 text-center sm:p-14 shadow-2xl">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ed027e] text-white shadow-xl shadow-[#ed027e]/40">
+                <Check className="h-8 w-8" strokeWidth={3} />
+              </div>
+              <h3 className="font-heading mt-6 text-2xl font-black uppercase text-white sm:text-3xl">
+                Partnership Inquiry Received
+              </h3>
+              <p className="mx-auto mt-3 max-w-[36rem] text-sm leading-relaxed text-white/80 sm:text-base">
+                Thank you for indicating your interest in partnering with <strong>EmpowaHer™ Leadership Summit 2026</strong> as a <strong>{selectedPackage}</strong>. An executive director will contact you within 24 hours.
+              </p>
+
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="/EmpowaHer-Partnership-Proposal-2026.pdf"
+                  download="EmpowaHer-Partnership-Proposal-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-8 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-all hover:scale-105 hover:bg-[#ed027e]/90"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Proposal (PDF)</span>
+                </a>
+                <a
+                  href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Follow-up"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white transition-all hover:bg-white hover:text-black"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>Email Executive Desk</span>
+                </a>
+              </div>
+
+              <div className="mt-10 border-t border-white/10 pt-6">
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="text-xs font-bold uppercase tracking-wider text-[#ed027e] hover:underline"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-3xl border border-white/15 bg-white/[0.025] p-6 shadow-2xl backdrop-blur-md sm:p-10 lg:p-12"
+            >
+              {submitError && (
+                <div className="mb-8 rounded-2xl border border-red-500/50 bg-red-500/10 p-5 text-sm text-red-200">
+                  <p className="font-bold">Submission Notice:</p>
+                  <p className="mt-1 text-xs sm:text-sm">{submitError}</p>
+                </div>
+              )}
+
+              {/* Package Selection Strip */}
+              <div className="mb-10 border-b border-white/10 pb-8">
+                <label className="block text-left">
+                  <span className="block font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                    Step 1: Select Preferred Partnership Package *
+                  </span>
+                  <span className="mt-1 block text-xs text-white/60">
+                    Choose the category that best aligns with your organisation&apos;s strategic objectives.
+                  </span>
+                </label>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {[
+                    "Naming Rights Partner",
+                    "Official Partner",
+                    "Industry Partner",
+                    "Experience Partner",
+                    "Panel Partner",
+                    "Premium Exhibitor",
+                    "Bespoke / Custom Partnership",
+                  ].map((pkgName) => {
+                    const active = selectedPackage === pkgName;
+                    return (
+                      <button
+                        key={pkgName}
+                        type="button"
+                        onClick={() => setSelectedPackage(pkgName)}
+                        className={`flex items-center justify-between rounded-xl border p-4 text-left text-xs font-bold uppercase tracking-wider transition-all ${
+                          active
+                            ? "border-[#ed027e] bg-[#ed027e] text-white shadow-md shadow-[#ed027e]/30"
+                            : "border-white/15 bg-white/[0.03] text-white/80 hover:border-white/40 hover:bg-white/[0.06]"
+                        }`}
+                      >
+                        <span className="truncate">{pkgName}</span>
+                        {active && <Check className="h-4 w-4 shrink-0" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Contact Information Fields */}
+              <div className="mb-10 border-b border-white/10 pb-8">
+                <span className="mb-5 block font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                  Step 2: Partner Contact Details
+                </span>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="partner-fullName" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Full Name <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <input
+                      id="partner-fullName"
+                      name="fullName"
+                      type="text"
+                      required
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Naledi Khumalo"
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="partner-jobTitle" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Executive Role / Designation <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <input
+                      id="partner-jobTitle"
+                      name="jobTitle"
+                      type="text"
+                      required
+                      value={formData.jobTitle}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Chief Marketing Officer / Head of Sustainability"
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="partner-organisation" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Organisation / Company Name <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <input
+                      id="partner-organisation"
+                      name="organisation"
+                      type="text"
+                      required
+                      value={formData.organisation}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Standard Bank / Anglo American / Naspers"
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="partner-sector" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Industry Sector <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <select
+                      id="partner-sector"
+                      name="sector"
+                      required
+                      value={selectedSector}
+                      onChange={(e) => setSelectedSector(e.target.value)}
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-[#171717] px-4 py-3 text-sm text-white focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    >
+                      <option value="" disabled>
+                        Select Industry / Sector
+                      </option>
+                      {industrySectors.map((sector) => (
+                        <option key={sector} value={sector}>
+                          {sector}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="partner-email" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Work Email Address <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <input
+                      id="partner-email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="e.g. naledi@corporation.co.za"
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="partner-phone" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                      Phone / Mobile Number <span className="text-[#ed027e]">*</span>
+                    </label>
+                    <input
+                      id="partner-phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="e.g. +27 82 123 4567"
+                      className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Strategic Objectives Multi-select */}
+              <div className="mb-10 border-b border-white/10 pb-8">
+                <label className="block text-left">
+                  <span className="block font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                    Step 3: Key Strategic Objectives
+                  </span>
+                  <span className="mt-1 block text-xs text-white/60">
+                    Select the priorities your organization aims to achieve through this partnership.
+                  </span>
+                </label>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {strategicObjectivesList.map((obj) => {
+                    const active = selectedObjectives.includes(obj);
+                    return (
+                      <button
+                        key={obj}
+                        type="button"
+                        onClick={() => toggleObjective(obj)}
+                        className={`flex items-center gap-3 rounded-xl border p-3.5 text-left text-xs font-semibold transition-all ${
+                          active
+                            ? "border-[#ed027e] bg-[#ed027e]/20 text-white"
+                            : "border-white/10 bg-white/[0.02] text-white/70 hover:border-white/30 hover:bg-white/[0.05]"
+                        }`}
+                      >
+                        <span
+                          className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
+                            active
+                              ? "border-[#ed027e] bg-[#ed027e] text-white"
+                              : "border-white/30 bg-transparent"
+                          }`}
+                        >
+                          {active && <Check className="h-3 w-3" />}
+                        </span>
+                        <span>{obj}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Additional Message / Integration Idea */}
+              <div className="mb-10">
+                <label htmlFor="partner-message" className="block text-left text-xs font-bold uppercase tracking-wider text-white/70">
+                  Proposed Focus Area / Bespoke Requirements (Optional)
+                </label>
+                <textarea
+                  id="partner-message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Share any specific focus areas, desired speaking tracks, scholarship cohort ideas, or timeline considerations..."
+                  className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
+                />
+              </div>
+
+              {/* Submit CTA */}
+              <div className="flex flex-col items-center justify-between gap-4 pt-4 sm:flex-row">
+                <p className="text-xs text-white/50 text-left">
+                  By submitting, you consent to EmpowaHer™ contacting you regarding summit partnership opportunities.
+                </p>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] px-10 py-4 font-heading text-xs font-black uppercase tracking-[0.14em] text-white shadow-xl shadow-[#ed027e]/30 transition-all duration-200 hover:scale-[1.03] hover:bg-[#ed027e]/90 disabled:opacity-50 sm:w-auto"
+                >
+                  {isSubmitting ? (
+                    <span>Processing Submission...</span>
+                  ) : (
+                    <>
+                      <span>Submit Partnership Inquiry</span>
+                      <Send className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* 05 — Call For Strategic Partners & Funders */}
       <section
         id="funder-cta"
         className="relative w-full overflow-hidden border-t-4 border-[#ed027e] bg-gradient-to-b from-[#11161F] via-[#0D0D0D] to-black px-5 py-20 text-white sm:px-8 lg:px-16 lg:py-28"
