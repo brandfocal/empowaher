@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -275,11 +276,15 @@ export function LeadershipProgramme() {
                 key={track.id}
                 className="reveal group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 bg-black will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl sm:min-h-[360px] sm:p-8 lg:min-h-[390px] lg:p-9"
               >
-                {/* Background Image with Smooth Hover Zoom */}
-                <img
+                {/* Background Image with Smooth Hover Zoom & Next.js Image Optimization */}
+                <Image
                   src={track.image}
                   alt={track.name}
-                  className="absolute inset-0 h-full w-full object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={82}
+                  className="object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                  loading="lazy"
                 />
 
                 {/* Dark Gradient Ambient Overlay for Maximum Text Contrast */}
