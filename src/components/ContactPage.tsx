@@ -322,7 +322,7 @@ export function ContactPage() {
               <div className="mt-3">
                 <p className="text-sm font-bold text-[#1C2128]">Doric Sithole</p>
                 <p className="text-[0.6875rem] font-bold uppercase tracking-[0.15em] text-[#ed027e]">
-                  Managing Executive of EmpowaHer
+                  Managing Executive – EmpowaHer™ | The Future Is Female™
                 </p>
               </div>
               <div className="mt-6 space-y-3">

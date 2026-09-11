@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
   {
     id: "bonnie-maponya",
     name: "Bonnie Maponya",
-    title: "Acting Managing Executive, EmpowaHer™",
+    title: "Executive Director, EmpowaHer™",
     image: "/team/Bonnie-Maponya.jpg",
     bio: "Bonnie Maponya provides executive leadership across the EmpowaWomen™ ecosystem, ensuring world-class delivery, operational excellence, governance, stakeholder value, and programme execution.",
   },
@@ -29,6 +29,13 @@ const teamMembers: TeamMember[] = [
     title: "Managing Executive",
     image: "/team/Sechaba-Motsieloa.jpeg",
     bio: "Sechaba Motsieloa is a seasoned executive with deep expertise in organisational strategy and transformational leadership. His track record spans multiple industries, where he has consistently delivered measurable outcomes and built high-performing teams.",
+  },
+  {
+    id: "doric-sithole",
+    name: "Doric Sithole",
+    title: "Managing Executive – EmpowaHer™ | The Future Is Female™",
+    image: "/team/Doric-Sithole.jpg",
+    bio: "Doric Sithole is a seasoned communications, marketing, and leadership-development executive specialising in strategic communications, brand management, change management, and executive coaching. She partners with organisations to build influential brands, deliver high-impact leadership development programmes, and unlock human potential through authentic storytelling. As Managing Executive of EmpowaHer™ – The Future Is Female™, she serves as a passionate champion for women and emerging entrepreneurs, leveraging over 15 years of diverse leadership experience to drive measurable commercial and societal impact.",
   },
   {
     id: "boitumelo-mmakou",
@@ -46,7 +53,7 @@ export function EmpowaHerTeam() {
       className="w-full border-t-[6px] border-[#ed027e] bg-white font-sans text-[#3f3f3f]"
       aria-labelledby="team-heading"
     >
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:py-20 md:px-6 md:py-24 lg:px-12 lg:py-28">
+      <div className="w-full px-4 py-16 sm:py-20 md:px-8 md:py-24 lg:px-12 xl:px-16 2xl:px-20">
         <header className="border-b border-[#1C2128]/12 pb-10 sm:pb-12 lg:pb-14">
           <p className="mb-4 text-[0.62rem] font-black uppercase tracking-[0.3em] text-[#ed027e]">
             <span>EMPOWAHER™ LEADERSHIP TEAM</span>
@@ -70,7 +77,7 @@ export function EmpowaHerTeam() {
           />
         </header>
 
-        <div className="mt-12 grid w-full min-w-0 grid-cols-1 items-start gap-10 sm:mt-14 md:grid-cols-2 md:gap-x-8 md:gap-y-14 xl:grid-cols-4 xl:gap-x-7">
+        <div className="mt-12 grid w-full min-w-0 grid-cols-1 items-start gap-10 sm:mt-14 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-5">
           {teamMembers.map((member) => (
             <article
               key={member.id}

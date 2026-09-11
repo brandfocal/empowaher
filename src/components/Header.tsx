@@ -11,10 +11,10 @@ interface HeaderProps {
 
 const navItems = [
   { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
   { label: "Leadership Tracks", href: "/leadership-programme" },
-  { label: "Vision & Impact", href: "/vision-and-impact" },
+  { label: "Nomination", href: "/nomination" },
   { label: "Partnerships", href: "/partnerships" },
-  { label: "Selection Criteria", href: "/selection-criteria" },
   { label: "Media", href: "/media" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
@@ -26,6 +26,17 @@ export function Header({ currentPath = "/" }: HeaderProps) {
   const isActive = (href: string) => {
     if (href === "/") {
       return currentPath === "/";
+    }
+    if (href === "/about-us") {
+      return currentPath === "/about-us" || currentPath.startsWith("/vision");
+    }
+    if (href === "/nomination") {
+      return (
+        currentPath.startsWith("/nomination") ||
+        currentPath.startsWith("/nominate") ||
+        currentPath.startsWith("/selection-criteria") ||
+        currentPath.startsWith("/criteria")
+      );
     }
     return currentPath.startsWith(href);
   };
@@ -82,7 +93,7 @@ export function Header({ currentPath = "/" }: HeaderProps) {
         {/* Right CTA & Controls */}
         <div className="flex items-center gap-2 sm:gap-3.5">
           <Link
-            href="/nominate"
+            href="/nomination"
             className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-[#ed027e] px-4 py-1.5 font-heading text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white shadow-sm transition-all duration-200 hover:scale-[1.03] hover:bg-[#ed027e]/90 active:scale-95"
           >
             <span>Nominate</span>
@@ -130,7 +141,7 @@ export function Header({ currentPath = "/" }: HeaderProps) {
 
           <div className="mt-5 flex flex-col gap-3">
             <Link
-              href="/nominate"
+              href="/nomination"
               onClick={() => setMobileMenuOpen(false)}
               className="flex w-full items-center justify-center gap-2 rounded-full bg-[#ed027e] py-3 text-center font-heading text-xs font-bold uppercase tracking-[0.12em] text-white shadow-md"
             >

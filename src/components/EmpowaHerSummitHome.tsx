@@ -270,7 +270,7 @@ export function EmpowaHerSummitHome() {
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-12">
           <div className="border-b border-[#1C2128]/10 py-5">
             <p className="text-[0.62rem] font-black uppercase tracking-[0.3em] text-[#ed027e]">
-              <span>THE VISION</span>
+              <span>ABOUT US</span>
             </p>
           </div>
         </div>
@@ -331,10 +331,10 @@ export function EmpowaHerSummitHome() {
             </div>
             <div>
               <Link
-                href="/vision-and-impact"
+                href="/about-us"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#ed027e] hover:underline"
               >
-                <span>Explore the full Vision &amp; Impact</span>
+                <span>Explore About Us</span>
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>

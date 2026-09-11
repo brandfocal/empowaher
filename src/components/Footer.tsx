@@ -71,7 +71,7 @@ export function Footer() {
                   <span>Doric Sithole</span>
                 </div>
                 <div className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#ed027e]">
-                  <span>Managing Executive of EmpowaHer</span>
+                  <span>Managing Executive – EmpowaHer™ | The Future Is Female™</span>
                 </div>
               </div>
               <div className="flex flex-col gap-2.5 text-sm leading-[1.55] text-white/70">
