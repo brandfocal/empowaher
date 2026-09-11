@@ -225,6 +225,12 @@ export function PartnershipOpportunities() {
     email: "",
     phone: "",
     message: "",
+    input_3: "",
+    input_4: "",
+    input_5: "",
+    input_7: "",
+    input_8: "",
+    input_10: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -266,7 +272,26 @@ export function PartnershipOpportunities() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const fieldMapping: Record<string, string> = {
+      input_3: "fullName",
+      fullName: "input_3",
+      input_4: "jobTitle",
+      jobTitle: "input_4",
+      input_5: "organisation",
+      organisation: "input_5",
+      input_7: "email",
+      email: "input_7",
+      input_8: "phone",
+      phone: "input_8",
+      input_10: "message",
+      message: "input_10",
+    };
+    const alternateKey = fieldMapping[name];
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(alternateKey ? { [alternateKey]: value } : {}),
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -342,8 +367,15 @@ export function PartnershipOpportunities() {
       email: "",
       phone: "",
       message: "",
+      input_3: "",
+      input_4: "",
+      input_5: "",
+      input_7: "",
+      input_8: "",
+      input_10: "",
     });
     setSelectedObjectives([]);
+    setSelectedSector("");
   };
 
   useEffect(() => {
@@ -952,7 +984,7 @@ export function PartnershipOpportunities() {
                       name="input_3"
                       type="text"
                       required
-                      value={formData.fullName}
+                      value={formData.input_3 || formData.fullName || ""}
                       onChange={handleInputChange}
                       placeholder="e.g. Naledi Khumalo"
                       className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
@@ -968,7 +1000,7 @@ export function PartnershipOpportunities() {
                       name="input_4"
                       type="text"
                       required
-                      value={formData.jobTitle}
+                      value={formData.input_4 || formData.jobTitle || ""}
                       onChange={handleInputChange}
                       placeholder="e.g. Chief Marketing Officer / Head of Sustainability"
                       className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
@@ -984,7 +1016,7 @@ export function PartnershipOpportunities() {
                       name="input_5"
                       type="text"
                       required
-                      value={formData.organisation}
+                      value={formData.input_5 || formData.organisation || ""}
                       onChange={handleInputChange}
                       placeholder="e.g. Standard Bank / Anglo American / Naspers"
                       className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
@@ -1023,7 +1055,7 @@ export function PartnershipOpportunities() {
                       name="input_7"
                       type="email"
                       required
-                      value={formData.email}
+                      value={formData.input_7 || formData.email || ""}
                       onChange={handleInputChange}
                       placeholder="e.g. naledi@corporation.co.za"
                       className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
@@ -1039,7 +1071,7 @@ export function PartnershipOpportunities() {
                       name="input_8"
                       type="tel"
                       required
-                      value={formData.phone}
+                      value={formData.input_8 || formData.phone || ""}
                       onChange={handleInputChange}
                       placeholder="e.g. +27 82 123 4567"
                       className="mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
@@ -1097,7 +1129,7 @@ export function PartnershipOpportunities() {
                   id="input_3_10"
                   name="input_10"
                   rows={4}
-                  value={formData.message}
+                  value={formData.input_10 || formData.message || ""}
                   onChange={handleInputChange}
                   placeholder="Share any specific focus areas, desired speaking tracks, scholarship cohort ideas, or timeline considerations..."
                   className="mt-2 w-full resize-y rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#ed027e] focus:outline-none focus:ring-1 focus:ring-[#ed027e]"
