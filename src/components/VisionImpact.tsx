@@ -8,6 +8,7 @@ import {
   Download,
   Building2,
   Calendar,
+  Quote,
   Sparkles,
   Target,
   TrendingUp,
@@ -364,28 +365,61 @@ export function VisionImpact() {
             </h2>
           </div>
 
-          <div className="rounded-2xl border border-[#3f3f3f]/15 bg-white p-8 sm:p-12 lg:p-16 shadow-xl relative overflow-hidden">
-            <span
+          <div className="relative overflow-hidden rounded-3xl border border-[#1C2128]/10 bg-white p-8 sm:p-12 lg:p-16 shadow-[0_25px_60px_-15px_rgba(237,2,126,0.08)]">
+            {/* Top decorative accent bar */}
+            <div
               aria-hidden="true"
-              className="absolute -right-6 -bottom-10 select-none font-heading text-[12rem] font-black leading-none text-[#ed027e]/[0.05]"
-            >
-              &ldquo;
-            </span>
-            <blockquote className="relative z-10 max-w-[1000px] font-heading text-[clamp(1.35rem,2.8vw,2.35rem)] font-bold italic leading-[1.25] tracking-[-0.02em] text-[#0D0D0D]">
-              <span>
-                &ldquo;EmpowaHer™ translates leadership ambition into verified economic and governance authority. Through an integrated continuum of immersive learning, C-suite mentorship, venture enablement, and boardroom exposure, we ensure emerging women leaders don&apos;t merely participate in Africa&apos;s economy—they shape its trajectory.&rdquo;
+              className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-[#ed027e] via-[#c40167] to-[#0D0D0D]"
+            />
+
+            {/* Header / Context row */}
+            <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-[#1C2128]/10 pb-6">
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ed027e]/10 text-[#ed027e]">
+                  <Quote className="h-6 w-6 fill-[#ed027e]" />
+                </div>
+                <div>
+                  <p className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                    Executive Mandate
+                  </p>
+                  <p className="font-sans text-xs font-medium text-[#3f3f3f]/60">
+                    EmpowaHer™ Strategic Vision
+                  </p>
+                </div>
+              </div>
+              <span className="inline-flex items-center rounded-full border border-[#1C2128]/10 bg-[#F9F4F7] px-3.5 py-1 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#1C2128]/70">
+                Summit 2026 Charter
               </span>
+            </div>
+
+            {/* Polished Quotation Body */}
+            <blockquote className="relative z-10 max-w-[1050px]">
+              <p className="font-sans text-[clamp(1.15rem,2.2vw,1.75rem)] font-normal leading-[1.65] sm:leading-[1.6] text-[#1C2128] tracking-[-0.01em]">
+                &ldquo;EmpowaHer™ translates leadership ambition into{" "}
+                <strong className="font-semibold text-[#0D0D0D]">
+                  verified economic and governance authority
+                </strong>
+                . Through an integrated continuum of immersive learning, C-suite mentorship, venture enablement, and boardroom exposure, we ensure emerging women leaders don&apos;t merely participate in Africa&apos;s economy—
+                <strong className="font-semibold text-[#ed027e]">
+                  they shape its trajectory
+                </strong>
+                .&rdquo;
+              </p>
             </blockquote>
-            <div className="mt-8 flex flex-wrap items-center gap-3 pt-6 border-t border-[#3f3f3f]/10">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#ed027e]/10 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#ed027e]">
+
+            {/* Key Pillars & Metrics Strip */}
+            <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-[#1C2128]/10 pt-7">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#ed027e]/10 px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#ed027e]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Curated Talent Pipeline</span>
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0D0D0D]/5 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#0D0D0D]">
-                <span>200 Emerging Leaders</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#1C2128]/15 bg-white px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#1C2128]">
+                <Users className="h-3.5 w-3.5 text-[#ed027e]" />
+                <span><strong className="text-[#ed027e]">200</strong> Emerging Leaders</span>
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0D0D0D]/5 px-4 py-1.5 font-heading text-xs font-black uppercase tracking-wider text-[#0D0D0D]">
-                <span>9 Executive Tracks</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#1C2128]/15 bg-white px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-[#1C2128]">
+                <TrendingUp className="h-3.5 w-3.5 text-[#ed027e]" />
+                <span><strong className="text-[#ed027e]">9</strong> Executive Tracks</span>
               </span>
             </div>
           </div>
