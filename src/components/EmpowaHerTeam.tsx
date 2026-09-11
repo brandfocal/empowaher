@@ -22,7 +22,7 @@ const teamMembers: TeamMember[] = [
   {
     id: "bonnie-maponya",
     name: "Bonnie Maponya",
-    title: "Executive Director, EmpowaHer™",
+    title: "Chief of Staff",
     image: "/team/Bonnie-Maponya.jpg",
     bio: "Bonnie Maponya provides executive leadership across the EmpowaWomen™ ecosystem, ensuring world-class delivery, operational excellence, governance, stakeholder value, and programme execution.",
   },
@@ -135,10 +135,7 @@ export function EmpowaHerTeam() {
                       className="absolute inset-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/40 to-transparent"
                     />
                     <figcaption className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-16">
-                      <p className="text-[0.56rem] font-black uppercase tracking-[0.25em] text-white/60">
-                        <span>Executive Profile</span>
-                      </p>
-                      <h3 className="font-heading mt-1 text-2xl font-black uppercase leading-tight tracking-[-0.03em] text-white">
+                      <h3 className="font-heading text-2xl font-black uppercase leading-tight tracking-[-0.03em] text-white">
                         <span>{member.name}</span>
                       </h3>
                     </figcaption>
