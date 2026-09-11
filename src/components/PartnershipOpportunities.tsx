@@ -887,22 +887,12 @@ export function PartnershipOpportunities() {
                   <Download className="h-4 w-4" />
                   <span>Download Proposal (PDF)</span>
                 </a>
-                <a
-                  href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Follow-up"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white transition-all hover:bg-white hover:text-black"
-                >
-                  <Mail className="h-4 w-4" />
-                  <span>Email Executive Desk</span>
-                </a>
-              </div>
-
-              <div className="mt-10 border-t border-white/10 pt-6">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="text-xs font-bold uppercase tracking-wider text-[#ed027e] hover:underline"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.14em] text-white transition-all hover:bg-white hover:text-black"
                 >
-                  Submit Another Inquiry
+                  <span>Submit Another Inquiry</span>
                 </button>
               </div>
             </div>
