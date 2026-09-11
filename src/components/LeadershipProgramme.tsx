@@ -14,7 +14,7 @@ const tracks = [
     name: "Strategic Leadership & Executive Presence",
     descriptor:
       "Command the room, define direction, and build the authority that moves organisations forward.",
-    image: "/feature-image10.jpg",
+    image: "/streams/Strategic-Leadership.jpg",
     accentColor: "#ed027e",
   },
   {
@@ -22,7 +22,7 @@ const tracks = [
     name: "Financial Acumen & Business Literacy",
     descriptor:
       "Decode balance sheets, drive profitability, and speak the language of the boardroom.",
-    image: "/feature-image11.jpg",
+    image: "/streams/Financial-Acumen.jpg",
     accentColor: "#B01060",
   },
   {
@@ -30,7 +30,7 @@ const tracks = [
     name: "Innovation & Digital Transformation",
     descriptor:
       "Lead technology adoption, champion innovation culture, and future-proof your organisation.",
-    image: "/feature-image12.jpg",
+    image: "/streams/Digital-Transformation.jpg",
     accentColor: "#7B1FA0",
   },
   {
@@ -38,7 +38,7 @@ const tracks = [
     name: "People Leadership & Organisational Culture",
     descriptor:
       "Attract, retain, and inspire diverse talent while shaping cultures that perform.",
-    image: "/feature-image13.jpg",
+    image: "/streams/People-Leadership.jpg",
     accentColor: "#3D0C6B",
   },
   {
@@ -46,7 +46,7 @@ const tracks = [
     name: "Stakeholder Engagement & Communication",
     descriptor:
       "Influence across functions, manage up, and build coalitions that get things done.",
-    image: "/feature-image14.jpg",
+    image: "/streams/Communication.jpg",
     accentColor: "#ed027e",
   },
   {
@@ -54,7 +54,7 @@ const tracks = [
     name: "Entrepreneurship & Venture Development",
     descriptor:
       "Identify opportunities, build ventures, and instil entrepreneurial thinking within any organisation.",
-    image: "/feature-image15.jpg",
+    image: "/streams/Entrepreneurship.jpg",
     accentColor: "#0D4A5E",
   },
   {
@@ -62,7 +62,7 @@ const tracks = [
     name: "Social Impact & Sustainable Development",
     descriptor:
       "Align business goals with the SDGs and lead with purpose at every decision point.",
-    image: "/feature-image16.jpg",
+    image: "/streams/Social-Impact.jpg",
     accentColor: "#4A1942",
   },
   {
@@ -70,7 +70,7 @@ const tracks = [
     name: "Africa-Centric Strategy & Global Markets",
     descriptor:
       "Navigate Africa's economic landscape and position your enterprise for global growth.",
-    image: "/feature-image17.jpg",
+    image: "/streams/Africa-Centric.jpg",
     accentColor: "#7B0D3C",
   },
   {
@@ -78,7 +78,7 @@ const tracks = [
     name: "Leadership, Governance & Board Readiness",
     descriptor:
       "Master board dynamics, governance frameworks, and the director-level mindset required at the top.",
-    image: "/feature-image18.jpg",
+    image: "/streams/Board-Readiness.jpg",
     accentColor: "#C4185C",
   },
 ];
