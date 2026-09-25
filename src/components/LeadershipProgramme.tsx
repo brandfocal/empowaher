@@ -7,7 +7,7 @@ import { Footer } from "./Footer";
 
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
-  "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
+  "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
 const tracks = [
   {

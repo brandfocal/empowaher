@@ -24,9 +24,9 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 const PROSPECTUS_EMAIL_HREF =
-  "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
+  "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 const PARTNERSHIP_INQUIRY_HREF =
-  "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry";
+  "mailto:partnerships@empowaher.co.za?subject=EmpowaHer%20Partnership%20Inquiry";
 
 const partnershipPackages = [
   {
@@ -350,7 +350,7 @@ export function PartnershipOpportunities() {
     } catch (err: any) {
       console.error("Partnership form error:", err);
       setSubmitError(
-        err?.message || "An unexpected error occurred. You can also email our executive office directly at doric@empowaworx.co.za."
+        err?.message || "An unexpected error occurred. You can also email our partnerships office directly at partnerships@empowaher.co.za."
       );
     } finally {
       setIsSubmitting(false);
@@ -1265,7 +1265,7 @@ export function PartnershipOpportunities() {
                 </a>
 
                 <a
-                  href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Strategic%20Partnership%20and%20Sponsorship%20Inquiry"
+                  href="mailto:partnerships@empowaher.co.za?subject=EmpowaHer%20Strategic%20Partnership%20and%20Sponsorship%20Inquiry"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-200 hover:bg-white hover:text-black hover:scale-[1.02]"
                 >
                   <Mail className="h-4 w-4" />
@@ -1277,10 +1277,10 @@ export function PartnershipOpportunities() {
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/60">
               <div className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5 text-[#ed027e]" />
-                <span>Executive Office: +27 (0) 11 482 7256 / +27 (0) 65 267 8169</span>
+                <span>Executive Office: +27 (0) 11 482 7256</span>
               </div>
               <div>
-                <span>Direct Executive Desk: doric@empowaworx.co.za</span>
+                <span>Partnerships Desk: partnerships@empowaher.co.za</span>
               </div>
             </div>
           </div>

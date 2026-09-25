@@ -320,47 +320,29 @@ export function ContactPage() {
                 <span>Leadership &amp; Direct Enquiries</span>
               </h3>
               <div className="mt-3">
-                <p className="text-sm font-bold text-[#1C2128]">Doric Sithole</p>
+                <p className="text-sm font-bold text-[#1C2128]">EmpowaWorx Executive Office</p>
                 <p className="text-[0.6875rem] font-bold uppercase tracking-[0.15em] text-[#ed027e]">
-                  Managing Executive – EmpowaHer™ | The Future Is Female™
+                  EmpowaHer™ | The Future Is Female™
                 </p>
               </div>
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
                   <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
                   <a
-                    href="mailto:doric@empowaworx.co.za"
+                    href="mailto:info@empowaher.co.za"
                     className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
                   >
-                    <span>doric@empowaworx.co.za</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
-                  <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                  <a
-                    href="mailto:info@empowaworx.co.za"
-                    className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                  >
-                    <span>info@empowaworx.co.za</span>
+                    <span>info@empowaher.co.za</span>
                   </a>
                 </div>
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
                   <Phone className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                  <div className="flex flex-wrap items-center gap-x-2">
-                    <a
-                      href="tel:+27114827256"
-                      className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                    >
-                      <span>+27 (0) 11 482 7256</span>
-                    </a>
-                    <span className="text-[#3f3f3f]/40">/</span>
-                    <a
-                      href="tel:+27652678169"
-                      className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                    >
-                      <span>+27 (0) 65 267 8169</span>
-                    </a>
-                  </div>
+                  <a
+                    href="tel:+27114827256"
+                    className="text-sm font-medium tabular-nums text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
+                  >
+                    <span>+27 (0) 11 482 7256</span>
+                  </a>
                 </div>
               </div>
             </article>
@@ -382,19 +364,10 @@ export function ContactPage() {
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
                   <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
                   <a
-                    href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Partnership%20Inquiry"
+                    href="mailto:partnerships@empowaher.co.za?subject=EmpowaHer%20Strategic%20Partnership%20Inquiry"
                     className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
                   >
-                    <span>doric@empowaworx.co.za</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
-                  <Mail className="h-4 w-4 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                  <a
-                    href="mailto:partnerships@empowaworx.co.za?subject=EmpowaHer%20Strategic%20Partnership%20Inquiry"
-                    className="break-all text-sm font-medium text-[#3f3f3f] transition-colors hover:text-[#ed027e]"
-                  >
-                    <span>partnerships@empowaworx.co.za</span>
+                    <span>partnerships@empowaher.co.za</span>
                   </a>
                 </div>
                 <div className="flex items-center gap-3 border-t border-[#1C2128]/10 pt-3">
@@ -465,13 +438,13 @@ export function ContactPage() {
 
             <div className="mt-10 flex flex-col gap-3.5">
               <a
-                href="mailto:doric@empowaworx.co.za"
+                href="mailto:info@empowaher.co.za"
                 className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4.5 transition-all hover:border-[#ed027e] hover:bg-white/10"
               >
                 <Mail className="h-5 w-5 shrink-0 text-[#ed027e]" strokeWidth={2} />
                 <div>
                   <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white/50">Executive Email</p>
-                  <p className="break-all text-sm font-semibold text-white/90">doric@empowaworx.co.za</p>
+                  <p className="break-all text-sm font-semibold text-white/90">info@empowaher.co.za</p>
                 </div>
               </a>
               <a
@@ -482,16 +455,6 @@ export function ContactPage() {
                 <div>
                   <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white/50">Direct Telephone</p>
                   <p className="text-sm font-semibold text-white/90">+27 (0) 11 482 7256</p>
-                </div>
-              </a>
-              <a
-                href="tel:+27652678169"
-                className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4.5 transition-all hover:border-[#ed027e] hover:bg-white/10"
-              >
-                <Phone className="h-5 w-5 shrink-0 text-[#ed027e]" strokeWidth={2} />
-                <div>
-                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-white/50">Mobile / Direct</p>
-                  <p className="text-sm font-semibold text-white/90">+27 (0) 65 267 8169</p>
                 </div>
               </a>
               <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4.5">

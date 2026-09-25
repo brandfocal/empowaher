@@ -34,13 +34,6 @@ const teamMembers: TeamMember[] = [
     bio: "Sechaba Motsieloa is a seasoned executive with deep expertise in organisational strategy and transformational leadership. His track record spans multiple industries, where he has consistently delivered measurable outcomes and built high-performing teams.",
   },
   {
-    id: "doric-sithole",
-    name: "Doric Sithole",
-    title: "Managing Executive – EmpowaHer™ | The Future Is Female™",
-    image: "/team/Doric-Sithole.jpg",
-    bio: "Doric Sithole is a seasoned communications, marketing, and leadership-development executive specialising in strategic communications, brand management, change management, and executive coaching. She partners with organisations to build influential brands, deliver high-impact leadership development programmes, and unlock human potential through authentic storytelling. As Managing Executive of EmpowaHer™ – The Future Is Female™, she serves as a passionate champion for women and emerging entrepreneurs, leveraging over 15 years of diverse leadership experience to drive measurable commercial and societal impact.",
-  },
-  {
     id: "boitumelo-mmakou",
     name: "Boitumelo Mmakou",
     title: "Digital Social Media and PR Specialist",
@@ -114,7 +107,7 @@ export function EmpowaHerTeam() {
           />
         </header>
 
-        <div className="mt-12 grid w-full min-w-0 grid-cols-1 items-start gap-10 sm:mt-14 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-5">
+        <div className="mt-12 grid w-full min-w-0 grid-cols-1 items-start gap-10 sm:mt-14 md:grid-cols-2 md:gap-x-8 md:gap-y-14 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
           {teamMembers.map((member) => {
             const isExpanded = Boolean(expandedBios[member.id]);
 

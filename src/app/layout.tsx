@@ -118,7 +118,7 @@ const globalStructuredData = {
         "@type": "ContactPoint",
         telephone: "+27-11-462-8259",
         contactType: "executive desk",
-        email: "info@empowaworx.co.za",
+        email: "info@empowaher.co.za",
         areaServed: "Africa",
         availableLanguage: ["English"],
       },

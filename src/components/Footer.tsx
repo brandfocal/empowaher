@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
 
 const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
-const PROSPECTUS_EMAIL_HREF = "mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Prospectus%20Request";
+const PROSPECTUS_EMAIL_HREF = "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
 export function Footer() {
   return (
@@ -66,21 +66,13 @@ export function Footer() {
               <h3 className="mb-4 font-heading text-[clamp(1.5rem,2.5vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.01em] text-white">
                 <span>Start A Conversation.</span>
               </h3>
-              <div className="mb-4">
-                <div className="text-base font-bold text-white">
-                  <span>Doric Sithole</span>
-                </div>
-                <div className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#ed027e]">
-                  <span>Managing Executive – EmpowaHer™ | The Future Is Female™</span>
-                </div>
-              </div>
               <div className="flex flex-col gap-2.5 text-sm leading-[1.55] text-white/70">
                 <a
-                  href="mailto:doric@empowaworx.co.za"
+                  href="mailto:info@empowaher.co.za"
                   className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
                 >
                   <Mail size={14} className="text-[#ed027e] shrink-0" />
-                  <span>doric@empowaworx.co.za</span>
+                  <span>info@empowaher.co.za</span>
                 </a>
                 <a
                   href="tel:+27114827256"
@@ -88,13 +80,6 @@ export function Footer() {
                 >
                   <Phone size={14} className="text-[#ed027e] shrink-0" />
                   <span className="tabular-nums">+27 (0) 11 482 7256</span>
-                </a>
-                <a
-                  href="tel:+27652678169"
-                  className="flex items-center gap-2.5 transition-colors hover:text-[#ed027e]"
-                >
-                  <Phone size={14} className="text-[#ed027e] shrink-0" />
-                  <span className="tabular-nums">+27 (0) 65 267 8169</span>
                 </a>
                 <div className="flex items-start gap-2.5 pt-1 text-xs text-white/60">
                   <MapPin size={15} className="text-[#ed027e] shrink-0 mt-0.5" />
