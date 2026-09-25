@@ -34,7 +34,7 @@ const contactStructuredData = {
     "@type": "Organization",
     name: "EmpowaHer™",
     telephone: "+27-11-462-8259",
-    email: "info@empowaworx.co.za",
+    email: "info@empowaher.co.za",
     url: "https://empowaher.co.za",
   },
 };

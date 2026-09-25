@@ -862,11 +862,11 @@ export function EmpowaHerSummitHome() {
               </p>
               <div className="mt-4 flex flex-col gap-2.5 text-sm leading-[1.55] text-[#3f3f3f]/80">
                 <a
-                  href="mailto:doric@empowaworx.co.za"
+                  href="mailto:info@empowaher.co.za"
                   className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
                 >
                   <Mail size={14} className="text-[#ed027e] shrink-0" />
-                  <span>doric@empowaworx.co.za</span>
+                  <span>info@empowaher.co.za</span>
                 </a>
                 <a
                   href="tel:+27114827256"
@@ -874,13 +874,6 @@ export function EmpowaHerSummitHome() {
                 >
                   <Phone size={14} className="text-[#ed027e] shrink-0" />
                   <span className="tabular-nums">+27 (0) 11 482 7256</span>
-                </a>
-                <a
-                  href="tel:+27652678169"
-                  className="flex items-center gap-2.5 font-medium transition-colors hover:text-[#ed027e]"
-                >
-                  <Phone size={14} className="text-[#ed027e] shrink-0" />
-                  <span className="tabular-nums">+27 (0) 65 267 8169</span>
                 </a>
                 <div className="flex items-start gap-2.5 pt-1 text-xs text-[#3f3f3f]/70">
                   <MapPin size={15} className="text-[#ed027e] shrink-0 mt-0.5" />

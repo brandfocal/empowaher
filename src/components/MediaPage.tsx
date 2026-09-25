@@ -193,19 +193,13 @@ export function MediaPage() {
                     Direct Contact
                   </p>
                   <a
-                    href="mailto:doric@empowaworx.co.za?subject=EmpowaHer%20Media%20Request"
+                    href="mailto:info@empowaher.co.za?subject=EmpowaHer%20Media%20Request"
                     className="block font-medium text-white hover:text-[#ed027e] transition-colors"
                   >
-                    doric@empowaworx.co.za
-                  </a>
-                  <a
-                    href="mailto:info@empowaworx.co.za?subject=EmpowaHer%20Press%20Enquiry"
-                    className="block font-medium text-white/80 hover:text-[#ed027e] transition-colors"
-                  >
-                    info@empowaworx.co.za
+                    info@empowaher.co.za
                   </a>
                   <p className="pt-2 text-xs text-white/50">
-                    Office Landline: +27 (0) 11 482 7256 / Direct: +27 (0) 65 267 8169
+                    Office Landline: +27 (0) 11 482 7256
                   </p>
                 </div>
               </div>
