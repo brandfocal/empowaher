@@ -261,6 +261,29 @@ export function EmpowaHerSummitHome() {
       {/* Established News Banner */}
       <NewsBanner />
 
+      {/* Official Summit 2026 Full-Width Banner */}
+      <section
+        id="summit-banner"
+        className="relative w-full overflow-hidden bg-black"
+        aria-label="EmpowaHer Leadership Summit 2026 Banner"
+      >
+        <Link
+          href="https://www.empowaher.co.za/nominate"
+          className="group relative block w-full overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#ed027e]"
+          aria-label="Nominate for EmpowaHer Leadership Summit 2026"
+          title="Nominate for EmpowaHer Leadership Summit 2026"
+        >
+          <img
+            src="/EmpowaHer-Leadership-Summit2026.jpg"
+            alt="EmpowaHer Leadership Summit 2026 — Invitation-Led Leadership Accelerator, 29–31 October 2026, EmpowaWorx House"
+            width={1920}
+            height={720}
+            className="block w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+            loading="eager"
+          />
+        </Link>
+      </section>
+
       {/* The Vision Section */}
       <section
         id="vision"
