@@ -428,9 +428,10 @@ export function EmpowaHerSummitHome() {
           <div className="mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black shadow-2xl shadow-black/80">
             <div className="relative w-full aspect-video">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/g2T0dzTqQZk?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/g2T0dzTqQZk?rel=0&modestbranding=1"
                 title="EmpowaWomen™ Leadership Highlight Reel"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 className="absolute inset-0 h-full w-full border-0"
               />
