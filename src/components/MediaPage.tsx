@@ -108,7 +108,7 @@ export function MediaPage() {
             <div className="relative w-full aspect-video bg-[#0A0D11]">
               {isPlayingReel ? (
                 <iframe
-                  src="https://www.youtube.com/embed/g2T0dzTqQZk?autoplay=1&rel=0&modestbranding=1"
+                  src="https://www.youtube-nocookie.com/embed/g2T0dzTqQZk?autoplay=1&rel=0&modestbranding=1"
                   title="EmpowaWomen™ Official Highlight Reel"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -122,6 +122,10 @@ export function MediaPage() {
                   <img
                     src="https://i.ytimg.com/vi/g2T0dzTqQZk/maxresdefault.jpg"
                     alt="EmpowaWomen™ Official Highlight Reel"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        "https://i.ytimg.com/vi/g2T0dzTqQZk/hqdefault.jpg";
+                    }}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -71,6 +71,8 @@ const partnershipPillars = [
 ];
 
 export function EmpowaHerSummitHome() {
+  const [isPlayingReel, setIsPlayingReel] = useState(false);
+
   useEffect(() => {
     const revealElements = Array.from(
       document.querySelectorAll<HTMLElement>(".reveal")
@@ -426,15 +428,66 @@ export function EmpowaHerSummitHome() {
 
           {/* Cinema Player Container */}
           <div className="mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black shadow-2xl shadow-black/80">
-            <div className="relative w-full aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/g2T0dzTqQZk?rel=0&modestbranding=1"
-                title="EmpowaWomen™ Leadership Highlight Reel"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-              />
+            <div className="relative w-full aspect-video bg-[#0A0D11]">
+              {isPlayingReel ? (
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/g2T0dzTqQZk?autoplay=1&rel=0&modestbranding=1"
+                  title="EmpowaWomen™ Leadership Highlight Reel"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              ) : (
+                <div
+                  className="group relative h-full w-full cursor-pointer"
+                  onClick={() => setIsPlayingReel(true)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      setIsPlayingReel(true);
+                    }
+                  }}
+                  aria-label="Play EmpowaWomen Highlight Reel"
+                >
+                  {/* High-res Video Poster */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://i.ytimg.com/vi/g2T0dzTqQZk/maxresdefault.jpg"
+                    alt="EmpowaWomen™ Leadership Highlight Reel"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        "https://i.ytimg.com/vi/g2T0dzTqQZk/hqdefault.jpg";
+                    }}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Dark Vignette Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60 transition-opacity group-hover:opacity-80" />
+
+                  {/* Centered Glowing Play Button */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                    <button
+                      type="button"
+                      aria-label="Play Highlight Reel"
+                      className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-[#ed027e] text-white shadow-2xl shadow-[#ed027e]/50 transition-all duration-300 group-hover:scale-110"
+                    >
+                      <span className="absolute -inset-2.5 rounded-full border border-[#ed027e]/60 animate-ping opacity-30" />
+                      <Play className="h-8 w-8 sm:h-10 sm:w-10 fill-current translate-x-0.5" />
+                    </button>
+
+                    <div className="mt-5 max-w-lg">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                        Click to Play Broadcast Reel
+                      </span>
+                      <h3 className="font-heading mt-2 text-lg sm:text-xl font-black uppercase tracking-tight text-white drop-shadow-md">
+                        10th Annual EmpowaWomen Leadership Summit
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
