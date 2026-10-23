@@ -20,6 +20,7 @@ import { CountdownTimer } from "./CountdownTimer";
 import { EmpowaHerTeam } from "./EmpowaHerTeam";
 import { PodcastsSnippet } from "./PodcastsSnippet";
 import { LeadershipVideos } from "./LeadershipVideos";
+import { ConfirmedSpeakers } from "./ConfirmedSpeakers";
 
 const programmeFeatures = [
   {
@@ -536,6 +537,9 @@ export function EmpowaHerSummitHome() {
 
       {/* Speaker & Nominee Video Gallery */}
       <LeadershipVideos />
+
+      {/* Confirmed Keynote Speakers & Executive Faculty */}
+      <ConfirmedSpeakers />
 
       {/* Programme Overview Section */}
       <section
