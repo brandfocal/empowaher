@@ -562,7 +562,6 @@ export function PartnershipOpportunities() {
 
       {/* EmpowaHer™ Brought To You By — Inaugural Partner Coalition */}
       <BroughtToYouBy
-        showCta={false}
         partnerUrl="#partnership-form"
         partnerButtonText="Inquire About Partnership"
       />
