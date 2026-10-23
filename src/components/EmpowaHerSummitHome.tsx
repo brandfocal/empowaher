@@ -21,6 +21,7 @@ import { EmpowaHerTeam } from "./EmpowaHerTeam";
 import { PodcastsSnippet } from "./PodcastsSnippet";
 import { LeadershipVideos } from "./LeadershipVideos";
 import { ConfirmedSpeakers } from "./ConfirmedSpeakers";
+import { NewsletterSubscription } from "./NewsletterSubscription";
 
 const programmeFeatures = [
   {
@@ -814,18 +815,29 @@ export function EmpowaHerSummitHome() {
               <span>STRATEGIC PARTNERSHIPS</span>
             </p>
             <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
-              <h2
-                id="partnerships-heading"
-                className="font-heading text-[clamp(3.5rem,9vw,8rem)] font-black uppercase leading-[0.85] tracking-[-0.05em] text-white [text-wrap:balance]"
-              >
-                <span>Partner With Purpose.</span>
-              </h2>
-              <p className="max-w-[34ch] text-sm leading-relaxed text-white/85 lg:pb-2 lg:text-right">
-                <span>
-                  Partner with EmpowaHer™ to create meaningful access to the
-                  women shaping Africa’s future.
-                </span>
-              </p>
+              <div>
+                <h2
+                  id="partnerships-heading"
+                  className="font-heading text-[clamp(3.5rem,9vw,8rem)] font-black uppercase leading-[0.85] tracking-[-0.05em] text-white [text-wrap:balance]"
+                >
+                  <span>Partner With Purpose.</span>
+                </h2>
+              </div>
+              <div className="flex flex-col items-start lg:items-end gap-4 lg:pb-2">
+                <p className="max-w-[34ch] text-sm leading-relaxed text-white/85 lg:text-right">
+                  <span>
+                    Partner with EmpowaHer™ to create meaningful access to the
+                    women shaping Africa’s future.
+                  </span>
+                </p>
+                <Link
+                  href="/partnerships"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-[#ed027e] shadow-xl hover:bg-[#141922] hover:text-white transition-all duration-300 hover:scale-[1.03]"
+                >
+                  <span>Become A Strategic Partner</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -847,6 +859,19 @@ export function EmpowaHerSummitHome() {
                 </p>
               </article>
             ))}
+          </div>
+          {/* Action Row below Pillars */}
+          <div className="border-t border-[#1C2128]/10 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-sm font-medium text-[#1C2128]/70">
+              Ready to collaborate on executive sponsorship, bursaries, or plenary tracks?
+            </p>
+            <Link
+              href="/partnerships"
+              className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+            >
+              <span>Explore Strategic Partnerships</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
         {/* Powerhouse Partnership & Sponsorship CTA for Funders & Strategic Partners */}
@@ -990,6 +1015,9 @@ export function EmpowaHerSummitHome() {
           </div>
         </div>
       </section>
+
+      {/* Subscribe to Our Newsletter CTA */}
+      <NewsletterSubscription />
 
       {/* Site-wide Established Shared Footer */}
       <Footer />

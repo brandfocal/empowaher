@@ -10,18 +10,28 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    type: "website",
+    locale: "en_ZA",
     title: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
     description:
       "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
     url: "https://empowaher.co.za",
+    siteName: "EmpowaHer™ Leadership Summit",
     images: [
       {
-        url: "/feature-image.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "EmpowaHer™ Leadership Summit 2026",
+        url: "/EmpowaHer-Leadership-Summit2026.jpg",
+        width: 1920,
+        height: 720,
+        alt: "EmpowaHer™ Leadership Summit 2026 - Official Event Artwork",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
+    description:
+      "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
+    images: ["/EmpowaHer-Leadership-Summit2026.jpg"],
   },
 };
 

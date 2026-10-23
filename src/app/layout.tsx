@@ -56,10 +56,10 @@ export const metadata: Metadata = {
       "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
     images: [
       {
-        url: "/feature-image.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "EmpowaHer™ Leadership Summit 2026 - The Future Is Female™",
+        url: "/EmpowaHer-Leadership-Summit2026.jpg",
+        width: 1920,
+        height: 720,
+        alt: "EmpowaHer™ Leadership Summit 2026 - Official Event Artwork",
       },
     ],
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
     description:
       "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
-    images: ["/feature-image.jpeg"],
+    images: ["/EmpowaHer-Leadership-Summit2026.jpg"],
   },
   robots: {
     index: true,
@@ -137,6 +137,7 @@ const globalStructuredData = {
       "@type": "Event",
       "@id": "https://empowaher.co.za/#summit",
       name: "EmpowaHer™ Leadership Summit 2026",
+      image: "https://empowaher.co.za/EmpowaHer-Leadership-Summit2026.jpg",
       description:
         "A three-day executive leadership experience preparing Africa's next generation of 200 women leaders aged 18–35 to compete, lead, and succeed across business, government, entrepreneurship, civil society, and the boardroom.",
       eventStatus: "https://schema.org/EventScheduled",
