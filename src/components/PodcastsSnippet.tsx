@@ -226,10 +226,6 @@ export function PodcastsSnippet() {
           </div>
 
           <div className="flex flex-col gap-3 lg:items-end">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-mono text-white/70">
-              <Headphones className="h-4 w-4 text-[#ed027e]" />
-              <span>3 National Broadcast Features</span>
-            </div>
             <Link
               href="/media"
               id="header-podcast-cta-link"
