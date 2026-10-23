@@ -8,7 +8,6 @@ import {
   Download,
   ExternalLink,
   Headphones,
-  Mic,
   Play,
   Pause,
   Radio,
@@ -94,7 +93,6 @@ export function PodcastsSnippet() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
-  const [activeEmbedId, setActiveEmbedId] = useState<string | null>(null);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -326,23 +324,22 @@ export function PodcastsSnippet() {
 
         {/* 3 Podcasts Grid */}
         <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {podcastEpisodes.map((episode, idx) => {
+          {podcastEpisodes.map((episode) => {
             const isThisPlaying = activeTrackId === episode.id && isPlaying;
-            const isEmbedOpen = activeEmbedId === episode.id;
 
             return (
               <article
                 key={episode.id}
                 id={`podcast-card-${episode.id}`}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border transition-all duration-300 ${
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border transition-all duration-300 ${
                   isThisPlaying
-                    ? "border-[#ed027e] bg-[#141922] shadow-2xl shadow-[#ed027e]/15 ring-1 ring-[#ed027e]/40"
+                    ? "border-[#ed027e] bg-[#141922] shadow-xl shadow-[#ed027e]/15 ring-1 ring-[#ed027e]/40"
                     : "border-white/10 bg-[#12161E] hover:border-[#ed027e]/50 hover:bg-[#161C26]"
                 } p-6 sm:p-7`}
               >
                 <div>
-                  {/* Station Eyebrow & Badges */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
+                  {/* Station Eyebrow & Duration Badge */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
                       <Radio className="h-3 w-3" />
                       <span>{episode.station}</span>
@@ -354,151 +351,63 @@ export function PodcastsSnippet() {
                   </div>
 
                   {/* Show Name */}
-                  <p className="text-[0.6875rem] font-bold uppercase tracking-widest text-white/60">
+                  <p className="text-[0.6875rem] font-bold uppercase tracking-wider text-white/50">
                     {episode.showTitle}
                   </p>
 
                   {/* Episode Title */}
-                  <h3 className="font-heading mt-2 text-lg sm:text-xl font-black uppercase leading-snug tracking-tight text-white group-hover:text-[#ed027e] transition-colors">
+                  <h3 className="font-heading mt-2 text-lg font-black uppercase leading-snug tracking-tight text-white group-hover:text-[#ed027e] transition-colors">
                     {episode.episodeTitle}
                   </h3>
 
                   {/* Featured Guests */}
-                  <p className="mt-2 text-xs font-medium text-[#ed027e]/90 line-clamp-1">
-                    <span className="text-white/50 uppercase tracking-wider text-[0.625rem] font-bold mr-1.5">
-                      Featuring:
-                    </span>
+                  <p className="mt-2.5 text-xs text-white/60 line-clamp-1">
+                    <span className="text-[#ed027e] font-semibold">Featuring: </span>
                     {episode.featuredGuests}
                   </p>
-
-                  {/* Description */}
-                  <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-white/70">
-                    {episode.description}
-                  </p>
-
-                  {/* Topics Tags */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {episode.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md bg-white/[0.04] border border-white/5 px-2 py-0.5 text-[0.625rem] font-mono text-white/60"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Interactive Soundwave Equalizer (Simulated Waveform) */}
-                  <div className="mt-6 rounded-xl border border-white/5 bg-black/40 px-4 py-3 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
-                      <Mic className="h-4 w-4 text-[#ed027e] shrink-0" />
-                      <span className="text-[0.6875rem] font-mono text-white/60">
-                        {isThisPlaying ? "Streaming Broadcast" : "Broadcast Master"}
-                      </span>
-                    </div>
-
-                    <div className="flex items-end gap-1 h-5">
-                      {[30, 60, 45, 90, 75, 40, 85, 50, 70, 95, 60, 40].map((h, i) => (
-                        <span
-                          key={i}
-                          className={`w-0.5 rounded-full transition-all duration-300 ${
-                            isThisPlaying
-                              ? "bg-[#ed027e] animate-pulse"
-                              : "bg-white/30"
-                          }`}
-                          style={{
-                            height: isThisPlaying
-                              ? `${Math.max(25, (h * (i % 2 === 0 ? 1 : 0.75)))}%`
-                              : `${Math.max(20, h * 0.4)}%`,
-                            animationDelay: `${i * 90}ms`,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Optional Omny Iframe Preview */}
-                  {episode.embedUrl && isEmbedOpen && (
-                    <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black animate-in fade-in duration-200">
-                      <iframe
-                        src={episode.embedUrl}
-                        width="100%"
-                        height="140"
-                        allow="autoplay; clipboard-write; fullscreen"
-                        allowFullScreen
-                        frameBorder="0"
-                        title={episode.episodeTitle}
-                        className="w-full border-0"
-                      />
-                    </div>
-                  )}
                 </div>
 
-                {/* Card Action Buttons */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex flex-col gap-2.5">
-                  <div className="flex items-center gap-2">
-                    {episode.audioUrl ? (
-                      <button
-                        type="button"
-                        onClick={() => handleTogglePlay(episode)}
-                        className={`flex-1 inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                          isThisPlaying
-                            ? "bg-white text-black shadow-lg"
-                            : "bg-[#ed027e] text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20"
-                        }`}
-                        aria-label={
-                          isThisPlaying
-                            ? `Pause ${episode.episodeTitle}`
-                            : `Play ${episode.episodeTitle}`
-                        }
-                      >
-                        {isThisPlaying ? (
-                          <>
-                            <Pause className="h-3.5 w-3.5 fill-current" />
-                            <span>Pause Audio</span>
-                          </>
-                        ) : (
-                          <>
-                            <Play className="h-3.5 w-3.5 fill-current translate-x-0.5" />
-                            <span>Play Audio Preview</span>
-                          </>
-                        )}
-                      </button>
-                    ) : (
-                      <a
-                        href={episode.vaultUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                        <span>Access Master Vault</span>
-                        <ExternalLink className="h-3 w-3 opacity-80" />
-                      </a>
-                    )}
-
-                    {episode.embedUrl && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setActiveEmbedId(activeEmbedId === episode.id ? null : episode.id)
-                        }
-                        className="rounded-full border border-white/15 bg-white/5 p-2.5 text-xs text-white/80 hover:border-[#ed027e] hover:text-[#ed027e] transition-colors"
-                        title={isEmbedOpen ? "Close player widget" : "Open embedded player"}
-                        aria-label="Toggle embed player"
-                      >
-                        <Radio className="h-4 w-4" />
-                      </button>
-                    )}
-                  </div>
-
-                  <Link
-                    href="/media"
-                    className="inline-flex items-center justify-center gap-1.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/60 hover:text-[#ed027e] transition-colors"
-                  >
-                    <span>View Full Details on Media Page</span>
-                    <ArrowUpRight className="h-3 w-3" />
-                  </Link>
+                {/* Card Action Button */}
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  {episode.audioUrl ? (
+                    <button
+                      type="button"
+                      onClick={() => handleTogglePlay(episode)}
+                      className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                        isThisPlaying
+                          ? "bg-white text-black shadow-lg"
+                          : "bg-[#ed027e] text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20"
+                      }`}
+                      aria-label={
+                        isThisPlaying
+                          ? `Pause ${episode.episodeTitle}`
+                          : `Play ${episode.episodeTitle}`
+                      }
+                    >
+                      {isThisPlaying ? (
+                        <>
+                          <Pause className="h-3.5 w-3.5 fill-current" />
+                          <span>Pause Audio</span>
+                        </>
+                      ) : (
+                        <>
+                          <Play className="h-3.5 w-3.5 fill-current translate-x-0.5" />
+                          <span>Play Audio Preview</span>
+                        </>
+                      )}
+                    </button>
+                  ) : (
+                    <a
+                      href={episode.vaultUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      <span>Access Studio Vault</span>
+                      <ExternalLink className="h-3 w-3 opacity-80" />
+                    </a>
+                  )}
                 </div>
               </article>
             );
