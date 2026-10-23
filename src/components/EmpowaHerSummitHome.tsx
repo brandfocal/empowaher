@@ -22,6 +22,7 @@ import { PodcastsSnippet } from "./PodcastsSnippet";
 import { LeadershipVideos } from "./LeadershipVideos";
 import { ConfirmedSpeakers } from "./ConfirmedSpeakers";
 import { NewsletterSubscription } from "./NewsletterSubscription";
+import { BroughtToYouBy } from "./BroughtToYouBy";
 
 const programmeFeatures = [
   {
@@ -802,6 +803,9 @@ export function EmpowaHerSummitHome() {
           </div>
         </div>
       </section>
+
+      {/* EmpowaHer™ Brought To You By — Strategic Partner Visibility Section */}
+      <BroughtToYouBy />
 
       {/* Strategic Partnerships Section */}
       <section

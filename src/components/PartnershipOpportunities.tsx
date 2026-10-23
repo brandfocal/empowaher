@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { BroughtToYouBy } from "./BroughtToYouBy";
 
 const PROSPECTUS_EMAIL_HREF =
   "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
@@ -558,6 +559,13 @@ export function PartnershipOpportunities() {
           </div>
         </div>
       </section>
+
+      {/* EmpowaHer™ Brought To You By — Inaugural Partner Coalition */}
+      <BroughtToYouBy
+        showCta={false}
+        partnerUrl="#partnership-form"
+        partnerButtonText="Inquire About Partnership"
+      />
 
       {/* 01 — Commercial Value Section */}
       <section
