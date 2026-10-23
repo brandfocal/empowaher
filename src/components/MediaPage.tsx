@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { LeadershipVideos } from "./LeadershipVideos";
 
 const PRESS_RELEASE_PDF =
   "/media%20release/MEDIA%20RELEASE%20-%20EmpowaHer%20Opens%20Nominations%20for%20200%20of%20Africa%E2%80%99s%20Next%20Generation%20of%20Women%20Leaders.pdf";
@@ -70,6 +71,14 @@ export function MediaPage() {
               >
                 <Radio className="h-4 w-4" />
                 <span>Radio &amp; Podcasts</span>
+              </a>
+
+              <a
+                href="#leadership-videos"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+              >
+                <Play className="h-3.5 w-3.5 fill-current text-[#ed027e]" />
+                <span>Speaker &amp; Nominee Videos (18)</span>
               </a>
 
               <Link
@@ -182,6 +191,9 @@ export function MediaPage() {
           </div>
         </div>
       </section>
+
+      {/* Leadership, Keynote Speaker & Nominee Videos (18 features) */}
+      <LeadershipVideos />
 
       {/* Radio Broadcasts & Podcasts Section */}
       <section id="podcasts" className="py-16 lg:py-24 bg-[#0E1218] text-white border-t border-white/10">

@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { MediaPage } from "@/components/MediaPage";
 import { JsonLd } from "@/components/JsonLd";
+import { leadershipVideos } from "@/data/leadershipVideos";
 
 export const metadata: Metadata = {
-  title: "Media & Press Hub | Radio, Podcasts & Official Releases",
+  title: "Media & Press Hub | Speaker Videos, Radio, Podcasts & Releases",
   description:
-    "Official EmpowaWomen™ Highlight Reel, radio & podcast interviews with Metro FM, Radio 2000, and Sonke Radio, press kits, and broadcast assets for the EmpowaHer™ Leadership Summit 2026.",
+    "Official EmpowaWomen™ Highlight Reel, 18 keynote speaker and nominee video features, radio & podcast interviews with Metro FM, Radio 2000, and Sonke Radio, press kits, and broadcast assets for the EmpowaHer™ Leadership Summit 2026.",
   alternates: {
     canonical: "/media",
   },
   openGraph: {
     title: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
     description:
-      "Access official media releases, Metro FM & Radio 2000 podcast interviews, Sonke Radio recordings, broadcast clips, and summit assets.",
+      "Access 18 speaker and nominee video features, official media releases, Metro FM & Radio 2000 podcast interviews, Sonke Radio recordings, and summit broadcast assets.",
     url: "https://empowaher.co.za/media",
     images: [
       {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Media & Press Hub | EmpowaHer™ Summit 2026",
     description:
-      "Official media release downloads, radio podcast interviews, press kits, and broadcast assets.",
+      "18 speaker and nominee video features, official media release downloads, radio podcast interviews, and broadcast assets.",
     images: ["/feature-image15.jpg"],
   },
 };
@@ -38,13 +39,21 @@ const mediaStructuredData = {
   "@id": "https://empowaher.co.za/media#webpage",
   name: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
   description:
-    "Official media centre for EmpowaHer™ Summit 2026 with press statements, video assets, radio and podcast interviews from Metro FM, Radio 2000, and Sonke Radio.",
+    "Official media centre for EmpowaHer™ Summit 2026 with 18 keynote speaker and nominee video features, press statements, video assets, radio and podcast interviews from Metro FM, Radio 2000, and Sonke Radio.",
   publisher: {
     "@type": "Organization",
     name: "EmpowaHer™",
     url: "https://empowaher.co.za",
   },
   hasPart: [
+    ...leadershipVideos.map((video) => ({
+      "@type": "VideoObject",
+      name: `${video.name} | ${video.role}`,
+      description: video.highlightText,
+      thumbnailUrl: `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`,
+      embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+      contentUrl: video.youtubeUrl,
+    })),
     {
       "@type": "AudioObject",
       name: "EmpowaHer Leadership Summit 2026 – The Future Is Female",

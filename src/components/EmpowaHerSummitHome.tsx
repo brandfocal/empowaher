@@ -18,6 +18,8 @@ import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
 import { CountdownTimer } from "./CountdownTimer";
 import { EmpowaHerTeam } from "./EmpowaHerTeam";
+import { PodcastsSnippet } from "./PodcastsSnippet";
+import { LeadershipVideos } from "./LeadershipVideos";
 
 const programmeFeatures = [
   {
@@ -532,6 +534,9 @@ export function EmpowaHerSummitHome() {
         </div>
       </section>
 
+      {/* Speaker & Nominee Video Gallery */}
+      <LeadershipVideos />
+
       {/* Programme Overview Section */}
       <section
         id="programme"
@@ -658,6 +663,9 @@ export function EmpowaHerSummitHome() {
           </div>
         </div>
       </section>
+
+      {/* Radio Broadcasts & Podcasts Snippet Section */}
+      <PodcastsSnippet />
 
       {/* Official Press Release CTA Section */}
       <section
