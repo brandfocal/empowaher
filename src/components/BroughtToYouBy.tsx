@@ -19,7 +19,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "old-mutual",
     name: "Old Mutual",
     role: "Financial Services & Wealth Partner",
-    logo: "/sponsors/white/old-mutual.png",
+    logo: "/sponsors/transparent/old-mutual.png",
     alt: "Old Mutual",
     width: 801,
     height: 171,
@@ -28,7 +28,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "bp",
     name: "bp Southern Africa",
     role: "Energy & Global Corporate Partner",
-    logo: "/sponsors/white/bp.png",
+    logo: "/sponsors/transparent/bp.png",
     alt: "bp Southern Africa",
     width: 203,
     height: 270,
@@ -37,7 +37,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "fasset",
     name: "FASSET",
     role: "Finance & Accounting Sector Authority",
-    logo: "/sponsors/white/fasset.png",
+    logo: "/sponsors/transparent/fasset.png",
     alt: "FASSET Seta",
     width: 1360,
     height: 234,
@@ -46,7 +46,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "competition-commission",
     name: "Competition Commission",
     role: "Public Sector & Regulation Partner",
-    logo: "/sponsors/white/competition-commission.png",
+    logo: "/sponsors/transparent/competition-commission.png",
     alt: "Competition Commission South Africa",
     width: 1175,
     height: 667,
@@ -55,7 +55,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "vut",
     name: "Vaal University of Technology",
     role: "Higher Education & Academic Partner",
-    logo: "/sponsors/white/vut.png",
+    logo: "/sponsors/transparent/vut.png",
     alt: "VUT Vaal University of Technology",
     width: 1176,
     height: 371,
@@ -64,7 +64,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "sabc",
     name: "SABC",
     role: "National Public Broadcaster",
-    logo: "/sponsors/white/sabc.png",
+    logo: "/sponsors/transparent/sabc.png",
     alt: "SABC South African Broadcasting Corporation",
     width: 900,
     height: 372,
@@ -73,7 +73,7 @@ export const sponsorPartners: SponsorPartner[] = [
     id: "radio-2000",
     name: "Radio 2000",
     role: "Official Media & Broadcast Partner",
-    logo: "/sponsors/white/radio-2000.png",
+    logo: "/sponsors/transparent/radio-2000.png",
     alt: "Radio 2000 SABC",
     width: 452,
     height: 311,
@@ -95,26 +95,20 @@ export function BroughtToYouBy({
     <section
       id="brought-to-you-by"
       aria-labelledby="brought-to-you-by-heading"
-      className={`relative w-full overflow-hidden border-t-4 border-[#ed027e] bg-gradient-to-b from-[#0A0D11] via-[#0E1218] to-[#141922] px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-12 lg:py-20 ${className}`}
+      className={`relative w-full overflow-hidden border-t-4 border-[#ed027e] bg-white px-4 py-12 text-[#1C2128] sm:px-6 sm:py-16 lg:px-12 lg:py-20 ${className}`}
     >
-      {/* Subtle Background Glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 h-80 w-96 -translate-x-1/2 rounded-full bg-[#ed027e]/10 blur-3xl"
-      />
-
       <div className="relative mx-auto max-w-7xl">
-        {/* Section Header without paragraph */}
+        {/* Section Header */}
         <div className="flex flex-col items-start justify-between gap-6 pb-8 lg:flex-row lg:items-end">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/15 px-3.5 py-1 text-[0.625rem] sm:text-xs font-black uppercase tracking-[0.25em] text-[#ed027e]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/30 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] sm:text-xs font-black uppercase tracking-[0.25em] text-[#ed027e]">
               <Sparkles className="h-3 w-3" />
               <span>PARTNER VISIBILITY &amp; COALITION</span>
             </div>
 
             <h2
               id="brought-to-you-by-heading"
-              className="mt-3 font-heading text-[clamp(2rem,4vw,3.5rem)] font-black uppercase leading-[0.95] tracking-[-0.04em] text-white [text-wrap:balance]"
+              className="mt-3 font-heading text-[clamp(2rem,4vw,3.5rem)] font-black uppercase leading-[0.95] tracking-[-0.04em] text-[#1C2128] [text-wrap:balance]"
             >
               <span>EmpowaHer™ Is</span>{" "}
               <span className="text-[#ed027e]">Brought To You By</span>
@@ -124,20 +118,20 @@ export function BroughtToYouBy({
           <div className="flex flex-col gap-2 sm:flex-row lg:flex-col lg:items-end">
             <Link
               href={partnerUrl}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3 font-heading text-xs font-black uppercase tracking-[0.14em] text-white shadow-xl shadow-[#ed027e]/25 transition-all duration-300 hover:scale-[1.03] hover:bg-[#ff1a95]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3 font-heading text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-all duration-300 hover:scale-[1.03] hover:bg-[#ff1a95]"
             >
               <Handshake className="h-4 w-4" />
               <span>{partnerButtonText}</span>
               <ArrowUpRight className="h-4 w-4" />
             </Link>
-            <span className="text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-wider text-white/50">
+            <span className="text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-wider text-[#3f3f3f]/60">
               Inaugural 2026 Leadership Coalition
             </span>
           </div>
         </div>
 
-        {/* Logos on ONE LINE under the section heading */}
-        <div className="mt-6 border-t border-white/10 pt-8 sm:pt-10">
+        {/* Logos on ONE LINE in their authentic original colours */}
+        <div className="mt-6 border-t border-[#1C2128]/10 pt-8 sm:pt-10">
           <div className="overflow-x-auto no-scrollbar py-2">
             <div className="grid min-w-[640px] sm:min-w-0 grid-cols-7 items-center justify-items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
               {sponsorPartners.map((partner) => (
@@ -151,7 +145,7 @@ export function BroughtToYouBy({
                     alt={partner.alt}
                     width={partner.width}
                     height={partner.height}
-                    className="max-h-8 sm:max-h-10 md:max-h-12 lg:max-h-14 w-auto max-w-[90%] object-contain opacity-85 transition-all duration-300 group-hover:opacity-100 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
+                    className="max-h-8 sm:max-h-10 md:max-h-12 lg:max-h-14 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               ))}
