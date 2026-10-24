@@ -70,13 +70,22 @@ export const sponsorPartners: SponsorPartner[] = [
     height: 372,
   },
   {
-    id: "radio-2000",
-    name: "Radio 2000",
-    role: "Official Media & Broadcast Partner",
-    logo: "/sponsors/transparent/radio-2000.png",
-    alt: "Radio 2000 SABC",
-    width: 452,
-    height: 311,
+    id: "metro-fm",
+    name: "METRO FM",
+    role: "Official National Commercial Radio Partner",
+    logo: "/sponsors/transparent/metro-fm.png",
+    alt: "METRO FM SABC",
+    width: 488,
+    height: 488,
+  },
+  {
+    id: "empowaworx",
+    name: "EmpowaWorx",
+    role: "Executive Producer & Convening Partner",
+    logo: "/sponsors/transparent/empowaworx-logo.png",
+    alt: "EmpowaWorx",
+    width: 3102,
+    height: 1442,
   },
 ];
 
@@ -133,7 +142,7 @@ export function BroughtToYouBy({
         {/* Logos on ONE LINE in their authentic original colours */}
         <div className="mt-6 border-t border-[#1C2128]/10 pt-8 sm:pt-10">
           <div className="overflow-x-auto no-scrollbar py-2">
-            <div className="grid min-w-[640px] sm:min-w-0 grid-cols-7 items-center justify-items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+            <div className="grid min-w-[720px] sm:min-w-0 grid-cols-8 items-center justify-items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {sponsorPartners.map((partner) => (
                 <div
                   key={partner.id}
