@@ -255,33 +255,20 @@ export function ConfirmedSpeakers() {
                 {/* Top Badges */}
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e] animate-pulse" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
                     <span>{speaker.trackFocus.split(",")[0]}</span>
                   </span>
-                  {speaker.sessionFormat && (
-                    <span className="inline-flex items-center rounded-full border border-[#ed027e]/40 bg-[#ed027e]/20 px-2.5 py-0.5 text-[0.5625rem] font-extrabold uppercase tracking-wider text-[#ed027e] backdrop-blur-md">
-                      {speaker.sessionFormat}
-                    </span>
-                  )}
                 </div>
 
                 {/* Bottom Speaker Information */}
                 <div className="mt-auto pt-6">
-                  <h3 className="font-heading text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-[#ed027e] drop-shadow-md">
+                  <h3 className="font-heading text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-white drop-shadow-md">
                     {speaker.name}
                   </h3>
 
                   <p className="mt-2 text-xs sm:text-[0.8125rem] leading-relaxed text-white/85 line-clamp-3 font-normal drop-shadow">
                     {speaker.title}
                   </p>
-
-                  {speaker.highlights && speaker.highlights.length > 0 && (
-                    <div className="mt-3.5 flex items-center gap-2 border-t border-white/20 pt-3">
-                      <span className="text-[0.625rem] font-bold uppercase tracking-wider text-[#ed027e] line-clamp-1">
-                        {speaker.highlights[0]}
-                      </span>
-                    </div>
-                  )}
                 </div>
               </div>
             </article>
