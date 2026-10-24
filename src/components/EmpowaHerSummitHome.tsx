@@ -291,6 +291,9 @@ export function EmpowaHerSummitHome() {
         </Link>
       </section>
 
+      {/* Confirmed Keynote Speakers & Executive Faculty */}
+      <ConfirmedSpeakers />
+
       {/* The Vision Section */}
       <section
         id="vision"
@@ -539,9 +542,6 @@ export function EmpowaHerSummitHome() {
 
       {/* Speaker & Nominee Video Gallery */}
       <LeadershipVideos />
-
-      {/* Confirmed Keynote Speakers & Executive Faculty */}
-      <ConfirmedSpeakers />
 
       {/* Programme Overview Section */}
       <section

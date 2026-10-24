@@ -96,8 +96,8 @@ export function ConfirmedSpeakers() {
 
   // Manual Previous/Next click handlers
   const scrollManual = (direction: "left" | "right") => {
-    // Card width (250px) + gap (20px) = 270px
-    const cardStep = 270;
+    const firstCard = trackRef.current?.firstElementChild as HTMLElement | null;
+    const cardStep = firstCard ? firstCard.offsetWidth + 24 : 344;
     if (direction === "right") {
       targetOffsetRef.current += cardStep;
     } else {
@@ -213,49 +213,79 @@ export function ConfirmedSpeakers() {
         {/* Moving Track */}
         <div
           ref={trackRef}
-          className="flex gap-5 will-change-transform select-none cursor-grab active:cursor-grabbing px-4"
+          className="flex gap-6 will-change-transform select-none cursor-grab active:cursor-grabbing px-4 sm:px-6"
           style={{ transform: "translate3d(0, 0, 0)" }}
         >
           {displaySpeakers.map((speaker, index) => (
             <article
               key={`${speaker.id}-${index}`}
               id={`speaker-card-${speaker.id}-${index}`}
-              className="group relative flex w-[230px] sm:w-[250px] md:w-[260px] shrink-0 flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#141922] transition-all duration-300 hover:border-[#ed027e]/60 hover:bg-[#181F2B] hover:shadow-xl hover:shadow-[#ed027e]/15"
+              className="group relative flex h-[440px] sm:h-[480px] md:h-[500px] w-[280px] sm:w-[320px] md:w-[340px] shrink-0 flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#1C2128] via-[#141922] to-[#0A0D11] shadow-2xl shadow-black/70 transition-all duration-500 hover:-translate-y-2 hover:border-[#ed027e] hover:shadow-[#ed027e]/25"
             >
-              {/* Image Container - Compact Height */}
-              <div className="relative h-44 sm:h-48 md:h-52 w-full overflow-hidden bg-[#0A0D11]">
+              {/* Full-bleed Black and White Speaker Image filling the WHOLE background */}
+              <div className="absolute inset-0 h-full w-full overflow-hidden">
                 <Image
                   src={speaker.image}
                   alt={speaker.name}
                   fill
-                  sizes="(max-width: 640px) 230px, 260px"
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 340px"
+                  className="h-full w-full object-cover object-top filter grayscale contrast-125 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:contrast-130"
                   loading="lazy"
                 />
 
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141922] via-[#141922]/15 to-transparent" />
+                {/* Cinematic Vignettes & Gradients for text legibility */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 via-black/30 to-transparent"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#ed027e]/0 transition-colors duration-500 group-hover:bg-[#ed027e]/10 pointer-events-none"
+                />
               </div>
 
-              {/* Speaker Content - Compact & Clean */}
-              <div className="p-4 flex flex-col justify-between flex-1">
-                <div>
-                  {/* Track Focus Badge (in Pink) */}
-                  <div className="mb-2">
-                    <span className="inline-block rounded-md bg-[#ed027e]/15 border border-[#ed027e]/35 px-2 py-0.5 text-[0.625rem] font-bold uppercase tracking-wider text-[#ed027e] line-clamp-1">
-                      {speaker.trackFocus.split(",")[0]}
-                    </span>
-                  </div>
+              {/* Top Accent Gradient Border */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#ed027e] via-[#ff4da6] to-[#ed027e] transition-transform duration-500 group-hover:scale-x-100 z-20"
+              />
 
-                  {/* Speaker Name */}
-                  <h3 className="font-heading text-base sm:text-lg font-black uppercase leading-tight tracking-tight text-white group-hover:text-[#ed027e] transition-colors line-clamp-1">
+              {/* Card Content Overlaid on Full-Bleed Background */}
+              <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
+                {/* Top Badges */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e] animate-pulse" />
+                    <span>{speaker.trackFocus.split(",")[0]}</span>
+                  </span>
+                  {speaker.sessionFormat && (
+                    <span className="inline-flex items-center rounded-full border border-[#ed027e]/40 bg-[#ed027e]/20 px-2.5 py-0.5 text-[0.5625rem] font-extrabold uppercase tracking-wider text-[#ed027e] backdrop-blur-md">
+                      {speaker.sessionFormat}
+                    </span>
+                  )}
+                </div>
+
+                {/* Bottom Speaker Information */}
+                <div className="mt-auto pt-6">
+                  <h3 className="font-heading text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-[#ed027e] drop-shadow-md">
                     {speaker.name}
                   </h3>
 
-                  {/* Speaker Title & Designation */}
-                  <p className="mt-1 text-[0.6875rem] text-white/70 line-clamp-2 leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-[0.8125rem] leading-relaxed text-white/85 line-clamp-3 font-normal drop-shadow">
                     {speaker.title}
                   </p>
+
+                  {speaker.highlights && speaker.highlights.length > 0 && (
+                    <div className="mt-3.5 flex items-center gap-2 border-t border-white/20 pt-3">
+                      <span className="text-[0.625rem] font-bold uppercase tracking-wider text-[#ed027e] line-clamp-1">
+                        {speaker.highlights[0]}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </article>
