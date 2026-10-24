@@ -242,10 +242,6 @@ export function ConfirmedSpeakers() {
                   aria-hidden="true"
                   className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent"
                 />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-[#ed027e]/0 transition-colors duration-500 group-hover:bg-[#ed027e]/10 pointer-events-none"
-                />
               </div>
 
               {/* Top Accent Gradient Border */}
