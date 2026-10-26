@@ -4,16 +4,16 @@ import { JsonLd } from "@/components/JsonLd";
 import { leadershipVideos } from "@/data/leadershipVideos";
 
 export const metadata: Metadata = {
-  title: "Media & Press Hub | Speaker Videos, Radio, Podcasts & Releases",
+  title: "Media & Press Hub | Television, Radio, Podcasts & Video Features",
   description:
-    "Official EmpowaWomen™ Highlight Reel, 18 keynote speaker and nominee video features, radio & podcast interviews with Metro FM, Radio 2000, and Sonke Radio, press kits, and broadcast assets for the EmpowaHer™ Leadership Summit 2026.",
+    "Official broadcast interviews and features on eNCA, SABC News Trendz Live, Metro FM, Radio 2000, Lesedi FM, 18 keynote speaker and nominee video features, and EmpowaHer™ Leadership Summit 2026 press kits.",
   alternates: {
     canonical: "/media",
   },
   openGraph: {
     title: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
     description:
-      "Access 18 speaker and nominee video features, official media releases, Metro FM & Radio 2000 podcast interviews, Sonke Radio recordings, and summit broadcast assets.",
+      "Access television broadcasts on eNCA & SABC News Trendz Live, national radio interviews with Metro FM, Radio 2000, and Lesedi FM, 18 speaker video features, and official media releases.",
     url: "https://empowaher.co.za/media",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Media & Press Hub | EmpowaHer™ Summit 2026",
     description:
-      "18 speaker and nominee video features, official media release downloads, radio podcast interviews, and broadcast assets.",
+      "Television news features on eNCA & SABC News, national radio broadcasts with Metro FM, Radio 2000 & Lesedi FM, 18 speaker videos, and media release downloads.",
     images: ["/feature-image15.jpg"],
   },
 };
@@ -39,13 +39,27 @@ const mediaStructuredData = {
   "@id": "https://empowaher.co.za/media#webpage",
   name: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
   description:
-    "Official media centre for EmpowaHer™ Summit 2026 with 18 keynote speaker and nominee video features, press statements, video assets, radio and podcast interviews from Metro FM, Radio 2000, and Sonke Radio.",
+    "Official media centre for EmpowaHer™ Summit 2026 with eNCA television news interviews, SABC News Trendz Live broadcast features, national radio interviews from Metro FM, Radio 2000, Lesedi FM, and 18 keynote speaker video features.",
   publisher: {
     "@type": "Organization",
     name: "EmpowaHer™",
     url: "https://empowaher.co.za",
   },
   hasPart: [
+    {
+      "@type": "VideoObject",
+      name: "Trendz Live | Theatre, Empowerment and Tranquility: 24 October 2026",
+      description: "SABC News Trendz Live television feature on women empowerment and the creative architecture of EmpowaHer.",
+      thumbnailUrl: "https://i.ytimg.com/vi/Tuqdjk-71mc/hqdefault.jpg",
+      embedUrl: "https://www.youtube.com/embed/Tuqdjk-71mc",
+      contentUrl: "https://youtu.be/Tuqdjk-71mc?si=p5Wsw4JzQOu6saH3",
+    },
+    {
+      "@type": "VideoObject",
+      name: "eNCA Television Interview: Simphiwe Masiza",
+      description: "eNCA 24-hour television news broadcast interview with Simphiwe Masiza detailing the EmpowaHer Leadership Summit 2026.",
+      contentUrl: "https://emediaza.sharepoint.com/sites/ClientRecordingPortal/_layouts/15/stream.aspx?id=%2Fsites%2FClientRecordingPortal%2FInterview%20Recordings%2FActive%20Recordings%2FSimphiwe%20Masiza%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E353e1730%2Dab1b%2D448e%2Db0ce%2D4f6e105b08fc",
+    },
     ...leadershipVideos.map((video) => ({
       "@type": "VideoObject",
       name: `${video.name} | ${video.role}`,
@@ -69,6 +83,12 @@ const mediaStructuredData = {
       contentUrl: "https://traffic.omny.fm/d/clips/8f7208d2-db6e-4bfa-85b5-ad3d00776f1f/e3281566-5752-443e-b9f7-b14500769b83/2f9f0b9e-5244-43e1-977b-b4ea006ff3fd/audio.mp3",
       embedUrl: "https://omny.fm/shows/thebigbreakfast-show/bigstories-empowaworx-and-empowawomen-key-initiatives-platforms-1/embed",
       duration: "PT12M06S",
+    },
+    {
+      "@type": "AudioObject",
+      name: "SABC Lesedi FM Feature Interview: EmpowaHer Leadership Summit",
+      description: "SABC Lesedi FM national radio broadcast interview exploring socioeconomic inclusion and the 200 emerging women leader cohort.",
+      contentUrl: "https://sabconms-my.sharepoint.com/:u:/g/personal/phillipsit_sabc_co_za/IQC4w_4VK92rRpYSdPwRwOpIAdJMO6Tw1rZJtZc_9Y74GoU",
     },
     {
       "@type": "AudioObject",

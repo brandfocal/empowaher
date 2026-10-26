@@ -73,6 +73,21 @@ const podcastEpisodes: PodcastItem[] = [
     tags: ["Group CEO", "Economic Inclusion", "Innovation"],
   },
   {
+    id: "lesedi-fm",
+    station: "LESEDI FM",
+    frequency: "SABC National Broadcast",
+    badge: "SABC Airwave Feature",
+    showTitle: "EmpowaHer National Radio Dialogue",
+    episodeTitle: "SABC Lesedi FM Feature Interview & Leadership Archive",
+    featuredGuests: "EmpowaHer Leadership Delegation",
+    duration: "SABC Audio Master Vault",
+    description:
+      "Flagship national broadcast interview on SABC Lesedi FM unpacking the mission of EmpowaHer™, socioeconomic inclusion, executive mentorship, and the 200 next-generation leader cohort.",
+    vaultUrl:
+      "https://sabconms-my.sharepoint.com/:u:/g/personal/phillipsit_sabc_co_za/IQC4w_4VK92rRpYSdPwRwOpIAdJMO6Tw1rZJtZc_9Y74GoU",
+    tags: ["SABC", "Lesedi FM", "National Reach"],
+  },
+  {
     id: "sonke-radio",
     station: "SONKE RADIO",
     frequency: "Studio Recording Archive",
@@ -318,8 +333,8 @@ export function PodcastsSnippet() {
           </div>
         )}
 
-        {/* 3 Podcasts Grid */}
-        <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* 4 Podcasts Grid */}
+        <div className="mt-10 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
           {podcastEpisodes.map((episode) => {
             const isThisPlaying = activeTrackId === episode.id && isPlaying;
 
