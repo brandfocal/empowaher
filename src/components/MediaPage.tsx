@@ -43,25 +43,24 @@ export function MediaPage() {
             </span>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div>
-              <h1 className="font-heading text-[clamp(2.5rem,5.5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-white">
-                <span>The Architecture</span>
-                <br />
-                <span className="text-[#ed027e]">Of Impact.</span>
-              </h1>
-              <p className="mt-6 max-w-[46ch] font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-                Broadcast-calibre productions, national television &amp; radio interviews with eNCA, SABC News Trendz Live, Metro FM, Radio 2000, and Lesedi FM, official press announcements, and leadership highlight reels documenting Africa’s premier women empowerment platform.
-              </p>
-            </div>
+          <div className="w-full">
+            <h1 className="font-heading text-[clamp(2.5rem,5.5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.03em] text-white">
+              <span>The Architecture</span>
+              <br />
+              <span className="text-[#ed027e]">Of Impact.</span>
+            </h1>
+            <p className="mt-6 max-w-[72ch] font-sans text-base leading-relaxed text-white/75 sm:text-lg">
+              Broadcast-calibre productions, national television &amp; radio interviews with eNCA, SABC News Trendz Live, Metro FM, Radio 2000, and Lesedi FM, official press announcements, and leadership highlight reels documenting Africa’s premier women empowerment platform.
+            </p>
 
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
+            {/* Hero CTA buttons lined up horizontally below paragraph */}
+            <div className="mt-8 flex flex-wrap items-center gap-2 lg:gap-2.5">
               <a
                 href={PRESS_RELEASE_PDF}
                 download="EmpowaHer-Media-Release-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-4.5 lg:px-5 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white shadow-lg shadow-[#ed027e]/25 transition-all duration-300 hover:scale-[1.03] hover:bg-[#ff1a95]"
               >
                 <Download className="h-4 w-4" />
                 <span>Download Media Release (PDF)</span>
@@ -69,7 +68,7 @@ export function MediaPage() {
 
               <a
                 href="#television-features"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-[#ed027e] transition-colors hover:bg-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-[#ed027e] transition-all duration-300 hover:bg-[#ed027e] hover:text-white"
               >
                 <Tv className="h-4 w-4" />
                 <span>eNCA &amp; Trendz Live Features</span>
@@ -77,7 +76,7 @@ export function MediaPage() {
 
               <a
                 href="#podcasts"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <Radio className="h-4 w-4" />
                 <span>Radio Broadcasts (4)</span>
@@ -85,7 +84,7 @@ export function MediaPage() {
 
               <a
                 href="#leadership-videos"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <Play className="h-3.5 w-3.5 fill-current text-[#ed027e]" />
                 <span>Speaker &amp; Nominee Videos (18)</span>
@@ -93,7 +92,7 @@ export function MediaPage() {
 
               <Link
                 href="/gallery"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <span>View Photographic Gallery</span>
                 <ArrowUpRight className="h-4 w-4" />
