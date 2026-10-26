@@ -192,3 +192,85 @@ export const confirmedSpeakers: Speaker[] = [
     ],
   },
 ];
+
+export interface AdditionalSpeaker {
+  id: string;
+  name: string;
+  designation: string;
+  image: string;
+}
+
+export const additionalSpeakers: AdditionalSpeaker[] = [
+  {
+    id: "iman-rappetti",
+    name: "Iman Rappetti",
+    designation: "Broadcaster, Author and Facilitator",
+    image: "/speakers/Iman-Rappetti.png",
+  },
+  {
+    id: "billy-selekane",
+    name: "Billy Selekane",
+    designation: "Leadership Advisor, Culture Transformation Specialist & International Keynote Speaker | Billy Selekane International",
+    image: "/speakers/Billy-Selekane.png",
+  },
+  {
+    id: "auguste-gusti-coetzer",
+    name: "Auguste Gusti Coetzer",
+    designation: "Founder & Chief Executive Officer | People Power Placements SA (Pty) Ltd",
+    image: "/speakers/Auguste-Gusti-Coetzer.png",
+  },
+  {
+    id: "shameela-soobramoney",
+    name: "Ms Shameela Soobramoney",
+    designation: "CEO | National Business Initiative",
+    image: "/speakers/shameela.png",
+  },
+  {
+    id: "tseliso-mohlomi",
+    name: "Tseliso Mohlomi",
+    designation: "Senior Director | Institute for the Future of Work, Tshwane University of Technology",
+    image: "/speakers/Tseliso-Mohlomi.png",
+  },
+  {
+    id: "tinyiko-mothemela",
+    name: "Tinyiko Mothemela",
+    designation: "Principal | Ascension",
+    image: "/speakers/Tinyiko-Mothemela.png",
+  },
+  {
+    id: "zukile-dube",
+    name: "Mr Zukile Dube",
+    designation: "Executive Director & Co-Head: Corporate Finance | Vunani Capital",
+    image: "/speakers/Zukile-Dube.png",
+  },
+  {
+    id: "nkgabiseng-motau",
+    name: "Nkgabiseng Motau",
+    designation: "Co-founder & Chief Creative Officer | Think Creative Africa",
+    image: "/speakers/nkabiseng-muatu.png",
+  },
+  {
+    id: "tshego-kekana",
+    name: "Tshego Kekana",
+    designation: "Founder; African Communications Specialist | Alfa Destiny Group",
+    image: "/speakers/tshego-kekana.png",
+  },
+  {
+    id: "nompendulo-mkhatshwa",
+    name: "Nompendulo Mkhatshwa",
+    designation: "Public Leadership; Governance; Youth & Gender Justice",
+    image: "/speakers/Nompendulo-Mkhatshwa.png",
+  },
+  {
+    id: "moagisi-letlhaku",
+    name: "Ms Moagisi Letlhaku",
+    designation: "General Manager: Civic & Democracy Education, Research & Knowledge Management (CDERKM) | Electoral Commission of South Africa",
+    image: "/speakers/Mohasi-Letlako.png",
+  },
+  {
+    id: "ayanda-allie",
+    name: "Ms Ayanda Allie",
+    designation: "Former Gauteng Provincial Legislature",
+    image: "/speakers/Ayanda.png",
+  },
+];
