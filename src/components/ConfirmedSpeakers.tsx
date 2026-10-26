@@ -12,7 +12,7 @@ import {
   Users,
 } from "lucide-react";
 
-import { confirmedSpeakers } from "@/data/speakers";
+import { confirmedSpeakers, additionalSpeakers } from "@/data/speakers";
 
 export function ConfirmedSpeakers() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -166,7 +166,7 @@ export function ConfirmedSpeakers() {
           <div className="flex items-center gap-3 shrink-0">
             <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-mono text-white/70">
               <Sparkles className="h-3.5 w-3.5 text-[#ed027e]" />
-              <span>12 Confirmed Luminaries</span>
+              <span>{confirmedSpeakers.length + additionalSpeakers.length} Confirmed Luminaries</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -276,8 +276,83 @@ export function ConfirmedSpeakers() {
         </div>
       </div>
 
+      {/* Additional Confirmed Faculty & Speakers (Static Cards) */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 mt-14 sm:mt-18">
+        <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-5">
+          <div>
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
+              <Sparkles className="h-3 w-3" />
+              <span>SUMMIT FACULTY &amp; ADVISORY BOARD</span>
+            </div>
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-tight text-white">
+              Additional Confirmed <span className="text-[#ed027e]">Leaders &amp; Mentors.</span>
+            </h3>
+            <p className="mt-2 max-w-[62ch] text-xs sm:text-sm leading-relaxed text-white/75">
+              Distinguished advisors, enterprise founders, and public sector leaders convening at the EmpowaHer™ Leadership Summit 2026.
+            </p>
+          </div>
+          <div className="text-xs font-mono text-white/60">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
+              <span>{additionalSpeakers.length} Additional Confirmed Leaders</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Static Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7">
+          {additionalSpeakers.map((speaker) => (
+            <article
+              key={speaker.id}
+              id={`speaker-static-${speaker.id}`}
+              className="group relative flex h-[440px] sm:h-[480px] w-full flex-col justify-end overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-[#1C2128] via-[#141922] to-[#0A0D11] shadow-2xl shadow-black/70 transition-all duration-500 hover:-translate-y-2 hover:border-[#ed027e] hover:shadow-[#ed027e]/25"
+            >
+              {/* Full-bleed Black and White Speaker Image filling the WHOLE background */}
+              <div className="absolute inset-0 h-full w-full overflow-hidden">
+                <Image
+                  src={speaker.image}
+                  alt={speaker.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="h-full w-full object-cover object-top filter grayscale contrast-125 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:contrast-130"
+                  loading="lazy"
+                />
+
+                {/* Cinematic Vignettes & Gradients for text legibility */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 via-black/30 to-transparent"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-transparent"
+                />
+              </div>
+
+              {/* Top Accent Gradient Border */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#ed027e] via-[#ff4da6] to-[#ed027e] transition-transform duration-500 group-hover:scale-x-100 z-20"
+              />
+
+              {/* Card Content Overlaid on Full-Bleed Background */}
+              <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-6">
+                <div className="mt-auto">
+                  <h4 className="font-heading text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-white drop-shadow-md">
+                    {speaker.name}
+                  </h4>
+
+                  <p className="mt-2 text-xs sm:text-[0.8125rem] leading-relaxed text-white/85 font-normal drop-shadow">
+                    {speaker.designation}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
       {/* Bottom Call to Action Banner */}
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 mt-10 sm:mt-14">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 mt-12 sm:mt-16">
         <div
           id="speakers-nomination-cta"
           className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[#ed027e]/40 bg-gradient-to-r from-[#141922] via-[#1c1424] to-[#141922] p-7 sm:p-9 lg:p-10 shadow-2xl relative"
