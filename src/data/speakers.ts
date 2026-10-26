@@ -181,7 +181,7 @@ export const confirmedSpeakers: Speaker[] = [
     name: "Zizipho Mqwala Nyanga",
     title: "South African Chartered Accountant (CA(SA)), Banking Executive and Social Entrepreneur",
     sessionFormat: "High-Impact Leadership Dialogue",
-    image: "/speakers/Zizipho-Mqwala-Nyanga.png",
+    image: "/speakers/Zizipho-Nyanga.png",
     posterImage: "/eh singles/zizipho.jpg",
     trackFocus: "Entrepreneurship, Innovation & Funding",
     bio: "Zizipho Mqwala Nyanga is a South African Chartered Accountant (CA(SA)), Banking Executive, and Social Entrepreneur. Formerly CEO of the Masisizane Fund (Old Mutual), she is a premier authority on SME development finance, capital mobilization, and commercial scaling for female-led enterprises.",
