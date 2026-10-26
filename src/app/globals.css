@@ -323,3 +323,33 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   scrollbar-width: none;
 }
 
+/* ==========================================================================
+   Infinite Viewport Marquee Scroll Animation
+   ========================================================================== */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-scroll {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-scroll:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-scroll {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+

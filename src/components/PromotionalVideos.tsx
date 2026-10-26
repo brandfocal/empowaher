@@ -8,6 +8,7 @@ import {
   Maximize2,
   Pause,
   Play,
+  Radio,
   Sparkles,
   Volume2,
   VolumeX,
@@ -23,6 +24,49 @@ export interface PromoVideoItem {
   speaker: string;
   videoUrl: string;
 }
+
+export interface CampaignPosterItem {
+  id: string;
+  station: string;
+  badge: string;
+  showTitle: string;
+  guest: string;
+  imageSrc: string;
+}
+
+export const campaignPostersList: CampaignPosterItem[] = [
+  {
+    id: "poster-radio-2000",
+    station: "RADIO 2000",
+    badge: "The Big Breakfast Show",
+    showTitle: "BigStories: EmpowaWorx & EmpowaWomen Initiatives",
+    guest: "Simphiwe Masiza • Founder & Group CEO, EmpowaWorx",
+    imageSrc: "/radio-2000.jpg",
+  },
+  {
+    id: "poster-sa-fm",
+    station: "SAFM",
+    badge: "The Full Circle Media Interview",
+    showTitle: "Accelerating Africa’s Next Chapter of Women Leaders",
+    guest: "Simphiwe Masiza • Founder & Group CEO, EmpowaWorx",
+    imageSrc: "/sa-fm.jpg",
+  },
+  {
+    id: "poster-lesedi-fm",
+    station: "LESEDI FM",
+    badge: "Rea Thella Drive Show",
+    showTitle: "National Broadcast Interview & Leadership Archive",
+    guest: "Khanyi Mlambo • MD, Lighthouse Leadership Advisory",
+    imageSrc: "/lesedi-fm.jpg",
+  },
+];
+
+const infinitePosters: CampaignPosterItem[] = [
+  ...campaignPostersList,
+  ...campaignPostersList,
+  ...campaignPostersList,
+  ...campaignPostersList,
+];
 
 export const promotionalVideosList: PromoVideoItem[] = [
   {
@@ -71,16 +115,20 @@ export function PromotionalVideos() {
   const [activePlayingId, setActivePlayingId] = useState<string | null>(null);
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [modalVideo, setModalVideo] = useState<PromoVideoItem | null>(null);
+  const [selectedPoster, setSelectedPoster] = useState<CampaignPosterItem | null>(null);
   const [progressMap, setProgressMap] = useState<Record<string, number>>({});
 
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
 
-  // Close modal with ESC key and prevent body scroll
+  // Close modals with ESC key and prevent body scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalVideo(null);
+      if (e.key === "Escape") {
+        setModalVideo(null);
+        setSelectedPoster(null);
+      }
     };
-    if (modalVideo) {
+    if (modalVideo || selectedPoster) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
     } else {
@@ -90,7 +138,7 @@ export function PromotionalVideos() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalVideo]);
+  }, [modalVideo, selectedPoster]);
 
   const togglePlay = (id: string) => {
     const currentVideo = videoRefs.current[id];
@@ -336,6 +384,82 @@ export function PromotionalVideos() {
         </div>
       </div>
 
+      {/* Full-Viewport Scrolling Broadcast Campaign Posters */}
+      <div className="mt-16 sm:mt-20 border-t border-white/10 pt-12 sm:pt-16">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
+              <Radio className="h-3.5 w-3.5 text-[#ed027e]" />
+              <span>OFFICIAL BROADCAST &amp; MEDIA INTERVIEWS</span>
+            </div>
+            <h3 className="font-heading mt-2 text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white">
+              Who will lead Africa’s next chapter? <span className="text-[#ed027e]">She will.</span>
+            </h3>
+            <p className="mt-2 max-w-[62ch] text-xs sm:text-sm leading-relaxed text-white/70">
+              Official national radio broadcast campaign posters featured across SABC Radio 2000, SAfm, and Lesedi FM.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-mono text-white/50">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
+              <Maximize2 className="h-3 w-3 text-[#ed027e]" />
+              <span>Hover to pause • Click to expand flyer</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Viewport Marquee Track */}
+        <div className="relative w-full overflow-hidden py-3">
+          {/* Subtle Side Fade Vignettes */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-[#0A0D12] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-[#0A0D12] to-transparent z-10" />
+
+          <div className="animate-marquee-scroll flex gap-6 sm:gap-8 px-4">
+            {infinitePosters.map((poster, index) => (
+              <div
+                key={`${poster.id}-${index}`}
+                onClick={() => setSelectedPoster(poster)}
+                className="group relative flex-shrink-0 w-64 sm:w-72 md:w-80 cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-[#12161E] shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-[#ed027e]/80 hover:shadow-[#ed027e]/20"
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-black">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={poster.imageSrc}
+                    alt={`${poster.station} • ${poster.showTitle}`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent pointer-events-none" />
+
+                  {/* Top Station Badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/80 backdrop-blur-md border border-[#ed027e]/40 px-2.5 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                    <Radio className="h-3 w-3" />
+                    <span>{poster.station}</span>
+                  </div>
+
+                  {/* Bottom Info Overlay */}
+                  <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black via-black/85 to-transparent flex items-end justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-[0.625rem] font-mono uppercase tracking-widest text-[#ed027e]">
+                        {poster.badge}
+                      </p>
+                      <h4 className="font-heading mt-0.5 text-xs sm:text-sm font-bold uppercase text-white line-clamp-1">
+                        {poster.showTitle}
+                      </h4>
+                      <p className="mt-0.5 text-[0.6875rem] text-white/70 line-clamp-1">
+                        {poster.guest}
+                      </p>
+                    </div>
+                    <span className="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-black/75 border border-white/20 text-white/80 group-hover:bg-[#ed027e] group-hover:text-white group-hover:border-[#ed027e] transition-colors">
+                      <Maximize2 className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Full Reel Cinema Modal */}
       {modalVideo && (
         <div
@@ -387,6 +511,59 @@ export function PromotionalVideos() {
               </p>
               <p className="mt-2 text-[0.6875rem] font-semibold text-[#ed027e]">
                 {modalVideo.speaker}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal for Selected Campaign Poster */}
+      {selectedPoster && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setSelectedPoster(null)}
+        >
+          <div
+            className="relative max-w-lg w-full max-h-[92vh] overflow-hidden rounded-2xl border border-white/20 bg-[#12161E] shadow-2xl flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#151922]">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-[#ed027e]" />
+                <h4 className="font-heading text-xs sm:text-sm font-bold uppercase tracking-wider text-white line-clamp-1">
+                  {selectedPoster.station} • {selectedPoster.badge}
+                </h4>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedPoster(null)}
+                className="rounded-full p-1.5 text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                aria-label="Close flyer preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Poster Image */}
+            <div className="relative p-4 flex items-center justify-center max-h-[75vh] overflow-y-auto bg-black/70">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={selectedPoster.imageSrc}
+                alt={`${selectedPoster.station} • ${selectedPoster.showTitle}`}
+                className="h-auto max-h-[70vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            </div>
+
+            {/* Modal Footer Caption */}
+            <div className="p-4 bg-[#151921] border-t border-white/10">
+              <h4 className="font-heading text-sm font-black uppercase text-white leading-snug">
+                {selectedPoster.showTitle}
+              </h4>
+              <p className="mt-1 text-xs text-[#ed027e] font-semibold">
+                {selectedPoster.guest}
               </p>
             </div>
           </div>
