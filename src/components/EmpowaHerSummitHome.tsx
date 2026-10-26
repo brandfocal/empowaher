@@ -21,6 +21,7 @@ import { EmpowaHerTeam } from "./EmpowaHerTeam";
 import { PodcastsSnippet } from "./PodcastsSnippet";
 import { LeadershipVideos } from "./LeadershipVideos";
 import { ConfirmedSpeakers } from "./ConfirmedSpeakers";
+import { PromotionalVideos } from "./PromotionalVideos";
 import { NewsletterSubscription } from "./NewsletterSubscription";
 import { BroughtToYouBy } from "./BroughtToYouBy";
 
@@ -293,6 +294,9 @@ export function EmpowaHerSummitHome() {
 
       {/* Confirmed Keynote Speakers & Executive Faculty */}
       <ConfirmedSpeakers />
+
+      {/* Latest Promotional Videos & Event Teasers */}
+      <PromotionalVideos />
 
       {/* The Vision Section */}
       <section
