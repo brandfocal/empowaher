@@ -687,13 +687,13 @@ export function EmpowaHerSummitHome() {
             <div>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
                 <FileText className="h-3 w-3" />
-                <span>OFFICIAL MEDIA ANNOUNCEMENT • 8 SEPTEMBER 2026</span>
+                <span>OFFICIAL PRESS STATEMENT • THE FUTURE IS FEMALE</span>
               </div>
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-white">
-                EmpowaHer Opens Nominations for 200 of Africa’s Next Generation of Women Leaders
+                Invest in Women. Strengthen the Leadership Pipeline. Shape the Future.
               </h2>
               <p className="mt-4 max-w-[54ch] text-sm leading-relaxed text-white/75 sm:text-base">
-                Official announcement detailing the opening of continent-wide nominations for young women aged 18–35 to participate in the flagship 2026 executive leadership experience at EmpowaWorx House.
+                Official statement from Executive Producer Simphiwe Masiza: Women’s advancement must be a strategic investment in organisational performance, executive succession, and economic competitiveness.
               </p>
             </div>
 
