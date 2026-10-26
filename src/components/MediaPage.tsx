@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -10,12 +10,14 @@ import {
   FileText,
   Headphones,
   Mail,
+  Maximize2,
   Mic,
   Play,
   Radio,
   Share2,
   Tv,
   Volume2,
+  X,
 } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -27,6 +29,23 @@ const PRESS_RELEASE_PDF =
 export function MediaPage() {
   const [isPlayingReel, setIsPlayingReel] = useState(false);
   const [isPlayingTrendz, setIsPlayingTrendz] = useState(false);
+  const [enlargedPoster, setEnlargedPoster] = useState<{ src: string; title: string } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setEnlargedPoster(null);
+    };
+    if (enlargedPoster) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [enlargedPoster]);
 
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-[#0A0D11] font-sans text-[#3f3f3f] selection:bg-[#ed027e] selection:text-white">
@@ -79,7 +98,7 @@ export function MediaPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <Radio className="h-4 w-4" />
-                <span>Radio Broadcasts (4)</span>
+                <span>Radio Broadcasts (5)</span>
               </a>
 
               <a
@@ -438,7 +457,7 @@ export function MediaPage() {
               <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-white/60">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
                   <Headphones className="h-3.5 w-3.5 text-[#ed027e]" />
-                  <span>4 National Broadcast Features</span>
+                  <span>5 National Broadcast Features</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
                   <Volume2 className="h-3.5 w-3.5 text-[#ed027e]" />
@@ -616,56 +635,82 @@ export function MediaPage() {
               id="podcast-radio-2000"
               className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#141922] p-6 sm:p-8 shadow-2xl transition-all duration-300 hover:border-[#ed027e]/40"
             >
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
-                      <Radio className="h-3 w-3" />
-                      <span>03 • Radio 2000</span>
-                    </span>
-                    <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
-                      #TheBigBreakfast Show with DJ Sbu
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/70">
-                      <Clock className="h-3 w-3 text-[#ed027e]" />
-                      <span>12:06 min</span>
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-6">
+                {/* Official Campaign Flyer Poster */}
+                <div
+                  className="relative w-full sm:w-48 lg:w-56 shrink-0 aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-black cursor-pointer group shadow-lg"
+                  onClick={() =>
+                    setEnlargedPoster({
+                      src: "/radio-2000.jpg",
+                      title: "Radio 2000 • The Big Breakfast Show with DJ Sbu",
+                    })
+                  }
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/radio-2000.jpg"
+                    alt="Radio 2000 Feature Interview Poster: Simphiwe Masiza"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/85 border border-[#ed027e]/50 px-3 py-1 text-[0.625rem] font-bold uppercase tracking-wider text-white">
+                      <Maximize2 className="h-3 w-3 text-[#ed027e]" />
+                      <span>Enlarge Poster</span>
                     </span>
                   </div>
-
-                  <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
-                    BigStories: EmpowaWorx and EmpowaWomen Key Initiatives &amp; Platforms
-                  </h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#ed027e]">
-                    Executive Feature • Simphiwe Masiza with DJ Sbu &amp; Nathi Ndamase
-                  </p>
-
-                  <p className="mt-4 max-w-[68ch] text-sm sm:text-base leading-relaxed text-white/75">
-                    Simphiwe Masiza, Founder and Group CEO of EmpowaWorx and EmpowaWomen™, joins DJ Sbu and Nathi Ndamase on Radio 2000 to unpack the leadership and economic empowerment ecosystem powering the EmpowaHer Leadership Summit.
-                  </p>
                 </div>
 
-                <div className="shrink-0 flex flex-wrap lg:flex-col gap-3">
-                  <a
-                    href="https://omny.fm/shows/thebigbreakfast-show/bigstories-empowaworx-and-empowawomen-key-initiatives-platforms-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="radio-2000-omny-link"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
-                  >
-                    <span>View on Omny.fm</span>
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                        <Radio className="h-3 w-3" />
+                        <span>03 • Radio 2000</span>
+                      </span>
+                      <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
+                        #TheBigBreakfast Show with DJ Sbu
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/70">
+                        <Clock className="h-3 w-3 text-[#ed027e]" />
+                        <span>12:06 min</span>
+                      </span>
+                    </div>
 
-                  <a
-                    href="https://traffic.omny.fm/d/clips/8f7208d2-db6e-4bfa-85b5-ad3d00776f1f/e3281566-5752-443e-b9f7-b14500769b83/2f9f0b9e-5244-43e1-977b-b4ea006ff3fd/audio.mp3"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="radio-2000-download-audio"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e]/20 border border-[#ed027e]/40 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-[#ed027e] transition-colors"
-                  >
-                    <Download className="h-3.5 w-3.5" />
-                    <span>Download MP3</span>
-                  </a>
+                    <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
+                      BigStories: EmpowaWorx and EmpowaWomen Key Initiatives &amp; Platforms
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#ed027e]">
+                      Executive Feature • Simphiwe Masiza with DJ Sbu &amp; Nathi Ndamase
+                    </p>
+
+                    <p className="mt-4 max-w-[68ch] text-sm sm:text-base leading-relaxed text-white/75">
+                      Simphiwe Masiza, Founder and Group CEO of EmpowaWorx and EmpowaWomen™, joins DJ Sbu and Nathi Ndamase on Radio 2000 to unpack the leadership and economic empowerment ecosystem powering the EmpowaHer Leadership Summit.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href="https://omny.fm/shows/thebigbreakfast-show/bigstories-empowaworx-and-empowawomen-key-initiatives-platforms-1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="radio-2000-omny-link"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
+                    >
+                      <span>View on Omny.fm</span>
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+
+                    <a
+                      href="https://traffic.omny.fm/d/clips/8f7208d2-db6e-4bfa-85b5-ad3d00776f1f/e3281566-5752-443e-b9f7-b14500769b83/2f9f0b9e-5244-43e1-977b-b4ea006ff3fd/audio.mp3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="radio-2000-download-audio"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e]/20 border border-[#ed027e]/40 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white hover:bg-[#ed027e] transition-colors"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      <span>Download MP3</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -689,45 +734,71 @@ export function MediaPage() {
               id="podcast-lesedi-fm"
               className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#141922] p-6 sm:p-8 shadow-2xl transition-all duration-300 hover:border-[#ed027e]/40"
             >
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
-                      <Radio className="h-3 w-3" />
-                      <span>04 • Lesedi FM</span>
-                    </span>
-                    <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
-                      SABC Public Service Radio
-                    </span>
-                    <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 text-[0.6875rem] font-mono text-emerald-400">
-                      ● Active SABC Audio Vault
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-6">
+                {/* Official Campaign Flyer Poster */}
+                <div
+                  className="relative w-full sm:w-48 lg:w-56 shrink-0 aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-black cursor-pointer group shadow-lg"
+                  onClick={() =>
+                    setEnlargedPoster({
+                      src: "/lesedi-fm.jpg",
+                      title: "Lesedi FM • Rea Thella Afternoon Drive Show with Khanyi Mlambo",
+                    })
+                  }
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/lesedi-fm.jpg"
+                    alt="Lesedi FM Feature Interview Poster: Khanyi Mlambo"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/85 border border-[#ed027e]/50 px-3 py-1 text-[0.625rem] font-bold uppercase tracking-wider text-white">
+                      <Maximize2 className="h-3 w-3 text-[#ed027e]" />
+                      <span>Enlarge Poster</span>
                     </span>
                   </div>
-
-                  <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
-                    SABC Lesedi FM Feature Interview
-                  </h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#ed027e]">
-                    Broadcast Recording Archive • EmpowaHer Leadership Summit 2026
-                  </p>
-
-                  <p className="mt-4 max-w-[68ch] text-sm sm:text-base leading-relaxed text-white/75">
-                    Flagship national radio broadcast interview on SABC Lesedi FM exploring the strategic mission of EmpowaHer™, grassroots leadership development, economic participation for women-led enterprises, and the nomination of 200 of Africa’s next-generation leaders.
-                  </p>
                 </div>
 
-                <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-                  <a
-                    href="https://sabconms-my.sharepoint.com/:u:/g/personal/phillipsit_sabc_co_za/IQC4w_4VK92rRpYSdPwRwOpIAdJMO6Tw1rZJtZc_9Y74GoU"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="lesedi-fm-recording-btn"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
-                  >
-                    <Headphones className="h-4 w-4" />
-                    <span>Access SABC Audio Vault</span>
-                    <ExternalLink className="h-3.5 w-3.5 opacity-80" />
-                  </a>
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                        <Radio className="h-3 w-3" />
+                        <span>04 • Lesedi FM</span>
+                      </span>
+                      <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
+                        SABC Public Service Radio
+                      </span>
+                      <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 text-[0.6875rem] font-mono text-emerald-400">
+                        ● Active SABC Audio Vault
+                      </span>
+                    </div>
+
+                    <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
+                      SABC Lesedi FM Feature Interview: Khanyi Mlambo
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#ed027e]">
+                      Rea Thella Afternoon Drive Show • Khanyi Mlambo, MD | Lighthouse Leadership Advisory
+                    </p>
+
+                    <p className="mt-4 max-w-[68ch] text-sm sm:text-base leading-relaxed text-white/75">
+                      Flagship national radio broadcast interview on SABC Lesedi FM exploring the strategic mission of EmpowaHer™, socioeconomic inclusion, executive mentorship, and the nomination of 200 of Africa’s next-generation leaders.
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    <a
+                      href="https://sabconms-my.sharepoint.com/:u:/g/personal/phillipsit_sabc_co_za/IQC4w_4VK92rRpYSdPwRwOpIAdJMO6Tw1rZJtZc_9Y74GoU"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="lesedi-fm-recording-btn"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                    >
+                      <Headphones className="h-4 w-4" />
+                      <span>Access SABC Audio Vault</span>
+                      <ExternalLink className="h-3.5 w-3.5 opacity-80" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -768,6 +839,103 @@ export function MediaPage() {
                     <span>sabconms.sharepoint.com Audio Vault</span>
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
+                </div>
+              </div>
+            </article>
+
+            {/* 5. SAfm – The Full Circle */}
+            <article
+              id="podcast-sa-fm"
+              className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#141922] p-6 sm:p-8 shadow-2xl transition-all duration-300 hover:border-[#ed027e]/40"
+            >
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-6">
+                {/* Official Campaign Flyer Poster */}
+                <div
+                  className="relative w-full sm:w-48 lg:w-56 shrink-0 aspect-[4/5] rounded-xl overflow-hidden border border-white/15 bg-black cursor-pointer group shadow-lg"
+                  onClick={() =>
+                    setEnlargedPoster({
+                      src: "/sa-fm.jpg",
+                      title: "SAfm • The Full Circle with Simphiwe Masiza",
+                    })
+                  }
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/sa-fm.jpg"
+                    alt="SAfm The Full Circle Feature Interview Poster"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/85 border border-[#ed027e]/50 px-3 py-1 text-[0.625rem] font-bold uppercase tracking-wider text-white">
+                      <Maximize2 className="h-3 w-3 text-[#ed027e]" />
+                      <span>Enlarge Poster</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                        <Radio className="h-3 w-3" />
+                        <span>05 • SAfm</span>
+                      </span>
+                      <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
+                        104–107 FM • The Full Circle
+                      </span>
+                      <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 text-[0.6875rem] font-mono text-emerald-400">
+                        ● 14:00 SAST SABC Broadcast
+                      </span>
+                    </div>
+
+                    <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
+                      The Full Circle: Accelerating Africa’s Next Chapter of Women Leaders
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[#ed027e]">
+                      Executive Interview Feature • Simphiwe Masiza, CEO | EmpowaWorx
+                    </p>
+
+                    <p className="mt-4 max-w-[68ch] text-sm sm:text-base leading-relaxed text-white/75">
+                      Flagship national radio broadcast interview on SABC SAfm with Simphiwe Masiza exploring who will lead Africa’s next chapter, the multi-sector convening at EmpowaWorx House, and the nomination of 200 high-potential women leaders.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#ed027e]">
+                      <Radio className="h-3.5 w-3.5" />
+                      <span>Broadcast Feature • SABC SAfm 104–107 FM</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* SABC Master Audio Vault Display */}
+              <div className="mt-6 rounded-xl border border-white/10 bg-black/40 p-5 sm:p-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#ed027e]/15 border border-[#ed027e]/30 text-[#ed027e]">
+                      <Radio className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="font-heading text-sm font-bold uppercase text-white">
+                        SABC SAfm 104-107 Broadcast Master
+                      </p>
+                      <p className="text-xs text-white/60">
+                        The Full Circle • 14:00 SAST • Auckland Park Studios
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Sound Wave Equalizer Graphic */}
+                  <div className="flex items-end gap-1 h-8 px-4 py-1 rounded-lg bg-white/5 border border-white/5">
+                    {[55, 85, 40, 90, 70, 50, 80, 65, 95, 45, 75, 60, 85, 40, 70, 85, 55].map((height, i) => (
+                      <span
+                        key={i}
+                        className="w-1 bg-[#ed027e] rounded-full opacity-80"
+                        style={{ height: `${height}%` }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </article>
@@ -869,6 +1037,47 @@ export function MediaPage() {
 
       {/* Shared Footer */}
       <Footer />
+
+      {/* Lightbox Modal for Official Campaign Poster */}
+      {enlargedPoster && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setEnlargedPoster(null)}
+        >
+          <div
+            className="relative max-w-lg w-full max-h-[92vh] overflow-hidden rounded-2xl border border-white/20 bg-[#12161E] shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#151922]">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-[#ed027e]" />
+                <h4 className="font-heading text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
+                  {enlargedPoster.title}
+                </h4>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEnlargedPoster(null)}
+                className="rounded-full p-1 text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                aria-label="Close flyer preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="relative p-4 flex items-center justify-center max-h-[78vh] overflow-y-auto bg-black/60">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={enlargedPoster.src}
+                alt={enlargedPoster.title}
+                className="h-auto max-h-[72vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
+

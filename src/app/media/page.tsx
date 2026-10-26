@@ -92,6 +92,12 @@ const mediaStructuredData = {
     },
     {
       "@type": "AudioObject",
+      name: "SAfm The Full Circle: Accelerating Africa's Next Chapter of Women Leaders",
+      description: "SABC SAfm 104-107 national radio broadcast interview with Simphiwe Masiza on The Full Circle.",
+      contentUrl: "https://www.empowaher.co.za/media#podcast-sa-fm",
+    },
+    {
+      "@type": "AudioObject",
       name: "Sonke Radio Feature Interview: EmpowaHer Leadership Summit",
       description: "Studio radio interview recording exploring the strategic mission and nomination launch of EmpowaHer.",
       contentUrl: "https://fromsmash.com/mhTxPgrHDh-dt",

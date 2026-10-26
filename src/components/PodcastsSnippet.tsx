@@ -8,6 +8,7 @@ import {
   Download,
   ExternalLink,
   Headphones,
+  Maximize2,
   Play,
   Pause,
   Radio,
@@ -15,6 +16,7 @@ import {
   Volume2,
   VolumeX,
   Sparkles,
+  X,
 } from "lucide-react";
 
 interface PodcastItem {
@@ -27,6 +29,7 @@ interface PodcastItem {
   featuredGuests: string;
   duration: string;
   description: string;
+  image?: string;
   audioUrl?: string;
   embedUrl?: string;
   omnyUrl?: string;
@@ -46,6 +49,7 @@ const podcastEpisodes: PodcastItem[] = [
     duration: "07:27 min",
     description:
       "Flagship breakfast conversation on METRO FM unpacking why Africa’s future is female, unlocking executive mentorship, and launching nominations for 200 emerging women leaders.",
+    image: "/sponsors/metro-fm.png",
     audioUrl:
       "https://traffic.omny.fm/d/clips/8f7208d2-db6e-4bfa-85b5-ad3d00776f1f/e1dc43d1-3ed3-43b6-934a-afda00a36848/f92e7716-a506-4ae7-94dc-b4db007f0b54/audio.mp3",
     embedUrl:
@@ -57,14 +61,15 @@ const podcastEpisodes: PodcastItem[] = [
   {
     id: "radio-2000",
     station: "RADIO 2000",
-    frequency: "National Broadcast",
-    badge: "Executive Dialogue",
-    showTitle: "#TheBigBreakfast Show with DJ Sbu",
+    frequency: "97.2–100 FM • National",
+    badge: "The Big Breakfast Show",
+    showTitle: "The Big Breakfast Show with DJ Sbu, Nathi & Lelo",
     episodeTitle: "BigStories: EmpowaWorx and EmpowaWomen Key Initiatives",
-    featuredGuests: "Simphiwe Masiza with DJ Sbu & Nathi Ndamase",
+    featuredGuests: "Simphiwe Masiza, CEO | EmpowaWorx",
     duration: "12:06 min",
     description:
-      "Simphiwe Masiza, Founder and Group CEO of EmpowaWorx and EmpowaWomen™, joins DJ Sbu and Nathi Ndamase to unpack the commercial and leadership ecosystem powering EmpowaHer™.",
+      "Simphiwe Masiza, Founder and Group CEO of EmpowaWorx and EmpowaWomen™, joins DJ Sbu and Nathi Ndamase on Radio 2000 to unpack the commercial and leadership ecosystem powering EmpowaHer™.",
+    image: "/radio-2000.jpg",
     audioUrl:
       "https://traffic.omny.fm/d/clips/8f7208d2-db6e-4bfa-85b5-ad3d00776f1f/e3281566-5752-443e-b9f7-b14500769b83/2f9f0b9e-5244-43e1-977b-b4ea006ff3fd/audio.mp3",
     embedUrl:
@@ -74,33 +79,35 @@ const podcastEpisodes: PodcastItem[] = [
     tags: ["Group CEO", "Economic Inclusion", "Innovation"],
   },
   {
+    id: "sa-fm",
+    station: "SAFM",
+    frequency: "104–107 FM • National",
+    badge: "The Full Circle",
+    showTitle: "The Full Circle • Media Interview",
+    episodeTitle: "Accelerating Africa’s Next Chapter of Women Leaders",
+    featuredGuests: "Simphiwe Masiza, CEO | EmpowaWorx",
+    duration: "14:00 SAST • Broadcast",
+    description:
+      "Simphiwe Masiza, Group CEO of EmpowaWorx, joins SAfm’s The Full Circle to unpack who will lead Africa’s next chapter, the 200 emerging women leader cohort, and executive sponsorship.",
+    image: "/sa-fm.jpg",
+    vaultUrl: "/media#podcast-sa-fm",
+    tags: ["SABC", "SAfm", "The Full Circle", "Simphiwe Masiza"],
+  },
+  {
     id: "lesedi-fm",
     station: "LESEDI FM",
     frequency: "SABC National Broadcast",
-    badge: "SABC Airwave Feature",
-    showTitle: "EmpowaHer National Radio Dialogue",
+    badge: "Rea Thella Drive Show",
+    showTitle: "Rea Thella Afternoon Drive Show",
     episodeTitle: "SABC Lesedi FM Feature Interview & Leadership Archive",
-    featuredGuests: "EmpowaHer Leadership Delegation",
+    featuredGuests: "Khanyi Mlambo, MD | Lighthouse Leadership Advisory",
     duration: "SABC Audio Master Vault",
     description:
-      "Flagship national broadcast interview on SABC Lesedi FM unpacking the mission of EmpowaHer™, socioeconomic inclusion, executive mentorship, and the 200 next-generation leader cohort.",
+      "Flagship national broadcast interview on SABC Lesedi FM with Khanyi Mlambo unpacking the mission of EmpowaHer™, socioeconomic inclusion, executive mentorship, and the 200 next-generation leader cohort.",
+    image: "/lesedi-fm.jpg",
     vaultUrl:
       "https://sabconms-my.sharepoint.com/:u:/g/personal/phillipsit_sabc_co_za/IQC4w_4VK92rRpYSdPwRwOpIAdJMO6Tw1rZJtZc_9Y74GoU",
-    tags: ["SABC", "Lesedi FM", "National Reach"],
-  },
-  {
-    id: "sonke-radio",
-    station: "SONKE RADIO",
-    frequency: "Studio Recording Archive",
-    badge: "Studio Audio Vault",
-    showTitle: "EmpowaHer Strategic Mission Series",
-    episodeTitle: "Sonke Radio Feature Interview & Leadership Archive",
-    featuredGuests: "EmpowaHer Leadership Delegation",
-    duration: "53.15 MB • Master Audio",
-    description:
-      "In-depth studio broadcast interview exploring grassroots leadership development, economic participation for women-led enterprises, and the 200 next-generation leader cohort.",
-    vaultUrl: "https://fromsmash.com/mhTxPgrHDh-dt",
-    tags: ["Grassroots Impact", "SME Acceleration", "200 Cohort"],
+    tags: ["SABC", "Lesedi FM", "Khanyi Mlambo", "National Reach"],
   },
 ];
 
@@ -111,8 +118,25 @@ export function PodcastsSnippet() {
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [enlargedImage, setEnlargedImage] = useState<{ src: string; title: string } | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setEnlargedImage(null);
+    };
+    if (enlargedImage) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [enlargedImage]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -151,7 +175,11 @@ export function PodcastsSnippet() {
   const handleTogglePlay = (episode: PodcastItem) => {
     if (!episode.audioUrl) {
       if (episode.vaultUrl) {
-        window.open(episode.vaultUrl, "_blank", "noopener,noreferrer");
+        if (episode.vaultUrl.startsWith("http")) {
+          window.open(episode.vaultUrl, "_blank", "noopener,noreferrer");
+        } else {
+          window.location.href = episode.vaultUrl;
+        }
       }
       return;
     }
@@ -462,7 +490,7 @@ export function PodcastsSnippet() {
         </div>
 
         {/* =========================================================================
-            NATIONAL RADIO BROADCASTS & PODCASTS (Metro FM, Radio 2000, Lesedi FM, Sonke)
+            NATIONAL RADIO BROADCASTS & PODCASTS (Metro FM, Radio 2000, SA FM, Lesedi FM)
             ========================================================================= */}
         <div className="mt-16">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
@@ -473,7 +501,7 @@ export function PodcastsSnippet() {
               </span>
             </div>
             <span className="text-xs font-mono text-white/50">
-              Metro FM • Radio 2000 • Lesedi FM • Sonke Radio
+              Metro FM • Radio 2000 • SAfm • Lesedi FM
             </span>
           </div>
 
@@ -558,11 +586,13 @@ export function PodcastsSnippet() {
             </div>
           )}
 
-          {/* 4 Podcasts Grid */}
+          {/* 4 Podcasts Grid with Official Campaign Artwork */}
           <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
             {podcastEpisodes.map((episode) => {
               const isThisPlaying = activeTrackId === episode.id && isPlaying;
               const isLesedi = episode.id === "lesedi-fm";
+              const isSaFm = episode.id === "sa-fm";
+              const hasPoster = episode.image && episode.id !== "metro-fm";
 
               return (
                 <article
@@ -572,94 +602,149 @@ export function PodcastsSnippet() {
                     isThisPlaying
                       ? "border-[#ed027e] bg-[#141922] shadow-xl shadow-[#ed027e]/15 ring-1 ring-[#ed027e]/40"
                       : "border-white/10 bg-[#12161E] hover:border-[#ed027e]/50 hover:bg-[#161C26]"
-                  } p-6 sm:p-7`}
+                  }`}
                 >
                   <div>
-                    {/* Station Eyebrow & Duration Badge */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                    {/* Card Top Image / Official Campaign Poster */}
+                    <div
+                      className={`relative aspect-[4/3] w-full overflow-hidden border-b border-white/10 bg-black/60 ${
+                        hasPoster ? "cursor-pointer" : ""
+                      }`}
+                      onClick={() => {
+                        if (hasPoster && episode.image) {
+                          setEnlargedImage({
+                            src: episode.image,
+                            title: `${episode.station} • ${episode.showTitle}`,
+                          });
+                        }
+                      }}
+                    >
+                      {episode.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={episode.image}
+                          alt={`${episode.station} • ${episode.episodeTitle}`}
+                          className={`h-full w-full ${
+                            episode.id === "metro-fm"
+                              ? "object-contain p-6 bg-gradient-to-br from-[#1c1424] via-[#12161E] to-black"
+                              : "object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                          }`}
+                        />
+                      ) : null}
+
+                      {/* Dark Vignette Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#12161E] via-transparent to-black/40 pointer-events-none" />
+
+                      {/* Badges on Top */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/75 backdrop-blur-md border border-[#ed027e]/40 px-2.5 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
                         <Radio className="h-3 w-3" />
                         <span>{episode.station}</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/70">
-                        <Clock className="h-3 w-3 text-[#ed027e]" />
+                      </div>
+
+                      <div className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-black/75 backdrop-blur-md border border-white/10 px-2 py-0.5 text-[0.625rem] font-mono text-white/80">
+                        <Clock className="h-2.5 w-2.5 text-[#ed027e]" />
                         <span>{episode.duration}</span>
-                      </span>
+                      </div>
+
+                      {/* Enlarge Hint Overlay */}
+                      {hasPoster && (
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/45 backdrop-blur-[2px]">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-black/85 border border-[#ed027e]/50 px-3 py-1.5 text-[0.625rem] font-bold uppercase tracking-wider text-white shadow-xl">
+                            <Maximize2 className="h-3 w-3 text-[#ed027e]" />
+                            <span>View Full Flyer</span>
+                          </span>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Show Name */}
-                    <p className="text-[0.6875rem] font-bold uppercase tracking-wider text-white/50">
-                      {episode.showTitle}
-                    </p>
+                    {/* Card Content Details */}
+                    <div className="p-5 sm:p-6">
+                      {/* Show Name */}
+                      <p className="text-[0.6875rem] font-bold uppercase tracking-wider text-[#ed027e]">
+                        {episode.showTitle}
+                      </p>
 
-                    {/* Episode Title */}
-                    <h3 className="font-heading mt-2 text-lg font-black uppercase leading-snug tracking-tight text-white group-hover:text-[#ed027e] transition-colors">
-                      {episode.episodeTitle}
-                    </h3>
+                      {/* Episode Title */}
+                      <h3 className="font-heading mt-1.5 text-base sm:text-lg font-black uppercase leading-snug tracking-tight text-white group-hover:text-[#ed027e] transition-colors line-clamp-2">
+                        {episode.episodeTitle}
+                      </h3>
 
-                    {/* Featured Guests */}
-                    <p className="mt-2.5 text-xs text-white/60 line-clamp-1">
-                      <span className="text-[#ed027e] font-semibold">Featuring: </span>
-                      {episode.featuredGuests}
-                    </p>
+                      {/* Featured Guests */}
+                      <p className="mt-2 text-xs text-white/60 line-clamp-1">
+                        <span className="text-[#ed027e] font-semibold">Featuring: </span>
+                        {episode.featuredGuests}
+                      </p>
 
-                    {/* Short Description */}
-                    <p className="mt-3 text-xs leading-relaxed text-white/70 line-clamp-2">
-                      {episode.description}
-                    </p>
+                      {/* Short Description */}
+                      <p className="mt-2 text-xs leading-relaxed text-white/70 line-clamp-2">
+                        {episode.description}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Card Action Button */}
-                  <div className="mt-6 pt-4 border-t border-white/10">
-                    {episode.audioUrl ? (
-                      <button
-                        type="button"
-                        onClick={() => handleTogglePlay(episode)}
-                        className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                          isThisPlaying
-                            ? "bg-white text-black shadow-lg"
-                            : "bg-[#ed027e] text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20"
-                        }`}
-                        aria-label={
-                          isThisPlaying
-                            ? `Pause ${episode.episodeTitle}`
-                            : `Play ${episode.episodeTitle}`
-                        }
-                      >
-                        {isThisPlaying ? (
-                          <>
-                            <Pause className="h-3.5 w-3.5 fill-current" />
-                            <span>Pause Audio</span>
-                          </>
-                        ) : (
-                          <>
-                            <Play className="h-3.5 w-3.5 fill-current translate-x-0.5" />
-                            <span>Play Audio Preview</span>
-                          </>
-                        )}
-                      </button>
-                    ) : (
-                      <a
-                        href={episode.vaultUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
-                      >
-                        {isLesedi ? (
-                          <>
-                            <Headphones className="h-3.5 w-3.5" />
-                            <span>Access SABC Audio Vault</span>
-                            <ExternalLink className="h-3 w-3 opacity-80" />
-                          </>
-                        ) : (
-                          <>
-                            <Download className="h-3.5 w-3.5" />
-                            <span>Access Studio Vault</span>
-                            <ExternalLink className="h-3 w-3 opacity-80" />
-                          </>
-                        )}
-                      </a>
-                    )}
+                  <div className="p-5 sm:p-6 pt-0">
+                    <div className="pt-3 border-t border-white/10">
+                      {episode.audioUrl ? (
+                        <button
+                          type="button"
+                          onClick={() => handleTogglePlay(episode)}
+                          className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                            isThisPlaying
+                              ? "bg-white text-black shadow-lg"
+                              : "bg-[#ed027e] text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20"
+                          }`}
+                          aria-label={
+                            isThisPlaying
+                              ? `Pause ${episode.episodeTitle}`
+                              : `Play ${episode.episodeTitle}`
+                          }
+                        >
+                          {isThisPlaying ? (
+                            <>
+                              <Pause className="h-3.5 w-3.5 fill-current" />
+                              <span>Pause Audio</span>
+                            </>
+                          ) : (
+                            <>
+                              <Play className="h-3.5 w-3.5 fill-current translate-x-0.5" />
+                              <span>Play Audio Preview</span>
+                            </>
+                          )}
+                        </button>
+                      ) : isLesedi ? (
+                        <a
+                          href={episode.vaultUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
+                        >
+                          <Headphones className="h-3.5 w-3.5" />
+                          <span>Access SABC Audio Vault</span>
+                          <ExternalLink className="h-3 w-3 opacity-80" />
+                        </a>
+                      ) : isSaFm ? (
+                        <Link
+                          href="/media#podcast-sa-fm"
+                          className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
+                        >
+                          <Radio className="h-3.5 w-3.5" />
+                          <span>Explore SAfm Feature</span>
+                          <ArrowUpRight className="h-3.5 w-3.5 opacity-80" />
+                        </Link>
+                      ) : (
+                        <a
+                          href={episode.vaultUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#d0026f] shadow-md shadow-[#ed027e]/20 transition-all"
+                        >
+                          <Download className="h-3.5 w-3.5" />
+                          <span>Access Studio Vault</span>
+                          <ExternalLink className="h-3 w-3 opacity-80" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </article>
               );
@@ -713,6 +798,46 @@ export function PodcastsSnippet() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal for Official Campaign Poster */}
+      {enlargedImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <div
+            className="relative max-w-lg w-full max-h-[92vh] overflow-hidden rounded-2xl border border-white/20 bg-[#12161E] shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#151922]">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-[#ed027e]" />
+                <h4 className="font-heading text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
+                  {enlargedImage.title}
+                </h4>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEnlargedImage(null)}
+                className="rounded-full p-1 text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+                aria-label="Close flyer preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="relative p-4 flex items-center justify-center max-h-[78vh] overflow-y-auto bg-black/60">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={enlargedImage.src}
+                alt={enlargedImage.title}
+                className="h-auto max-h-[72vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
