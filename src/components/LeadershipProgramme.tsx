@@ -1,7 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  Layers,
+  Sparkles,
+  TableProperties,
+  Users,
+  X,
+} from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -9,60 +24,115 @@ const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
   "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
-const tracks = [
+export interface TrackDetail {
+  id: number;
+  number: string;
+  name: string;
+  image: string;
+  accentColor: string;
+  valueForParticipants: string;
+  strategicValueForPartners: string;
+}
+
+const tracks: TrackDetail[] = [
   {
     id: 1,
-    name: "Entrepreneurship, Innovation & Funding",
+    number: "01",
+    name: "Entrepreneurship, Innovation and Funding",
     image: "/streams/Entrepreneurship.jpg",
     accentColor: "#0D4A5E",
+    valueForParticipants:
+      "Strengthens investment readiness and commercial capability, while connecting women entrepreneurs to capital, procurement, customers and markets.",
+    strategicValueForPartners:
+      "Builds a pipeline of women-owned enterprises for funding, supplier development, procurement and market-access initiatives.",
   },
   {
     id: 2,
-    name: "Digital Leadership, AI & Career Growth",
+    number: "02",
+    name: "Digital Leadership, AI and Career Growth",
     image: "/streams/Digital-Transformation.jpg",
     accentColor: "#7B1FA0",
+    valueForParticipants:
+      "Develops practical AI capability, digital fluency, innovation, influence and readiness for the changing world of work.",
+    strategicValueForPartners:
+      "Positions partners at the forefront of digital inclusion and future skills, while connecting them with emerging talent and customers.",
   },
   {
     id: 3,
-    name: "Citizenship & Social Impact",
+    number: "03",
+    name: "Citizenship and Social Impact",
     image: "/streams/Social-Impact.jpg",
     accentColor: "#4A1942",
+    valueForParticipants:
+      "Strengthens ethical leadership, civic responsibility, social entrepreneurship, and the confidence to contribute to nation-building.",
+    strategicValueForPartners:
+      "Advances ESG, social cohesion and community-impact priorities through meaningful participant-led action.",
   },
   {
     id: 4,
-    name: "Personal Leadership & Career Transformation",
+    number: "04",
+    name: "Personal Leadership and Career Transformation",
     image: "/streams/Strategic-Leadership.jpg",
     accentColor: "#ed027e",
+    valueForParticipants:
+      "Builds personal mastery, executive presence, workplace influence, career mobility and succession readiness.",
+    strategicValueForPartners:
+      "Supports talent attraction, retention, leadership development and the growth of a stronger succession pipeline.",
   },
   {
     id: 5,
-    name: "Personal Finance & Wealth Creation",
+    number: "05",
+    name: "Personal Finance and Wealth Creation",
     image: "/streams/Financial-Acumen.jpg",
     accentColor: "#B01060",
+    valueForParticipants:
+      "Builds financial confidence across credit, taxation, saving, investing, property and intergenerational wealth.",
+    strategicValueForPartners:
+      "Creates opportunities to advance financial inclusion, deepen customer education, demonstrate product relevance and build long-term trust.",
   },
   {
     id: 6,
-    name: "Health, Wellness & Sustainable Performance",
+    number: "06",
+    name: "Health, Wellness and Sustainable Performance",
     image: "/streams/People-Leadership.jpg",
     accentColor: "#3D0C6B",
+    valueForParticipants:
+      "Encourages preventive health, mental wellbeing, resilience and sustainable leadership performance.",
+    strategicValueForPartners:
+      "Connects workforce wellbeing, healthcare access and customer engagement with social-impact priorities.",
   },
   {
     id: 7,
-    name: "Rights, Relationships & Executive Parenting",
+    number: "07",
+    name: "Rights, Relationships and Executive Parenting",
     image: "/streams/Communication.jpg",
     accentColor: "#ed027e",
+    valueForParticipants:
+      "Strengthens knowledge of rights, personal safety, family wellbeing and career continuity across life stages.",
+    strategicValueForPartners:
+      "Advances dignity, inclusion, employee wellbeing, family support and responsible-business priorities.",
   },
   {
     id: 8,
-    name: "Education & Executive Development",
+    number: "08",
+    name: "Education and Executive Development",
     image: "/streams/Africa-Centric.jpg",
     accentColor: "#7B0D3C",
+    valueForParticipants:
+      "Connects participants to bursaries, qualifications, business schools, professional bodies, coaching and global exchanges.",
+    strategicValueForPartners:
+      "Creates education, recruitment and professional-development pipelines while strengthening institutional visibility and potential enrolment.",
   },
   {
     id: 9,
-    name: "Leadership, Governance & Board Readiness",
+    number: "09",
+    name: "Leadership, Governance and Board Readiness",
     image: "/streams/Board-Readiness.jpg",
     accentColor: "#C4185C",
+    valueForParticipants:
+      "Develops governance capability, financial fluency, fiduciary awareness, strategic judgement and boardroom confidence.",
+    strategicValueForPartners:
+      "Helps build a pipeline for succession, governance leadership, board observation and future board appointments.",
   },
 ];
 
@@ -91,6 +161,11 @@ const progressRows = [
 ];
 
 export function LeadershipProgramme() {
+  const [selectedTrackIndex, setSelectedTrackIndex] = useState<number | null>(
+    null
+  );
+  const [viewMode, setViewMode] = useState<"cards" | "matrix">("cards");
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
@@ -110,6 +185,37 @@ export function LeadershipProgramme() {
     });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll and handle keyboard navigation when modal is open
+  useEffect(() => {
+    if (selectedTrackIndex === null) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedTrackIndex(null);
+      } else if (e.key === "ArrowLeft") {
+        setSelectedTrackIndex((prev) =>
+          prev !== null ? (prev === 0 ? tracks.length - 1 : prev - 1) : null
+        );
+      } else if (e.key === "ArrowRight") {
+        setSelectedTrackIndex((prev) =>
+          prev !== null ? (prev === tracks.length - 1 ? 0 : prev + 1) : null
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedTrackIndex]);
+
+  const activeTrack =
+    selectedTrackIndex !== null ? tracks[selectedTrackIndex] : null;
 
   return (
     <main
@@ -217,6 +323,7 @@ export function LeadershipProgramme() {
                 </div>
               </div>
 
+              {/* Hero Subheading (Requested) */}
               <div
                 className="hero-reveal border-white/15 lg:border-r lg:pr-8"
                 style={{
@@ -225,20 +332,21 @@ export function LeadershipProgramme() {
               >
                 <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
                   <span>
-                    Developing the Whole Leader for Africa&apos;s Next Economy
+                    Developing the Whole Leader. Unlocking Measurable Opportunity.
                   </span>
                 </h2>
               </div>
 
+              {/* Hero Paragraph (Requested) */}
               <div
                 className="hero-reveal"
                 style={{
                   animationDelay: "240ms",
                 }}
               >
-                <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
+                <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/75">
                   <span>
-                    A future-focused development journey combining executive insight, applied learning, and direct access to board-level opportunities.
+                    The future of women’s leadership depends on more than access to a seat at the table. It requires the skills, networks, capital, confidence, and opportunities to lead, build and thrive.
                   </span>
                 </p>
               </div>
@@ -253,84 +361,368 @@ export function LeadershipProgramme() {
         className="border-t-4 border-[#ed027e] bg-[#f9f9f9] px-5 py-20 sm:px-8 lg:px-16 lg:py-28"
       >
         <div className="mx-auto max-w-[1440px]">
-          <div className="reveal mb-12 max-w-2xl">
-            <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
-              <span>01 — Leadership Tracks</span>
+          {/* Section Heading & Updated Strategic Paragraphs */}
+          <div className="reveal mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-black/10 pb-10">
+            <div className="max-w-3xl">
+              <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
+                <span>01 — Leadership Tracks</span>
+              </div>
+              <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-[#11161F]">
+                <span>The Full Development Journey</span>
+              </h2>
+
+              <div className="mt-5 space-y-3 font-sans text-[0.9375rem] sm:text-base leading-[1.7] text-[#3f3f3f]/85">
+                <p>
+                  EmpowaHer™ brings nine interconnected leadership tracks into one future-focused development journey. From entrepreneurship and artificial intelligence to financial wellbeing and board readiness, the programme equips emerging women leaders to turn insight into action and ambition into opportunity.
+                </p>
+                <p>
+                  For strategic partners, each track offers a focused platform to champion relevant conversations, connect with emerging leaders and contribute to outcomes that matter to their organisations, customers and communities.
+                </p>
+              </div>
             </div>
-            <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-[#3f3f3f]">
-              <span>The Full Development Journey</span>
-            </h2>
-            <p className="mt-3 font-sans text-[0.875rem] font-normal leading-[1.6] text-[#3f3f3f]/70">
-              <span>
-                One connected experience designed to move ambitious women from capability to meaningful opportunity.
-              </span>
-            </p>
+
+            {/* View Switcher Controls */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+              <div className="inline-flex rounded-full bg-black/5 p-1 border border-black/10">
+                <button
+                  type="button"
+                  onClick={() => setViewMode("cards")}
+                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                    viewMode === "cards"
+                      ? "bg-[#11161F] text-white shadow-md"
+                      : "text-black/60 hover:text-black"
+                  }`}
+                >
+                  <Layers className="h-3.5 w-3.5" />
+                  <span>Card Grid</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode("matrix")}
+                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                    viewMode === "matrix"
+                      ? "bg-[#11161F] text-white shadow-md"
+                      : "text-black/60 hover:text-black"
+                  }`}
+                >
+                  <TableProperties className="h-3.5 w-3.5" />
+                  <span>Partner &amp; Participant Matrix</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div
-            className="grid grid-cols-1 gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-            aria-label="Leadership tracks card grid"
-          >
-            {tracks.map((track, i) => (
-              <article
-                key={track.id}
-                className="reveal group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 bg-black will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl sm:min-h-[360px] sm:p-8 lg:min-h-[390px] lg:p-9"
-              >
-                {/* Background Image with Smooth Hover Zoom & Next.js Image Optimization */}
-                <Image
-                  src={track.image}
-                  alt={track.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  quality={82}
-                  className="object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
-                  loading="lazy"
-                />
-
-                {/* Dark Gradient Ambient Overlay for Maximum Text Contrast */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
-                  aria-hidden="true"
-                />
-
-                {/* Subtle Radial Color Tint Overlay on Hover */}
-                <div
-                  className="absolute inset-0 opacity-25 transition-opacity duration-500 group-hover:opacity-45"
-                  style={{
-                    background: `radial-gradient(circle at top right, ${track.accentColor} 0%, transparent 70%)`,
+          {/* View Mode 1: Main Interactive Card Grid (Same Card Design + Click to Reveal Modal) */}
+          {viewMode === "cards" ? (
+            <div
+              className="grid grid-cols-1 gap-6 pb-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+              aria-label="Leadership tracks card grid"
+            >
+              {tracks.map((track, i) => (
+                <article
+                  key={track.id}
+                  onClick={() => setSelectedTrackIndex(i)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedTrackIndex(i);
+                    }
                   }}
-                  aria-hidden="true"
-                />
+                  tabIndex={0}
+                  role="button"
+                  aria-haspopup="dialog"
+                  aria-label={`Track ${track.number}: ${track.name}. Click to explore participant and partner value.`}
+                  className="reveal group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl p-7 shadow-lg border border-white/15 bg-black cursor-pointer will-change-transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-2xl sm:min-h-[360px] sm:p-8 lg:min-h-[390px] lg:p-9 focus:outline-none focus:ring-2 focus:ring-[#ed027e]"
+                >
+                  {/* Background Image with Smooth Hover Zoom */}
+                  <Image
+                    src={track.image}
+                    alt={track.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={82}
+                    className="object-cover object-center will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    loading="lazy"
+                  />
 
-                {/* Top Interactive Accent Indicator */}
-                <div
-                  className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-                  style={{ backgroundColor: track.accentColor }}
-                />
-
-                {/* Track Badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full bg-black/50 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md border border-white/20 shadow-md transition-colors duration-300 group-hover:bg-black/70">
-                    Track {String(i + 1).padStart(2, "0")}/{String(tracks.length).padStart(2, "0")}
-                  </span>
-                  <span
-                    className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150 shadow-sm"
-                    style={{ backgroundColor: track.accentColor }}
+                  {/* Dark Gradient Ambient Overlay for Text Contrast */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 transition-opacity duration-500 group-hover:opacity-90"
                     aria-hidden="true"
                   />
-                </div>
 
-                {/* Card Content */}
-                <div className="relative z-10 mt-auto pt-6">
-                  <h3 className="font-heading text-[clamp(1.25rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
-                    {track.name}
-                  </h3>
-                </div>
-              </article>
-            ))}
-          </div>
+                  {/* Radial Color Tint Overlay on Hover */}
+                  <div
+                    className="absolute inset-0 opacity-25 transition-opacity duration-500 group-hover:opacity-45"
+                    style={{
+                      background: `radial-gradient(circle at top right, ${track.accentColor} 0%, transparent 70%)`,
+                    }}
+                    aria-hidden="true"
+                  />
+
+                  {/* Top Interactive Accent Indicator */}
+                  <div
+                    className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                    style={{ backgroundColor: track.accentColor }}
+                  />
+
+                  {/* Track Badge & Indicator */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center rounded-full bg-black/50 px-3.5 py-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md border border-white/20 shadow-md transition-colors duration-300 group-hover:bg-black/70">
+                      Track {track.number}/{String(tracks.length).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="h-2 w-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-150 shadow-sm"
+                      style={{ backgroundColor: track.accentColor }}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {/* Card Content & Interactive Reveal Prompt */}
+                  <div className="relative z-10 mt-auto pt-6">
+                    <h3 className="font-heading text-[clamp(1.25rem,2.2vw,1.75rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1">
+                      {track.name}
+                    </h3>
+
+                    {/* Reveal Cue Bar */}
+                    <div className="mt-4 flex items-center justify-between border-t border-white/15 pt-3.5">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/90 transition-colors group-hover:text-[#ed027e]">
+                        <span>Explore Value &amp; Impact</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
+                      <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[0.625rem] font-mono font-medium text-white/70">
+                        Participant &amp; Partner
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            /* View Mode 2: Comprehensive Strategic Matrix (All 9 Tracks Side-by-Side) */
+            <div className="overflow-hidden rounded-2xl border border-black/15 bg-white shadow-xl">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-black/10 bg-[#0E1218] text-white font-heading text-xs font-black uppercase tracking-wider">
+                      <th className="py-4 px-6 w-[28%]">Leadership Track</th>
+                      <th className="py-4 px-6 w-[36%] border-l border-white/10">
+                        <span className="inline-flex items-center gap-1.5 text-[#ed027e]">
+                          <Users className="h-3.5 w-3.5" />
+                          <span>Value for Participants</span>
+                        </span>
+                      </th>
+                      <th className="py-4 px-6 w-[36%] border-l border-white/10">
+                        <span className="inline-flex items-center gap-1.5 text-[#ff4da6]">
+                          <Building2 className="h-3.5 w-3.5" />
+                          <span>Strategic Value for Partners</span>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-black/10 text-xs sm:text-sm">
+                    {tracks.map((track, idx) => (
+                      <tr
+                        key={track.id}
+                        onClick={() => setSelectedTrackIndex(idx)}
+                        className="group hover:bg-[#ed027e]/5 transition-colors cursor-pointer"
+                      >
+                        <td className="py-4 px-6 font-semibold text-[#11161F]">
+                          <div className="flex items-start gap-2.5">
+                            <span className="font-mono text-xs font-black text-[#ed027e] shrink-0 mt-0.5">
+                              {track.number}.
+                            </span>
+                            <div>
+                              <strong className="block font-heading uppercase text-sm sm:text-base leading-snug">
+                                {track.name}
+                              </strong>
+                              <button
+                                type="button"
+                                className="mt-1 inline-flex items-center gap-1 text-[0.6875rem] font-bold uppercase tracking-wider text-[#ed027e] opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <span>Open modal view</span>
+                                <ArrowUpRight className="h-3 w-3" />
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-4 px-6 border-l border-black/10 text-[#3f3f3f]/90 leading-relaxed font-normal">
+                          {track.valueForParticipants}
+                        </td>
+                        <td className="py-4 px-6 border-l border-black/10 text-[#3f3f3f]/90 leading-relaxed font-normal">
+                          {track.strategicValueForPartners}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Track Value Modal (Deep-Dive for Participants & Strategic Partners) */}
+      {activeTrack && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-track-title"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/85 backdrop-blur-md transition-opacity"
+          onClick={() => setSelectedTrackIndex(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-3xl overflow-hidden rounded-3xl border border-white/20 bg-[#0E1218] text-white shadow-2xl transition-all"
+          >
+            {/* Top Brand Accent Border */}
+            <div
+              className="absolute inset-x-0 top-0 h-1.5"
+              style={{
+                background: `linear-gradient(to right, ${activeTrack.accentColor}, #ed027e)`,
+              }}
+            />
+
+            {/* Ambient Background Glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-30 blur-3xl"
+              style={{ backgroundColor: activeTrack.accentColor || "#ed027e" }}
+            />
+
+            {/* Modal Header */}
+            <div className="relative z-10 flex items-start justify-between gap-4 border-b border-white/10 p-6 sm:p-8 pb-5">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-widest text-[#ed027e]">
+                    Track {activeTrack.number} of {String(tracks.length).padStart(2, "0")}
+                  </span>
+                  <span className="text-xs font-mono text-white/50">•</span>
+                  <span className="text-xs font-mono text-white/70">
+                    Curriculum Framework
+                  </span>
+                </div>
+                <h3
+                  id="modal-track-title"
+                  className="font-heading text-2xl sm:text-3xl font-black uppercase leading-tight tracking-tight text-white"
+                >
+                  {activeTrack.name}
+                </h3>
+              </div>
+
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setSelectedTrackIndex(null)}
+                aria-label="Close track details"
+                className="group flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 transition-all hover:border-[#ed027e] hover:bg-[#ed027e] hover:text-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Modal Body: Participant & Partner Value Side-by-Side */}
+            <div className="relative z-10 p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                {/* 1. Value for Participants */}
+                <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all hover:border-[#ed027e]/50">
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-3.5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#ed027e]/20 text-[#ed027e]">
+                        <Users className="h-4 w-4" />
+                      </div>
+                      <span className="text-[0.6875rem] font-heading font-black uppercase tracking-[0.2em] text-[#ed027e]">
+                        Value for Participants
+                      </span>
+                    </div>
+
+                    <p className="text-sm sm:text-[0.9375rem] leading-relaxed text-white/90 font-medium">
+                      {activeTrack.valueForParticipants}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[0.6875rem] font-mono text-white/60">
+                    <Sparkles className="h-3 w-3 text-[#ed027e]" />
+                    <span>Empowerment &amp; Capability Growth</span>
+                  </div>
+                </div>
+
+                {/* 2. Strategic Value for Partners */}
+                <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all hover:border-[#ed027e]/50">
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-3.5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
+                        <Building2 className="h-4 w-4" />
+                      </div>
+                      <span className="text-[0.6875rem] font-heading font-black uppercase tracking-[0.2em] text-white/80">
+                        Strategic Value for Partners
+                      </span>
+                    </div>
+
+                    <p className="text-sm sm:text-[0.9375rem] leading-relaxed text-white/90 font-medium">
+                      {activeTrack.strategicValueForPartners}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[0.6875rem] font-mono text-white/60">
+                    <Building2 className="h-3 w-3 text-[#ed027e]" />
+                    <span>Institutional Impact &amp; Pipeline Depth</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Navigation Footer */}
+            <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 bg-black/40 px-6 sm:px-8 py-4">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setSelectedTrackIndex((prev) =>
+                      prev !== null
+                        ? prev === 0
+                          ? tracks.length - 1
+                          : prev - 1
+                        : null
+                    )
+                  }
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-mono font-semibold text-white/80 transition-all hover:border-[#ed027e] hover:text-white"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  <span>Previous</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setSelectedTrackIndex((prev) =>
+                      prev !== null
+                        ? prev === tracks.length - 1
+                          ? 0
+                          : prev + 1
+                        : null
+                    )
+                  }
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-mono font-semibold text-white/80 transition-all hover:border-[#ed027e] hover:text-white"
+                >
+                  <span>Next</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/nominate"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#ff1a95]"
+                >
+                  <span>Nominate For This Track</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 02 — The Framework Section */}
       <section
