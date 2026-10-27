@@ -163,10 +163,9 @@ export function MediaPage() {
               <div className="relative w-full aspect-video bg-[#0A0D11]">
                 {isPlayingTrendz ? (
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/Tuqdjk-71mc?autoplay=1&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/Tuqdjk-71mc?autoplay=1&rel=0"
                     title="Trendz Live | Theatre, Empowerment and Tranquility: 24 October 2026"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                     className="absolute inset-0 h-full w-full border-0"
                   />
@@ -343,10 +342,9 @@ export function MediaPage() {
               <div className="relative w-full aspect-video bg-[#0A0D11]">
                 {isPlayingReel ? (
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/g2T0dzTqQZk?autoplay=1&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/g2T0dzTqQZk?autoplay=1&rel=0"
                     title="EmpowaWomen™ Official Highlight Reel"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                     className="absolute inset-0 h-full w-full border-0"
                   />

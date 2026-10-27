@@ -289,10 +289,9 @@ export function PodcastsSnippet() {
               <div className="relative aspect-video w-full overflow-hidden bg-black">
                 {isPlayingTrendz ? (
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/Tuqdjk-71mc?autoplay=1&rel=0"
+                    src="https://www.youtube.com/embed/Tuqdjk-71mc?autoplay=1&rel=0"
                     title="Trendz Live | Theatre, Empowerment and Tranquility"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     className="absolute inset-0 h-full w-full border-0"
                   />
