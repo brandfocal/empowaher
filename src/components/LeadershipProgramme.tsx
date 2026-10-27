@@ -598,10 +598,6 @@ export function LeadershipProgramme() {
                   <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-widest text-[#ed027e]">
                     Track {activeTrack.number} of {String(tracks.length).padStart(2, "0")}
                   </span>
-                  <span className="text-xs font-mono text-white/50">•</span>
-                  <span className="text-xs font-mono text-white/70">
-                    Curriculum Framework
-                  </span>
                 </div>
                 <h3
                   id="modal-track-title"
@@ -711,15 +707,13 @@ export function LeadershipProgramme() {
                 </button>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Link
-                  href="/nominate"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#ff1a95]"
-                >
-                  <span>Nominate For This Track</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedTrackIndex(null)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-mono text-white/70 transition-all hover:border-white/40 hover:text-white"
+              >
+                <span>Close</span>
+              </button>
             </div>
           </div>
         </div>
