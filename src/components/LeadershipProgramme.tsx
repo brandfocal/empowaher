@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Download,
   Layers,
-  Mail,
   Sparkles,
   TableProperties,
   Users,
@@ -798,14 +797,6 @@ export function LeadershipProgramme() {
                     <span>Explore Partnerships</span>
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
-
-                  <a
-                    href="mailto:partnerships@empowaher.co.za?subject=EmpowaHer%20Track%20Partnership%20Inquiry"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-white"
-                  >
-                    <Mail className="h-4 w-4 text-[#ed027e]" />
-                    <span>Inquire About A Track</span>
-                  </a>
                 </div>
               </div>
             </div>
