@@ -308,7 +308,7 @@ export function EmpowaHerSummitHome() {
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full bg-[#ed027e]/10 px-3.5 py-1 text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e] border border-[#ed027e]/30 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e] animate-pulse" />
-                <span>ABOUT US • OFFICIAL PRESS RELEASE</span>
+                <span>OFFICIAL PRESS STATEMENT</span>
               </span>
               <span className="text-xs font-mono text-black/30 hidden sm:inline">•</span>
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-black/70 hidden sm:inline">
@@ -372,22 +372,8 @@ export function EmpowaHerSummitHome() {
               </div>
             </div>
 
-            {/* Eyebrow Metadata */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black/60 border-b border-black/10 pb-4">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/10 px-3 py-1 text-[0.6875rem] font-bold text-[#ed027e]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
-                Official Press Statement
-              </span>
-              <span className="text-black/30">•</span>
-              <span>For Immediate Release</span>
-            </div>
-
             {/* Document Title & Subtitle */}
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[0.6875rem] font-mono font-bold uppercase tracking-widest text-black/70">
-                <Sparkles className="h-3 w-3 text-[#ed027e]" />
-                <span>The Future Is Female</span>
-              </div>
 
               <h2
                 id="vision-heading"
