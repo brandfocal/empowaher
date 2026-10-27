@@ -301,32 +301,41 @@ export function EmpowaHerSummitHome() {
       {/* Latest Promotional Videos & Event Teasers */}
       <PromotionalVideos />
 
-      {/* The Vision Section */}
+      {/* The Vision & Press Release / About Us Section */}
       <section
         id="vision"
-        className="border-t-[6px] border-[#ed027e] bg-white"
+        className="border-t-[6px] border-[#ed027e] bg-white text-[#1C2128]"
         aria-labelledby="vision-heading"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-12">
-          <div className="border-b border-[#1C2128]/10 py-5">
+          <div className="border-b border-[#1C2128]/10 py-5 flex items-center justify-between">
             <p className="text-[0.62rem] font-black uppercase tracking-[0.3em] text-[#ed027e]">
               <span>ABOUT US</span>
             </p>
+            <div className="flex items-center gap-2 text-[0.6875rem] font-mono text-black/50 uppercase tracking-wider">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
+              <span>Official Press Statement</span>
+            </div>
           </div>
         </div>
-        <div className="mx-auto grid max-w-7xl lg:grid-cols-[5fr_7fr]">
-          <div className="relative hidden min-h-[420px] overflow-hidden rounded-2xl lg:block m-4">
+
+        <div className="mx-auto grid max-w-7xl items-start lg:grid-cols-[4.5fr_7.5fr]">
+          {/* Left Column: Simphiwe Masiza Portrait (Sticky) */}
+          <div className="relative hidden lg:block m-4 self-start sticky top-28 overflow-hidden rounded-2xl shadow-xl border border-black/10 aspect-[4/5] min-h-[520px]">
             <img
               src="/simphiwe-masiza.jpg"
-              alt="Simphiwe Masiza, Founder of EmpowaWorx"
+              alt="Simphiwe Masiza, Founder & Executive Producer of EmpowaWorx"
               className="h-full w-full rounded-2xl object-cover object-[center_15%]"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/50 to-transparent px-8 pb-8 pt-20">
-              <p className="text-[0.7rem] font-black uppercase tracking-[0.22em] text-white">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/60 to-transparent px-8 pb-8 pt-24">
+              <p className="text-[0.75rem] font-black uppercase tracking-[0.22em] text-white">
                 <span>Simphiwe Masiza</span>
               </p>
-              <p className="mt-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/60">
-                <span>Founder &amp; Executive Producer, EmpowaWorx™</span>
+              <p className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#ed027e]">
+                <span>Executive Producer | EmpowaHer Leadership Summit 2026</span>
+              </p>
+              <p className="mt-0.5 text-[0.5625rem] uppercase tracking-[0.16em] text-white/60">
+                <span>Founder, EmpowaWorx™</span>
               </p>
             </div>
             <div
@@ -334,49 +343,275 @@ export function EmpowaHerSummitHome() {
               className="absolute right-0 top-0 h-full w-[3px] bg-[#ed027e]"
             />
           </div>
-          <div className="flex flex-col justify-center gap-10 px-4 py-16 md:px-6 lg:py-24 lg:pl-16 lg:pr-12">
-            <h2
-              id="vision-heading"
-              className="font-heading max-w-[12ch] text-[clamp(2.75rem,5vw,4.5rem)] font-black uppercase leading-[0.88] tracking-[-0.04em] text-[#1C2128] [text-wrap:balance]"
-            >
-              <span>Women Lead What Comes Next.</span>
-            </h2>
-            <figure className="m-0">
-              <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:rounded-full before:bg-[#ed027e] before:content-['']">
-                <p className="text-[clamp(1.25rem,2.2vw,1.75rem)] font-black italic leading-[1.35] tracking-[-0.02em] text-[#1C2128] [text-wrap:balance]">
-                  <span>
-                    “Africa’s future will be shaped by the women who are
-                    equipped, connected and empowered to lead it.”
-                  </span>
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 pl-6 text-[0.62rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-                <span>— Simphiwe Masiza, Founder</span>
-              </figcaption>
-            </figure>
-            <div className="flex items-center gap-4 border-t border-[#1C2128]/10 pt-6 lg:hidden">
+
+          {/* Right Column: Full Refined Press Release */}
+          <div className="flex flex-col gap-7 px-4 py-10 md:px-6 lg:py-14 lg:pl-10 lg:pr-8">
+            {/* Mobile Author Card */}
+            <div className="flex items-center gap-4 border-b border-[#1C2128]/10 pb-5 lg:hidden">
               <img
                 src="/simphiwe-masiza.jpg"
                 alt="Simphiwe Masiza"
-                className="h-14 w-14 rounded-full object-cover object-top ring-2 ring-[#ed027e] ring-offset-2 ring-offset-white"
+                className="h-16 w-16 rounded-full object-cover object-top ring-2 ring-[#ed027e] ring-offset-2 ring-offset-white shadow-md shrink-0"
               />
               <div>
-                <p className="text-[0.68rem] font-black uppercase tracking-[0.2em] text-[#1C2128]">
-                  <span>Simphiwe Masiza</span>
+                <p className="font-heading text-sm font-black uppercase tracking-wider text-[#1C2128]">
+                  Simphiwe Masiza
                 </p>
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#3f3f3f]/60">
-                  <span>Founder, EmpowaWorx™</span>
+                <p className="text-[0.6875rem] font-mono font-semibold uppercase tracking-wider text-[#ed027e]">
+                  Executive Producer | EmpowaHer™
+                </p>
+                <p className="text-[0.625rem] text-black/50 uppercase tracking-wider">
+                  Founder, EmpowaWorx™
                 </p>
               </div>
             </div>
-            <div>
-              <Link
-                href="/about-us"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#ed027e] hover:underline"
+
+            {/* Eyebrow & PDF Download */}
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black/60">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/10 px-3 py-1 text-[0.6875rem] font-bold text-[#ed027e]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
+                  Official Press Statement
+                </span>
+                <span className="text-black/30">•</span>
+                <span>For Immediate Release</span>
+              </div>
+              <a
+                href="/EmpowaHer-Media-Release-2026.pdf"
+                download="EmpowaHer-Media-Release-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#ff1a95]"
               >
-                <span>Explore About Us</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+                <Download className="h-3.5 w-3.5" />
+                <span>Download PDF</span>
+              </a>
+            </div>
+
+            {/* Document Title & Subtitle */}
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[0.6875rem] font-mono font-bold uppercase tracking-widest text-black/70">
+                <Sparkles className="h-3 w-3 text-[#ed027e]" />
+                <span>The Future Is Female</span>
+              </div>
+
+              <h2
+                id="vision-heading"
+                className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-[#11161F]"
+              >
+                EmpowaHer Leadership Summit 2026{" "}
+                <span className="text-[#ed027e]">| The Future Is Female</span>
+              </h2>
+
+              <p className="font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-[#ed027e]">
+                Invest in Women. Strengthen the Leadership Pipeline. Shape the Future.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-black/60 pt-2 border-t border-black/5">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5 text-[#ed027e]" />
+                  <strong className="text-black/80">29–31 October 2026</strong>
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 text-[#ed027e]" />
+                  <span>EmpowaWorx House, Randburg</span>
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1.5">
+                  <Users className="h-3.5 w-3.5 text-[#ed027e]" />
+                  <span>200 Young Women • 200 Organisations</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Opening Thesis Lead Card */}
+            <div className="rounded-2xl border-l-4 border-[#ed027e] bg-[#F8F9FA] p-5 sm:p-7 shadow-xs">
+              <p className="text-base sm:text-lg lg:text-xl font-semibold leading-relaxed text-[#11161F]">
+                Women’s advancement must be a strategic investment in organisational performance, leadership succession and economic competitiveness.
+              </p>
+            </div>
+
+            {/* Key Facts / Evidence Callout Strip (4 Stat Cards) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-2">
+              <div className="rounded-xl border border-black/10 bg-white p-3.5 text-center shadow-xs">
+                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
+                  38%
+                </span>
+                <span className="block text-[0.625rem] font-bold uppercase tracking-wider text-black/70 mt-1">
+                  Board Seats Held
+                </span>
+                <span className="block text-[0.5625rem] text-black/45 mt-0.5">JSE Top 40 (Just Share 2025)</span>
+              </div>
+
+              <div className="rounded-xl border border-black/10 bg-white p-3.5 text-center shadow-xs">
+                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
+                  27.4%
+                </span>
+                <span className="block text-[0.625rem] font-bold uppercase tracking-wider text-black/70 mt-1">
+                  Executive Roles
+                </span>
+                <span className="block text-[0.5625rem] text-black/45 mt-0.5">JSE Top 40 (Just Share 2025)</span>
+              </div>
+
+              <div className="rounded-xl border border-black/10 bg-white p-3.5 text-center shadow-xs">
+                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
+                  3 of 40
+                </span>
+                <span className="block text-[0.625rem] font-bold uppercase tracking-wider text-black/70 mt-1">
+                  Female CEOs
+                </span>
+                <span className="block text-[0.5625rem] text-black/45 mt-0.5">JSE Top 40 Companies</span>
+              </div>
+
+              <div className="rounded-xl border border-black/10 bg-white p-3.5 text-center shadow-xs">
+                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
+                  123 YRS
+                </span>
+                <span className="block text-[0.625rem] font-bold uppercase tracking-wider text-black/70 mt-1">
+                  To Gender Parity
+                </span>
+                <span className="block text-[0.5625rem] text-black/45 mt-0.5">WEF Global Report 2025</span>
+              </div>
+            </div>
+
+            {/* Narrative */}
+            <div className="space-y-6 text-sm sm:text-base leading-relaxed text-[#2C313A]">
+              <p>
+                The evidence demands action. Just Share’s 2025 assessment of the JSE Top 40 found that women occupied 38% of board seats but only 27.4% of executive roles, with just three companies led by female CEOs. Progress in board representation must translate into stronger executive pipelines. The World Economic Forum’s Global Gender Gap Report 2025 estimated that global gender parity remained 123 years away at the prevailing pace. That trajectory demands greater urgency from those who control investment, appointments and opportunity.
+              </p>
+
+              {/* High-Impact Statement Pull-Quote */}
+              <div className="rounded-2xl bg-[#0E1218] p-6 sm:p-8 text-white shadow-xl relative overflow-hidden my-6">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#ed027e]/25 blur-3xl"
+                />
+                <p className="font-heading text-lg sm:text-xl md:text-2xl font-black uppercase leading-snug tracking-tight text-white relative z-10">
+                  “Talent cannot advance without access. Leadership potential cannot deliver value without opportunity.”
+                </p>
+              </div>
+
+              <p>
+                As Executive Producer of EmpowaHer Leadership Summit 2026, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
+              </p>
+
+              <p>
+                Taking place <strong>29–31 October at EmpowaWorx House, Randburg</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
+              </p>
+
+              {/* Four Strategic Priorities Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 my-5">
+                <div className="rounded-xl border border-black/10 bg-[#F8F9FA] p-4 shadow-xs">
+                  <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
+                    Priority 01
+                  </span>
+                  <h3 className="font-heading text-sm sm:text-base font-bold uppercase tracking-tight text-[#11161F]">
+                    Digital Leadership
+                  </h3>
+                </div>
+
+                <div className="rounded-xl border border-black/10 bg-[#F8F9FA] p-4 shadow-xs">
+                  <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
+                    Priority 02
+                  </span>
+                  <h3 className="font-heading text-sm sm:text-base font-bold uppercase tracking-tight text-[#11161F]">
+                    Entrepreneurship, Innovation and Funding
+                  </h3>
+                </div>
+
+                <div className="rounded-xl border border-black/10 bg-[#F8F9FA] p-4 shadow-xs">
+                  <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
+                    Priority 03
+                  </span>
+                  <h3 className="font-heading text-sm sm:text-base font-bold uppercase tracking-tight text-[#11161F]">
+                    Leadership, Governance and Board Readiness
+                  </h3>
+                </div>
+
+                <div className="rounded-xl border border-black/10 bg-[#F8F9FA] p-4 shadow-xs">
+                  <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
+                    Priority 04
+                  </span>
+                  <h3 className="font-heading text-sm sm:text-base font-bold uppercase tracking-tight text-[#11161F]">
+                    Personal Leadership and Career Transformation
+                  </h3>
+                </div>
+              </div>
+
+              <p>
+                The programme connects learning with execution through each participant’s <strong>100-day implementation plan</strong>, creating a practical route for applying insights within her organisation. For employers and partners, the value proposition is clear: <strong>develop future-ready talent, strengthen succession capacity and support innovation through a broader leadership pipeline.</strong>
+              </p>
+
+              {/* Direct Call to Private Sector & Institutional Partners */}
+              <div className="rounded-2xl border border-black/15 bg-white p-6 sm:p-7 my-6 shadow-sm">
+                <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-[#11161F] mb-3">
+                  To the private sector, employers and institutional partners: commit resources, influence and opportunity:
+                </h3>
+                <ul className="space-y-3 pl-1 text-xs sm:text-sm text-[#2C313A]">
+                  <li className="flex items-start gap-3">
+                    <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
+                    <span>Invest through sponsorship &amp; funding;</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
+                    <span>Provide executive mentorship and sponsorship;</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
+                    <span>Open access to meaningful assignments and markets; and</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
+                    <span>Back participants’ implementation plans with accountable organisational support.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <p>
+                Success must be measured through applied capability, expanded responsibilities, career progression and enterprise opportunities. Attendance begins the journey; sustained organisational commitment determines its impact.
+              </p>
+
+              <p className="text-base sm:text-lg font-semibold text-[#11161F]">
+                The women who will shape our future are already here. The responsibility to invest in their advancement is ours.
+              </p>
+
+              {/* Closing Mantra Box */}
+              <div className="rounded-2xl bg-gradient-to-r from-[#ed027e]/15 via-[#ed027e]/5 to-transparent p-6 sm:p-7 border-l-4 border-[#ed027e] my-6">
+                <p className="font-heading text-lg sm:text-xl font-black uppercase tracking-tight text-[#ed027e]">
+                  The Future Is Female. Invest now. Open pathways. Accelerate her leadership.
+                </p>
+              </div>
+
+              {/* Official Sign-Off & Actions */}
+              <div className="pt-6 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                <div>
+                  <strong className="block font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-[#11161F]">
+                    Simphiwe Masiza
+                  </strong>
+                  <span className="block text-xs font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
+                    Executive Producer | EmpowaHer Leadership Summit 2026
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/nominate"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-md transition-all hover:bg-[#ff1a95]"
+                  >
+                    <span>Nominate A Leader</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+
+                  <Link
+                    href="/about-us"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-[#11161F] hover:border-[#ed027e] hover:text-[#ed027e]"
+                  >
+                    <span>About EmpowaWorx</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -680,280 +915,45 @@ export function EmpowaHerSummitHome() {
       {/* Radio Broadcasts & Podcasts Snippet Section */}
       <PodcastsSnippet />
 
-      {/* Official Press Release Section (Preserving Snippet Dark Theme & Colours) */}
+      {/* Official Media Announcement CTA Section */}
       <section
         id="press-release-cta"
-        className="relative border-t-[6px] border-[#ed027e] bg-[#11161F] py-14 text-white sm:py-16 lg:py-20 overflow-hidden"
+        className="relative border-t-[6px] border-[#ed027e] bg-[#11161F] py-14 text-white sm:py-16 lg:py-20"
       >
-        {/* Subtle Ambient Glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 -bottom-20 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
-        />
-
-        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          {/* Header & Meta Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+            <div>
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
                 <FileText className="h-3 w-3" />
-                <span>OFFICIAL PRESS STATEMENT</span>
-              </span>
-              <span className="text-xs font-mono text-white/40">•</span>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-white/70">
-                FOR IMMEDIATE RELEASE
-              </span>
+                <span>OFFICIAL MEDIA ANNOUNCEMENT • 8 SEPTEMBER 2026</span>
+              </div>
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-white">
+                EmpowaHer Opens Nominations for 200 of Africa’s Next Generation of Women Leaders
+              </h2>
+              <p className="mt-4 max-w-[54ch] text-sm leading-relaxed text-white/75 sm:text-base">
+                Official announcement detailing the opening of continent-wide nominations for young women aged 18–35 to participate in the flagship 2026 executive leadership experience at EmpowaWorx House.
+              </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
               <a
                 href="/EmpowaHer-Media-Release-2026.pdf"
                 download="EmpowaHer-Media-Release-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
               >
-                <Download className="h-3.5 w-3.5" />
-                <span>Download PDF</span>
+                <Download className="h-4 w-4" />
+                <span>Download Press Release (PDF)</span>
               </a>
+
               <Link
-                href="/press-release"
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-5 py-2 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.02] hover:bg-[#ff1a95]"
+                href="/media"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
               >
-                <span>Full Press Page</span>
-                <ArrowUpRight className="h-3.5 w-3.5" />
+                <span>Visit Media Hub &amp; Press Centre</span>
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
-            </div>
-          </div>
-
-          {/* Main Title & Subtitle */}
-          <div className="space-y-3 mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-[0.6875rem] font-mono font-bold uppercase tracking-widest text-white/80">
-              <Sparkles className="h-3 w-3 text-[#ed027e]" />
-              <span>The Future Is Female</span>
-            </div>
-
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-white">
-              EmpowaHer Leadership Summit 2026{" "}
-              <span className="text-[#ed027e]">| The Future Is Female</span>
-            </h2>
-
-            <p className="font-heading text-lg sm:text-xl lg:text-2xl font-bold uppercase tracking-tight text-[#ed027e]">
-              Invest in Women. Strengthen the Leadership Pipeline. Shape the Future.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-white/60 pt-2 border-t border-white/10">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5 text-[#ed027e]" />
-                <strong className="text-white">29–31 October 2026</strong>
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 text-[#ed027e]" />
-                <span>EmpowaWorx House, Randburg</span>
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <Users className="h-3.5 w-3.5 text-[#ed027e]" />
-                <span>200 Young Women • 200 Organisations</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Press Release Content Body */}
-          <div className="space-y-7 text-sm sm:text-base leading-relaxed text-white/85 font-normal">
-            {/* Opening Thesis Lead Card */}
-            <div className="rounded-2xl border-l-4 border-[#ed027e] bg-white/[0.04] p-6 sm:p-8 backdrop-blur-sm">
-              <p className="text-base sm:text-lg lg:text-xl font-semibold text-white leading-relaxed">
-                Women’s advancement must be a strategic investment in organisational performance, leadership succession and economic competitiveness.
-              </p>
-            </div>
-
-            {/* Key Facts / Evidence Callout Strip (4 Stat Cards) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8">
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
-                  38%
-                </span>
-                <span className="block text-[0.6875rem] font-bold uppercase tracking-wider text-white/80 mt-1">
-                  Board Seats Held
-                </span>
-                <span className="block text-[0.625rem] text-white/50 mt-0.5">JSE Top 40 (Just Share 2025)</span>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
-                  27.4%
-                </span>
-                <span className="block text-[0.6875rem] font-bold uppercase tracking-wider text-white/80 mt-1">
-                  Executive Roles
-                </span>
-                <span className="block text-[0.625rem] text-white/50 mt-0.5">JSE Top 40 (Just Share 2025)</span>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
-                  3 of 40
-                </span>
-                <span className="block text-[0.6875rem] font-bold uppercase tracking-wider text-white/80 mt-1">
-                  Female CEOs
-                </span>
-                <span className="block text-[0.625rem] text-white/50 mt-0.5">JSE Top 40 Companies</span>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                <span className="block font-heading text-2xl sm:text-3xl font-black text-[#ed027e]">
-                  123 YRS
-                </span>
-                <span className="block text-[0.6875rem] font-bold uppercase tracking-wider text-white/80 mt-1">
-                  To Gender Parity
-                </span>
-                <span className="block text-[0.625rem] text-white/50 mt-0.5">WEF Global Report 2025</span>
-              </div>
-            </div>
-
-            {/* Evidence Paragraph */}
-            <p>
-              The evidence demands action. Just Share’s 2025 assessment of the JSE Top 40 found that women occupied 38% of board seats but only 27.4% of executive roles, with just three companies led by female CEOs. Progress in board representation must translate into stronger executive pipelines. The World Economic Forum’s Global Gender Gap Report 2025 estimated that global gender parity remained 123 years away at the prevailing pace. That trajectory demands greater urgency from those who control investment, appointments and opportunity.
-            </p>
-
-            {/* High-Impact Statement Pull-Quote */}
-            <div className="rounded-2xl border border-white/15 bg-black/60 p-7 sm:p-9 my-8 text-center relative overflow-hidden shadow-2xl">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#ed027e]/25 blur-3xl"
-              />
-              <p className="font-heading text-lg sm:text-xl md:text-2xl font-black uppercase leading-snug tracking-tight text-white relative z-10">
-                “Talent cannot advance without access. Leadership potential cannot deliver value without opportunity.”
-              </p>
-            </div>
-
-            {/* Executive Producer Commitment */}
-            <p>
-              As Executive Producer of EmpowaHer Leadership Summit 2026, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
-            </p>
-
-            {/* Summit Scope */}
-            <p>
-              Taking place <strong>29–31 October at EmpowaWorx House, Randburg</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
-            </p>
-
-            {/* Four Strategic Priorities Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
-                  Priority 01
-                </span>
-                <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-white">
-                  Digital Leadership
-                </h3>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
-                  Priority 02
-                </span>
-                <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-white">
-                  Entrepreneurship, Innovation and Funding
-                </h3>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
-                  Priority 03
-                </span>
-                <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-white">
-                  Leadership, Governance and Board Readiness
-                </h3>
-              </div>
-
-              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                <span className="font-mono text-xs font-bold text-[#ed027e] uppercase tracking-wider block mb-1">
-                  Priority 04
-                </span>
-                <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-white">
-                  Personal Leadership and Career Transformation
-                </h3>
-              </div>
-            </div>
-
-            {/* 100-Day Implementation Plan & ROI */}
-            <p>
-              The programme connects learning with execution through each participant’s <strong>100-day implementation plan</strong>, creating a practical route for applying insights within her organisation. For employers and partners, the value proposition is clear: <strong>develop future-ready talent, strengthen succession capacity and support innovation through a broader leadership pipeline.</strong>
-            </p>
-
-            {/* Direct Call to Private Sector & Institutional Partners */}
-            <div className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-8 my-6 space-y-4">
-              <h3 className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-white">
-                To the private sector, employers and institutional partners: commit resources, influence and opportunity.
-              </h3>
-              <ul className="space-y-3 pl-1 text-xs sm:text-sm text-white/80">
-                <li className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
-                  <span>Invest through sponsorship &amp; funding;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
-                  <span>Provide executive mentorship and sponsorship;</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
-                  <span>Open access to meaningful assignments and markets; and</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-[#ed027e] mt-1.5 shrink-0" />
-                  <span>Back participants’ implementation plans with accountable organisational support.</span>
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Success must be measured through applied capability, expanded responsibilities, career progression and enterprise opportunities. Attendance begins the journey; sustained organisational commitment determines its impact.
-            </p>
-
-            <p className="font-semibold text-white">
-              The women who will shape our future are already here. The responsibility to invest in their advancement is ours.
-            </p>
-
-            {/* Closing Mantra Box */}
-            <div className="rounded-2xl bg-gradient-to-r from-[#ed027e]/25 via-[#ed027e]/10 to-transparent p-6 sm:p-8 border-l-4 border-[#ed027e] my-8">
-              <p className="font-heading text-lg sm:text-xl font-black uppercase tracking-tight text-[#ed027e]">
-                The Future Is Female. Invest now. Open pathways. Accelerate her leadership.
-              </p>
-            </div>
-
-            {/* Official Sign-Off */}
-            <div className="pt-8 border-t border-white/10 mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              <div>
-                <strong className="block font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
-                  Simphiwe Masiza
-                </strong>
-                <span className="block text-xs font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
-                  Executive Producer | EmpowaHer Leadership Summit 2026
-                </span>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  href="/nominate"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-md transition-all hover:bg-[#ff1a95]"
-                >
-                  <span>Nominate A Leader</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-
-                <Link
-                  href="/partnerships"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white hover:border-[#ed027e]"
-                >
-                  <span>Partner With Us</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
             </div>
           </div>
         </div>
