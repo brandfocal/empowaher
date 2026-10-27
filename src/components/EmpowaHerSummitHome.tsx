@@ -680,41 +680,150 @@ export function EmpowaHerSummitHome() {
       {/* Official Press Release CTA Section */}
       <section
         id="press-release-cta"
-        className="relative border-t-[6px] border-[#ed027e] bg-[#11161F] py-14 text-white sm:py-16 lg:py-20"
+        className="relative border-t-[6px] border-[#ed027e] bg-[#11161F] py-14 text-white sm:py-16 lg:py-20 overflow-hidden"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.3fr_0.7fr]">
-            <div>
+        {/* Subtle Ambient Glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#ed027e]/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+          {/* Header & Core Theme */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/10 pb-8">
+            <div className="max-w-3xl">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">
                 <FileText className="h-3 w-3" />
-                <span>OFFICIAL PRESS STATEMENT • THE FUTURE IS FEMALE</span>
+                <span>OFFICIAL PRESS STATEMENT • SYNTHESIS</span>
               </div>
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-white">
-                Invest in Women. Strengthen the Leadership Pipeline. Shape the Future.
+                Invest in Women. Strengthen the Leadership Pipeline.{" "}
+                <span className="text-[#ed027e]">Shape the Future.</span>
               </h2>
-              <p className="mt-4 max-w-[54ch] text-sm leading-relaxed text-white/75 sm:text-base">
-                Official statement from Executive Producer Simphiwe Masiza: Women’s advancement must be a strategic investment in organisational performance, executive succession, and economic competitiveness.
+              <p className="mt-3 text-sm sm:text-base font-semibold leading-relaxed text-white/90">
+                Women’s advancement must be a strategic investment in organisational performance, leadership succession and economic competitiveness.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
+            {/* Quick Action CTAs */}
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <Link
+                href="/press-release"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-all hover:bg-[#ff1a95] hover:scale-[1.02]"
+              >
+                <span>Read Full Press Release</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
               <a
                 href="/EmpowaHer-Media-Release-2026.pdf"
                 download="EmpowaHer-Media-Release-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
               >
                 <Download className="h-4 w-4" />
-                <span>Download Press Release (PDF)</span>
+                <span>Download PDF</span>
               </a>
-
               <Link
                 href="/media"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-white"
               >
-                <span>Visit Media Hub &amp; Press Centre</span>
+                <span>Media Hub</span>
                 <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* 3 Core Synthesized Evidence & Action Pillars */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Pillar 1: The Evidence Demands Action */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-[0.625rem] font-mono font-bold uppercase tracking-widest text-[#ed027e]">
+                    01 • THE EVIDENCE GAP
+                  </span>
+                  <span className="font-mono text-xs font-bold text-white/50">JSE &amp; WEF</span>
+                </div>
+                <h3 className="font-heading text-lg font-bold uppercase text-white mb-2.5">
+                  Board Representation vs Executive Roles
+                </h3>
+                <p className="text-xs sm:text-sm text-white/75 leading-relaxed">
+                  Just Share’s 2025 assessment found women occupy <strong>38% of board seats</strong> but only <strong>27.4% of executive roles</strong> in the JSE Top 40, with just 3 female CEOs. At the prevailing pace, global gender parity remains <strong>123 years away</strong> (WEF 2025). Board progress must urgently translate into stronger executive operational pipelines.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#ed027e]">
+                <span>27.4% Exec Roles</span>
+                <span>123 Yrs to Parity</span>
+              </div>
+            </div>
+
+            {/* Pillar 2: The Summit Cohort & 4 Priorities */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-[0.625rem] font-mono font-bold uppercase tracking-widest text-[#ed027e]">
+                    02 • THE SUMMIT PIPELINE
+                  </span>
+                  <span className="font-mono text-xs font-bold text-white/50">29–31 OCT</span>
+                </div>
+                <h3 className="font-heading text-lg font-bold uppercase text-white mb-2.5">
+                  200 Leaders Across 4 Strategic Priorities
+                </h3>
+                <p className="text-xs sm:text-sm text-white/75 leading-relaxed">
+                  Taking place 29–31 October at EmpowaWorx House, Randburg, bringing together <strong>200 young women from 200 organisations</strong>, aligned to 4 strategic priorities: <em>digital leadership</em>; <em>entrepreneurship, innovation and funding</em>; <em>leadership, governance and board readiness</em>; and <em>personal leadership and career transformation</em>.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#ed027e]">
+                <span>200 Organisations</span>
+                <span>4 Strategic Priorities</span>
+              </div>
+            </div>
+
+            {/* Pillar 3: Execution & The 100-Day Plan */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-[0.625rem] font-mono font-bold uppercase tracking-widest text-[#ed027e]">
+                    03 • EXECUTION &amp; ROI
+                  </span>
+                  <span className="font-mono text-xs font-bold text-white/50">100 DAYS</span>
+                </div>
+                <h3 className="font-heading text-lg font-bold uppercase text-white mb-2.5">
+                  Actionable 100-Day Implementation Plan
+                </h3>
+                <p className="text-xs sm:text-sm text-white/75 leading-relaxed">
+                  Connects learning with execution through each participant’s <strong>100-day implementation plan</strong>, creating a practical route for applying insights within her organisation. For employers and partners, the value proposition is clear: develop future-ready talent, strengthen succession capacity, and support innovation.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-[#ed027e]">
+                <span>In-Company Execution</span>
+                <span>Succession Capacity</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Pull-Quote & Executive Call to Action Strip */}
+          <div className="mt-8 rounded-2xl border border-[#ed027e]/30 bg-gradient-to-r from-black/60 via-black/40 to-black/60 p-6 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-1.5">
+              <p className="font-heading text-sm sm:text-base font-bold uppercase tracking-tight text-white">
+                “Talent cannot advance without access. Leadership potential cannot deliver value without opportunity.”
+              </p>
+              <p className="text-xs sm:text-[0.8125rem] text-white/70">
+                To the private sector, employers and partners: invest through sponsorship &amp; funding, provide executive mentorship, open access to assignments and markets, and back participants’ 100-day plans with accountable organisational support.
+              </p>
+            </div>
+
+            <div className="shrink-0 flex items-center gap-3">
+              <span className="hidden lg:inline text-xs font-mono text-white/50">
+                Simphiwe Masiza, Executive Producer
+              </span>
+              <Link
+                href="/press-release"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white hover:border-[#ed027e] transition-colors"
+              >
+                <span>Full Release</span>
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </div>
