@@ -566,6 +566,100 @@ export function PartnershipOpportunities() {
         partnerButtonText="Inquire About Partnership"
       />
 
+      {/* Strategic Track Partnership Callout: Partnership with Purpose */}
+      <section
+        id="partnership-with-purpose"
+        className="relative border-y-4 border-[#ed027e] bg-gradient-to-b from-[#11161F] via-[#0E1218] to-[#0A0D12] px-5 py-18 text-white sm:px-8 sm:py-22 lg:px-16 lg:py-26 overflow-hidden"
+      >
+        {/* Ambient Subtle Glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#ed027e]/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#ed027e]/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-5xl">
+          <div className="reveal space-y-8">
+            {/* Overline Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/15 px-3.5 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
+              <Sparkles className="h-3 w-3" />
+              <span>PARTNERSHIP WITH PURPOSE</span>
+            </div>
+
+            {/* Main Heading & Lead */}
+            <div className="space-y-5">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.05] tracking-tight text-white">
+                Partnership with purpose.{" "}
+                <span className="text-[#ed027e]">Impact with commercial value.</span>
+              </h2>
+
+              <p className="font-sans text-base sm:text-lg lg:text-xl font-medium leading-relaxed text-white/95">
+                EmpowaHer offers partners an opportunity to connect their investment to a leadership challenge: building a stronger pipeline of women equipped to lead organisations, grow enterprises and shape the future.
+              </p>
+
+              <p className="font-sans text-sm sm:text-base leading-relaxed text-white/80">
+                Through a strategically aligned track, partners can contribute expertise, engage emerging leaders, strengthen brand visibility and open pathways to talent, customers, suppliers and communities. Together, we can agree on relevant measures of success, from participant engagement and learning outcomes to referrals, connections and opportunities created.
+              </p>
+            </div>
+
+            {/* Callout Card: Invest in the leaders who will shape what comes next */}
+            <div className="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.04] p-7 sm:p-9 backdrop-blur-md shadow-2xl relative overflow-hidden">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#ed027e] via-[#ff4da6] to-[#ed027e]"
+              />
+
+              <div className="space-y-4">
+                <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white">
+                  Invest in the leaders who will shape what comes next.
+                </h3>
+
+                <p className="font-sans text-sm sm:text-base leading-relaxed text-white/85">
+                  We invite corporations, public institutions, educational bodies and development partners to partner with EmpowaHer, champion a leadership track and help turn women’s potential into lasting progress.
+                </p>
+
+                <p className="font-heading text-base sm:text-lg font-bold uppercase tracking-tight text-[#ed027e]">
+                  The opportunity is clear. The impact can be shared. The time to act is now.
+                </p>
+              </div>
+
+              {/* Action Links & Official Branding Sign-off */}
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-6">
+                <div>
+                  <strong className="block font-heading text-base sm:text-lg font-black uppercase tracking-wider text-white">
+                    EmpowaHer™ Leadership Summit 2026
+                  </strong>
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ed027e]">
+                    The Future Is Female™
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="#partnership-form"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-all hover:bg-[#ff1a95] hover:scale-[1.02]"
+                  >
+                    <span>Express Partnership Interest</span>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+
+                  <a
+                    href="mailto:partnerships@empowaher.co.za?subject=EmpowaHer%20Strategic%20Track%20Partnership%20Inquiry"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-white"
+                  >
+                    <Mail className="h-4 w-4 text-[#ed027e]" />
+                    <span>Inquire via Email</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 01 — Commercial Value Section */}
       <section
         id="commercial-value"
