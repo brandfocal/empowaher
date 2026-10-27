@@ -372,26 +372,14 @@ export function EmpowaHerSummitHome() {
               </div>
             </div>
 
-            {/* Eyebrow & PDF Download */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4">
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black/60">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/10 px-3 py-1 text-[0.6875rem] font-bold text-[#ed027e]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
-                  Official Press Statement
-                </span>
-                <span className="text-black/30">•</span>
-                <span>For Immediate Release</span>
-              </div>
-              <a
-                href="/EmpowaHer-Media-Release-2026.pdf"
-                download="EmpowaHer-Media-Release-2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#ff1a95]"
-              >
-                <Download className="h-3.5 w-3.5" />
-                <span>Download PDF</span>
-              </a>
+            {/* Eyebrow Metadata */}
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-black/60 border-b border-black/10 pb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/10 px-3 py-1 text-[0.6875rem] font-bold text-[#ed027e]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
+                Official Press Statement
+              </span>
+              <span className="text-black/30">•</span>
+              <span>For Immediate Release</span>
             </div>
 
             {/* Document Title & Subtitle */}
@@ -589,33 +577,24 @@ export function EmpowaHerSummitHome() {
                 </p>
               </div>
 
-              {/* Official Sign-Off & Actions */}
-              <div className="pt-6 border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-                <div>
-                  <strong className="block font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-[#11161F]">
-                    Simphiwe Masiza
-                  </strong>
-                  <span className="block text-xs font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
-                    Executive Producer | EmpowaHer Leadership Summit 2026
+              {/* Official Sign-Off */}
+              <div className="pt-6 border-t border-black/10">
+                <strong className="block font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-[#11161F]">
+                  Simphiwe Masiza
+                </strong>
+                <span className="block text-xs font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
+                  Executive Producer | EmpowaHer Leadership Summit 2026
+                </span>
+              </div>
+
+              {/* Formal ENDS Terminal Mark */}
+              <div className="pt-4 pb-2 text-center">
+                <div className="inline-flex items-center gap-4">
+                  <div className="h-px w-14 bg-black/15" aria-hidden="true" />
+                  <span className="text-xs font-black uppercase tracking-[0.35em] text-black/40 font-mono">
+                    ENDS
                   </span>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/nominate"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-md transition-all hover:bg-[#ff1a95]"
-                  >
-                    <span>Nominate A Leader</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
-
-                  <Link
-                    href="/about-us"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-[#11161F] hover:border-[#ed027e] hover:text-[#ed027e]"
-                  >
-                    <span>About EmpowaWorx</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+                  <div className="h-px w-14 bg-black/15" aria-hidden="true" />
                 </div>
               </div>
             </div>
