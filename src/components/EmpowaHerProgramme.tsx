@@ -36,7 +36,11 @@ type ScheduleRow = {
   item: string;
   topic: string;
   focus: string;
+  speakers?: string;
 };
+
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
+const PROGRAMME_PDF_NAME = "Updated-Programme-EmpowaHer-2026.pdf";
 
 type Track = {
   number: string;
@@ -670,105 +674,131 @@ const progressionFlow: ProgressionColumn[] = [
 
 const graduationHighlights: Highlight[] = [
   {
-    id: "global-keynotes",
-    text: "Global Leadership and Ministerial Keynote Addresses",
+    id: "welcome-reflection",
+    text: "Official Welcome & Summit Reflection: Simphiwe Masiza (Founder & Group CEO, EmpowaWorx) — From Potential to Leadership",
   },
   {
-    id: "ambassadors-panel",
-    text: "Ambassadors Panel: Africa to the World: Diplomacy, Global Leadership and Opportunity",
+    id: "global-keynote",
+    text: "Keynote Address: Funeka Montjane (CEO: Personal & Private Banking, Standard Bank Group) — The Future Is Female: Building Wealth, Leading with Courage & Owning Your Next Move",
   },
   {
-    id: "ceos-panel",
-    text: "CEOs Panel: The Leadership Opportunity Agenda: Opening Doors to Power, Capital and Influence",
+    id: "high-impact-panel",
+    text: "High Impact Panel: The Leadership Opportunity Agenda: Opening Doors to Power, Capital and Influence (Facilitator: Vusi Mahlangu - FASSET; Panelists: Asanda Luwaca - NSA, Mamarothi Mathibe - FASSET, Yvonne Mothibi - IRMSA)",
+  },
+  {
+    id: "renowned-experts",
+    text: "Renowned Experts' Leadership Address: Tebogo Mekgoe (Founder & Strategist, Orenda Advisory) — The Capabilities That Will Define the Next Generation of Leaders",
+  },
+  {
+    id: "dg-panel",
+    text: "Director-General Leadership Panel: From Education Policy to Economic Opportunity (Facilitator: Ms Nomonde Mnukwa - GCIS; Panelists: Dr Nkosinathi Sishi - DHET, Jeanette Morwane - DCDT, Ms Mandisa Matyila - DEL)",
   },
   {
     id: "opportunity-exchange",
-    text: "The Opportunity Exchange — Direct Engagements with Corporates & Business Schools",
+    text: "The Opportunity Exchange™ — Dedicated multi-sector networking luncheon linking young leaders with recruiters, enterprise funds, diplomatic opportunities, and executive mentors",
   },
   {
-    id: "opportunity-compact",
-    text: "Leadership Opportunities and Commitments: The EmpowaHer Opportunity Compact",
+    id: "human-rights-dialogue",
+    text: "High-Level Dialogue: Beyond Equality: Claiming Our Rights, Shaping Our Future (Commissioner Philile Ntuli - SAHRC & Mfundo Nomvungu - CGE)",
   },
   {
-    id: "delegate-voices",
-    text: "Delegate Leadership Voices: The Future We Choose to Lead",
+    id: "executive-spotlight",
+    text: "Executive Leadership Spotlight: Sithembile Sefako Ngobese (CEO, Zooi Consulting) — The Future Is Female: Leading with Purpose, Building a Legacy and Shaping What Comes Next",
   },
   {
     id: "graduation-recognition",
-    text: "Graduation and Leadership Recognition: The EmpowaHer Class of 2026",
+    text: "Graduation and Leadership Recognition Ceremony: Official conferral of track diplomas and special citations to the 200 EmpowaHer™ Class of 2026 leaders",
   },
   {
     id: "reception",
-    text: "Graduation Reception: The Future Is Female Leadership Reception",
+    text: "The Future Is Female™ Leadership Reception, Official Class Portraits & Departures (15:00 onwards)",
   },
 ];
 
 const graduationScheduleRows: ScheduleRow[] = [
   {
-    time: "09:00-09:10",
-    item: "Immersive Opening Experience",
-    topic: "Her Future. Her Leadership. Her World.",
-    focus: "Cinematic reflection on the three-day summit journey and emerging leaders' commitments.",
-  },
-  {
-    time: "09:10-09:20",
-    item: "Official Welcome & Reflection",
+    time: "09:00-09:15",
+    item: "Official Welcome & Summit Reflection",
     topic: "From Potential to Leadership",
-    focus: "Reflecting on converting insights into concrete career progression and measurable impact.",
+    speakers: "Simphiwe Masiza (Founder & Group CEO, EmpowaWorx)",
+    focus: "Official welcome, summit reflection, and strategic scene-setting on transforming three days of capability building into scalable national impact.",
   },
   {
-    time: "09:20-09:45",
-    item: "Ministerial Keynote Address",
-    topic: "The Future Is Female: Building a National Pipeline of Young Women Leaders",
-    focus: "National roadmap for economic inclusion across business, government, and the boardroom.",
+    time: "09:15-09:45",
+    item: "Keynote Address",
+    topic: "The Future Is Female: Building Wealth, Leading with Courage and Owning Your Next Move",
+    speakers: "Funeka Montjane (Chief Executive Officer: Personal and Private Banking, Standard Bank Group)",
+    focus: "Opening executive keynote addressing asset creation, financial agency, breaking corporate glass ceilings, and stepping into executive authority.",
   },
   {
-    time: "09:45-10:25",
-    item: "High-Powered Ambassadors' Panel",
-    topic: "Africa to the World: Diplomacy, Global Leadership and Opportunity",
-    focus: "International fellowships, cross-border trade networks, diplomatic careers, and study exchanges.",
-  },
-  {
-    time: "10:25-11:10",
-    item: "High-Powered CEOs' Panel",
+    time: "09:45-10:15",
+    item: "High Impact Panel",
     topic: "The Leadership Opportunity Agenda: Opening Doors to Power, Capital and Influence",
-    focus: "CEOs pledge tangible roles, supplier development funding, and board mentorship.",
+    speakers: "Facilitator: Vusi Mahlangu (FASSET) • Panelists: Asanda Luwaca (The National Skills Authority), Mamarothi Mathibe (FASSET), Yvonne Mothibi (IRMSA)",
+    focus: "Unlocking institutional funding, high-impact career pathways, risk governance, and opening doors to capital and executive influence for young women leaders.",
   },
   {
-    time: "11:10-11:25",
+    time: "10:15-10:30",
+    item: "Interactive Plenary Q&A",
+    topic: "Delegate Engagement & Strategic Discourse",
+    speakers: "All Delegates & Faculty Panelists",
+    focus: "Direct open-floor dialogue between the 200 cohort nominees and institutional panel leadership.",
+  },
+  {
+    time: "10:30-11:00",
+    item: "Renowned Experts' Leadership Address",
+    topic: "The Capabilities That Will Define the Next Generation of Leaders",
+    speakers: "Tebogo Mekgoe (Founder & Strategist, Orenda Advisory and Strategy)",
+    focus: "Masterclass exploring high-leverage capabilities: strategic endurance, digital transformation, governance, and adaptive leadership in volatile global environments.",
+  },
+  {
+    time: "11:00-12:00",
+    item: "Director-General Leadership Panel",
+    topic: "From Education Policy to Economic Opportunity",
+    speakers: "Facilitator: Ms Nomonde Mnukwa (GCIS) • Panelists: Dr Nkosinathi Sishi (DHET), Jeanette Morwane (DCDT), Ms Mandisa Matyila (DEL)",
+    focus: "National policy leaders unpacking structural alignment between higher education, digital skills pipelines, public employment opportunities, and gender equity directives.",
+  },
+  {
+    time: "12:00-12:15",
+    item: "Interactive Policy Q&A",
+    topic: "Policy Implementation & Access Q&A",
+    speakers: "All Delegates, Directors-General & Faculty",
+    focus: "Direct audience engagement on bursaries, internships, ministerial directives, and practical mechanisms for accessing public and private sector opportunities.",
+  },
+  {
+    time: "12:15-13:15",
     item: "Leadership Connections Break",
-    topic: "The Opportunity Exchange",
-    focus: "Structured networking between delegates, employers, embassies, and executive coaches.",
+    topic: "The Opportunity Exchange™",
+    speakers: "All Delegates, Speakers & Institutional Partners",
+    focus: "Structured multi-stakeholder networking luncheon linking young leaders with recruiters, enterprise funds, diplomatic opportunities, and executive mentors.",
   },
   {
-    time: "11:25-12:05",
-    item: "DGs & Business School Deans' Panel",
-    topic: "From Learning to Leadership: Building Capabilities the Future Demands",
-    focus: "Creating seamless pathways from graduate diplomas to executive education and board directorship.",
+    time: "13:15-13:45",
+    item: "Dialogue: Beyond Equality",
+    topic: "Empowering Young Women Through Human Rights, Dignity and Equal Opportunity",
+    speakers: "Commissioner Philile Ntuli (SA Human Rights Commission) & Mfundo Nomvungu (Commission for Gender Equality)",
+    focus: "Constitutional and human rights dialogue safeguarding workplace dignity, combating gender-based vulnerabilities, and establishing legal accountability frameworks.",
   },
   {
-    time: "12:05-12:35",
-    item: "Leadership Commitments Announcement",
-    topic: "The EmpowaHer Opportunity Compact",
-    focus: "Unveiling scholarships, enterprise seed capital, bursaries, and executive placements.",
+    time: "13:45-14:00",
+    item: "Executive Leadership Spotlight",
+    topic: "The Future Is Female: Leading with Purpose, Building a Legacy and Shaping What Comes Next",
+    speakers: "Sithembile Sefako Ngobese (Chief Executive Officer, Zooi Consulting)",
+    focus: "Executive spotlight inspiring the cohort to anchor leadership in ethical purpose, long-term legacy creation, and transformative societal impact.",
   },
   {
-    time: "12:35-12:55",
-    item: "Delegate Leadership Voices",
-    topic: "The Future We Choose to Lead",
-    focus: "Selected delegates present their concrete post-summit initiatives and commitments.",
-  },
-  {
-    time: "12:55-01:25",
+    time: "14:00-15:00",
     item: "Graduation & Leadership Recognition",
-    topic: "The EmpowaHer Class of 2026",
-    focus: "Conferral of certificates of track completion and special leadership recognitions.",
+    topic: "The EmpowaHer™ Class of 2026",
+    speakers: "200 Cohort Nominees, Simphiwe Masiza, Honoured Guests & Faculty",
+    focus: "Official graduation ceremony, presentation of track credentials, special leadership awards, and induction of the 200 emerging women leaders.",
   },
   {
-    time: "01:25-02:00",
+    time: "15:00-16:30",
     item: "Graduation Reception & Departure",
-    topic: "The Future Is Female Leadership Reception",
-    focus: "Celebratory networking, partner engagements, official class portraits, and departure.",
+    topic: "The Future Is Female™ Leadership Reception",
+    speakers: "All Delegates, Faculty, Corporate Anchors & Distinguished Guests",
+    focus: "Celebratory champagne reception, class portraits, partner networking, media interviews, and official summit closing.",
   },
 ];
 
@@ -858,8 +888,8 @@ export function EmpowaHerProgramme() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href="/EmpowaHER-Programme-2026.pdf"
-              download="EmpowaHER-Programme-2026.pdf"
+              href={PROGRAMME_PDF_PATH}
+              download={PROGRAMME_PDF_NAME}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/30 px-4 py-1.5 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/90 transition-all hover:border-[#ed027e] hover:text-[#ed027e]"
@@ -919,8 +949,8 @@ export function EmpowaHerProgramme() {
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
-                href="/EmpowaHER-Programme-2026.pdf"
-                download="EmpowaHER-Programme-2026.pdf"
+                href={PROGRAMME_PDF_PATH}
+                download={PROGRAMME_PDF_NAME}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/70 bg-white/5 px-7 py-3.5 font-heading text-xs font-black uppercase tracking-[0.14em] text-white transition-all hover:bg-white hover:text-[#0D0D0D]"
@@ -1675,7 +1705,7 @@ export function EmpowaHerProgramme() {
               <span>Her Future. Her Leadership. Her World.</span>
             </p>
             <p className="mt-6 inline-flex items-center rounded-full border border-white/20 px-5 py-2 font-heading text-xs font-black uppercase tracking-[0.18em] text-white/80 bg-white/[0.04]">
-              <span>09:00 AM to 2:00 PM</span>
+              <span>09:00 AM to 3:00 PM (Reception onwards)</span>
             </p>
           </div>
 
@@ -1708,11 +1738,29 @@ export function EmpowaHerProgramme() {
 
           <div className="mt-2 w-full lg:col-span-2">
             <p className="mb-3 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-              <span>Graduation Finale Timetable</span>
+              <span>Saturday Main Auditorium Timetable</span>
             </p>
             <p className="mb-6 max-w-[48ch] font-sans text-sm font-semibold leading-[1.6] text-white/70">
-              <span>31 October 2026, 09:00 AM to 2:00 PM • Her Future. Her Leadership. Her World.</span>
+              <span>31 October 2026, 09:00 AM to 3:00 PM • Her Future. Her Leadership. Her World.</span>
             </p>
+
+            {/* Programme Director Banner */}
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-white/15 bg-white/[0.04] p-4 sm:p-5">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ed027e] text-white font-heading font-black text-xs sm:text-sm shadow-md shadow-[#ed027e]/30">
+                  MC
+                </span>
+                <div>
+                  <p className="font-heading text-[0.625rem] font-black uppercase tracking-[0.2em] text-[#ed027e]">Programme Director</p>
+                  <h4 className="font-heading text-base sm:text-lg font-bold text-white uppercase">Cathy</h4>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-semibold text-white/70">
+                <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Confirmed Saturday Main Auditorium Programme</span>
+              </div>
+            </div>
+
             <button
               type="button"
               aria-expanded={graduationOpen}
@@ -1739,7 +1787,7 @@ export function EmpowaHerProgramme() {
               {/* Mobile Graduation Timetable Cards (< md) */}
               <div className="md:hidden space-y-3 pt-4">
                 {graduationScheduleRows.map((row, rowIndex) => {
-                  const isFinale = row.time === "01:25-02:00";
+                  const isFinale = row.time.startsWith("15:00");
                   return (
                     <article
                       key={`m-grad-${row.time}-${rowIndex}`}
@@ -1772,6 +1820,24 @@ export function EmpowaHerProgramme() {
                       <h4 className="mt-3 font-sans text-base font-bold leading-snug">
                         {row.topic}
                       </h4>
+                      {row.speakers && (
+                        <div
+                          className={`mt-2.5 rounded border p-2.5 text-xs leading-relaxed ${
+                            isFinale
+                              ? "border-white/30 bg-black/15 text-white/95"
+                              : "border-[#ed027e]/30 bg-[#ed027e]/10 text-white/90"
+                          }`}
+                        >
+                          <span
+                            className={`mb-1 block font-heading text-[0.625rem] font-black uppercase tracking-[0.16em] ${
+                              isFinale ? "text-white" : "text-[#ed027e]"
+                            }`}
+                          >
+                            Faculty / Dignitaries
+                          </span>
+                          {row.speakers}
+                        </div>
+                      )}
                       <div
                         className={`mt-2.5 rounded border p-3 text-xs leading-relaxed ${
                           isFinale
@@ -1798,8 +1864,8 @@ export function EmpowaHerProgramme() {
                 <table className="mx-auto w-full min-w-[980px] table-fixed border-collapse text-left">
                   <colgroup>
                     <col className="w-[12%]" />
-                    <col className="w-[20%]" />
-                    <col className="w-[26%]" />
+                    <col className="w-[18%]" />
+                    <col className="w-[28%]" />
                     <col className="w-[42%]" />
                   </colgroup>
                   <thead className="bg-white/[0.08] text-white">
@@ -1814,42 +1880,63 @@ export function EmpowaHerProgramme() {
                         <span>Topic</span>
                       </th>
                       <th className="px-4 py-3 font-heading text-xs font-black uppercase tracking-[0.15em]">
-                        <span>Strategic Focus</span>
+                        <span>Speakers &amp; Strategic Focus</span>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {graduationScheduleRows.map((row, rowIndex) => (
-                      <tr
-                        key={`${row.time}-${row.topic}`}
-                        className={
-                          row.time === "01:25-02:00"
-                            ? "bg-[#ed027e] text-white"
-                            : `${rowIndex % 2 === 0 ? "bg-white/[0.04]" : "bg-transparent"} text-white`
-                        }
-                      >
-                        <td
-                          className={`whitespace-nowrap border border-white/12 px-4 py-4 align-top font-heading text-sm font-bold tabular-nums ${
-                            row.time === "01:25-02:00" ? "text-white" : "text-[#ed027e]"
-                          }`}
+                    {graduationScheduleRows.map((row, rowIndex) => {
+                      const isFinale = row.time.startsWith("15:00");
+                      return (
+                        <tr
+                          key={`${row.time}-${row.topic}`}
+                          className={
+                            isFinale
+                              ? "bg-[#ed027e] text-white"
+                              : `${rowIndex % 2 === 0 ? "bg-white/[0.04]" : "bg-transparent"} text-white`
+                          }
                         >
-                          <span>{row.time}</span>
-                        </td>
-                        <td className="border border-white/12 px-4 py-4 align-top font-sans text-sm font-semibold text-inherit">
-                          <span>{row.item}</span>
-                        </td>
-                        <td className="border border-white/12 border-l-2 border-l-[#ed027e]/40 px-4 py-4 pl-3 align-top font-sans text-sm font-bold text-inherit">
-                          <span>{row.topic}</span>
-                        </td>
-                        <td
-                          className={`border border-white/12 px-4 py-4 align-top font-sans text-sm leading-[1.5] ${
-                            row.time === "01:25-02:00" ? "text-white font-medium" : "text-white/70"
-                          }`}
-                        >
-                          <span>{row.focus}</span>
-                        </td>
-                      </tr>
-                    ))}
+                          <td
+                            className={`whitespace-nowrap border border-white/12 px-4 py-4 align-top font-heading text-sm font-bold tabular-nums ${
+                              isFinale ? "text-white" : "text-[#ed027e]"
+                            }`}
+                          >
+                            <span>{row.time}</span>
+                          </td>
+                          <td className="border border-white/12 px-4 py-4 align-top font-sans text-sm font-semibold text-inherit">
+                            <span>{row.item}</span>
+                          </td>
+                          <td className="border border-white/12 border-l-2 border-l-[#ed027e]/40 px-4 py-4 pl-3 align-top font-sans text-sm font-bold text-inherit">
+                            <span>{row.topic}</span>
+                          </td>
+                          <td
+                            className={`border border-white/12 px-4 py-4 align-top font-sans text-sm leading-[1.5] ${
+                              isFinale ? "text-white font-medium" : "text-white/70"
+                            }`}
+                          >
+                            {row.speakers && (
+                              <div
+                                className={`mb-2 rounded p-2 text-xs font-semibold ${
+                                  isFinale
+                                    ? "bg-black/20 text-white"
+                                    : "border border-white/10 bg-white/[0.05] text-white/90"
+                                }`}
+                              >
+                                <span
+                                  className={`block font-heading text-[0.625rem] font-black uppercase tracking-[0.14em] ${
+                                    isFinale ? "text-white/90" : "text-[#ed027e]"
+                                  }`}
+                                >
+                                  Faculty / Dignitaries
+                                </span>
+                                <span className="mt-0.5 block">{row.speakers}</span>
+                              </div>
+                            )}
+                            <p>{row.focus}</p>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -1888,8 +1975,8 @@ export function EmpowaHerProgramme() {
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a
-                href="/EmpowaHER-Programme-2026.pdf"
-                download="EmpowaHER-Programme-2026.pdf"
+                href={PROGRAMME_PDF_PATH}
+                download={PROGRAMME_PDF_NAME}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0D0D0D]/30 px-8 py-3.5 font-heading text-xs font-black uppercase tracking-[0.14em] text-[#0D0D0D] transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
@@ -1939,8 +2026,8 @@ export function EmpowaHerProgramme() {
           </div>
           <div className="flex w-full items-center gap-2 sm:w-auto sm:gap-3">
             <a
-              href="/EmpowaHER-Programme-2026.pdf"
-              download="EmpowaHER-Programme-2026.pdf"
+              href={PROGRAMME_PDF_PATH}
+              download={PROGRAMME_PDF_NAME}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial text-center rounded-full border border-white/30 px-3 sm:px-5 py-2 font-heading text-[0.6875rem] sm:text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"

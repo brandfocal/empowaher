@@ -19,7 +19,7 @@ import { Footer } from "./Footer";
 
 const HERO_IMAGE_PATH = "/feature-image12.jpg";
 const PROPOSITION_IMAGE_PATH = "/feature-image16.jpg";
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
 
 const pressures = [
   {
@@ -497,7 +497,7 @@ export function VisionImpact() {
               </Link>
               <a
                 href={PROGRAMME_PDF_PATH}
-                download="EmpowaHER-Programme-2026.pdf"
+                download="Updated-Programme-EmpowaHer-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/90 transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"

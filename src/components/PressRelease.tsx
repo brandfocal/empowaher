@@ -21,7 +21,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 const PRESS_RELEASE_PDF_PATH = "/EmpowaHer-Media-Release-2026.pdf";
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
 
 export function PressRelease() {
   const handlePrint = () => {
@@ -61,7 +61,7 @@ export function PressRelease() {
               </button>
               <a
                 href={PROGRAMME_PDF_PATH}
-                download="EmpowaHER-Programme-2026.pdf"
+                download="Updated-Programme-EmpowaHer-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e] px-4 py-1.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#ff1a95]"

@@ -4,7 +4,7 @@ import React from "react";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
 
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
 const PROSPECTUS_EMAIL_HREF = "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
 export function Footer() {
@@ -35,7 +35,7 @@ export function Footer() {
               <div className="flex flex-col gap-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">
                 <a
                   href={PROGRAMME_PDF_PATH}
-                  download="EmpowaHER-Programme-2026.pdf"
+                  download="Updated-Programme-EmpowaHer-2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]"
