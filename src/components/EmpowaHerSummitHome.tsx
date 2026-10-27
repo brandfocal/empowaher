@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { NewsBanner } from "./NewsBanner";
 import { CountdownTimer } from "./CountdownTimer";
 import { EmpowaHerTeam } from "./EmpowaHerTeam";
 import { PodcastsSnippet } from "./PodcastsSnippet";
@@ -133,7 +132,7 @@ export function EmpowaHerSummitHome() {
   return (
     <main
       id="top"
-      className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#3f3f3f] selection:bg-[#ed027e] selection:text-white"
+      className="min-h-screen w-full overflow-x-clip bg-white font-sans text-[#3f3f3f] selection:bg-[#ed027e] selection:text-white"
     >
       {/* Hero Section */}
       <section className="relative flex min-h-screen flex-col">
@@ -269,9 +268,6 @@ export function EmpowaHerSummitHome() {
       {/* Live Summit Countdown Timer Ribbon */}
       <CountdownTimer />
 
-      {/* Established News Banner */}
-      <NewsBanner />
-
       {/* Official Summit 2026 Full-Width Banner */}
       <section
         id="summit-banner"
@@ -308,40 +304,50 @@ export function EmpowaHerSummitHome() {
         aria-labelledby="vision-heading"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-12">
-          <div className="border-b border-[#1C2128]/10 py-5 flex items-center justify-between">
-            <p className="text-[0.62rem] font-black uppercase tracking-[0.3em] text-[#ed027e]">
-              <span>ABOUT US</span>
-            </p>
-            <div className="flex items-center gap-2 text-[0.6875rem] font-mono text-black/50 uppercase tracking-wider">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
-              <span>Official Press Statement</span>
+          <div className="border-b border-[#1C2128]/10 py-5 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full bg-[#ed027e]/10 px-3.5 py-1 text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e] border border-[#ed027e]/30 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#ed027e] animate-pulse" />
+                <span>ABOUT US • OFFICIAL PRESS RELEASE</span>
+              </span>
+              <span className="text-xs font-mono text-black/30 hidden sm:inline">•</span>
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-black/70 hidden sm:inline">
+                FOR IMMEDIATE RELEASE
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-black/50 uppercase tracking-wider hidden md:inline">
+                29–31 October 2026 • EmpowaWorx House
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="mx-auto grid max-w-7xl items-start lg:grid-cols-[4.5fr_7.5fr]">
-          {/* Left Column: Simphiwe Masiza Portrait (Sticky) */}
-          <div className="relative hidden lg:block m-4 self-start sticky top-28 overflow-hidden rounded-2xl shadow-xl border border-black/10 aspect-[4/5] min-h-[520px]">
-            <img
-              src="/simphiwe-masiza.jpg"
-              alt="Simphiwe Masiza, Founder & Executive Producer of EmpowaWorx"
-              className="h-full w-full rounded-2xl object-cover object-[center_15%]"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/60 to-transparent px-8 pb-8 pt-24">
-              <p className="text-[0.75rem] font-black uppercase tracking-[0.22em] text-white">
-                <span>Simphiwe Masiza</span>
-              </p>
-              <p className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#ed027e]">
-                <span>Executive Producer | EmpowaHer Leadership Summit 2026</span>
-              </p>
-              <p className="mt-0.5 text-[0.5625rem] uppercase tracking-[0.16em] text-white/60">
-                <span>Founder, EmpowaWorx™</span>
-              </p>
+        <div className="mx-auto grid max-w-7xl lg:grid-cols-[4.5fr_7.5fr]">
+          {/* Left Column: Simphiwe Masiza Portrait (Sticky throughout the section) */}
+          <div className="relative hidden lg:block p-4 sm:p-6">
+            <div className="sticky top-8 overflow-hidden rounded-2xl shadow-2xl border border-black/10 aspect-[4/5] min-h-[540px] max-h-[calc(100vh-4rem)]">
+              <img
+                src="/simphiwe-masiza.jpg"
+                alt="Simphiwe Masiza, Founder & Executive Producer of EmpowaWorx"
+                className="h-full w-full rounded-2xl object-cover object-[center_15%]"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/60 to-transparent px-8 pb-8 pt-24">
+                <p className="text-[0.75rem] font-black uppercase tracking-[0.22em] text-white">
+                  <span>Simphiwe Masiza</span>
+                </p>
+                <p className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#ed027e]">
+                  <span>Executive Producer | EmpowaHer Leadership Summit 2026</span>
+                </p>
+                <p className="mt-0.5 text-[0.5625rem] uppercase tracking-[0.16em] text-white/60">
+                  <span>Founder, EmpowaWorx™</span>
+                </p>
+              </div>
+              <div
+                aria-hidden="true"
+                className="absolute right-0 top-0 h-full w-[3px] bg-[#ed027e]"
+              />
             </div>
-            <div
-              aria-hidden="true"
-              className="absolute right-0 top-0 h-full w-[3px] bg-[#ed027e]"
-            />
           </div>
 
           {/* Right Column: Full Refined Press Release */}
