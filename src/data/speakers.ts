@@ -459,4 +459,46 @@ export const additionalSpeakers: AdditionalSpeaker[] = [
     designation: "Founder & Strategist | Orenda Advisory and Strategy",
     image: "/speakers/Tebogo-Mekgoe.png",
   },
+  {
+    id: "funeka-montjane",
+    name: "Funeka Montjane",
+    designation: "Chief Executive Officer: Personal and Private Banking | Standard Bank Group",
+    image: "/speakers/Funeka-Montjane.png",
+  },
+  {
+    id: "asanda-luwaca",
+    name: "Asanda Luwaca",
+    designation: "Chairperson | The National Skills Authority",
+    image: "/speakers/Asanda-Luwaca.png",
+  },
+  {
+    id: "mmarothi-mathibe",
+    name: "Mmarothi Mathibe",
+    designation: "Programmes Manager | FASSET",
+    image: "/speakers/Mmarothi-Mathibe.png",
+  },
+  {
+    id: "dr-nkosinathi-sishi",
+    name: "Dr Nkosinathi Sishi",
+    designation: "Director-General | Department of Higher Education and Training",
+    image: "/speakers/Dr-Nkosinathi-Sishi.png",
+  },
+  {
+    id: "commissioner-philile-ntuli",
+    name: "Commissioner Philile Ntuli",
+    designation: "Full-time Commissioner | South African Human Rights Commission",
+    image: "/speakers/Commissioner-Philile-Ntuli.png",
+  },
+  {
+    id: "commissioner-mfundo-nomvungu",
+    name: "Commissioner Mfundo Nomvungu",
+    designation: "Acting Chairperson | Commission for Gender Equality (CGE)",
+    image: "/speakers/Commissioner-Mfundo-Nomvungu.png",
+  },
+  {
+    id: "sithembile-ngobese",
+    name: "Sithembile Sefako Ngobese",
+    designation: "Chief Executive Officer | Zooi Consulting",
+    image: "/speakers/Sithembile-Ngobese.png",
+  },
 ];
