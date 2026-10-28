@@ -133,8 +133,8 @@ export function CountdownTimer() {
             </Link>
 
             <a
-              href="/Updated-Programme-EmpowaHer-2026.pdf"
-              download="Updated-Programme-EmpowaHer-2026.pdf"
+              href="/EmpowaHER-Programme-2026.pdf"
+              download="EmpowaHER-Programme-2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/80 backdrop-blur-sm transition-all duration-200 hover:border-[#ed027e] hover:text-white"

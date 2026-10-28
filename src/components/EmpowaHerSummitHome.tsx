@@ -860,8 +860,8 @@ export function EmpowaHerSummitHome() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <a
-                  href="/Updated-Programme-EmpowaHer-2026.pdf"
-                  download="Updated-Programme-EmpowaHer-2026.pdf"
+                  href="/EmpowaHER-Programme-2026.pdf"
+                  download="EmpowaHER-Programme-2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-6 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"

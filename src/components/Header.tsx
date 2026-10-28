@@ -150,8 +150,8 @@ export function Header({ currentPath = "/" }: HeaderProps) {
             </Link>
 
             <a
-              href="/Updated-Programme-EmpowaHer-2026.pdf"
-              download="Updated-Programme-EmpowaHer-2026.pdf"
+              href="/EmpowaHER-Programme-2026.pdf"
+              download="EmpowaHER-Programme-2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-full border border-[#3f3f3f]/30 py-2.5 text-center font-heading text-xs font-bold uppercase tracking-[0.12em] text-[#3f3f3f] hover:border-[#ed027e] hover:text-[#ed027e]"

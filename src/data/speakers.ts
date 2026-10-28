@@ -369,4 +369,28 @@ export const additionalSpeakers: AdditionalSpeaker[] = [
     designation: "African Spiritual Teacher, Cultural Consultant & Healer | Founder, Ndlanzi Institute",
     image: "/speakers/Gogo-Dineo-Ndlanzi.png",
   },
+  {
+    id: "lebogang-koitsioe",
+    name: "Lebogang Koitsioe",
+    designation: "Senior HR Business Partner | Danone Southern Africa",
+    image: "/speakers/Lebogang-Koitsioe.png",
+  },
+  {
+    id: "lerato-sithole",
+    name: "Lerato Sithole",
+    designation: "Partner & Operate Africa Leader | Deloitte Africa",
+    image: "/speakers/Lerato-Sithole.png",
+  },
+  {
+    id: "lulu-msimango",
+    name: "Lulu Msimango",
+    designation: "Financial Advisor | Standard Bank Group",
+    image: "/speakers/Lulu-Msimango.png",
+  },
+  {
+    id: "mona-clare-moyo",
+    name: "Mona-Clare Moyo",
+    designation: "Human Resources & Future of Work Specialist | Phakisa Holdings",
+    image: "/speakers/Mona-Clare-.png",
+  },
 ];
