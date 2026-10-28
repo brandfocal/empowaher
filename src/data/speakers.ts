@@ -223,7 +223,7 @@ export const additionalSpeakers: AdditionalSpeaker[] = [
     id: "shameela-soobramoney",
     name: "Ms Shameela Soobramoney",
     designation: "CEO | National Business Initiative",
-    image: "/speakers/shameela.png",
+    image: "/speakers/Ms-Shameela-Soobramoney.png",
   },
   {
     id: "tseliso-mohlomi",
@@ -392,5 +392,47 @@ export const additionalSpeakers: AdditionalSpeaker[] = [
     name: "Mona-Clare Moyo",
     designation: "Human Resources & Future of Work Specialist | Phakisa Holdings",
     image: "/speakers/Mona-Clare-.png",
+  },
+  {
+    id: "amanda-john-ncube",
+    name: "Amanda John-Ncube",
+    designation: "Head: Black Distributors Trust & Business Development | Old Mutual",
+    image: "/speakers/Amanda-John-Ncube.png",
+  },
+  {
+    id: "dale-hefer",
+    name: "Dale Hefer",
+    designation: "Chief Executive Officer | Nedbank IMC",
+    image: "/speakers/Dale-Hefer.png",
+  },
+  {
+    id: "nkateko-khoza",
+    name: "Nkateko Khoza",
+    designation: "Chief Executive Officer | Dzana Investments",
+    image: "/speakers/Nkateko-Khoza.png",
+  },
+  {
+    id: "vuyo-lee",
+    name: "Vuyo Lee",
+    designation: "Director: Marketing and Corporate Affairs | Johannesburg Stock Exchange (JSE)",
+    image: "/speakers/Vuyo-Lee.png",
+  },
+  {
+    id: "louisa-zondo",
+    name: "Advocate Louisa Zondo",
+    designation: "Advocate, Author & Chair | Barloworld Empowerment Foundation",
+    image: "/speakers/Louisa-Zondo.png",
+  },
+  {
+    id: "nobuntu-hlazo-webster",
+    name: "Nobuntu Hlazo-Webster",
+    designation: "Member of Parliament & Deputy Leader | Build One South Africa (BOSA)",
+    image: "/speakers/Nobuntu-Hlazo-Webster.png",
+  },
+  {
+    id: "hon-mmamoloko-kubayi",
+    name: "Honourable Mmamoloko Kubayi",
+    designation: "Minister of Human Settlements | Republic of South Africa",
+    image: "/speakers/Hon-Mmamoko-Kubayi.png",
   },
 ];

@@ -39,8 +39,8 @@ type ScheduleRow = {
   speakers?: string;
 };
 
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
-const PROGRAMME_PDF_NAME = "EmpowaHER-Programme-2026.pdf";
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
+const PROGRAMME_PDF_NAME = "Updated-Programme-EmpowaHer-2026.pdf";
 
 type Track = {
   number: string;
@@ -694,6 +694,10 @@ const graduationHighlights: Highlight[] = [
     text: "Director-General Leadership Panel: From Education Policy to Economic Opportunity (Facilitator: Ms Nomonde Mnukwa - GCIS; Panelists: Dr Nkosinathi Sishi - DHET, Jeanette Morwane - DCDT, Ms Mandisa Matyila - DEL)",
   },
   {
+    id: "ambassadors-panel",
+    text: "High-Powered Ambassadors' Panel: Africa to the World: Diplomacy, Global Leadership and Opportunity (Sabine Dall'Omo - Siemens, Nazia Pillay - SAP, Bertina Engelbrecht - Clicks Group, Lindiwe Msengana-Ndlela - DIRCO, Nolufefe Dwabayo - The Presidency, Andronicca Masemola - Barloworld Equipment, Jacky Molisane - DEL, Thulisile Manzini - DSBD, Zane Dangor - DIRCO, Nonkqubela Jordan-Dyani - DCDT)",
+  },
+  {
     id: "opportunity-exchange",
     text: "The Opportunity Exchange™ — Dedicated multi-sector networking luncheon linking young leaders with recruiters, enterprise funds, diplomatic opportunities, and executive mentors",
   },
@@ -757,6 +761,13 @@ const graduationScheduleRows: ScheduleRow[] = [
     topic: "From Education Policy to Economic Opportunity",
     speakers: "Facilitator: Ms Nomonde Mnukwa (GCIS) • Panelists: Dr Nkosinathi Sishi (DHET), Jeanette Morwane (DCDT), Ms Mandisa Matyila (DEL)",
     focus: "National policy leaders unpacking structural alignment between higher education, digital skills pipelines, public employment opportunities, and gender equity directives.",
+  },
+  {
+    time: "11:00-12:00",
+    item: "High-Powered Ambassadors' Panel",
+    topic: "Africa to the World: Diplomacy, Global Leadership and Opportunity",
+    speakers: "Sabine Dall'Omo (Siemens), Nazia Pillay (SAP), Bertina Engelbrecht (Clicks Group), Lindiwe Msengana-Ndlela (DIRCO), Nolufefe Dwabayo (The Presidency), Andronicca Masemola (Barloworld Equipment), Jacky Molisane (DEL), Thulisile Manzini (DSBD), Zane Dangor (DIRCO), Nonkqubela Jordan-Dyani (DCDT)",
+    focus: "Global executive leaders and diplomatic ambassadors exploring continental trade, international expansion, multilateral diplomacy, and preparing African women leaders for global decision-making.",
   },
   {
     time: "12:00-12:15",

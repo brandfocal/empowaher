@@ -6,7 +6,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { NewsBanner } from "./NewsBanner";
 
-const PROGRAMME_PDF_PATH = "/EmpowaHER-Programme-2026.pdf";
+const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
 const PROSPECTUS_EMAIL_HREF =
   "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
@@ -206,7 +206,7 @@ export function EmpowaHerComingSoon() {
 
                   <a
                     href={PROGRAMME_PDF_PATH}
-                    download="EmpowaHER-Programme-2026.pdf"
+                    download="Updated-Programme-EmpowaHer-2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] sm:w-auto"
@@ -289,7 +289,7 @@ export function EmpowaHerComingSoon() {
               {/* Text-Only CTA Button */}
               <a
                 href={PROGRAMME_PDF_PATH}
-                download="EmpowaHER-Programme-2026.pdf"
+                download="Updated-Programme-EmpowaHer-2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-full bg-[#ed027e] px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#ed027e]/90 sm:w-auto"
