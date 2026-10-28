@@ -435,4 +435,28 @@ export const additionalSpeakers: AdditionalSpeaker[] = [
     designation: "Minister of Human Settlements | Republic of South Africa",
     image: "/speakers/Hon-Mmamoko-Kubayi.png",
   },
+  {
+    id: "nomonde-mnukwa",
+    name: "Ms Nomonde Mnukwa",
+    designation: "Acting Director-General | Government Communication and Information System (GCIS)",
+    image: "/speakers/Nomonde-Mnukwa.png",
+  },
+  {
+    id: "noni-khumalo",
+    name: "Noni Khumalo",
+    designation: "Award-Winning Broadcaster, TV & Radio Producer and Master of Ceremonies",
+    image: "/speakers/Noni-Khumalo.png",
+  },
+  {
+    id: "yvonne-mothibi",
+    name: "Yvonne Mothibi",
+    designation: "CEO | Institute of Risk Management South Africa (IRMSA)",
+    image: "/speakers/Yvonne-Mothibi.png",
+  },
+  {
+    id: "tebogo-mekgoe",
+    name: "Tebogo Mekgoe",
+    designation: "Founder & Strategist | Orenda Advisory and Strategy",
+    image: "/speakers/Tebogo-Mekgoe.png",
+  },
 ];
