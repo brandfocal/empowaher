@@ -39,8 +39,8 @@ type ScheduleRow = {
   speakers?: string;
 };
 
-const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
-const PROGRAMME_PDF_NAME = "Updated-Programme-EmpowaHer-2026.pdf";
+const PROGRAMME_PDF_PATH = "/EmpowaHer_Programme%202026.pdf";
+const PROGRAMME_PDF_NAME = "EmpowaHer_Programme 2026.pdf";
 
 type Track = {
   number: string;

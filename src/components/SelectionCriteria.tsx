@@ -13,7 +13,7 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
+const PROGRAMME_PDF_PATH = "/EmpowaHer_Programme%202026.pdf";
 const NOMINATION_EMAIL_HREF =
   "mailto:info@empowaher.co.za?subject=EmpowaHer%20Leader%20Nomination";
 const PROSPECTUS_EMAIL_HREF =
@@ -295,7 +295,7 @@ export function SelectionCriteria() {
 
                   <a
                     href={PROGRAMME_PDF_PATH}
-                    download="Updated-Programme-EmpowaHer-2026.pdf"
+                    download="EmpowaHer_Programme 2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-[#3f3f3f] hover:scale-[1.02] hover:shadow-lg sm:w-auto"

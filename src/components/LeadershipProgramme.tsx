@@ -20,7 +20,7 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-const PROGRAMME_PDF_PATH = "/Updated-Programme-EmpowaHer-2026.pdf";
+const PROGRAMME_PDF_PATH = "/EmpowaHer_Programme%202026.pdf";
 const PROSPECTUS_EMAIL_HREF =
   "mailto:info@empowaher.co.za?subject=EmpowaHer%20Prospectus%20Request";
 
@@ -306,7 +306,7 @@ export function LeadershipProgramme() {
                 >
                   <a
                     href={PROGRAMME_PDF_PATH}
-                    download="Updated-Programme-EmpowaHer-2026.pdf"
+                    download="EmpowaHer_Programme 2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center rounded-full bg-[#ed027e] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#ed027e]/90 hover:scale-[1.02] hover:shadow-xl sm:w-auto"
