@@ -6,12 +6,12 @@ import { leadershipVideos } from "@/data/leadershipVideos";
 export const metadata: Metadata = {
   title: "Media & Press Hub | Television, Radio, Podcasts & Video Features",
   description:
-    "Official broadcast interviews and features on eNCA, SABC News Trendz Live, Metro FM, Radio 2000, Lesedi FM, 18 keynote speaker and nominee video features, and EmpowaHer™ Leadership Summit 2026 press kits.",
+    "Official broadcast interviews and features on eNCA, SABC News Trendz Live, Metro FM, Radio 2000, Lesedi FM, 18 keynote speaker and nominee video features, and EmpowaHer™ Leadership Summit 2027 press kits.",
   alternates: {
     canonical: "/media",
   },
   openGraph: {
-    title: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
+    title: "Media & Press Hub | EmpowaHer™ Leadership Summit 2027",
     description:
       "Access television broadcasts on eNCA & SABC News Trendz Live, national radio interviews with Metro FM, Radio 2000, and Lesedi FM, 18 speaker video features, and official media releases.",
     url: "https://empowaher.co.za/media",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Media & Press Hub | EmpowaHer™ Summit 2026",
+    title: "Media & Press Hub | EmpowaHer™ Summit 2027",
     description:
       "Television news features on eNCA & SABC News, national radio broadcasts with Metro FM, Radio 2000 & Lesedi FM, 18 speaker videos, and media release downloads.",
     images: ["/feature-image15.jpg"],
@@ -37,9 +37,9 @@ const mediaStructuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://empowaher.co.za/media#webpage",
-  name: "Media & Press Hub | EmpowaHer™ Leadership Summit 2026",
+  name: "Media & Press Hub | EmpowaHer™ Leadership Summit 2027",
   description:
-    "Official media centre for EmpowaHer™ Summit 2026 with eNCA television news interviews, SABC News Trendz Live broadcast features, national radio interviews from Metro FM, Radio 2000, Lesedi FM, and 18 keynote speaker video features.",
+    "Official media centre for EmpowaHer™ Summit 2027 with eNCA television news interviews, SABC News Trendz Live broadcast features, national radio interviews from Metro FM, Radio 2000, Lesedi FM, and 18 keynote speaker video features.",
   publisher: {
     "@type": "Organization",
     name: "EmpowaHer™",

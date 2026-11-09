@@ -5,14 +5,14 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Nine Leadership Tracks & Executive Programme",
   description:
-    "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2026: Entrepreneurship, AI & Digital Leadership, Governance & Board Readiness, Social Impact, and Wealth Creation.",
+    "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2027: Entrepreneurship, AI & Digital Leadership, Governance & Board Readiness, Social Impact, and Wealth Creation.",
   alternates: {
     canonical: "/leadership-programme",
   },
   openGraph: {
-    title: "Nine Integrated Leadership Tracks | EmpowaHer™ Summit 2026",
+    title: "Nine Integrated Leadership Tracks | EmpowaHer™ Summit 2027",
     description:
-      "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2026 designed to develop the whole leader for Africa's next economy.",
+      "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2027 designed to develop the whole leader for Africa's next economy.",
     url: "https://empowaher.co.za/leadership-programme",
     images: [
       {
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nine Integrated Leadership Tracks | EmpowaHer™ Summit 2026",
+    title: "Nine Integrated Leadership Tracks | EmpowaHer™ Summit 2027",
     description:
-      "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2026.",
+      "Explore the 9 integrated leadership tracks of EmpowaHer™ Leadership Summit 2027.",
     images: ["/feature-image11.jpg"],
   },
 };

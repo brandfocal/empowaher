@@ -134,9 +134,36 @@ export function BroughtToYouBy({
               <ArrowUpRight className="h-4 w-4" />
             </Link>
             <span className="text-[0.625rem] sm:text-[0.6875rem] font-bold uppercase tracking-wider text-[#3f3f3f]/60">
-              Inaugural 2026 Leadership Coalition
+              Inaugural Leadership Coalition
             </span>
           </div>
+        </div>
+
+        {/* Brand Positioning Callout */}
+        <div className="mt-2 rounded-2xl border border-[#ed027e]/20 bg-gradient-to-r from-[#ed027e]/5 via-[#ed027e]/[0.02] to-transparent p-4 sm:p-5 text-xs sm:text-sm text-[#1C2128]">
+          <p className="font-semibold text-[#11161F]">
+            Produced by{" "}
+            <a
+              href="https://www.empowaworx.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#ed027e] underline hover:text-[#11161F] transition-colors"
+            >
+              EmpowaWorx
+            </a>
+          </p>
+          <p className="mt-1 text-xs text-[#3f3f3f]/80">
+            EmpowaHer is part of the{" "}
+            <a
+              href="https://www.empowaworx.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline hover:text-[#ed027e] transition-colors"
+            >
+              EmpowaWorx
+            </a>{" "}
+            integrated ecosystem.
+          </p>
         </div>
 
         {/* Logos on ONE LINE in their authentic original colours */}

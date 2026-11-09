@@ -178,7 +178,7 @@ export function VisionImpact() {
               </span>
               <span>About Us | Strategic Imperative</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>Summit 2026</span>
+              <span>Summit 2027</span>
             </div>
 
             {/* Summit Overline */}
@@ -388,7 +388,7 @@ export function VisionImpact() {
                 </div>
               </div>
               <span className="inline-flex items-center rounded-full border border-[#1C2128]/10 bg-[#F9F4F7] px-3.5 py-1 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#1C2128]/70">
-                Summit 2026 Charter
+                Summit 2027 Charter
               </span>
             </div>
 

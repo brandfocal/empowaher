@@ -121,7 +121,7 @@ const candidateCommitments = [
   {
     number: "01",
     title: "Full Summit Attendance",
-    detail: "Attend the complete three-day programme in Johannesburg: 29–31 October 2026.",
+    detail: "Attend the complete four-day programme in Johannesburg: 23–26 June 2027 (Saturday, 26 June Graduation Day).",
   },
   {
     number: "02",
@@ -303,11 +303,11 @@ const nominatorDeclarations = [
 ];
 
 const nomineeAcceptance = [
-  { id: 80, text: "I accept this nomination and wish to be considered for the EmpowaHer™ Summit 2026." },
+  { id: 80, text: "I accept this nomination and wish to be considered for the EmpowaHer™ Summit 2027." },
   { id: 81, text: "I confirm that all personal and professional details provided are accurate." },
-  { id: 82, text: "I meet the age requirement of 18–35 on 29 October 2026." },
+  { id: 82, text: "I meet the age requirement of 18–35 on 23 June 2027." },
   { id: 83, text: "I understand that EmpowaHer™ is an invitation-only leadership accelerator." },
-  { id: 84, text: "I commit to attending the complete three-day programme (29–31 Oct 2026) in Johannesburg." },
+  { id: 84, text: "I commit to attending the complete four-day programme (23–26 June 2027) in Johannesburg." },
   { id: 85, text: "I will actively participate in all tracks, labs, and the 100-day post-summit commitment." },
   { id: 86, text: "I consent to participating in impact tracking and mentorship activities." },
   { id: 87, text: "I understand that selection panel decisions are final." },
@@ -664,7 +664,7 @@ export function NominationForm() {
             </span>
             <span>Candidate Selection &amp; Nomination</span>
             <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-            <span>Summit 2026</span>
+            <span>Summit 2027</span>
           </div>
 
           {/* Summit Overline */}
@@ -1179,13 +1179,13 @@ export function NominationForm() {
                       Nominee Information
                     </h3>
                     <p className="mt-2 text-xs text-white/60 sm:text-sm">
-                      Details of the candidate being nominated (must be aged 18–35 on 29 October 2026).
+                      Details of the candidate being nominated (must be aged 18–35 on 23 June 2027).
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                     <FormField label="Full Name of Nominee" name="input_9" id="input_9" required />
-                    <FormField label="Age on 29 Oct 2026 (18–35)" name="input_10" id="input_10" required>
+                    <FormField label="Age on 23 June 2027 (18–35)" name="input_10" id="input_10" required>
                       <input
                         type="number"
                         name="input_10"
@@ -1631,7 +1631,7 @@ export function NominationForm() {
                   <div className="divide-y divide-white/10">
                     <ToggleRow
                       fieldId={50}
-                      label="Q50: I confirm the nominee can attend all three summit days (29–31 Oct 2026)."
+                      label="Q50: I confirm the nominee can attend all four summit days (23–26 June 2027)."
                       toggles={toggles}
                       setToggles={setToggles}
                     />

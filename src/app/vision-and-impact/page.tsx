@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { VisionImpact } from "@/components/VisionImpact";
 
 export const metadata: Metadata = {
-  title: "About Us | EmpowaHer™ Leadership Summit 2026",
+  title: "About Us | EmpowaHer™ Leadership Summit 2027",
   description:
-    "Explore the strategic imperative and integrated platform model of the EmpowaHer™ Leadership Summit 2026. Investing in the emerging women leaders who will shape Africa's next economy.",
+    "Explore the strategic imperative and integrated platform model of the EmpowaHer™ Leadership Summit 2027. Investing in the emerging women leaders who will shape Africa's next economy.",
 };
 
 export default function VisionAndImpactPage() {

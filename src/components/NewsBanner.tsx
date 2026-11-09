@@ -19,7 +19,7 @@ export function NewsBanner() {
             className="font-heading text-[clamp(1.5rem,3vw,2.5rem)] font-black uppercase leading-[1.05] tracking-[-0.02em] text-white"
           >
             <span>
-              EmpowaHer™ Leadership Summit 2026 Opens Nominations to Accelerate
+              EmpowaHer™ Leadership Summit 2027 Opens Nominations to Accelerate
               Africa&apos;s Next Generation of Women Leaders
             </span>
           </h2>
@@ -28,9 +28,9 @@ export function NewsBanner() {
         <div className="flex flex-col items-start justify-center">
           <p className="max-w-[48ch] text-[0.9375rem] font-medium leading-[1.65] text-white/70 sm:text-base">
             <span>
-              Nominations are now open for a three-day, continent-wide executive
-              leadership experience. 200 exceptional women aged 18–35 will be
-              selected from across South Africa and the African continent.
+              Nominations are now open for an executive four-day leadership
+              experience taking place 23–26 June 2027 (with Saturday, 26 June as graduation day).
+              200 exceptional women aged 18–35 will be selected from across South Africa and the African continent.
             </span>
           </p>
           <Link

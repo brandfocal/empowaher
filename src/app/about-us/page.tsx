@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/about-us",
   },
   openGraph: {
-    title: "About Us | EmpowaHer™ Leadership Summit 2026",
+    title: "About Us | EmpowaHer™ Leadership Summit 2027",
     description:
       "Equipping Africa's next generation of women leaders for measurable impact across enterprise, governance, and boardrooms.",
     url: "https://empowaher.co.za/about-us",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | EmpowaHer™ Leadership Summit 2026",
+    title: "About Us | EmpowaHer™ Leadership Summit 2027",
     description:
       "Equipping Africa's next generation of women leaders for measurable impact across enterprise, governance, and boardrooms.",
     images: ["/feature-image12.jpg"],

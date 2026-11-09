@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/criteria",
   },
   openGraph: {
-    title: "Nomination & Selection Criteria | EmpowaHer™ Summit 2026",
+    title: "Nomination & Selection Criteria | EmpowaHer™ Summit 2027",
     description:
       "Review the 7-pillar evaluation model and nominate an exceptional emerging female leader aged 18–35.",
     url: "https://empowaher.co.za/criteria",

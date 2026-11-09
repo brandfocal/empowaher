@@ -27,11 +27,36 @@ export function Footer() {
               <h3 className="mb-4 font-heading text-[clamp(1.5rem,2.5vw,2rem)] font-black uppercase leading-[1.15] tracking-[-0.01em] text-white">
                 <span>The Future Is Female™</span>
               </h3>
-              <p className="mb-6 text-[0.9375rem] font-normal leading-[1.65] text-white/70 md:max-w-[42ch]">
+              <p className="mb-4 text-[0.9375rem] font-normal leading-[1.65] text-white/70 md:max-w-[42ch]">
                 <span>
                   EmpowaHer™ equips and elevates young African women leaders with executive mentorship, actionable masterclasses, and strategic networks to compete and lead across business, government, and the boardroom.
                 </span>
               </p>
+              <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] p-3.5 text-xs text-white/75 space-y-1.5 md:max-w-[42ch]">
+                <p className="font-semibold text-white/90">
+                  Produced by{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#ed027e] underline hover:text-white transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>
+                </p>
+                <p className="text-[0.6875rem] text-white/60 leading-relaxed">
+                  EmpowaHer is part of the{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline text-white/80 hover:text-[#ed027e] transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>{" "}
+                  integrated ecosystem.
+                </p>
+              </div>
               <div className="flex flex-col gap-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">
                 <a
                   href={PROGRAMME_PDF_PATH}
@@ -114,9 +139,31 @@ export function Footer() {
 
       {/* Footer Bottom Bar */}
       <div className="border-t border-white/10 bg-black px-5 py-8 text-white/60 md:px-12 lg:px-16">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 text-left text-xs font-semibold uppercase tracking-[0.12em] md:flex-row md:items-center">
-          <div>
-            <span>© {new Date().getFullYear()} EMPOWAHER • AN EMPOWAWORX INITIATIVE</span>
+        <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-4 text-left text-xs font-semibold uppercase tracking-[0.12em] md:flex-row md:items-center">
+          <div className="space-y-1">
+            <div>
+              <span>© {new Date().getFullYear()} EMPOWAHER • PRODUCED BY </span>
+              <a
+                href="https://www.empowaworx.co.za/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold underline text-[#ed027e] hover:text-white transition-colors"
+              >
+                EMPOWAWORX
+              </a>
+            </div>
+            <p className="text-[0.6875rem] normal-case tracking-normal text-white/50">
+              EmpowaHer is part of the{" "}
+              <a
+                href="https://www.empowaworx.co.za/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-white/70 hover:text-[#ed027e] transition-colors"
+              >
+                EmpowaWorx
+              </a>{" "}
+              integrated ecosystem.
+            </p>
           </div>
           <div className="flex items-center gap-1.5 transition-colors hover:text-[#ed027e]">
             <span>— EMPOWERING WOMEN. ENGINEERING THE FUTURE.</span>

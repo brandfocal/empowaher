@@ -448,7 +448,7 @@ export function MediaPage() {
                   <span className="text-[#ed027e]">Broadcast Interviews</span>
                 </h2>
                 <p className="mt-3 max-w-[68ch] font-sans text-sm sm:text-base leading-relaxed text-white/70">
-                  Listen to flagship national radio broadcasts, executive dialogues, and podcast studio recordings discussing the EmpowaHer™ Leadership Summit 2026, female economic inclusion, and the next generation of African women leaders.
+                  Listen to flagship national radio broadcasts, executive dialogues, and podcast studio recordings discussing the EmpowaHer™ Leadership Summit 2027, female economic inclusion, and the next generation of African women leaders.
                 </p>
               </div>
 
@@ -956,10 +956,10 @@ export function MediaPage() {
 
               <div className="mt-6 space-y-4 font-sans text-sm sm:text-base leading-relaxed text-white/80 border-l-2 border-[#ed027e] pl-5">
                 <p>
-                  <strong>JOHANNESBURG, SOUTH AFRICA</strong> — EmpowaWorx today announced the official opening of nominations for EmpowaHer™, an executive three-day leadership development and advancement experience taking place <strong>29–31 October 2026</strong> at EmpowaWorx House in Ferndale, Randburg.
+                  <strong>JOHANNESBURG, SOUTH AFRICA</strong> — EmpowaWorx today announced the official opening of nominations for EmpowaHer™, an executive four-day leadership development and advancement experience taking place <strong>23–26 June 2027</strong> (with Saturday, 26 June as graduation day) at EmpowaWorx House in Ferndale, Randburg.
                 </p>
                 <p>
-                  Over three intensive days, 200 selected young women aged 18–35 will engage in nine high-impact executive leadership tracks, connect directly with corporate chief executives and government ministers, and participate in peer-to-peer mentorship designed to accelerate their trajectory into boardrooms and high-growth enterprises.
+                  Over four intensive days (culminating in the Saturday, 26 June Graduation Finale), 200 selected young women aged 18–35 will engage in nine high-impact executive leadership tracks, connect directly with corporate chief executives and government ministers, and participate in peer-to-peer mentorship designed to accelerate their trajectory into boardrooms and high-growth enterprises.
                 </p>
                 <p>
                   “Africa’s future will be written by the young women we equip and embolden today,” says Simphiwe Masiza, Founder and Executive Producer of EmpowaWorx. “EmpowaHer is not a conference—it is a platform architecture designed for measurable socio-economic elevation.”

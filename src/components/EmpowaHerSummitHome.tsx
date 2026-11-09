@@ -171,9 +171,9 @@ export function EmpowaHerSummitHome() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ed027e] opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#ed027e]" />
               </span>
-              <span>EmpowaHer™ Leadership Summit 2026</span>
+              <span>EmpowaHer™ Leadership Summit 2027</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>29–31 October 2026</span>
+              <span>23–26 June 2027</span>
             </div>
 
             {/* Summit Overline */}
@@ -237,11 +237,11 @@ export function EmpowaHerSummitHome() {
               >
                 <h2 className="font-heading text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.25] tracking-[-0.01em] text-white/90">
                   <span>
-                    A Three-Day Leadership Experience for Africa&apos;s Next Generation of Women Leaders (18–35)
+                    A Four-Day Leadership Experience for Africa&apos;s Next Generation of Women Leaders (18–35)
                   </span>
                 </h2>
                 <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/60">
-                  <span>EmpowaWorx House, Randburg, Johannesburg</span>
+                  <span>23–26 June 2027 • EmpowaWorx House, Randburg (Saturday, 26 June Graduation Day)</span>
                 </p>
               </div>
 
@@ -253,7 +253,7 @@ export function EmpowaHerSummitHome() {
               >
                 <p className="font-sans text-[0.875rem] font-normal leading-[1.65] text-white/70">
                   <span>
-                    EmpowaHer™ is a three-day leadership experience designed to
+                    EmpowaHer™ is an executive leadership experience (23–26 June 2027, with Saturday, 26 June as graduation day) designed to
                     prepare Africa’s next generation of women leaders to compete,
                     lead and succeed across business, government, entrepreneurship
                     and the boardroom.
@@ -268,21 +268,21 @@ export function EmpowaHerSummitHome() {
       {/* Live Summit Countdown Timer Ribbon */}
       <CountdownTimer />
 
-      {/* Official Summit 2026 Full-Width Banner */}
+      {/* Official Summit 2027 Full-Width Banner */}
       <section
         id="summit-banner"
         className="relative w-full overflow-hidden bg-black"
-        aria-label="EmpowaHer Leadership Summit 2026 Banner"
+        aria-label="EmpowaHer Leadership Summit 2027 Banner"
       >
         <Link
           href="https://www.empowaher.co.za/nominate"
           className="group relative block w-full overflow-hidden focus:outline-none focus:ring-4 focus:ring-[#ed027e]"
-          aria-label="Nominate for EmpowaHer Leadership Summit 2026"
-          title="Nominate for EmpowaHer Leadership Summit 2026"
+          aria-label="Nominate for EmpowaHer Leadership Summit 2027"
+          title="Nominate for EmpowaHer Leadership Summit 2027"
         >
           <img
             src="/EmpowaHer-Leadership-Summit2026.jpg"
-            alt="EmpowaHer Leadership Summit 2026 — Invitation-Led Leadership Accelerator, 29–31 October 2026, EmpowaWorx House"
+            alt="EmpowaHer Leadership Summit 2027 — Invitation-Led Leadership Accelerator, 23–26 June 2027, EmpowaWorx House"
             width={1920}
             height={720}
             className="block w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
@@ -317,7 +317,7 @@ export function EmpowaHerSummitHome() {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-xs font-mono text-black/50 uppercase tracking-wider hidden md:inline">
-                29–31 October 2026 • EmpowaWorx House
+                23–26 June 2027 • EmpowaWorx House (Saturday, 26 June Graduation Day)
               </span>
             </div>
           </div>
@@ -332,15 +332,35 @@ export function EmpowaHerSummitHome() {
                 alt="Simphiwe Masiza, Founder & Executive Producer of EmpowaWorx"
                 className="h-full w-full rounded-2xl object-cover object-[center_15%]"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/60 to-transparent px-8 pb-8 pt-24">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1C2128]/95 via-[#1C2128]/60 to-transparent px-8 pb-8 pt-24 space-y-1">
                 <p className="text-[0.75rem] font-black uppercase tracking-[0.22em] text-white">
                   <span>Simphiwe Masiza</span>
                 </p>
-                <p className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#ed027e]">
-                  <span>Executive Producer | EmpowaHer Leadership Summit 2026</span>
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#ed027e]">
+                  <span>Executive Producer | EmpowaHer Leadership Summit 2027</span>
                 </p>
-                <p className="mt-0.5 text-[0.5625rem] uppercase tracking-[0.16em] text-white/60">
-                  <span>Founder, EmpowaWorx™</span>
+                <p className="text-[0.625rem] text-white/80">
+                  Produced by{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold underline text-white hover:text-[#ed027e] transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>
+                </p>
+                <p className="text-[0.5625rem] text-white/60 leading-tight">
+                  EmpowaHer is part of the{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-white/70 hover:text-[#ed027e] transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>{" "}
+                  integrated ecosystem.
                 </p>
               </div>
               <div
@@ -364,10 +384,30 @@ export function EmpowaHerSummitHome() {
                   Simphiwe Masiza
                 </p>
                 <p className="text-[0.6875rem] font-mono font-semibold uppercase tracking-wider text-[#ed027e]">
-                  Executive Producer | EmpowaHer™
+                  Executive Producer | EmpowaHer™ 2027
                 </p>
-                <p className="text-[0.625rem] text-black/50 uppercase tracking-wider">
-                  Founder, EmpowaWorx™
+                <p className="text-[0.625rem] text-black/70">
+                  Produced by{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold underline hover:text-[#ed027e]"
+                  >
+                    EmpowaWorx
+                  </a>
+                </p>
+                <p className="text-[0.5625rem] text-black/50">
+                  Part of the{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-[#ed027e]"
+                  >
+                    EmpowaWorx
+                  </a>{" "}
+                  integrated ecosystem.
                 </p>
               </div>
             </div>
@@ -379,7 +419,7 @@ export function EmpowaHerSummitHome() {
                 id="vision-heading"
                 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black uppercase leading-tight tracking-[-0.02em] text-[#11161F]"
               >
-                EmpowaHer Leadership Summit 2026{" "}
+                EmpowaHer Leadership Summit 2027{" "}
                 <span className="text-[#ed027e]">| The Future Is Female</span>
               </h2>
 
@@ -390,8 +430,10 @@ export function EmpowaHerSummitHome() {
               <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-black/60 pt-2 border-t border-black/5">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="h-3.5 w-3.5 text-[#ed027e]" />
-                  <strong className="text-black/80">29–31 October 2026</strong>
+                  <strong className="text-black/80">23–26 June 2027</strong>
                 </span>
+                <span>•</span>
+                <span>Saturday, 26 June Graduation Day</span>
                 <span>•</span>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="h-3.5 w-3.5 text-[#ed027e]" />
@@ -473,11 +515,11 @@ export function EmpowaHerSummitHome() {
               </div>
 
               <p>
-                As Executive Producer of EmpowaHer Leadership Summit 2026, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
+                As Executive Producer of EmpowaHer Leadership Summit 2027, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
               </p>
 
               <p>
-                Taking place <strong>29–31 October at EmpowaWorx House, Randburg</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
+                Taking place <strong>23–26 June 2027 at EmpowaWorx House, Randburg (with Saturday, 26 June as graduation day)</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
               </p>
 
               {/* Four Strategic Priorities Cards */}
@@ -569,7 +611,7 @@ export function EmpowaHerSummitHome() {
                   Simphiwe Masiza
                 </strong>
                 <span className="block text-xs font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
-                  Executive Producer | EmpowaHer Leadership Summit 2026
+                  Executive Producer | EmpowaHer Leadership Summit 2027
                 </span>
               </div>
 
@@ -823,7 +865,7 @@ export function EmpowaHerSummitHome() {
               />
               <figcaption className="absolute bottom-0 left-0 right-0 px-8 pb-8">
                 <p className="text-[0.62rem] font-black uppercase tracking-[0.2em] text-white/70">
-                  EmpowaHer™ 2026
+                  EmpowaHer™ 2027
                 </p>
               </figcaption>
             </figure>
@@ -849,10 +891,10 @@ export function EmpowaHerSummitHome() {
             <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
               <div>
                 <span className="rounded-full bg-[#ed027e] px-3 py-0.5 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white">
-                  Official 2026 Programme Itinerary
+                  Official 2027 Programme Itinerary
                 </span>
                 <h3 className="font-heading mt-2 text-xl font-bold uppercase text-white sm:text-2xl">
-                  Download The Complete 3-Day Summit Programme
+                  Download The Complete 4-Day Summit Programme
                 </h3>
                 <p className="mt-1 max-w-[50ch] text-xs sm:text-sm text-white/70">
                   Comprehensive breakdown of opening plenaries, 9 executive tracks, speakers faculty, and graduation ceremonies.
@@ -901,7 +943,7 @@ export function EmpowaHerSummitHome() {
                 EmpowaHer Opens Nominations for 200 of Africa’s Next Generation of Women Leaders
               </h2>
               <p className="mt-4 max-w-[54ch] text-sm leading-relaxed text-white/75 sm:text-base">
-                Official announcement detailing the opening of continent-wide nominations for young women aged 18–35 to participate in the flagship 2026 executive leadership experience at EmpowaWorx House.
+                Official announcement detailing the opening of continent-wide nominations for young women aged 18–35 to participate in the flagship 2027 executive leadership experience at EmpowaWorx House.
               </p>
             </div>
 

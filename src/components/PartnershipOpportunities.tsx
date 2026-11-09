@@ -471,7 +471,7 @@ export function PartnershipOpportunities() {
               </span>
               <span>Partnership Ecosystem</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>Summit 2026</span>
+              <span>Summit 2027</span>
             </div>
 
             {/* Summit Overline */}
@@ -630,7 +630,7 @@ export function PartnershipOpportunities() {
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-6">
                 <div>
                   <strong className="block font-heading text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                    EmpowaHer™ Leadership Summit 2026
+                    EmpowaHer™ Leadership Summit 2027
                   </strong>
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ed027e]">
                     The Future Is Female™
@@ -827,7 +827,7 @@ export function PartnershipOpportunities() {
             </div>
             <div className="flex flex-col justify-end">
               <p className="max-w-[34rem] font-sans text-[0.9375rem] font-normal leading-[1.65] text-white/75 sm:text-base">
-                Derived directly from our official 2026 Partnership Proposal. Each tier is purposefully designed to convert corporate investment into measurable talent, enterprise, customer, and ESG outcomes.
+                Derived directly from our official 2027 Partnership Proposal. Each tier is purposefully designed to convert corporate investment into measurable talent, enterprise, customer, and ESG outcomes.
               </p>
               <div className="mt-4">
                 <button
@@ -958,7 +958,7 @@ export function PartnershipOpportunities() {
               <span>04 — Express Partnership Interest</span>
             </div>
             <h2 className="font-heading text-[clamp(2.35rem,4.5vw,4.25rem)] font-black uppercase leading-[1.0] tracking-[-0.02em] text-white">
-              <span>Partner With EmpowaHer™ 2026</span>
+              <span>Partner With EmpowaHer™ 2027</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[46rem] font-sans text-sm leading-relaxed text-white/70 sm:text-base">
               Submit your expression of interest below. Our executive leadership team will promptly review your strategic priorities and provide the confidential prospectus and tailored proposal.
@@ -974,7 +974,7 @@ export function PartnershipOpportunities() {
                 Partnership Inquiry Received
               </h3>
               <p className="mx-auto mt-3 max-w-[36rem] text-sm leading-relaxed text-white/80 sm:text-base">
-                Thank you for indicating your interest in partnering with <strong>EmpowaHer™ Leadership Summit 2026</strong> as a <strong>{selectedPackage}</strong>. An executive director will contact you within 24 hours.
+                Thank you for indicating your interest in partnering with <strong>EmpowaHer™ Leadership Summit 2027</strong> as a <strong>{selectedPackage}</strong>. An executive director will contact you within 24 hours.
               </p>
 
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

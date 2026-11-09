@@ -92,7 +92,7 @@ const navLinks: NavLink[] = [
 ];
 
 const heroDetails: StatPill[] = [
-  { label: "Date", value: "29-31 October 2026" },
+  { label: "Date", value: "23-26 June 2027" },
   {
     label: "Venue",
     value: "EmpowaWorx House, 364 Pine Avenue, Ferndale, Randburg, 2196",
@@ -104,7 +104,7 @@ const heroDetails: StatPill[] = [
 ];
 
 const summitStats: StatPill[] = [
-  { label: "Dates", value: "29-31 Oct 2026" },
+  { label: "Dates", value: "23-26 June 2027" },
   { label: "Venue", value: "EmpowaWorx House Randburg" },
   { label: "Cohort", value: "Women Leaders 18-35" },
 ];
@@ -256,7 +256,7 @@ const scheduleRows: ScheduleRow[] = [
     time: "10:56-11:00",
     item: "Official Summit Declaration",
     topic: "The Future Is Female Leadership Call",
-    focus: "Formal declaration inaugurating the three-day EmpowaHer Summit 2026.",
+    focus: "Formal declaration inaugurating the four-day EmpowaHer Summit 2027.",
   },
 ];
 
@@ -711,7 +711,7 @@ const graduationHighlights: Highlight[] = [
   },
   {
     id: "graduation-recognition",
-    text: "Graduation and Leadership Recognition Ceremony: Official conferral of track diplomas and special citations to the 200 EmpowaHer™ Class of 2026 leaders",
+    text: "Graduation and Leadership Recognition Ceremony: Official conferral of track diplomas and special citations to the 200 EmpowaHer™ Class of 2027 leaders",
   },
   {
     id: "reception",
@@ -800,7 +800,7 @@ const graduationScheduleRows: ScheduleRow[] = [
   {
     time: "14:00-15:00",
     item: "Graduation & Leadership Recognition",
-    topic: "The EmpowaHer™ Class of 2026",
+    topic: "The EmpowaHer™ Class of 2027",
     speakers: "200 Cohort Nominees, Simphiwe Masiza, Honoured Guests & Faculty",
     focus: "Official graduation ceremony, presentation of track credentials, special leadership awards, and induction of the 200 emerging women leaders.",
   },
@@ -943,7 +943,7 @@ export function EmpowaHerProgramme() {
         <div className="mx-auto grid w-full max-w-[1380px] gap-14 lg:grid-cols-[1.5fr_1fr] lg:items-end">
           <div>
             <div className="mb-5 border-l-2 border-[#ed027e] pl-3 text-[0.6875rem] font-black uppercase tracking-[0.22em] text-white/80 font-heading">
-              <span>EmpowaHer Programme 2026</span>
+              <span>EmpowaHer Programme 2027</span>
             </div>
             <h1 className="max-w-[10ch] font-heading text-[clamp(3.25rem,7.5vw,6.75rem)] font-black uppercase leading-[0.88] tracking-[-0.03em] text-white">
               <span>The Future Is Female.</span>
@@ -1010,7 +1010,7 @@ export function EmpowaHerProgramme() {
             <span>Summit Experience</span>
           </p>
           <h2 className="font-heading text-[clamp(1.85rem,3.2vw,3rem)] font-black uppercase leading-[1.08] tracking-[-0.02em] text-[#0D0D0D]">
-            <span>A Three-Day Executive Leadership Experience.</span>
+            <span>A Four-Day Executive Leadership Experience (23–26 June 2027).</span>
           </h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
             {summitStats.map((stat) => (
@@ -1023,6 +1023,32 @@ export function EmpowaHerProgramme() {
                 </p>
               </article>
             ))}
+          </div>
+
+          <div className="mt-6 rounded-xl border border-black/10 bg-[#F9F4F7] p-4 text-xs text-[#3f3f3f] space-y-1">
+            <p className="font-semibold text-[#11161F]">
+              Produced by{" "}
+              <a
+                href="https://www.empowaworx.co.za/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#ed027e] underline hover:text-[#11161F] transition-colors"
+              >
+                EmpowaWorx
+              </a>
+            </p>
+            <p className="text-[0.6875rem] text-[#3f3f3f]/70">
+              EmpowaHer is part of the{" "}
+              <a
+                href="https://www.empowaworx.co.za/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline hover:text-[#ed027e] transition-colors"
+              >
+                EmpowaWorx
+              </a>{" "}
+              integrated ecosystem.
+            </p>
           </div>
         </aside>
 
@@ -1066,7 +1092,7 @@ export function EmpowaHerProgramme() {
 
       {/* Day One Banner */}
       <div className="border-l-4 border-[#ed027e] bg-[#ed027e]/[0.10] px-6 sm:px-10 py-2.5 font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
-        <span>DAY ONE — 29 OCTOBER 2026 — OPENING PLENARY</span>
+        <span>DAY ONE — 23 JUNE 2027 — OPENING PLENARY</span>
       </div>
 
       {/* Day One Section */}
@@ -1075,7 +1101,7 @@ export function EmpowaHerProgramme() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end">
             <div>
               <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-                <span>Day One</span>
+                <span>Day One (Wednesday, 23 June 2027)</span>
               </p>
               <h2 className="font-heading text-[clamp(2.4rem,5.5vw,5.5rem)] font-black uppercase leading-[0.88] tracking-[-0.03em]">
                 <span>Opening Plenary: Leading the Future: Women, Power and Possibility.</span>
@@ -1273,9 +1299,9 @@ export function EmpowaHerProgramme() {
         </div>
       </section>
 
-      {/* Day Two Banner */}
+      {/* Executive Tracks Banner */}
       <div className="border-l-4 border-[#ed027e] bg-[#ed027e]/[0.10] px-6 sm:px-10 py-2.5 font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
-        <span>DAY TWO — 30 OCTOBER 2026 — LEADERSHIP TRACKS 06–09</span>
+        <span>EXECUTIVE LEADERSHIP TRACKS — 24–25 JUNE 2027</span>
       </div>
 
       {/* Day Two Overview Section */}
@@ -1284,7 +1310,7 @@ export function EmpowaHerProgramme() {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
             <div>
               <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-                <span>Day Two</span>
+                <span>Executive Tracks (24–25 June 2027)</span>
               </p>
               <h2 className="font-heading text-[clamp(2.5rem,5.5vw,5.5rem)] font-black uppercase leading-[0.88] tracking-[-0.03em]">
                 <span>Specialist Day Two Tracks</span>
@@ -1697,9 +1723,9 @@ export function EmpowaHerProgramme() {
         </div>
       </section>
 
-      {/* Day Three Banner */}
+      {/* Day Three / Graduation Banner */}
       <div className="border-l-4 border-[#ed027e] bg-[#ed027e]/[0.10] px-6 sm:px-10 py-2.5 font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ed027e]">
-        <span>DAY THREE — 31 OCTOBER 2026 — GRADUATION FINALE</span>
+        <span>SATURDAY, 26 JUNE 2027 — GRADUATION FINALE</span>
       </div>
 
       {/* Day Three Section */}
@@ -1707,7 +1733,7 @@ export function EmpowaHerProgramme() {
         <div className="mx-auto grid max-w-[1380px] gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <p className="mb-4 border-l-2 border-[#ed027e] pl-3 font-heading text-[0.6875rem] font-black uppercase tracking-[0.22em] text-[#ed027e]">
-              <span>Day Three, 31 October 2026</span>
+              <span>Saturday, 26 June 2027 • Graduation Finale</span>
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,5.5vw,5.5rem)] font-black uppercase leading-[0.88] tracking-[-0.03em]">
               <span>Global Leadership, Opportunity and Graduation Finale.</span>
@@ -1726,7 +1752,7 @@ export function EmpowaHerProgramme() {
                 The final day brings together all participants, partners and leadership tracks for a high-level
                 graduation experience focused on opportunity, recognition and measurable progression. Delegates engage
                 with senior government leaders, ambassadors, CEOs, business-school directors and strategic partners
-                before graduating as the EmpowaHer Class of 2026.
+                before graduating as the EmpowaHer Class of 2027.
               </span>
             </p>
             <div className="mt-10 w-full">
@@ -1752,7 +1778,7 @@ export function EmpowaHerProgramme() {
               <span>Saturday Main Auditorium Timetable</span>
             </p>
             <p className="mb-6 max-w-[48ch] font-sans text-sm font-semibold leading-[1.6] text-white/70">
-              <span>31 October 2026, 09:00 AM to 3:00 PM • Her Future. Her Leadership. Her World.</span>
+              <span>Saturday, 26 June 2027, 09:00 AM to 3:00 PM • Her Future. Her Leadership. Her World.</span>
             </p>
 
             {/* Programme Director Banner */}
@@ -1974,7 +2000,7 @@ export function EmpowaHerProgramme() {
               </p>
               <p className="mt-5 flex items-center gap-3 font-heading text-sm font-black uppercase tracking-[0.14em] text-[#ed027e]">
                 <Calendar className="h-5 w-5" />
-                <span>29-31 October 2026 • EmpowaWorx House, Randburg</span>
+                <span>23-26 June 2027 • EmpowaWorx House, Randburg (Saturday, 26 June Graduation Day)</span>
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -2028,10 +2054,10 @@ export function EmpowaHerProgramme() {
             </Link>
             <div>
               <p className="font-heading text-xs sm:text-sm font-black uppercase tracking-[0.08em] text-white">
-                <span>EmpowaHer™ Summit 2026</span>
+                <span>EmpowaHer™ Summit 2027</span>
               </p>
               <p className="font-sans text-[0.6875rem] text-white/70">
-                <span>29–31 October 2026 • EmpowaWorx House, Ferndale, Randburg</span>
+                <span>23–26 June 2027 • EmpowaWorx House, Ferndale, Randburg (Saturday, 26 June Graduation Day)</span>
               </p>
             </div>
           </div>

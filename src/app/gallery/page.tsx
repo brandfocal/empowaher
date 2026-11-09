@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: "/gallery",
   },
   openGraph: {
-    title: "Photographic Archive | EmpowaHer™ Summit 2026",
+    title: "Photographic Archive | EmpowaHer™ Summit 2027",
     description:
       "Explore executive moments, keynote addresses, and high-impact cohort networking from the EmpowaHer™ ecosystem.",
     url: "https://empowaher.co.za/gallery",

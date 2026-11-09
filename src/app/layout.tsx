@@ -20,14 +20,14 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL("https://empowaher.co.za"),
   title: {
-    default: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
-    template: "%s | EmpowaHer™ Leadership Summit 2026",
+    default: "EmpowaHer™ Leadership Summit 2027 | The Future Is Female™",
+    template: "%s | EmpowaHer™ Leadership Summit 2027",
   },
   description:
-    "EmpowaHer™ is Africa's premier executive leadership summit and accelerator preparing 200 emerging women leaders aged 18–35 to lead across business, government, and the boardroom through nine integrated leadership tracks.",
+    "EmpowaHer™ is Africa's premier executive leadership summit and accelerator preparing 200 emerging women leaders aged 18–35 to lead across business, government, and the boardroom through nine integrated leadership tracks (23–26 June 2027, with Saturday, 26 June as graduation day).",
   keywords: [
     "EmpowaHer",
-    "EmpowaHer Leadership Summit 2026",
+    "EmpowaHer Leadership Summit 2027",
     "EmpowaWomen",
     "The Future Is Female",
     "African Women Leaders",
@@ -51,23 +51,23 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: "https://empowaher.co.za",
     siteName: "EmpowaHer™ Leadership Summit",
-    title: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
+    title: "EmpowaHer™ Leadership Summit 2027 | The Future Is Female™",
     description:
-      "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
+      "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom (23–26 June 2027).",
     images: [
       {
         url: "/EmpowaHer-Leadership-Summit2026.jpg",
         width: 1920,
         height: 720,
-        alt: "EmpowaHer™ Leadership Summit 2026 - Official Event Artwork",
+        alt: "EmpowaHer™ Leadership Summit 2027 - Official Event Artwork",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EmpowaHer™ Leadership Summit 2026 | The Future Is Female™",
+    title: "EmpowaHer™ Leadership Summit 2027 | The Future Is Female™",
     description:
-      "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom.",
+      "Africa's premier executive leadership platform preparing 200 emerging women leaders aged 18–35 to lead across business, governance, and the boardroom (23–26 June 2027).",
     images: ["/EmpowaHer-Leadership-Summit2026.jpg"],
   },
   robots: {
@@ -136,10 +136,12 @@ const globalStructuredData = {
     {
       "@type": "Event",
       "@id": "https://empowaher.co.za/#summit",
-      name: "EmpowaHer™ Leadership Summit 2026",
+      name: "EmpowaHer™ Leadership Summit 2027",
+      startDate: "2027-06-23T09:00:00+02:00",
+      endDate: "2027-06-26T17:00:00+02:00",
       image: "https://empowaher.co.za/EmpowaHer-Leadership-Summit2026.jpg",
       description:
-        "A three-day executive leadership experience preparing Africa's next generation of 200 women leaders aged 18–35 to compete, lead, and succeed across business, government, entrepreneurship, civil society, and the boardroom.",
+        "A four-day executive leadership experience (23–26 June 2027, with Saturday, 26 June as graduation day) preparing Africa's next generation of 200 women leaders aged 18–35 to compete, lead, and succeed across business, government, entrepreneurship, civil society, and the boardroom.",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       organizer: {

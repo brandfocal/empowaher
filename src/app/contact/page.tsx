@@ -5,14 +5,14 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Contact Executive Desk & Secretariat",
   description:
-    "Get in touch with the EmpowaHer™ Leadership Summit 2026 executive desk, discuss corporate partnerships, media accreditation, or summit enquiries.",
+    "Get in touch with the EmpowaHer™ Leadership Summit 2027 executive desk, discuss corporate partnerships, media accreditation, or summit enquiries.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Executive Desk | EmpowaHer™ Summit 2026",
+    title: "Contact Executive Desk | EmpowaHer™ Summit 2027",
     description:
-      "Get in touch with the EmpowaHer™ Leadership Summit 2026 secretariat, partnership desk, and delegate relations.",
+      "Get in touch with the EmpowaHer™ Leadership Summit 2027 secretariat, partnership desk, and delegate relations.",
     url: "https://empowaher.co.za/contact",
     images: [
       {
@@ -29,7 +29,7 @@ const contactStructuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "@id": "https://empowaher.co.za/contact#webpage",
-  name: "Contact Executive Desk | EmpowaHer™ Summit 2026",
+  name: "Contact Executive Desk | EmpowaHer™ Summit 2027",
   mainEntity: {
     "@type": "Organization",
     name: "EmpowaHer™",

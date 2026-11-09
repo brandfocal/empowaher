@@ -5,14 +5,14 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Candidate Nomination & Selection Framework",
   description:
-    "Official Candidate Nomination & Selection Framework for EmpowaHer™ Leadership Summit 2026. Explore eligibility for emerging women leaders aged 18–35, the 7-pillar evaluation criteria, and submit an endorsement.",
+    "Official Candidate Nomination & Selection Framework for EmpowaHer™ Leadership Summit 2027. Explore eligibility for emerging women leaders aged 18–35, the 7-pillar evaluation criteria, and submit an endorsement.",
   alternates: {
     canonical: "/nomination",
   },
   openGraph: {
-    title: "Candidate Nomination & Selection Framework | EmpowaHer™ 2026",
+    title: "Candidate Nomination & Selection Framework | EmpowaHer™ 2027",
     description:
-      "Nominate an exceptional young African woman leader aged 18–35 for the EmpowaHer™ Leadership Summit 2026.",
+      "Nominate an exceptional young African woman leader aged 18–35 for the EmpowaHer™ Leadership Summit 2027.",
     url: "https://empowaher.co.za/nomination",
     images: [
       {
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Candidate Nomination | EmpowaHer™ Summit 2026",
+    title: "Candidate Nomination | EmpowaHer™ Summit 2027",
     description:
-      "Nominate an exceptional young African woman leader aged 18–35 for the EmpowaHer™ Leadership Summit 2026.",
+      "Nominate an exceptional young African woman leader aged 18–35 for the EmpowaHer™ Leadership Summit 2027.",
     images: ["/feature-image14.jpg"],
   },
 };
@@ -36,9 +36,9 @@ const nominationStructuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://empowaher.co.za/nomination#webpage",
-  name: "Candidate Nomination & Selection Framework | EmpowaHer™ Summit 2026",
+  name: "Candidate Nomination & Selection Framework | EmpowaHer™ Summit 2027",
   description:
-    "Official endorsement and application portal for the EmpowaHer™ 2026 cohort of 200 emerging women leaders.",
+    "Official endorsement and application portal for the EmpowaHer™ 2027 cohort of 200 emerging women leaders.",
   provider: {
     "@type": "Organization",
     name: "EmpowaHer™",

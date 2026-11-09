@@ -215,7 +215,7 @@ export function ContactPage() {
                   </span>
                 </h2>
                 <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.16em] text-white/60">
-                  <span>29–31 October 2026 • EmpowaWorx House, Randburg</span>
+                  <span>23–26 June 2027 • EmpowaWorx House, Randburg (Saturday, 26 June Graduation Day)</span>
                 </p>
               </div>
 
@@ -240,7 +240,17 @@ export function ContactPage() {
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-end md:gap-10 lg:gap-16">
             <div>
               <p className="border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
-                <span>PRODUCED BY EMPOWAWORX™</span>
+                <span>
+                  PRODUCED BY{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-white"
+                  >
+                    EMPOWAWORX™
+                  </a>
+                </span>
               </p>
               <h2
                 id="about-heading"
@@ -251,10 +261,28 @@ export function ContactPage() {
             </div>
 
             {/* Accurate Summit Stats */}
-            <div className="max-w-full pl-0 md:max-w-md md:border-l-2 md:border-white/20 md:pl-6">
+            <div className="max-w-full pl-0 md:max-w-md md:border-l-2 md:border-white/20 md:pl-6 space-y-2">
               <p className="text-sm leading-relaxed text-white/70">
                 <span>
-                  EmpowaWorx™ convenes leadership platforms that develop high-potential talent, connect capital, and advance inclusive economic transformation from intention to action.
+                  Produced by{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#ed027e] underline hover:text-white transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>
+                  . EmpowaHer is part of the{" "}
+                  <a
+                    href="https://www.empowaworx.co.za/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline text-white/90 hover:text-[#ed027e] transition-colors"
+                  >
+                    EmpowaWorx
+                  </a>{" "}
+                  integrated ecosystem, convening leadership platforms that develop high-potential talent, connect capital, and advance inclusive economic transformation.
                 </span>
               </p>
               <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 md:gap-6">

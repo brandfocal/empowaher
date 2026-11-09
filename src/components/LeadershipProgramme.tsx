@@ -261,7 +261,7 @@ export function LeadershipProgramme() {
               </span>
               <span>Leadership Programme</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>Summit 2026</span>
+              <span>Summit 2027</span>
             </div>
 
             {/* Summit Overline */}
@@ -780,13 +780,34 @@ export function LeadershipProgramme() {
 
               {/* Action Links & Official Branding Sign-off */}
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-t border-white/10 pt-6">
-                <div>
+                <div className="space-y-1">
                   <strong className="block font-heading text-base sm:text-lg font-black uppercase tracking-wider text-white">
-                    EmpowaHer™ Leadership Summit 2026
+                    EmpowaHer™ Leadership Summit 2027
                   </strong>
-                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ed027e]">
+                  <span className="block text-xs font-mono font-bold uppercase tracking-widest text-[#ed027e]">
                     The Future Is Female™
                   </span>
+                  <p className="text-xs text-white/70">
+                    Produced by{" "}
+                    <a
+                      href="https://www.empowaworx.co.za/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold underline text-[#ed027e] hover:text-white transition-colors"
+                    >
+                      EmpowaWorx
+                    </a>{" "}
+                    • Part of the{" "}
+                    <a
+                      href="https://www.empowaworx.co.za/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline text-white hover:text-[#ed027e] transition-colors"
+                    >
+                      EmpowaWorx
+                    </a>{" "}
+                    integrated ecosystem.
+                  </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">

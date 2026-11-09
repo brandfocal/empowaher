@@ -288,7 +288,7 @@ export function ConfirmedSpeakers() {
               Additional Confirmed <span className="text-[#ed027e]">Leaders &amp; Mentors.</span>
             </h3>
             <p className="mt-2 max-w-[62ch] text-xs sm:text-sm leading-relaxed text-white/75">
-              Distinguished advisors, enterprise founders, and public sector leaders convening at the EmpowaHer™ Leadership Summit 2026.
+              Distinguished advisors, enterprise founders, and public sector leaders convening at the EmpowaHer™ Leadership Summit 2027.
             </p>
           </div>
           <div className="text-xs font-mono text-white/60">

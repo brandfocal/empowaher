@@ -163,7 +163,7 @@ export function GalleryPage() {
                 href="/nominate"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ed027e] px-7 py-3.5 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#ed027e]/25 transition-transform hover:scale-[1.03]"
               >
-                <span>Nominate a 2026 Leader</span>
+                <span>Nominate a 2027 Leader</span>
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
               <Link

@@ -247,7 +247,7 @@ export function PodcastsSnippet() {
               <span className="text-[#ed027e]">Leadership.</span>
             </h2>
             <p className="mt-4 max-w-[56ch] font-sans text-sm sm:text-base leading-relaxed text-white/75">
-              Watch flagship television news interviews and listen to national radio broadcasts unpacking the EmpowaHer™ Leadership Summit 2026, female economic inclusion, and the next generation of African women leaders.
+              Watch flagship television news interviews and listen to national radio broadcasts unpacking the EmpowaHer™ Leadership Summit 2027, female economic inclusion, and the next generation of African women leaders.
             </p>
           </div>
 
@@ -707,7 +707,7 @@ export function PodcastsSnippet() {
                 Access All Television Broadcasts, Radio Interviews &amp; Media Assets.
               </h3>
               <p className="mt-3 max-w-[54ch] text-xs sm:text-sm leading-relaxed text-white/75">
-                Stream the complete broadcast series, download high-definition audio masters, read the official 2026 press release, and explore the summit video highlight reels on our dedicated media page.
+                Stream the complete broadcast series, download high-definition audio masters, read the official press release, and explore the summit video highlight reels on our dedicated media page.
               </p>
             </div>
 

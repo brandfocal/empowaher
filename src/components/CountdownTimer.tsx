@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Download, Sparkles } from "lucide-react";
 
-// Summit Opening: 29 October 2026 at 09:00 SAST (UTC+2)
-const SUMMIT_TARGET_DATE = new Date("2026-10-29T09:00:00+02:00").getTime();
+// Summit Opening: 23 June 2027 at 09:00 SAST (UTC+2)
+const SUMMIT_TARGET_DATE = new Date("2027-06-23T09:00:00+02:00").getTime();
 
 interface TimeRemaining {
   days: number;
@@ -88,14 +88,16 @@ export function CountdownTimer() {
             </div>
 
             <h2 className="font-heading text-2xl font-black uppercase tracking-[-0.02em] text-white sm:text-3xl lg:text-[2rem] leading-tight">
-              <span>Road to EmpowaHer™ 2026</span>
+              <span>Road to EmpowaHer™ 2027</span>
             </h2>
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-white/70">
               <span className="inline-flex items-center gap-1 text-[#ed027e]">
                 <Calendar className="h-3.5 w-3.5" />
-                <span>29–31 October 2026</span>
+                <span>23–26 June 2027</span>
               </span>
+              <span className="text-white/30">•</span>
+              <span>Saturday, 26 June Graduation Day</span>
               <span className="text-white/30">•</span>
               <span>EmpowaWorx House, Randburg</span>
             </div>

@@ -89,7 +89,7 @@ const commitments = [
   {
     number: "01",
     title: "Full Summit Attendance",
-    detail: "Attend the complete three-day programme: 29–31 October 2026.",
+    detail: "Attend the complete four-day programme: 23–26 June 2027 (Saturday, 26 June Graduation Day).",
   },
   {
     number: "02",
@@ -242,7 +242,7 @@ export function SelectionCriteria() {
               </span>
               <span>Selection Framework</span>
               <span className="mx-1 h-1 w-1 rounded-full bg-white/70 sm:mx-2" />
-              <span>Summit 2026</span>
+              <span>Summit 2027</span>
             </div>
 
             {/* Summit Overline */}
@@ -356,9 +356,31 @@ export function SelectionCriteria() {
               />
             </figure>
 
-            <p className="mt-4 text-right text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-[#3f3f3f]/40">
-              <span>Produced by EmpowaWorx™</span>
-            </p>
+            <div className="mt-4 text-right text-[0.6875rem] font-semibold text-[#3f3f3f]/70 space-y-1">
+              <p>
+                Produced by{" "}
+                <a
+                  href="https://www.empowaworx.co.za/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#ed027e] underline hover:text-[#11161F] transition-colors"
+                >
+                  EmpowaWorx
+                </a>
+              </p>
+              <p className="text-[0.625rem] text-[#3f3f3f]/60">
+                EmpowaHer is part of the{" "}
+                <a
+                  href="https://www.empowaworx.co.za/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-[#ed027e] transition-colors"
+                >
+                  EmpowaWorx
+                </a>{" "}
+                integrated ecosystem.
+              </p>
+            </div>
           </aside>
 
           {/* Right Column with Eligibility Details */}

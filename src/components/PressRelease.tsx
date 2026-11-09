@@ -80,7 +80,7 @@ export function PressRelease() {
             </div>
 
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.02] tracking-tight text-[#11161F]">
-              EmpowaHer Leadership Summit 2026{" "}
+              EmpowaHer Leadership Summit 2027{" "}
               <span className="text-[#ed027e]">| The Future Is Female</span>
             </h1>
 
@@ -91,8 +91,10 @@ export function PressRelease() {
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-black/60 pt-2 border-t border-black/5">
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5 text-[#ed027e]" />
-                <strong className="text-black/80">29–31 October 2026</strong>
+                <strong className="text-black/80">23–26 June 2027</strong>
               </span>
+              <span>•</span>
+              <span>Saturday, 26 June Graduation Day</span>
               <span>•</span>
               <span className="flex items-center gap-1.5">
                 <MapPin className="h-3.5 w-3.5 text-[#ed027e]" />
@@ -179,11 +181,11 @@ export function PressRelease() {
             </div>
 
             <p>
-              As Executive Producer of EmpowaHer Leadership Summit 2026, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
+              As Executive Producer of EmpowaHer Leadership Summit 2027, my commitment is to help turn emerging talent into a stronger pipeline of women equipped to lead organisations, build enterprises and influence decisions.
             </p>
 
             <p>
-              Taking place <strong>29–31 October at EmpowaWorx House, Randburg</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
+              Taking place <strong>23–26 June 2027 at EmpowaWorx House, Randburg (with Saturday, 26 June as graduation day)</strong>, the summit brings together <strong>200 young women representing 200 organisations</strong>, aligned to four strategic priorities:
             </p>
 
             {/* Four Strategic Priorities */}
@@ -275,7 +277,7 @@ export function PressRelease() {
                 Simphiwe Masiza
               </strong>
               <span className="block text-sm font-mono text-[#ed027e] uppercase tracking-wider font-semibold mt-1">
-                Executive Producer | EmpowaHer Leadership Summit 2026
+                Executive Producer | EmpowaHer Leadership Summit 2027
               </span>
             </div>
           </div>

@@ -227,7 +227,7 @@ export function PromotionalVideos() {
               <span className="text-[#ed027e]">Momentum.</span>
             </h2>
             <p className="mt-4 max-w-[56ch] font-sans text-sm sm:text-base leading-relaxed text-white/75">
-              Watch the latest promotional reels, studio dialogues, and behind-the-scenes moments building excitement for the EmpowaHer™ Leadership Summit 2026.
+              Watch the latest promotional reels, studio dialogues, and behind-the-scenes moments building excitement for the EmpowaHer™ Leadership Summit 2027.
             </p>
           </div>
 

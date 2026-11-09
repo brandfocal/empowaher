@@ -15,7 +15,7 @@ const programmeItems = [
     id: "dates",
     number: "01",
     label: "DATES",
-    value: "29–31 October 2026",
+    value: "23–26 June 2027",
     revealDelay: "0ms",
   },
   {
@@ -29,7 +29,7 @@ const programmeItems = [
     id: "format",
     number: "03",
     label: "FORMAT",
-    value: "Three-day, multi-track leadership and opportunity experience",
+    value: "Four-day, multi-track leadership and opportunity experience (with Saturday, 26 June as graduation day)",
     revealDelay: "120ms",
   },
   {
@@ -172,7 +172,7 @@ export function EmpowaHerComingSoon() {
                 aria-hidden="true"
               />
               <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 font-extrabold text-white">
-                Summit 2026
+                Summit 2027
               </span>
             </div>
 
@@ -269,16 +269,38 @@ export function EmpowaHerComingSoon() {
               />
             </figure>
 
-            <p className="mt-4 text-right text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-[#3f3f3f]/40">
-              <span>Produced by EmpowaWorx™</span>
-            </p>
+            <div className="mt-4 text-right text-[0.6875rem] font-semibold text-[#3f3f3f]/70 space-y-1">
+              <p>
+                Produced by{" "}
+                <a
+                  href="https://www.empowaworx.co.za/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#ed027e] underline hover:text-[#11161F] transition-colors"
+                >
+                  EmpowaWorx
+                </a>
+              </p>
+              <p className="text-[0.625rem] text-[#3f3f3f]/60">
+                EmpowaHer is part of the{" "}
+                <a
+                  href="https://www.empowaworx.co.za/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-[#ed027e] transition-colors"
+                >
+                  EmpowaWorx
+                </a>{" "}
+                integrated ecosystem.
+              </p>
+            </div>
           </aside>
 
           {/* Right Pillar Rows */}
           <div className="order-1 flex flex-1 flex-col border-[#3f3f3f]/10 lg:order-2 lg:border-l">
             <div className="reveal border-b border-[#3f3f3f]/10 px-5 py-8 lg:px-12 lg:pb-14 lg:pt-12">
               <div className="mb-3 border-l-2 border-[#ed027e] pl-3 text-[0.625rem] font-bold uppercase tracking-[0.25em] text-[#ed027e]">
-                <span>2026 SUMMIT OVERVIEW</span>
+                <span>2027 SUMMIT OVERVIEW</span>
               </div>
               <h2 className="mb-2 font-heading text-[clamp(2rem,3.5vw,3rem)] font-black uppercase leading-[1.1] tracking-[-0.02em] text-[#3f3f3f]">
                 <span>PROGRAMME DETAIL</span>
