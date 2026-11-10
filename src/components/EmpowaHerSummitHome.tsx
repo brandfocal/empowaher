@@ -677,13 +677,20 @@ export function EmpowaHerSummitHome() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
                 <a
+                  href="#leadership-videos"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-5 py-3 text-[0.6875rem] font-black uppercase tracking-[0.12em] text-[#ed027e] transition-all hover:bg-[#ed027e] hover:text-white"
+                >
+                  <Play className="h-3 w-3 fill-current" />
+                  <span>Summit Recordings (Day 1–3)</span>
+                </a>
+                <a
                   href="https://www.youtube.com/watch?v=g2T0dzTqQZk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-[0.6875rem] font-black uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
                 >
                   <Play className="h-3 w-3 fill-current" />
-                  <span>Watch on YouTube</span>
+                  <span>Watch Reel on YouTube</span>
                 </a>
               </div>
             </div>

@@ -2,7 +2,7 @@ export interface LeadershipVideo {
   id: string;
   name: string;
   role: string;
-  category: "speaker" | "nominee" | "partner" | "team";
+  category: "summit" | "speaker" | "nominee" | "partner" | "team";
   categoryLabel: string;
   youtubeId: string;
   youtubeUrl: string;
@@ -11,6 +11,54 @@ export interface LeadershipVideo {
 }
 
 export const leadershipVideos: LeadershipVideo[] = [
+  {
+    id: "summit-2027-day-1",
+    name: "EmpowaHer Leadership Summit 2027 | Day 1 Opening Plenary",
+    role: "Summit Recording • Day 1",
+    category: "summit",
+    categoryLabel: "Summit Recording",
+    youtubeId: "mtoAWSMyCmY",
+    youtubeUrl: "https://www.youtube.com/watch?v=mtoAWSMyCmY",
+    organization: "EmpowaWorx™",
+    highlightText:
+      "Full livestream recording of Day 1: Opening Plenary, Ministerial addresses, leadership dialogues, and keynote addresses.",
+  },
+  {
+    id: "summit-2027-day-2",
+    name: "EmpowaHer Leadership Summit 2027 | Day 2 Executive Leadership Tracks",
+    role: "Summit Recording • Day 2",
+    category: "summit",
+    categoryLabel: "Summit Recording",
+    youtubeId: "gXgj0JDxZFE",
+    youtubeUrl: "https://www.youtube.com/watch?v=gXgj0JDxZFE",
+    organization: "EmpowaWorx™",
+    highlightText:
+      "Full livestream recording of Day 2: Parallel masterclass tracks across entrepreneurship, digital leadership, governance, and wealth creation.",
+  },
+  {
+    id: "summit-2027-day-3",
+    name: "EmpowaHer Leadership Summit 2027 | Day 3 Graduation & Recognition Ceremony",
+    role: "Summit Recording • Day 3",
+    category: "summit",
+    categoryLabel: "Summit Recording",
+    youtubeId: "CnDP_Omu4iw",
+    youtubeUrl: "https://www.youtube.com/watch?v=CnDP_Omu4iw",
+    organization: "EmpowaWorx™",
+    highlightText:
+      "Full livestream recording of Day 3: Global leadership addresses, high-powered ambassadors' panel, and the Class of 2027 Graduation & Awards Ceremony.",
+  },
+  {
+    id: "cllr-loyiso-lugayeni-masuku",
+    name: "Cllr Loyiso Lugayeni-Masuku",
+    role: "Keynote Speaker",
+    category: "speaker",
+    categoryLabel: "Keynote Speaker",
+    youtubeId: "bGifUjOhm9M",
+    youtubeUrl: "https://www.youtube.com/watch?v=bGifUjOhm9M",
+    organization: "City of Johannesburg",
+    highlightText:
+      "Executive Deputy Mayor of Johannesburg address at EmpowaHer on civic leadership, municipal governance transformation, and advancing opportunities for Africa’s next generation of women leaders.",
+  },
   {
     id: "dr-sibongile-vilakazi",
     name: "Dr Sibongile Vilakazi",

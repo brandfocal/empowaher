@@ -19,7 +19,7 @@ import {
 
 export type { LeadershipVideo };
 
-type CategoryFilter = "all" | "speaker" | "nominee" | "partner" | "team";
+type CategoryFilter = "all" | "summit" | "speaker" | "nominee" | "partner" | "team";
 
 const INITIAL_VISIBLE_COUNT = 6;
 
@@ -84,6 +84,7 @@ export function LeadershipVideos() {
   const counts = useMemo(() => {
     return {
       all: leadershipVideos.length,
+      summit: leadershipVideos.filter((v) => v.category === "summit").length,
       speaker: leadershipVideos.filter((v) => v.category === "speaker").length,
       nominee: leadershipVideos.filter((v) => v.category === "nominee").length,
       partner: leadershipVideos.filter((v) => v.category === "partner").length,
@@ -101,6 +102,8 @@ export function LeadershipVideos() {
 
   const getCategoryBadgeClass = (category: LeadershipVideo["category"]) => {
     switch (category) {
+      case "summit":
+        return "bg-[#ed027e]/20 border-[#ed027e]/40 text-[#ed027e]";
       case "speaker":
         return "bg-[#ed027e]/15 border-[#ed027e]/30 text-[#ed027e]";
       case "nominee":
@@ -137,7 +140,7 @@ export function LeadershipVideos() {
             <div>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.25em] text-[#ed027e]">
                 <Film className="h-3 w-3" />
-                <span>SPEAKER &amp; NOMINEE VIDEO GALLERY</span>
+                <span>SUMMIT SESSIONS &amp; LEADERSHIP VIDEO ARCHIVE</span>
               </span>
               <h2
                 id="leadership-videos-heading"
@@ -147,8 +150,106 @@ export function LeadershipVideos() {
                 <span className="text-[#ed027e]">Leadership &amp; Impact</span>
               </h2>
               <p className="mt-3 max-w-[68ch] font-sans text-sm sm:text-base leading-relaxed text-white/70">
-                Watch keynote addresses, candidate leader perspectives, strategic partner alignments, and exclusive executive interviews documenting Africa’s premier women empowerment accelerator.
+                Watch full livestream recordings from the recently held EmpowaHer Leadership Summit 2027, keynote addresses, candidate leader perspectives, strategic partner alignments, and exclusive executive interviews documenting Africa’s premier women empowerment accelerator.
               </p>
+            </div>
+          </div>
+
+          {/* Featured Showcase: Recently Held EmpowaHer Leadership Summit 2027 */}
+          <div className="mt-8 rounded-2xl border border-[#ed027e]/30 bg-gradient-to-b from-[#ed027e]/10 via-[#12161F] to-[#0D1017] p-6 sm:p-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-white/10 pb-5">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#ed027e] px-3 py-0.5 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white">
+                  <span>★ Past Event Showcase</span>
+                </div>
+                <h3 className="font-heading mt-2 text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
+                  Recently Held EmpowaHer Leadership Summit 2027 • Full Event Recordings
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-white/75 max-w-[68ch]">
+                  Relive the historic convening at EmpowaWorx House. Stream the complete recorded livestreams across Day 1, Day 2, and Day 3.
+                </p>
+              </div>
+
+              <div className="shrink-0 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveCategory("summit");
+                    setShowAll(true);
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#ed027e]/50 bg-[#ed027e]/20 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#ed027e] hover:bg-[#ed027e] hover:text-white transition-all"
+                >
+                  <Play className="h-3 w-3 fill-current" />
+                  <span>View All Summit Sessions ({counts.summit})</span>
+                </button>
+              </div>
+            </div>
+
+            {/* 3 Summit Days Grid */}
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {leadershipVideos
+                .filter((v) => v.category === "summit")
+                .map((summitVideo, idx) => (
+                  <div
+                    key={summitVideo.id}
+                    onClick={() => setActiveModalVideo(summitVideo)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        setActiveModalVideo(summitVideo);
+                      }
+                    }}
+                    className="group relative cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-[#ed027e] hover:bg-white/[0.04] transition-all duration-300"
+                  >
+                    <div className="relative aspect-video w-full overflow-hidden bg-black">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`https://i.ytimg.com/vi/${summitVideo.youtubeId}/maxresdefault.jpg`}
+                        alt={summitVideo.name}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://i.ytimg.com/vi/${summitVideo.youtubeId}/hqdefault.jpg`;
+                        }}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60 group-hover:opacity-75 transition-opacity" />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="rounded-full bg-[#ed027e] px-2.5 py-0.5 text-[0.625rem] font-black uppercase tracking-wider text-white">
+                          Day 0{idx + 1}
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#ed027e] text-white shadow-lg shadow-[#ed027e]/50 transition-transform group-hover:scale-110">
+                          <Play className="h-5 w-5 fill-current translate-x-0.5" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[0.625rem] font-mono text-white/80">
+                        <span>EmpowaWorx™ Stream</span>
+                        <span>Click to Watch</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4">
+                      <span className="text-[0.625rem] font-bold uppercase tracking-wider text-[#ed027e]">
+                        {summitVideo.role}
+                      </span>
+                      <h4 className="font-heading mt-1 text-sm font-bold uppercase text-white line-clamp-1 group-hover:text-[#ed027e] transition-colors">
+                        {summitVideo.name}
+                      </h4>
+                      <p className="mt-1.5 text-xs text-white/70 line-clamp-2 leading-relaxed">
+                        {summitVideo.highlightText}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* In-progress Archive Note for upcoming videos */}
+            <div className="mt-5 rounded-lg border border-white/10 bg-white/[0.02] px-4 py-2.5 flex items-center justify-between text-xs text-white/60">
+              <span className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#ed027e] animate-pulse" />
+                <span>Archive in progress: Additional video recordings, keynote sessions, and masterclass highlights from the past summit are currently being added.</span>
+              </span>
             </div>
           </div>
 
@@ -169,6 +270,20 @@ export function LeadershipVideos() {
                 }`}
               >
                 All Videos ({counts.all})
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveCategory("summit");
+                  setShowAll(false);
+                }}
+                className={`rounded-full px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider transition-all ${
+                  activeCategory === "summit"
+                    ? "bg-[#ed027e] text-white shadow-lg shadow-[#ed027e]/30 scale-105"
+                    : "bg-white/5 border border-white/10 text-white/70 hover:border-[#ed027e] hover:text-white"
+                }`}
+              >
+                Summit Sessions ({counts.summit})
               </button>
               <button
                 type="button"

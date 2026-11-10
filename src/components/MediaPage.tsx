@@ -22,6 +22,7 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { LeadershipVideos } from "./LeadershipVideos";
+import { leadershipVideos } from "@/data/leadershipVideos";
 
 const PRESS_RELEASE_PDF =
   "/media%20release/MEDIA%20RELEASE%20-%20EmpowaHer%20Opens%20Nominations%20for%20200%20of%20Africa%E2%80%99s%20Next%20Generation%20of%20Women%20Leaders.pdf";
@@ -106,7 +107,7 @@ export function MediaPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <Play className="h-3.5 w-3.5 fill-current text-[#ed027e]" />
-                <span>Speaker &amp; Nominee Videos (18)</span>
+                <span>Summit &amp; Leadership Videos ({leadershipVideos.length})</span>
               </a>
 
               <Link
@@ -429,7 +430,7 @@ export function MediaPage() {
         </div>
       </section>
 
-      {/* Leadership, Keynote Speaker & Nominee Videos (18 features) */}
+      {/* Summit Livestream Recordings, Keynote Speaker & Nominee Videos */}
       <LeadershipVideos />
 
       {/* Radio Broadcasts & Podcasts Section */}
