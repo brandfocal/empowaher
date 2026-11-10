@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Calendar,
   Check,
@@ -29,6 +29,7 @@ export function SummitEventVideos() {
   const [isPlayingFeatured, setIsPlayingFeatured] = useState<boolean>(false);
   const [modalVideo, setModalVideo] = useState<SummitEventVideo | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
 
   // Close modal with ESC key and lock body scroll
   useEffect(() => {
@@ -62,6 +63,17 @@ export function SummitEventVideos() {
   const handleSelectVideo = (video: SummitEventVideo) => {
     setSelectedVideo(video);
     setIsPlayingFeatured(true);
+
+    if (playerRef.current) {
+      const rect = playerRef.current.getBoundingClientRect();
+      const absoluteTop = window.pageYOffset + rect.top;
+      const targetScroll = Math.max(0, absoluteTop - 36);
+
+      window.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -122,7 +134,11 @@ export function SummitEventVideos() {
         </div>
 
         {/* Featured Video Player Cinema Container */}
-        <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black shadow-2xl shadow-black/80">
+        <div
+          ref={playerRef}
+          id="summit-cinema-player"
+          className="scroll-mt-8 sm:scroll-mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black shadow-2xl shadow-black/80 transition-all duration-300"
+        >
           <div className="relative w-full aspect-video bg-[#0A0D11]">
             {isPlayingFeatured ? (
               <iframe
@@ -360,20 +376,6 @@ export function SummitEventVideos() {
               );
             })}
           </div>
-        </div>
-
-        {/* Notice for Upcoming Event Videos */}
-        <div className="mt-8 rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-white/70">
-          <div className="flex items-center gap-3">
-            <span className="flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#ed027e] animate-pulse" />
-            <p>
-              <strong className="text-white">Past Event Video Archive:</strong>{" "}
-              Additional plenary recordings, breakout sessions, and key highlights from the summit are being processed and added.
-            </p>
-          </div>
-          <span className="shrink-0 font-mono text-[0.6875rem] text-white/50">
-            More videos coming soon
-          </span>
         </div>
       </div>
     </section>
