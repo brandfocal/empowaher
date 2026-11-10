@@ -22,7 +22,9 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { LeadershipVideos } from "./LeadershipVideos";
+import { SummitEventVideos } from "./SummitEventVideos";
 import { leadershipVideos } from "@/data/leadershipVideos";
+import { summitEventVideos } from "@/data/summitEventVideos";
 
 const PRESS_RELEASE_PDF =
   "/media%20release/MEDIA%20RELEASE%20-%20EmpowaHer%20Opens%20Nominations%20for%20200%20of%20Africa%E2%80%99s%20Next%20Generation%20of%20Women%20Leaders.pdf";
@@ -87,8 +89,24 @@ export function MediaPage() {
               </a>
 
               <a
-                href="#television-features"
+                href="#summit-event-recordings"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-[#ed027e] transition-all duration-300 hover:bg-[#ed027e] hover:text-white"
+              >
+                <Tv className="h-4 w-4" />
+                <span>Summit Event Recordings ({summitEventVideos.length})</span>
+              </a>
+
+              <a
+                href="#leadership-videos"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
+              >
+                <Play className="h-3.5 w-3.5 fill-current text-[#ed027e]" />
+                <span>Keynote &amp; Nominee Videos ({leadershipVideos.length})</span>
+              </a>
+
+              <a
+                href="#television-features"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
               >
                 <Tv className="h-4 w-4" />
                 <span>eNCA &amp; Trendz Live Features</span>
@@ -100,14 +118,6 @@ export function MediaPage() {
               >
                 <Radio className="h-4 w-4" />
                 <span>Radio Broadcasts (5)</span>
-              </a>
-
-              <a
-                href="#leadership-videos"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 lg:px-4 py-3 font-heading text-[0.6875rem] lg:text-xs font-bold uppercase tracking-[0.1em] text-white/80 transition-all duration-300 hover:border-[#ed027e] hover:text-white"
-              >
-                <Play className="h-3.5 w-3.5 fill-current text-[#ed027e]" />
-                <span>Summit &amp; Leadership Videos ({leadershipVideos.length})</span>
               </a>
 
               <Link
@@ -430,7 +440,10 @@ export function MediaPage() {
         </div>
       </section>
 
-      {/* Summit Livestream Recordings, Keynote Speaker & Nominee Videos */}
+      {/* Official Summit 2027 Event Livestream Recordings Archive */}
+      <SummitEventVideos />
+
+      {/* Keynote Speaker, Nominee & Leadership Profiles Gallery */}
       <LeadershipVideos />
 
       {/* Radio Broadcasts & Podcasts Section */}

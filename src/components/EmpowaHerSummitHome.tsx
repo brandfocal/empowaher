@@ -22,6 +22,7 @@ import { CountdownTimer } from "./CountdownTimer";
 import { EmpowaHerTeam } from "./EmpowaHerTeam";
 import { PodcastsSnippet } from "./PodcastsSnippet";
 import { LeadershipVideos } from "./LeadershipVideos";
+import { SummitEventVideos } from "./SummitEventVideos";
 import { ConfirmedSpeakers } from "./ConfirmedSpeakers";
 import { PromotionalVideos } from "./PromotionalVideos";
 import { NewsletterSubscription } from "./NewsletterSubscription";
@@ -677,11 +678,11 @@ export function EmpowaHerSummitHome() {
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
                 <a
-                  href="#leadership-videos"
+                  href="#summit-event-recordings"
                   className="inline-flex items-center gap-2 rounded-full border border-[#ed027e]/40 bg-[#ed027e]/10 px-5 py-3 text-[0.6875rem] font-black uppercase tracking-[0.12em] text-[#ed027e] transition-all hover:bg-[#ed027e] hover:text-white"
                 >
                   <Play className="h-3 w-3 fill-current" />
-                  <span>Summit Recordings (Day 1–3)</span>
+                  <span>Summit Event Recordings (Day 1–3)</span>
                 </a>
                 <a
                   href="https://www.youtube.com/watch?v=g2T0dzTqQZk"
@@ -801,7 +802,10 @@ export function EmpowaHerSummitHome() {
         </div>
       </section>
 
-      {/* Speaker & Nominee Video Gallery */}
+      {/* Official Summit 2027 Event Livestream Recordings Archive */}
+      <SummitEventVideos />
+
+      {/* Keynote Speaker & Nominee Video Gallery */}
       <LeadershipVideos />
 
       {/* Programme Overview Section */}
