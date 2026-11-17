@@ -353,7 +353,7 @@ export function MediaPage() {
               <div className="relative w-full aspect-video bg-[#0A0D11]">
                 {isPlayingReel ? (
                   <iframe
-                    src="https://www.youtube.com/embed/g2T0dzTqQZk?autoplay=1&rel=0"
+                    src="https://www.youtube.com/embed/iKdKqqwj1_Q?autoplay=1&rel=0"
                     title="EmpowaWomen™ Official Highlight Reel"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -367,11 +367,11 @@ export function MediaPage() {
                     {/* High-res Video Poster */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="https://i.ytimg.com/vi/g2T0dzTqQZk/maxresdefault.jpg"
+                      src="https://i.ytimg.com/vi/iKdKqqwj1_Q/maxresdefault.jpg"
                       alt="EmpowaWomen™ Official Highlight Reel"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src =
-                          "https://i.ytimg.com/vi/g2T0dzTqQZk/hqdefault.jpg";
+                          "https://i.ytimg.com/vi/iKdKqqwj1_Q/hqdefault.jpg";
                       }}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -424,7 +424,7 @@ export function MediaPage() {
 
                 <div className="flex shrink-0 items-center gap-3">
                   <a
-                    href="https://www.youtube.com/watch?v=g2T0dzTqQZk"
+                    href="https://www.youtube.com/watch?v=iKdKqqwj1_Q"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
