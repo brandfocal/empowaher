@@ -31,6 +31,7 @@ const PRESS_RELEASE_PDF =
 
 export function MediaPage() {
   const [isPlayingReel, setIsPlayingReel] = useState(false);
+  const [isPlayingRecap, setIsPlayingRecap] = useState(false);
   const [isPlayingTrendz, setIsPlayingTrendz] = useState(false);
   const [enlargedPoster, setEnlargedPoster] = useState<{ src: string; title: string } | null>(null);
 
@@ -160,6 +161,10 @@ export function MediaPage() {
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
                   <Play className="h-3.5 w-3.5 text-[#ed027e]" />
                   <span>1 Highlight Reel</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1.5">
+                  <Play className="h-3.5 w-3.5 text-[#ed027e]" />
+                  <span>1 Campaign Recap</span>
                 </span>
               </div>
             </div>
@@ -353,7 +358,7 @@ export function MediaPage() {
               <div className="relative w-full aspect-video bg-[#0A0D11]">
                 {isPlayingReel ? (
                   <iframe
-                    src="https://www.youtube.com/embed/iKdKqqwj1_Q?autoplay=1&rel=0"
+                    src="https://www.youtube.com/embed/g2T0dzTqQZk?autoplay=1&rel=0"
                     title="EmpowaWomen™ Official Highlight Reel"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -367,11 +372,11 @@ export function MediaPage() {
                     {/* High-res Video Poster */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="https://i.ytimg.com/vi/iKdKqqwj1_Q/maxresdefault.jpg"
+                      src="https://i.ytimg.com/vi/g2T0dzTqQZk/maxresdefault.jpg"
                       alt="EmpowaWomen™ Official Highlight Reel"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src =
-                          "https://i.ytimg.com/vi/iKdKqqwj1_Q/hqdefault.jpg";
+                          "https://i.ytimg.com/vi/g2T0dzTqQZk/hqdefault.jpg";
                       }}
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -419,6 +424,98 @@ export function MediaPage() {
                   </h3>
                   <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-white/70">
                     Witness the production excellence, high-level convening power, and electric atmosphere of our signature events that bring together Africa’s emerging women leaders, cabinet ministers, and business luminaries.
+                  </p>
+                </div>
+
+                <div className="flex shrink-0 items-center gap-3">
+                  <a
+                    href="https://www.youtube.com/watch?v=g2T0dzTqQZk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:border-[#ed027e] hover:text-[#ed027e]"
+                  >
+                    <Play className="h-3.5 w-3.5 fill-current" />
+                    <span>Watch on YouTube</span>
+                    <ExternalLink className="h-3 w-3 opacity-70" />
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* 4. Official Campaign Recap: #TakeASeat */}
+            <article
+              id="takeaseat-recap"
+              className="relative overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl shadow-black/80"
+            >
+              <div className="relative w-full aspect-video bg-[#0A0D11]">
+                {isPlayingRecap ? (
+                  <iframe
+                    src="https://www.youtube.com/embed/iKdKqqwj1_Q?autoplay=1&rel=0"
+                    title="EmpowaWomen Leadership Summit | Official #TakeASeat Campaign Recap"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                ) : (
+                  <div
+                    className="group relative h-full w-full cursor-pointer"
+                    onClick={() => setIsPlayingRecap(true)}
+                  >
+                    {/* High-res Video Poster */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="https://i.ytimg.com/vi/iKdKqqwj1_Q/maxresdefault.jpg"
+                      alt="EmpowaWomen Leadership Summit | Official #TakeASeat Campaign Recap"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          "https://i.ytimg.com/vi/iKdKqqwj1_Q/hqdefault.jpg";
+                      }}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Dark Vignette Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60 transition-opacity group-hover:opacity-80" />
+
+                    {/* Centered Glowing Play Button */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                      <button
+                        type="button"
+                        aria-label="Play Campaign Recap Video"
+                        className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-[#ed027e] text-white shadow-2xl shadow-[#ed027e]/50 transition-all duration-300 group-hover:scale-110"
+                      >
+                        <span className="absolute -inset-2.5 rounded-full border border-[#ed027e]/60 animate-ping opacity-30" />
+                        <Play className="h-8 w-8 sm:h-10 sm:w-10 fill-current translate-x-0.5" />
+                      </button>
+
+                      <div className="mt-5 max-w-lg">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[0.625rem] font-black uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                          Click to Play Campaign Recap
+                        </span>
+                        <h3 className="font-heading mt-2 text-lg sm:text-xl font-black uppercase tracking-tight text-white drop-shadow-md">
+                          Official #TakeASeat Campaign Recap
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-6 sm:p-8 bg-[#151921] border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#ed027e]/15 border border-[#ed027e]/30 px-3 py-1 text-[0.625rem] font-black uppercase tracking-wider text-[#ed027e]">
+                      <Play className="h-3 w-3" />
+                      <span>04 • Official Campaign Recap</span>
+                    </span>
+                    <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-[0.6875rem] font-mono text-white/60">
+                      YouTube • 1080p HD
+                    </span>
+                  </div>
+                  <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-white">
+                    EmpowaWomen Leadership Summit | Official #TakeASeat Campaign Recap
+                  </h3>
+                  <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-white/70">
+                    Official #TakeASeat campaign recap documenting the electric atmosphere, high-calibre convening, and transformational leadership movement across Africa.
                   </p>
                 </div>
 

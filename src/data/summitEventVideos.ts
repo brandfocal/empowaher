@@ -62,5 +62,22 @@ export const summitEventVideos: SummitEventVideo[] = [
       "Official Graduation & Awards Ceremony",
     ],
   },
+  {
+    id: "take-a-seat-recap",
+    dayNumber: 4,
+    dayBadge: "Official Recap • #TakeASeat",
+    title: "EmpowaWomen Leadership Summit | #TakeASeat Campaign Recap",
+    subtitle: "Official Campaign Recap & Summit Highlights",
+    youtubeId: "iKdKqqwj1_Q",
+    youtubeUrl: "https://www.youtube.com/watch?v=iKdKqqwj1_Q",
+    description:
+      "Official #TakeASeat campaign recap of the EmpowaWomen Leadership Summit documenting the electric atmosphere, high-calibre convening, and transformational leadership movement across Africa.",
+    keyTopics: [
+      "#TakeASeat Campaign Movement",
+      "Summit Highlights & Atmosphere",
+      "High-Calibre Pan-African Delegates",
+      "Executive Leadership Transformation",
+    ],
+  },
 ];
 
